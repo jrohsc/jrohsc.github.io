@@ -1,26 +1,26 @@
 papers:
 
-  - title: "A Sequence-Oblivious Generation Method for Context-Aware Hashtag Recommendation"
-    authors: "<b>Junmo Kang</b>, Jeonghwan Kim, Suwon Shin, Sung-Hyon Myaeng"
-    venue: "arXiv"
-    paper_pdf: "https://arxiv.org/pdf/2012.02957.pdf"
-    selected: y
-
-  - title: "Handling Anomalies of Synthetic Questions in Unsupervised Question Answering"
-    authors: "Giwon Hong<sup>*</sup>, <b>Junmo Kang<sup>*</sup></b>, Doyeon Lim<sup>*</sup>, Sung-Hyon Myaeng"
-    venue: "In Proceedings of COLING, 2020."
-    paper_pdf: "https://www.aclweb.org/anthology/2020.coling-main.306.pdf"
-    selected: y
-
   - title: "Regularization of Distinct Strategies for Unsupervised Question Generation"
-    authors: "<b>Junmo Kang<sup>*</sup></b>, Giwon Hong<sup>*</sup>, Haritz Puerto San Roman<sup>*</sup>, Sung-Hyon Myaeng"
+    authors: "<b>Junmo Kang<sup>*</sup></b>, Giwon Hong<sup>*</sup>, <b>Haritz Puerto<sup>*</sup></b>, Sung-Hyon Myaeng"
     venue: "In Proceedings of Findings of EMNLP, 2020."
     paper_pdf: "https://www.aclweb.org/anthology/2020.findings-emnlp.293.pdf"
     selected: y
 
   - title: "Let Me Know What to Ask: Interrogative-Word-Aware Question Generation"
-    authors: "<b>Junmo Kang<sup>*</sup></b>, Haritz Puerto San Roman<sup>*</sup>, Sung-Hyon Myaeng"
+    authors: "Junmo Kang<sup>*</sup>, <b>Haritz Puerto<sup>*</sup></b>, Sung-Hyon Myaeng"
     venue: "In Proceedings of MRQA@EMNLP, 2019."
     paper_pdf: "https://www.aclweb.org/anthology/D19-5822.pdf"
     poster: "/assets/publications/2019_let_me_know/poster.pdf"
+    selected: y
+
+  - title: "Analysis of the Semantic Answer Types to Understand the Limitations of MRQA Models"
+    authors: "Doyeon Lim<sup>*</sup>, <b>Haritz Puerto<sup>*</sup></b>, Sung-Hyon Myaeng"
+    venue: "In Journal of KIISE, 2020."
+    paper_pdf: "http://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE09313087&language=ko_KR#"
+    selected: y
+
+  - title: "Analysis of Answer Type Application Ability of State-of-the-Art Reading Comprehension Models for Question Answering Task"
+    authors: "<b>Haritz Puerto<sup>*</sup></b>, Doyeon Lim<sup>*</sup>, Sung-Hyon Myaeng"
+    venue: "In Proceedings of Korean Computer Conference, 2019. (Best Paper Award)"
+    paper_pdf: "http://www.dbpia.co.kr/Journal/articleDetail?nodeId=NODE08763250"
     selected: y
