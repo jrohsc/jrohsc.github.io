@@ -1,7 +1,7 @@
 papers:
 
   - title: "Regularization of Distinct Strategies for Unsupervised Question Generation"
-    authors: "<b>Junmo Kang<sup>*</sup></b>, Giwon Hong<sup>*</sup>, <b>Haritz Puerto<sup>*</sup></b>, Sung-Hyon Myaeng"
+    authors: "Junmo Kang<sup>*</sup>, Giwon Hong<sup>*</sup>, <b>Haritz Puerto<sup>*</sup></b>, Sung-Hyon Myaeng"
     venue: "In Proceedings of Findings of EMNLP, 2020."
     paper_pdf: "https://www.aclweb.org/anthology/2020.findings-emnlp.293.pdf"
     selected: y
