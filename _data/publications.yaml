@@ -16,11 +16,11 @@ papers:
   - title: "Analysis of the Semantic Answer Types to Understand the Limitations of MRQA Models"
     authors: "Doyeon Lim<sup>*</sup>, <b>Haritz Puerto<sup>*</sup></b>, Sung-Hyon Myaeng"
     venue: "In Journal of KIISE, 2020."
-    paper_pdf: "http://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE09313087&language=ko_KR#"
+    paper_pdf: "http://ir.kaist.ac.kr/wp-content/media/anthology/2020_LDY.pdf"
     selected: y
 
   - title: "Analysis of Answer Type Application Ability of State-of-the-Art Reading Comprehension Models for Question Answering Task"
     authors: "<b>Haritz Puerto<sup>*</sup></b>, Doyeon Lim<sup>*</sup>, Sung-Hyon Myaeng"
-    venue: "In Proceedings of Korean Computer Conference, 2019. (Best Paper Award)"
-    paper_pdf: "http://www.dbpia.co.kr/Journal/articleDetail?nodeId=NODE08763250"
+    venue: "In Proceedings of Korean Computer Congress, 2019. (Best Paper Award)"
+    paper_pdf: "http://ir.kaist.ac.kr/wp-content/media/anthology/2019_KCC_Haritz.pdf"
     selected: y
