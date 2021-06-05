@@ -1,17 +1,28 @@
 experiences:
+
+- place: "UKP Lab@TU Darmstadt"
+  time: "Jun. 2021 - "
+  title: "Research Assistant"
+  category: "work"
+
+- place: "Coleridge Initiative"
+  time: "Jan. 2021 - May 2021"
+  title: "Data Scientist"
+  category: "work"
+
 - place: "KAIST"
-  time: "Sept. 2018 - March 2021"
+  time: "Sept. 2018 - Mar. 2021"
   title: "M.S. in Computer Science"
   subtitle: "IR&NLP Lab"
   category: "school"
 
 - place: "Claroflex"
-  time: "July 2015 - July 2017"
+  time: "Jul. 2015 - Jul. 2017"
   title: "Software Engineer"
   category: "work"
 
 - place: "University of Malaga"
-  time: "Sept. 2012 - July 2017"
+  time: "Sep. 2012 - Jul. 2017"
   title: "B.S. in Computer Science & Engineering"
   subtitle: "<i>Summa Cum Laude</i>"
   category: "school"
