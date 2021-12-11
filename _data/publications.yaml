@@ -1,6 +1,6 @@
 papers:
   - title: "MetaQA: Combining Expert Agents for Multi-Skill Question Answering"
-    authors: "<b>Haritz Puerto</b>, Gözde Gül Şahin, and Iryna Gurevych"
+    authors: "<b>Haritz Puerto</b>, Gözde Gül Şahin, Iryna Gurevych"
     venue: "Arxiv, 2021."
     paper_pdf: "https://arxiv.org/abs/2112.01922"
     selected: y
