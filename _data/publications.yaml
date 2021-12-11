@@ -1,4 +1,9 @@
 papers:
+  - title: "MetaQA: Combining Expert Agents for Multi-Skill Question Answering"
+    authors: "<b>Haritz Puerto</b>, Gözde Gül Şahin, and Iryna Gurevych"
+    venue: "Arxiv, 2021."
+    paper_pdf: "https://arxiv.org/abs/2112.01922"
+    selected: y
 
   - title: "Regularization of Distinct Strategies for Unsupervised Question Generation"
     authors: "Junmo Kang<sup>*</sup>, Giwon Hong<sup>*</sup>, <b>Haritz Puerto<sup>*</sup></b>, Sung-Hyon Myaeng"
