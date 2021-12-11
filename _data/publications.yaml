@@ -9,6 +9,7 @@ papers:
     authors: "Junmo Kang<sup>*</sup>, Giwon Hong<sup>*</sup>, <b>Haritz Puerto<sup>*</sup></b>, Sung-Hyon Myaeng"
     venue: "In Proceedings of Findings of EMNLP, 2020."
     paper_pdf: "https://www.aclweb.org/anthology/2020.findings-emnlp.293.pdf"
+    code: "https://github.com/HaritzPuerto/UQA"
     selected: y
 
   - title: "Let Me Know What to Ask: Interrogative-Word-Aware Question Generation"
