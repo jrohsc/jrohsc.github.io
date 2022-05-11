@@ -67,6 +67,10 @@ layout: default
               <a class="button" href="{{ paper.video }}" target="_blank">Video</a>
             {% endif %}
 
+            {% if paper.website %}
+              <a class="button" href="{{ paper.website }}" target="_blank">Website</a>
+            {% endif %}
+
             {% if paper.code %}
               <a class="button" href="{{ paper.code }}" target="_blank">Code</a>
             {% endif %}
@@ -96,6 +100,10 @@ layout: default
 
             {% if paper.video %}
               <a class="button" href="{{ paper.video }}" target="_blank">Video</a>
+            {% endif %}
+            
+            {% if paper.website %}
+              <a class="button" href="{{ paper.website }}" target="_blank">Website</a>
             {% endif %}
 
             {% if paper.code %}
