@@ -2,12 +2,12 @@ papers:
   - title: "UKP-SQUARE: An Online Platform for Question Answering Research"
     authors: Tim Baumgärtner, Kexin Wang, Rachneet Sachdeva, Max Eichler, Gregor Geigle, Clifton Poth, Hannah Sterz, <b>Haritz Puerto</b>, Leonardo F. R. Ribeiro, Jonas Pfeiffer, Nils Reimers, Gözde Gül Şahin, Iryna Gurevych 
     venue: "ACL 2022 Demo Track"
-    paper_pdf: https://arxiv.org/abs/2203.13693
+    paper_pdf: "https://arxiv.org/abs/2203.13693"
     code: https://github.com/UKP-SQuARE/square-core
     website: https://square.ukp-lab.de
     selected: y
 
-  - title: MetaQA: Combining Expert Agents for Multi-Skill Question Answering
+  - title: "MetaQA: Combining Expert Agents for Multi-Skill Question Answering"
     authors: <b>Haritz Puerto</b>, Gözde Gül Şahin, Iryna Gurevych
     venue: Arxiv, 2021.
     paper_pdf: https://arxiv.org/abs/2112.01922
@@ -28,14 +28,14 @@ papers:
     poster: "/assets/publications/2019_let_me_know/poster.pdf"
     selected: y
 
-  - title: Analysis of the Semantic Answer Types to Understand the Limitations of MRQA Models
+  - title: "Analysis of the Semantic Answer Types to Understand the Limitations of MRQA Models"
     authors: Doyeon Lim<sup>*</sup>, <b>Haritz Puerto<sup>*</sup></b>, Sung-Hyon Myaeng
     venue: In Journal of KIISE, 2020.
-    paper_pdf: http://ir.kaist.ac.kr/wp-content/media/anthology/2020_LDY.pdf
+    paper_pdf: "http://ir.kaist.ac.kr/wp-content/media/anthology/2020_LDY.pdf"
     selected: y
 
   - title: Analysis of Answer Type Application Ability of State-of-the-Art Reading Comprehension Models for Question Answering Task
     authors: <b>Haritz Puerto<sup>*</sup></b>, Doyeon Lim<sup>*</sup>, Sung-Hyon Myaeng
     venue: In Proceedings of Korean Computer Congress, 2019. <b>(Best Paper Award)</b>
-    paper_pdf: http://ir.kaist.ac.kr/wp-content/media/anthology/2019_KCC_Haritz.pdf
+    paper_pdf: "http://ir.kaist.ac.kr/wp-content/media/anthology/2019_KCC_Haritz.pdf"
     selected: y
