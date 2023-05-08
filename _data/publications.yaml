@@ -1,6 +1,6 @@
 papers:
   - title: "UKP-SQuARE v3: A Platform for Multi-Agent QA Research"
-    authors: <b>Haritz Puerto<b>, Tim Baumgärtner, Rachneet Sachdeva, Haishuo Fang, Hao Zhang, Sewin Tariverdian, Kexin Wang, Iryna Gurevych
+    authors: <b>Haritz Puerto</b>, Tim Baumgärtner, Rachneet Sachdeva, Haishuo Fang, Hao Zhang, Sewin Tariverdian, Kexin Wang, Iryna Gurevych
     venue: "ACL 2023 Demo Track"
     paper_pdf: "https://arxiv.org/abs/2303.18120"
     code: https://github.com/UKP-SQuARE/square-core
