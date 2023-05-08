@@ -1,4 +1,19 @@
 papers:
+  - title: "UKP-SQuARE v3: A Platform for Multi-Agent QA Research"
+    authors: <b>Haritz Puerto<b>, Tim Baumgärtner, Rachneet Sachdeva, Haishuo Fang, Hao Zhang, Sewin Tariverdian, Kexin Wang, Iryna Gurevych
+    venue: "ACL 2023 Demo Track"
+    paper_pdf: "https://arxiv.org/abs/2303.18120"
+    code: https://github.com/UKP-SQuARE/square-core
+    website: https://square.ukp-lab.de
+    selected: y
+
+  - title: "MetaQA: Combining Expert Agents for Multi-Skill Question Answering"
+    authors: <b>Haritz Puerto</b>, Gözde Gül Şahin, Iryna Gurevych
+    venue: EACL, 2023.
+    paper_pdf: https://aclanthology.org/2023.eacl-main.259/
+    code: https://github.com/UKPLab/MetaQA
+    selected: y
+
   - title: "UKP-SQuARE v2: Explainability and Adversarial Attacks for Trustworthy QA"
     authors: Rachneet Sachdeva*, <b>Haritz Puerto<sup>*</sup></b>, Tim Baumgärtner, Sewin Tariverdian, Hao Zhang, Kexin Wang, Hossain Shaikh Saadi, Leonardo F. R. Ribeiro, Iryna Gurevych
     venue: "AACL 2022 Demo Track"
@@ -6,19 +21,14 @@ papers:
     code: https://github.com/UKP-SQuARE/square-core
     website: https://square.ukp-lab.de
     selected: y
+
   - title: "UKP-SQUARE: An Online Platform for Question Answering Research"
     authors: Tim Baumgärtner, Kexin Wang, Rachneet Sachdeva, Max Eichler, Gregor Geigle, Clifton Poth, Hannah Sterz, <b>Haritz Puerto</b>, Leonardo F. R. Ribeiro, Jonas Pfeiffer, Nils Reimers, Gözde Gül Şahin, Iryna Gurevych 
     venue: "ACL 2022 Demo Track"
     paper_pdf: "https://aclanthology.org/2022.acl-demo.2/"
     code: https://github.com/UKP-SQuARE/square-core
     website: https://square.ukp-lab.de
-    selected: y
-  - title: "MetaQA: Combining Expert Agents for Multi-Skill Question Answering"
-    authors: <b>Haritz Puerto</b>, Gözde Gül Şahin, Iryna Gurevych
-    venue: Arxiv, 2021.
-    paper_pdf: https://arxiv.org/abs/2112.01922
-    code: https://github.com/UKPLab/MetaQA
-    selected: y
+    selected: n
 
   - title: Regularization of Distinct Strategies for Unsupervised Question Generation
     authors: Junmo Kang<sup>*</sup>, Giwon Hong<sup>*</sup>, <b>Haritz Puerto<sup>*</sup></b>, Sung-Hyon Myaeng
