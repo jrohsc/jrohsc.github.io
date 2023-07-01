@@ -1,4 +1,18 @@
 papers:
+  - title: "Surveying (Dis)Parities and Concerns of Compute Hungry NLP Research"
+    authors: Ji-Ung Lee, <b>Haritz Puerto</b>, Betty van Aken, Yuki Arase, Jessica Zosa Forde, Leon Derczynski, Andreas Rücklé, Iryna Gurevych, Roy Schwartz, Emma Strubell, Jesse Dodge
+    venue: "arXiv preprint 2023"
+    paper_pdf: "https://arxiv.org/pdf/2306.16900.pdf"
+    selected: y
+
+  - title: "UKP-SQuARE: An Interactive Tool for Teaching Question Answering"
+    authors: Haishuo Fang, <b>Haritz Puerto</b>, Iryna Gurevych
+    venue: "BEA Workshop@ACL 2023"
+    paper_pdf: "https://arxiv.org/abs/2305.19748"
+    code: https://github.com/UKP-SQuARE/square-core
+    website: https://square.ukp-lab.de
+    selected: n
+
   - title: "UKP-SQuARE v3: A Platform for Multi-Agent QA Research"
     authors: <b>Haritz Puerto</b>, Tim Baumgärtner, Rachneet Sachdeva, Haishuo Fang, Hao Zhang, Sewin Tariverdian, Kexin Wang, Iryna Gurevych
     venue: "ACL 2023 Demo Track"
@@ -20,7 +34,7 @@ papers:
     paper_pdf: "https://aclanthology.org/2022.aacl-demo.4/"
     code: https://github.com/UKP-SQuARE/square-core
     website: https://square.ukp-lab.de
-    selected: y
+    selected: n
 
   - title: "UKP-SQUARE: An Online Platform for Question Answering Research"
     authors: Tim Baumgärtner, Kexin Wang, Rachneet Sachdeva, Max Eichler, Gregor Geigle, Clifton Poth, Hannah Sterz, <b>Haritz Puerto</b>, Leonardo F. R. Ribeiro, Jonas Pfeiffer, Nils Reimers, Gözde Gül Şahin, Iryna Gurevych 
