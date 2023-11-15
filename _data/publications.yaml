@@ -26,6 +26,7 @@ papers:
     venue: EACL, 2023.
     paper_pdf: https://aclanthology.org/2023.eacl-main.259/
     code: https://github.com/UKPLab/MetaQA
+    video: https://doi.org/10.48448/q7ak-a589
     selected: y
 
   - title: "UKP-SQuARE v2: Explainability and Adversarial Attacks for Trustworthy QA"
