@@ -5,7 +5,7 @@ papers:
     venue: "arXiv preprint 2024"
     paper_pdf: "https://arxiv.org/abs/2401.10065"
     selected: y
-    
+
   - title: "Surveying (Dis)Parities and Concerns of Compute Hungry NLP Research"
     authors: Ji-Ung Lee, <b>Haritz Puerto</b>, Betty van Aken, Yuki Arase, Jessica Zosa Forde, Leon Derczynski, Andreas Rücklé, Iryna Gurevych, Roy Schwartz, Emma Strubell, Jesse Dodge
     venue: "arXiv preprint 2023"
@@ -75,5 +75,5 @@ papers:
   - title: Analysis of Answer Type Application Ability of State-of-the-Art Reading Comprehension Models for Question Answering Task
     authors: <b>Haritz Puerto<sup>*</sup></b>, Doyeon Lim<sup>*</sup>, Sung-Hyon Myaeng
     venue: In Proceedings of Korean Computer Congress, 2019. <b>(Best Paper Award)</b>
-    paper_pdf: "http://ir.kaist.ac.kr/wp-content/media/anthology/2019_KCC_Haritz.pdf"
+    paper_pdf: "/assets/publications/KCC_paper.pdf"
     selected: n
