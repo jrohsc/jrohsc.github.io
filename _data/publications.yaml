@@ -1,4 +1,11 @@
 papers:
+
+  - title: "Code Prompting Elicits Conditional Reasoning Abilities in Text+Code LLMs"
+    authors: <b>Haritz Puerto</b>, Martin Tutek, Somak Aditya, Xiaodan Zhu, Iryna Gurevych
+    venue: "arXiv preprint 2024"
+    paper_pdf: "https://arxiv.org/abs/2401.10065"
+    selected: y
+    
   - title: "Surveying (Dis)Parities and Concerns of Compute Hungry NLP Research"
     authors: Ji-Ung Lee, <b>Haritz Puerto</b>, Betty van Aken, Yuki Arase, Jessica Zosa Forde, Leon Derczynski, Andreas Rücklé, Iryna Gurevych, Roy Schwartz, Emma Strubell, Jesse Dodge
     venue: "arXiv preprint 2023"
