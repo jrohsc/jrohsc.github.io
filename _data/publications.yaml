@@ -1,9 +1,16 @@
 papers:
+  - title: "Fine-Tuning with Divergent Chains of Thought Boosts Reasoning Through Self-Correction in Language Models"
+    authors: <b>Haritz Puerto</b>, Tilek Chubakov, Xiaodan Zhu, Harish Tayyar Madabushi, Iryna Gurevych
+    venue: "arXiv preprint 2024"
+    paper_pdf: "https://arxiv.org/abs/2407.03181"
+    website: https://haritzpuerto.github.io/divergent-cot/
+    selected: y
 
   - title: "Code Prompting Elicits Conditional Reasoning Abilities in Text+Code LLMs"
     authors: <b>Haritz Puerto</b>, Martin Tutek, Somak Aditya, Xiaodan Zhu, Iryna Gurevych
     venue: "arXiv preprint 2024"
     paper_pdf: "https://arxiv.org/abs/2401.10065"
+    website: https://haritzpuerto.github.io/code-prompting/
     selected: y
 
   - title: "Surveying (Dis)Parities and Concerns of Compute Hungry NLP Research"
