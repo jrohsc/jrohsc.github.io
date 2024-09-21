@@ -9,7 +9,7 @@ papers:
 
   - title: "Code Prompting Elicits Conditional Reasoning Abilities in Text+Code LLMs"
     authors: <b>Haritz Puerto</b>, Martin Tutek, Somak Aditya, Xiaodan Zhu, Iryna Gurevych
-    venue: "arXiv preprint 2024"
+    venue: "EMNLP 2024"
     paper_pdf: "https://arxiv.org/abs/2401.10065"
     website: https://haritzpuerto.github.io/code-prompting/
     code: https://github.com/UKPLab/arxiv2024-conditional-reasoning-llms
@@ -39,7 +39,7 @@ papers:
 
   - title: "MetaQA: Combining Expert Agents for Multi-Skill Question Answering"
     authors: <b>Haritz Puerto</b>, Gözde Gül Şahin, Iryna Gurevych
-    venue: EACL, 2023.
+    venue: EACL 2023.
     paper_pdf: https://aclanthology.org/2023.eacl-main.259/
     code: https://github.com/UKPLab/MetaQA
     video: https://doi.org/10.48448/q7ak-a589
