@@ -1,4 +1,11 @@
 papers:
+  - title: "Scaling Up Membership Inference: When and How Attacks Succeed on Large Language Models"
+    authors:  <b>Haritz Puerto</b>, Martin Gubri, Sangdoo Yun, Seong Joon Oh
+    venue: arXiv preprint 2024
+    paper_pdf: https://arxiv.org/abs/2411.00154
+    code: https://github.com/parameterlab/mia-scaling
+    selected: y
+  
   - title: "Fine-Tuning with Divergent Chains of Thought Boosts Reasoning Through Self-Correction in Language Models"
     authors: <b>Haritz Puerto</b>, Tilek Chubakov, Xiaodan Zhu, Harish Tayyar Madabushi, Iryna Gurevych
     venue: "arXiv preprint 2024"
