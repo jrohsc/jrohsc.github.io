@@ -3,6 +3,7 @@ papers:
     authors:  <b>Haritz Puerto</b>, Martin Gubri, Sangdoo Yun, Seong Joon Oh
     venue: arXiv preprint 2024
     paper_pdf: https://arxiv.org/abs/2411.00154
+    website: https://haritzpuerto.github.io/scaling-mia/
     code: https://github.com/parameterlab/mia-scaling
     selected: y
   
