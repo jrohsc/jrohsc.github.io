@@ -33,7 +33,7 @@ Prior to my graduate studies, I earned my bachelor's degree in computer engineer
 
 <!-- ######################################################################################################################################## -->
 
-## ⚙️ Under Review
+## 🧠 Under Review
 
 **Multilingual and Multi-Accent Jailbreaking of Audio LLMs** <br>
    **<u><b>Jaechul Roh</b></u>**, Virat Shejwalkar, Amir Houmansadr <br>
@@ -46,6 +46,12 @@ Prior to my graduate studies, I earned my bachelor's degree in computer engineer
    *Preprint at arXiv* <br>
    <!-- NeurIPS 2024 -->
    [[paper]](https://arxiv.org/abs/2502.02542) [[code]](https://github.com/akumar2709/OVERTHINK_public)
+
+**Backdooring Bias into Text-to-Image Models**  
+   Ali Naseh, **<u><b>Jaechul Roh</b></u>**, Eugene Bagdasaryan, Amir Houmansadr  
+   *Preprint at arXiv (Under Review)*  
+   <!-- NeurIPS 2024 -->
+   [[paper]](https://arxiv.org/pdf/2406.15213) [[code]](https://github.com/jcroh0508/Backdororing_Bias/)
 
 ## 📝 Publications
 
@@ -60,12 +66,6 @@ Prior to my graduate studies, I earned my bachelor's degree in computer engineer
    *NeurIPS 2024* <br>
    <!-- NeurIPS 2024 -->
    <a href="https://arxiv.org/pdf/2405.16978" target="_blank">[paper]</a>
-
-**Backdooring Bias into Text-to-Image Models**  
-   Ali Naseh, **<u><b>Jaechul Roh</b></u>**, Eugene Bagdasaryan, Amir Houmansadr  
-   *Preprint at arXiv (Under Review)*  
-   <!-- NeurIPS 2024 -->
-   [[paper]](https://arxiv.org/pdf/2406.15213) [[code]](https://github.com/jcroh0508/Backdororing_Bias/)
 
 **Memory Triggers: Unveiling Memorization in Text-To-Image Generative Models through Word-Level Duplication**  
    Ali Naseh, **<u><b>Jaechul Roh</b></u>**, Amir Houmansadr  
