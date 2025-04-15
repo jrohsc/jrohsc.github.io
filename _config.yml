@@ -121,10 +121,10 @@ author:
   links:
     - label: "jroh@umass.edu"
       icon: "fas fa-fw fa-envelope-square"
-      # url: "jroh@umass.edu"
+      url: "jroh@umass.edu"
     - label: "+1 (470) 915-1137"
       icon: "fas fa-fw fa-phone"
-      # url: "+1 (470) 915-1137"
+      url: "+1 (470) 915-1137"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
       url: "https://github.com/jrohsc"
