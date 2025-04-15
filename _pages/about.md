@@ -33,13 +33,21 @@ Prior to my graduate studies, I earned my bachelor's degree in computer engineer
 
 <!-- ######################################################################################################################################## -->
 
-## 📝 Publications
+## 🛠️ Under Review
+
+**Multilingual and Multi-Accent Jailbreaking of Audio LLMs** <br>
+   **<u><b>Jaechul Roh</b></u>**, Virat Shejwalkar, Amir Houmansadr <br>
+   *Preprint at arXiv* <br>
+   <!-- NeurIPS 2024 -->
+   [[paper]](https://arxiv.org/abs/2504.01094)
 
 **OverThink: Slowdown Attacks on Reasoning LLMs** <br>
    Abhinav Kumar, **<u><b>Jaechul Roh</b></u>**, Ali Naseh, Marezna Karpinska, Mohit Iyyer, Amir Houmansadr, and Eugene Bagdasaryan <br>
    *Preprint at arXiv* <br>
    <!-- NeurIPS 2024 -->
    [[paper]](https://arxiv.org/abs/2502.02542) [[code]](https://github.com/akumar2709/OVERTHINK_public)
+
+## 📝 Publications
 
 **FameBias: Embedding Manipulation Bias Attack in Text-to-Image Models** <br>
    **<u><b>Jaechul Roh</b></u>**, Andrew Yuan, Jinsong Mao <br>
