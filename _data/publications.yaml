@@ -7,9 +7,9 @@ papers:
     code: https://github.com/parameterlab/mia-scaling
     selected: y
   
-  - title: "Fine-Tuning with Divergent Chains of Thought Boosts Reasoning Through Self-Correction in Language Models"
+  - title: "Fine-Tuning on Diverse Reasoning Chains Drives Within-Inference CoT Refinement in LLMs"
     authors: <b>Haritz Puerto</b>, Tilek Chubakov, Xiaodan Zhu, Harish Tayyar Madabushi, Iryna Gurevych
-    venue: "arXiv preprint 2024"
+    venue: "ACL 2025"
     paper_pdf: "https://arxiv.org/abs/2407.03181"
     website: https://haritzpuerto.github.io/divergent-cot/
     code: https://github.com/UKPLab/arxiv2024-divergent-cot
