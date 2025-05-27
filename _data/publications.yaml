@@ -5,14 +5,14 @@ papers:
     paper_pdf: https://arxiv.org/abs/2411.00154
     website: https://haritzpuerto.github.io/scaling-mia/
     code: https://github.com/parameterlab/mia-scaling
+    poster: /assets/publications/2025_scaling_mia/poster.pdf
     selected: y
   
   - title: "Fine-Tuning on Diverse Reasoning Chains Drives Within-Inference CoT Refinement in LLMs"
     authors: <b>Haritz Puerto</b>, Tilek Chubakov, Xiaodan Zhu, Harish Tayyar Madabushi, Iryna Gurevych
     venue: "ACL 2025"
     paper_pdf: "https://arxiv.org/abs/2407.03181"
-    website: https://haritzpuerto.github.io/divergent-cot/
-    code: https://github.com/UKPLab/arxiv2024-divergent-cot
+    code: https://github.com/UKPLab/acl2025-diverse-cot
     selected: y
 
   - title: "Code Prompting Elicits Conditional Reasoning Abilities in Text+Code LLMs"
@@ -21,6 +21,7 @@ papers:
     paper_pdf: "https://arxiv.org/abs/2401.10065"
     website: https://haritzpuerto.github.io/code-prompting/
     code: https://github.com/UKPLab/arxiv2024-conditional-reasoning-llms
+    poster: /assets/publications/2024_code_prompting/poster.pdf
     selected: y
 
   - title: "Surveying (Dis)Parities and Concerns of Compute Hungry NLP Research"
