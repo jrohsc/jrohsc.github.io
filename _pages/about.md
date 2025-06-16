@@ -59,7 +59,7 @@ Prior to my graduate studies, I earned my bachelor's degree in computer engineer
    *Preprint at arXiv*  
    [[paper]](https://arxiv.org/pdf/2312.07550)
 
-## 📝 Publications
+## 📜 Publications
 **Backdooring Bias into Text-to-Image Models**  
    Ali Naseh, **<u><b>Jaechul Roh</b></u>**, Eugene Bagdasaryan, Amir Houmansadr  
    *USENIX Security '25*  
