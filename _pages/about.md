@@ -27,6 +27,10 @@ Prior to my graduate studies, I earned my bachelor's degree in computer engineer
 <!-- ############################################################################################### -->
 ## 📣 News
 
+* **Jun 16 '25**: I will be working as a Summer Research Intern at Brave Software under the supervision of Dr. [Ali Shahin Shamsabadi](https://alishahin.github.io/) working on privacy and security of AI Agents. 🎉
+
+* **Jun 16 '25**: Our paper "Backdooring Bias into Text-to-Image Models" has been  🎉
+
 * **Sep 27 '24**: Our paper "OSLO: One-Shot Label-Only Membership Inference Attacks" was accepted to NeurIPS '24! 🎉
 
 * **Dec 22 '23**: Our paper "Memory Triggers: Unveiling Memorization in Text-To-Image Generative Models through Word-Level Duplication" was accepted to the  AAAI '23 PPAI Workshop! 🎉
@@ -47,19 +51,25 @@ Prior to my graduate studies, I earned my bachelor's degree in computer engineer
    <!-- NeurIPS 2024 -->
    [[paper]](https://arxiv.org/abs/2502.02542) [[code]](https://github.com/akumar2709/OVERTHINK_public)
 
-**Backdooring Bias into Text-to-Image Models**  
-   Ali Naseh, **<u><b>Jaechul Roh</b></u>**, Eugene Bagdasaryan, Amir Houmansadr  
-   *Preprint at arXiv (Under Review)*  
-   <!-- NeurIPS 2024 -->
-   [[paper]](https://arxiv.org/pdf/2406.15213) [[code]](https://github.com/jcroh0508/Backdororing_Bias/)
-
-## 📝 Publications
-
+## 🖨️ Preprint
 **FameBias: Embedding Manipulation Bias Attack in Text-to-Image Models** <br>
    **<u><b>Jaechul Roh</b></u>**, Andrew Yuan, Jinsong Mao <br>
    *Preprint at arXiv* <br>
    <!-- NeurIPS 2024 -->
    <a href="https://arxiv.org/pdf/2412.18302" target="_blank">[paper]</a>
+
+**Understanding (Un)Intended Memorization in Text-to-Image Generative Models**  
+   Ali Naseh, **<u><b>Jaechul Roh</b></u>**, Amir Houmansadr  
+   *Preprint at arXiv*  
+   [[paper]](https://arxiv.org/pdf/2312.07550)
+
+## 📝 Publications
+
+**Backdooring Bias into Text-to-Image Models**  
+   Ali Naseh, **<u><b>Jaechul Roh</b></u>**, Eugene Bagdasaryan, Amir Houmansadr  
+   *USENIX 2025*  
+   <!-- NeurIPS 2024 -->
+   [[paper]](https://arxiv.org/pdf/2406.15213) [[code]](https://github.com/jcroh0508/Backdororing_Bias/)
 
 **OSLO: One-Shot Label-Only Membership Inference Attacks** <br>
    Yuefeng Peng, <u><b>Jaechul Roh</b></u>, Subhransu Maji, Amir Houmansadr <br>
@@ -72,11 +82,6 @@ Prior to my graduate studies, I earned my bachelor's degree in computer engineer
    *The 5th AAAI Workshop on Privacy-Preserving Artificial Intelligence*  
    <!-- The 5th AAAI Workshop on Privacy-Preserving Artificial Intelligence -->
    [[paper]](https://arxiv.org/pdf/2312.03692)
-
-**Understanding (Un)Intended Memorization in Text-to-Image Generative Models**  
-   Ali Naseh, **<u><b>Jaechul Roh</b></u>**, Amir Houmansadr  
-   *Preprint at arXiv*  
-   [[paper]](https://arxiv.org/pdf/2312.07550)
 
 **Robust Smart Home Face Recognition under Starving Federated Data**  
    **<u><b>Jaechul Roh</b></u>**, Yajun Fang  
