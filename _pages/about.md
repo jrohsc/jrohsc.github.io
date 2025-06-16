@@ -29,7 +29,7 @@ Prior to my graduate studies, I earned my bachelor's degree in computer engineer
 
 * **Jun 16 '25**: I will be working as a Summer Research Intern at Brave Software under the supervision of Dr. [Ali Shahin Shamsabadi](https://alishahin.github.io/) working on privacy and security of AI Agents. 🎉
 
-* **Jun 16 '25**: Our paper "Backdooring Bias into Text-to-Image Models" has been accepted to USENIX Security '25!🎉
+* **Jun 11 '25**: Our paper "Backdooring Bias into Text-to-Image Models" has been accepted to USENIX Security '25!🎉
 
 * **Sep 27 '24**: Our paper "OSLO: One-Shot Label-Only Membership Inference Attacks" was accepted to NeurIPS '24! 🎉
 
