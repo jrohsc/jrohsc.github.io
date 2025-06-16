@@ -29,7 +29,7 @@ Prior to my graduate studies, I earned my bachelor's degree in computer engineer
 
 * **Jun 16 '25**: I will be working as a Summer Research Intern at Brave Software under the supervision of Dr. [Ali Shahin Shamsabadi](https://alishahin.github.io/) working on privacy and security of AI Agents. 🎉
 
-* **Jun 16 '25**: Our paper "Backdooring Bias into Text-to-Image Models" has been  🎉
+* **Jun 16 '25**: Our paper "Backdooring Bias into Text-to-Image Models" has been accepted to USENIX Security '25!🎉
 
 * **Sep 27 '24**: Our paper "OSLO: One-Shot Label-Only Membership Inference Attacks" was accepted to NeurIPS '24! 🎉
 
@@ -38,7 +38,6 @@ Prior to my graduate studies, I earned my bachelor's degree in computer engineer
 <!-- ######################################################################################################################################## -->
 
 ## 👀 Under Review
-
 **Multilingual and Multi-Accent Jailbreaking of Audio LLMs** <br>
    **<u><b>Jaechul Roh</b></u>**, Virat Shejwalkar, Amir Houmansadr <br>
    *Preprint at arXiv* <br>
@@ -67,7 +66,7 @@ Prior to my graduate studies, I earned my bachelor's degree in computer engineer
 
 **Backdooring Bias into Text-to-Image Models**  
    Ali Naseh, **<u><b>Jaechul Roh</b></u>**, Eugene Bagdasaryan, Amir Houmansadr  
-   *USENIX 2025*  
+   *USENIX Security '25*  
    <!-- NeurIPS 2024 -->
    [[paper]](https://arxiv.org/pdf/2406.15213) [[code]](https://github.com/jcroh0508/Backdororing_Bias/)
 
