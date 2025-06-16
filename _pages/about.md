@@ -28,11 +28,8 @@ Prior to my graduate studies, I earned my bachelor's degree in computer engineer
 ## 📣 News
 
 * **Jun 16 '25**: I will be working as a Summer Research Intern at Brave Software under the supervision of Dr. [Ali Shahin Shamsabadi](https://alishahin.github.io/) working on privacy and security of AI Agents. 🎉
-
 * **Jun 11 '25**: Our paper "Backdooring Bias into Text-to-Image Models" has been accepted to USENIX Security '25!🎉
-
 * **Sep 27 '24**: Our paper "OSLO: One-Shot Label-Only Membership Inference Attacks" was accepted to NeurIPS '24! 🎉
-
 * **Dec 22 '23**: Our paper "Memory Triggers: Unveiling Memorization in Text-To-Image Generative Models through Word-Level Duplication" was accepted to the  AAAI '23 PPAI Workshop! 🎉
 
 <!-- ######################################################################################################################################## -->
@@ -44,13 +41,13 @@ Prior to my graduate studies, I earned my bachelor's degree in computer engineer
    <!-- NeurIPS 2024 -->
    [[paper]](https://arxiv.org/abs/2504.01094)
 
+## 🖨️ Preprints
 **OverThink: Slowdown Attacks on Reasoning LLMs** <br>
    Abhinav Kumar, **<u><b>Jaechul Roh</b></u>**, Ali Naseh, Marezna Karpinska, Mohit Iyyer, Amir Houmansadr, and Eugene Bagdasaryan <br>
    *Preprint at arXiv* <br>
    <!-- NeurIPS 2024 -->
    [[paper]](https://arxiv.org/abs/2502.02542) [[code]](https://github.com/akumar2709/OVERTHINK_public)
 
-## 🖨️ Preprint
 **FameBias: Embedding Manipulation Bias Attack in Text-to-Image Models** <br>
    **<u><b>Jaechul Roh</b></u>**, Andrew Yuan, Jinsong Mao <br>
    *Preprint at arXiv* <br>
@@ -63,7 +60,6 @@ Prior to my graduate studies, I earned my bachelor's degree in computer engineer
    [[paper]](https://arxiv.org/pdf/2312.07550)
 
 ## 📝 Publications
-
 **Backdooring Bias into Text-to-Image Models**  
    Ali Naseh, **<u><b>Jaechul Roh</b></u>**, Eugene Bagdasaryan, Amir Houmansadr  
    *USENIX Security '25*  
