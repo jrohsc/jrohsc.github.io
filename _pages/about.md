@@ -25,12 +25,32 @@ Prior to my graduate studies, I earned my bachelor's degree in computer engineer
 
 <!-- <span style="font-family: 'Courier New', Courier, monospace;">ideas.txt</span> -->
 <!-- ############################################################################################### -->
-## 📣 News
+<section id="news" style="margin: 2rem 0;">
+  <h2 style="font-size: 1.5rem;">📣 News</h2>
+  <div style="height: 120px; overflow: hidden; position: relative; border-left: 4px solid #007acc; padding-left: 1rem;">
+    <div id="news-ticker" style="display: flex; flex-direction: column; animation: scrollNews 16s linear infinite;">
+      <p>💪 <strong>Jun 16 '25</strong>: I will be working as a Summer Research Intern at Brave Software under the supervision of Dr. <a href="https://alishahin.github.io/" target="_blank">Ali Shahin Shamsabadi</a> on privacy and security of AI Agents.</p>
+      <p>🎉 <strong>Jun 11 '25</strong>: Our paper <em>"Backdooring Bias into Text-to-Image Models"</em> has been accepted to USENIX Security '25!</p>
+      <p>🎉 <strong>Sep 27 '24</strong>: Our paper <em>"OSLO: One-Shot Label-Only Membership Inference Attacks"</em> was accepted to NeurIPS '24!</p>
+      <p>🎉 <strong>Dec 22 '23</strong>: Our paper <em>"Memory Triggers"</em> was accepted to AAAI '23 PPAI Workshop!</p>
+    </div>
+  </div>
 
-* 💪 **Jun 16 '25**: I will be working as a Summer Research Intern at Brave Software under the supervision of Dr. [Ali Shahin Shamsabadi](https://alishahin.github.io/) working on privacy and security of AI Agents.
-* 🎉 **Jun 11 '25**: Our paper "Backdooring Bias into Text-to-Image Models" has been accepted to USENIX Security '25!
-* 🎉 **Sep 27 '24**: Our paper "OSLO: One-Shot Label-Only Membership Inference Attacks" was accepted to NeurIPS '24! 
-* 🎉 **Dec 22 '23**: Our paper "Memory Triggers: Unveiling Memorization in Text-To-Image Generative Models through Word-Level Duplication" was accepted to the  AAAI '23 PPAI Workshop! 
+  <style>
+    @keyframes scrollNews {
+      0%   { transform: translateY(0%); }
+      25%  { transform: translateY(-100%); }
+      50%  { transform: translateY(-200%); }
+      75%  { transform: translateY(-300%); }
+      100% { transform: translateY(0%); }
+    }
+
+    #news-ticker p {
+      margin: 0.5rem 0;
+      line-height: 1.4;
+    }
+  </style>
+</section>
 
 <!-- ######################################################################################################################################## -->
 
