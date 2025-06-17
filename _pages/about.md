@@ -49,7 +49,7 @@ Prior to my graduate studies, I earned my bachelor's degree in computer engineer
 
 
 <!-- ######################################################################################################################################## -->
-## 📜 Publications
+## 🖨️ Preprint / Publications
 
 ### 2025 
 **Chain-of-Code Collapse: Reasoning Failures in LLMs via Adversarial Prompting in Code Generation** <br>
@@ -76,7 +76,7 @@ Prior to my graduate studies, I earned my bachelor's degree in computer engineer
    <!-- NeurIPS 2024 -->
    [[paper]](https://arxiv.org/abs/2502.02542) [[code]](https://github.com/akumar2709/OVERTHINK_public)
 
-## 2024
+### 2024
 **FameBias: Embedding Manipulation Bias Attack in Text-to-Image Models** <br>
    **<u><b>Jaechul Roh</b></u>**, Andrew Yuan, Jinsong Mao <br>
    *Preprint at arXiv* <br>
