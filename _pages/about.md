@@ -51,7 +51,7 @@ Prior to my graduate studies, I earned my bachelor's degree in computer engineer
 <!-- ######################################################################################################################################## -->
 ## 🖨️ Preprint / Publications
 
-### 2025 
+## 2025 
 **Chain-of-Code Collapse: Reasoning Failures in LLMs via Adversarial Prompting in Code Generation** <br>
    **<u><b>Jaechul Roh</b></u>**, Varun Gandhi, Shivani Anilkumar, Arin Garg
    *Preprint at arXiv* <br>
@@ -76,7 +76,7 @@ Prior to my graduate studies, I earned my bachelor's degree in computer engineer
    <!-- NeurIPS 2024 -->
    [[paper]](https://arxiv.org/abs/2502.02542) [[code]](https://github.com/akumar2709/OVERTHINK_public)
 
-### 2024
+## 2024
 **FameBias: Embedding Manipulation Bias Attack in Text-to-Image Models** <br>
    **<u><b>Jaechul Roh</b></u>**, Andrew Yuan, Jinsong Mao <br>
    *Preprint at arXiv* <br>
@@ -106,7 +106,7 @@ Prior to my graduate studies, I earned my bachelor's degree in computer engineer
    *Preprint at arXiv*  
    [[paper]](https://arxiv.org/pdf/2312.07550)
 
-### 2023
+## 2023
 **Robust Smart Home Face Recognition under Starving Federated Data**  
    **<u><b>Jaechul Roh</b></u>**, Yajun Fang  
    *Oral Presentation in the IEEE International Conference on Universal Village (IEEE UV2022)*  
