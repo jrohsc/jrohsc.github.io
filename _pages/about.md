@@ -55,7 +55,7 @@ Prior to my graduate studies, I earned my bachelor's degree in computer engineer
 
 ### 2025 
 **Chain-of-Code Collapse: Reasoning Failures in LLMs via Adversarial Prompting in Code Generation** <br>
-   **<Jaechul Roh**, Varun Gandhi, Shivani Anilkumar, Arin Garg
+   **<u><b>Jaechul Roh</b></u>**, Varun Gandhi, Shivani Anilkumar, Arin Garg
    *Preprint at arXiv* <br>
    [[paper]](https://arxiv.org/pdf/2506.06971) [[code]](https://github.com/jrohsc/Chain-of-Code-Collapse)
 
