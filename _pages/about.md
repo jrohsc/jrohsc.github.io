@@ -27,12 +27,15 @@ Prior to my graduate studies, I earned my bachelor's degree in computer engineer
 <!-- ############################################################################################### -->
 <section id="news" style="margin: 2rem 0;">
   <h2 style="font-size: 1.5rem;">📣 News</h2>
-  <div style="height: 180px; overflow-y: auto; position: relative; border-left: 4px solid #007acc; padding-left: 1rem;">
+  <div style="height: 240px; overflow-y: auto; position: relative; border-left: 4px solid #007acc; padding-left: 1rem;">
     <div id="news-ticker" style="display: flex; flex-direction: column;">
       <p>💪 <strong>Jun 16 '25</strong>: I will be working as a Summer Research Intern at Brave Software under the supervision of Dr. <a href="https://alishahin.github.io/" target="_blank">Ali Shahin Shamsabadi</a> on privacy and security of AI Agents.</p>
-      <p>🎉 <strong>Jun 11 '25</strong>: Our paper <em><a href="https://arxiv.org/pdf/2406.15213" target="_blank">"Backdooring Bias into Text-to-Image Models"</a></em> has been accepted to USENIX Security '25!</p>
-      <p>🎉 <strong>Sep 27 '24</strong>: Our paper <em><a href="https://arxiv.org/pdf/2405.16978" target="_blank">"OSLO: One-Shot Label-Only Membership Inference Attacks"</a></em> was accepted to NeurIPS '24!</p>
-      <p>🎉 <strong>Dec 22 '23</strong>: Our paper <em><a href="https://arxiv.org/pdf/2312.03692" target="_blank">"Memory Triggers"</a></em> was accepted to AAAI '23 PPAI Workshop!</p>
+      
+      <p>🎉 <strong>Jun 11 '25</strong>: Our paper <a href="https://arxiv.org/pdf/2406.15213" target="_blank">"Backdooring Bias into Text-to-Image Models"</a> has been accepted to <em>USENIX Security '25</em>!</p>
+      
+      <p>🎉 <strong>Sep 27 '24</strong>: Our paper <a href="https://arxiv.org/pdf/2405.16978" target="_blank">"OSLO: One-Shot Label-Only Membership Inference Attacks"</a> was accepted to <em>NeurIPS '24</em>!</p>
+      
+      <p>🎉 <strong>Dec 22 '23</strong>: Our paper <a href="https://arxiv.org/pdf/2312.03692" target="_blank">"Memory Triggers: Unveiling Memorization in Text-To-Image Generative Models through Word-Level Duplication"</a> was accepted to <em>AAAI '23 PPAI Workshop</em>!</p>
     </div>
   </div>
 
@@ -47,14 +50,15 @@ Prior to my graduate studies, I earned my bachelor's degree in computer engineer
 
 <!-- ######################################################################################################################################## -->
 
-## 👀 Under Review
+## 📎 Papers
+### 👀 Under Review
 **Multilingual and Multi-Accent Jailbreaking of Audio LLMs** <br>
    **<u><b>Jaechul Roh</b></u>**, Virat Shejwalkar, Amir Houmansadr <br>
    *Preprint at arXiv* <br>
    <!-- NeurIPS 2024 -->
    [[paper]](https://arxiv.org/abs/2504.01094)
 
-## 🖨️ Preprints
+### 🖨️ Preprints
 **OverThink: Slowdown Attacks on Reasoning LLMs** <br>
    Abhinav Kumar, **<u><b>Jaechul Roh</b></u>**, Ali Naseh, Marezna Karpinska, Mohit Iyyer, Amir Houmansadr, and Eugene Bagdasaryan <br>
    *Preprint at arXiv* <br>
@@ -72,7 +76,7 @@ Prior to my graduate studies, I earned my bachelor's degree in computer engineer
    *Preprint at arXiv*  
    [[paper]](https://arxiv.org/pdf/2312.07550)
 
-## 📜 Publications
+### 📜 Publications
 **Backdooring Bias into Text-to-Image Models**  
    Ali Naseh, **<u><b>Jaechul Roh</b></u>**, Eugene Bagdasaryan, Amir Houmansadr  
    *USENIX Security '25*  
