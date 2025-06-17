@@ -49,29 +49,31 @@ Prior to my graduate studies, I earned my bachelor's degree in computer engineer
 
 
 <!-- ######################################################################################################################################## -->
-
-
 ## 📜 Publications
 
 ### 2025 
 **Chain-of-Code Collapse: Reasoning Failures in LLMs via Adversarial Prompting in Code Generation** <br>
    **<u><b>Jaechul Roh</b></u>**, Varun Gandhi, Shivani Anilkumar, Arin Garg
    *Preprint at arXiv* <br>
+   <!-- NeurIPS 2024 -->
    [[paper]](https://arxiv.org/pdf/2506.06971) [[code]](https://github.com/jrohsc/Chain-of-Code-Collapse)
 
 **R1dacted: Investigating Local Censorship in DeepSeek's R1 Language Model** <br>
    Ali Naseh, Harsh Chaudhari, **<u><b>Jaechul Roh</b></u>**, Mingshi Wu, Alina Oprea, Amir Houmansadr
    *Preprint at arXiv* <br>
+   <!-- NeurIPS 2024 -->
    [[paper]](https://arxiv.org/pdf/2505.12625)
 
 **Multilingual and Multi-Accent Jailbreaking of Audio LLMs** <br>
    **<u><b>Jaechul Roh</b></u>**, Virat Shejwalkar, Amir Houmansadr <br>
    *Preprint at arXiv* <br>
+   <!-- NeurIPS 2024 -->
    [[paper]](https://arxiv.org/abs/2504.01094)
 
 **OverThink: Slowdown Attacks on Reasoning LLMs** <br>
    Abhinav Kumar, **<u><b>Jaechul Roh</b></u>**, Ali Naseh, Marezna Karpinska, Mohit Iyyer, Amir Houmansadr, and Eugene Bagdasaryan <br>
    *Preprint at arXiv* <br>
+   <!-- NeurIPS 2024 -->
    [[paper]](https://arxiv.org/abs/2502.02542) [[code]](https://github.com/akumar2709/OVERTHINK_public)
 
 ## 2024
