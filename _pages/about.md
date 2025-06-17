@@ -50,33 +50,37 @@ Prior to my graduate studies, I earned my bachelor's degree in computer engineer
 
 <!-- ######################################################################################################################################## -->
 
-# 📎 Papers
-## 👀 Under Review
+
+## 📜 Publications
+
+### 2025 
+**Chain-of-Code Collapse: Reasoning Failures in LLMs via Adversarial Prompting in Code Generation** <br>
+   **<Jaechul Roh**, Varun Gandhi, Shivani Anilkumar, Arin Garg
+   *Preprint at arXiv* <br>
+   [[paper]](https://arxiv.org/pdf/2506.06971) [[code]](https://github.com/jrohsc/Chain-of-Code-Collapse)
+
+**R1dacted: Investigating Local Censorship in DeepSeek's R1 Language Model** <br>
+   Ali Naseh, Harsh Chaudhari, **<u><b>Jaechul Roh</b></u>**, Mingshi Wu, Alina Oprea, Amir Houmansadr
+   *Preprint at arXiv* <br>
+   [[paper]](https://arxiv.org/pdf/2505.12625)
+
 **Multilingual and Multi-Accent Jailbreaking of Audio LLMs** <br>
    **<u><b>Jaechul Roh</b></u>**, Virat Shejwalkar, Amir Houmansadr <br>
    *Preprint at arXiv* <br>
-   <!-- NeurIPS 2024 -->
    [[paper]](https://arxiv.org/abs/2504.01094)
 
-## 🖨️ Preprints
 **OverThink: Slowdown Attacks on Reasoning LLMs** <br>
    Abhinav Kumar, **<u><b>Jaechul Roh</b></u>**, Ali Naseh, Marezna Karpinska, Mohit Iyyer, Amir Houmansadr, and Eugene Bagdasaryan <br>
    *Preprint at arXiv* <br>
-   <!-- NeurIPS 2024 -->
    [[paper]](https://arxiv.org/abs/2502.02542) [[code]](https://github.com/akumar2709/OVERTHINK_public)
 
+## 2024
 **FameBias: Embedding Manipulation Bias Attack in Text-to-Image Models** <br>
    **<u><b>Jaechul Roh</b></u>**, Andrew Yuan, Jinsong Mao <br>
    *Preprint at arXiv* <br>
    <!-- NeurIPS 2024 -->
    <a href="https://arxiv.org/pdf/2412.18302" target="_blank">[paper]</a>
 
-**Understanding (Un)Intended Memorization in Text-to-Image Generative Models**  
-   Ali Naseh, **<u><b>Jaechul Roh</b></u>**, Amir Houmansadr  
-   *Preprint at arXiv*  
-   [[paper]](https://arxiv.org/pdf/2312.07550)
-
-## 📜 Publications
 **Backdooring Bias into Text-to-Image Models**  
    Ali Naseh, **<u><b>Jaechul Roh</b></u>**, Eugene Bagdasaryan, Amir Houmansadr  
    *USENIX Security '25*  
@@ -95,6 +99,12 @@ Prior to my graduate studies, I earned my bachelor's degree in computer engineer
    <!-- The 5th AAAI Workshop on Privacy-Preserving Artificial Intelligence -->
    [[paper]](https://arxiv.org/pdf/2312.03692)
 
+**Understanding (Un)Intended Memorization in Text-to-Image Generative Models**  
+   Ali Naseh, **<u><b>Jaechul Roh</b></u>**, Amir Houmansadr  
+   *Preprint at arXiv*  
+   [[paper]](https://arxiv.org/pdf/2312.07550)
+
+### 2023
 **Robust Smart Home Face Recognition under Starving Federated Data**  
    **<u><b>Jaechul Roh</b></u>**, Yajun Fang  
    *Oral Presentation in the IEEE International Conference on Universal Village (IEEE UV2022)*  
@@ -112,11 +122,3 @@ Prior to my graduate studies, I earned my bachelor's degree in computer engineer
    *2022 IEEE 5th International Conference on Information Systems and Computer Aided Education (ICISCAE)*  
    <!-- 2022 IEEE 5th International Conference on Information Systems and Computer Aided Education (ICISCAE)   -->
    [[paper]](https://ieeexplore.ieee.org/abstract/document/9927611) | [[code]](https://github.com/jcroh0508/Adversarial_Training_Impact)
-
-
-<!-- ## 🤖 Projects
-**FameBias: Embedding Manipulation Bias Attack in Text-to-Image Models**  
-   **<u><b>Jaechul Roh</b></u>**, Andrew Yuan, Jinsong Mao \
-   *CS 670 (Computer Vision) Course Project*   -->
-   <!-- 2022 IEEE 5th International Conference on Information Systems and Computer Aided Education (ICISCAE)   -->
-   <!-- [[paper]](files/cs_670.pdf) [[code]](https://github.com/jrohsc/FameBias/) -->
