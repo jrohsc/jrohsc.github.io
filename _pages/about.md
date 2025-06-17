@@ -50,15 +50,15 @@ Prior to my graduate studies, I earned my bachelor's degree in computer engineer
 
 <!-- ######################################################################################################################################## -->
 
-## 📎 Papers
-### 👀 Under Review
+# 📎 Papers
+## 👀 Under Review
 **Multilingual and Multi-Accent Jailbreaking of Audio LLMs** <br>
    **<u><b>Jaechul Roh</b></u>**, Virat Shejwalkar, Amir Houmansadr <br>
    *Preprint at arXiv* <br>
    <!-- NeurIPS 2024 -->
    [[paper]](https://arxiv.org/abs/2504.01094)
 
-### 🖨️ Preprints
+## 🖨️ Preprints
 **OverThink: Slowdown Attacks on Reasoning LLMs** <br>
    Abhinav Kumar, **<u><b>Jaechul Roh</b></u>**, Ali Naseh, Marezna Karpinska, Mohit Iyyer, Amir Houmansadr, and Eugene Bagdasaryan <br>
    *Preprint at arXiv* <br>
@@ -76,7 +76,7 @@ Prior to my graduate studies, I earned my bachelor's degree in computer engineer
    *Preprint at arXiv*  
    [[paper]](https://arxiv.org/pdf/2312.07550)
 
-### 📜 Publications
+## 📜 Publications
 **Backdooring Bias into Text-to-Image Models**  
    Ali Naseh, **<u><b>Jaechul Roh</b></u>**, Eugene Bagdasaryan, Amir Houmansadr  
    *USENIX Security '25*  
