@@ -33,9 +33,9 @@ Prior to my graduate studies, I earned my bachelor's degree in computer engineer
       
       <p>🎉 <strong>Jun 11 '25</strong>: Our <a href="https://arxiv.org/pdf/2406.15213" target="_blank">Backdooring Bias into Text-to-Image Models</a> paper has been accepted to <em>USENIX Security '25</em>!</p>
       
-      <p>🎉 <strong>Sep 27 '24</strong>: Our <a href="https://arxiv.org/pdf/2405.16978" target="_blank">OSLO</a> paper was accepted to <em>NeurIPS '24</em>!</p>
+      <p>🎉 <strong>Sep 27 '24</strong>: Our <a href="https://arxiv.org/pdf/2405.16978" target="_blank">OSLO</a> paper has been accepted to <em>NeurIPS '24</em>!</p>
       
-      <p>🎉 <strong>Dec 22 '23</strong>: Our <a href="https://arxiv.org/pdf/2312.03692" target="_blank">Memory Triggers</a> paper was accepted to <em>AAAI '23 PPAI Workshop</em>!</p>
+      <p>🎉 <strong>Dec 22 '23</strong>: Our <a href="https://arxiv.org/pdf/2312.03692" target="_blank">Memory Triggers</a> paper has been accepted to <em>AAAI '23 PPAI Workshop</em>!</p>
     </div>
   </div>
 
