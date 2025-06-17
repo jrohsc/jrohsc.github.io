@@ -31,11 +31,11 @@ Prior to my graduate studies, I earned my bachelor's degree in computer engineer
     <div id="news-ticker" style="display: flex; flex-direction: column;">
       <p>💪 <strong>Jun 16 '25</strong>: I will be working as a Summer Research Intern at Brave Software under the supervision of Dr. <a href="https://alishahin.github.io/" target="_blank">Ali Shahin Shamsabadi</a> on privacy and security of AI Agents.</p>
       
-      <p>🎉 <strong>Jun 11 '25</strong>: Our paper <a href="https://arxiv.org/pdf/2406.15213" target="_blank">"Backdooring Bias into Text-to-Image Models"</a> has been accepted to <em>USENIX Security '25</em>!</p>
+      <p>🎉 <strong>Jun 11 '25</strong>: Our <a href="https://arxiv.org/pdf/2406.15213" target="_blank">Backdooring Bias into Text-to-Image Models</a> paper has been accepted to <em>USENIX Security '25</em>!</p>
       
-      <p>🎉 <strong>Sep 27 '24</strong>: Our paper <a href="https://arxiv.org/pdf/2405.16978" target="_blank">"OSLO: One-Shot Label-Only Membership Inference Attacks"</a> was accepted to <em>NeurIPS '24</em>!</p>
+      <p>🎉 <strong>Sep 27 '24</strong>: Our <a href="https://arxiv.org/pdf/2405.16978" target="_blank">OSLO</a> paper was accepted to <em>NeurIPS '24</em>!</p>
       
-      <p>🎉 <strong>Dec 22 '23</strong>: Our paper <a href="https://arxiv.org/pdf/2312.03692" target="_blank">"Memory Triggers: Unveiling Memorization in Text-To-Image Generative Models through Word-Level Duplication"</a> was accepted to <em>AAAI '23 PPAI Workshop</em>!</p>
+      <p>🎉 <strong>Dec 22 '23</strong>: Our <a href="https://arxiv.org/pdf/2312.03692" target="_blank">Memory Triggers</a> paper was accepted to <em>AAAI '23 PPAI Workshop</em>!</p>
     </div>
   </div>
 
