@@ -53,13 +53,13 @@ Prior to my graduate studies, I earned my bachelor's degree in computer engineer
 
 ## 2025 
 **Chain-of-Code Collapse: Reasoning Failures in LLMs via Adversarial Prompting in Code Generation** <br>
-   **<u><b>Jaechul Roh</b></u>**, Varun Gandhi, Shivani Anilkumar, Arin Garg
+   **<u><b>Jaechul Roh</b></u>**, Varun Gandhi, Shivani Anilkumar, Arin Garg <br>
    *Preprint at arXiv* <br>
    <!-- NeurIPS 2024 -->
    [[paper]](https://arxiv.org/pdf/2506.06971) [[code]](https://github.com/jrohsc/Chain-of-Code-Collapse)
 
 **R1dacted: Investigating Local Censorship in DeepSeek's R1 Language Model** <br>
-   Ali Naseh, Harsh Chaudhari, **<u><b>Jaechul Roh</b></u>**, Mingshi Wu, Alina Oprea, Amir Houmansadr
+   Ali Naseh, Harsh Chaudhari, **<u><b>Jaechul Roh</b></u>**, Mingshi Wu, Alina Oprea, Amir Houmansadr <br>
    *Preprint at arXiv* <br>
    <!-- NeurIPS 2024 -->
    [[paper]](https://arxiv.org/pdf/2505.12625)

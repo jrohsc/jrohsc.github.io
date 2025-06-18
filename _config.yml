@@ -324,6 +324,7 @@ defaults:
       path: ""
       type: posts
     values:
+      css: "assets/css/custom.scss"
       layout: single
       author_profile: true
       read_time: true
@@ -335,5 +336,6 @@ defaults:
       path: "_pages"
       type: pages
     values:
+      css: "assets/css/custom.scss"
       layout: single
       author_profile: true
