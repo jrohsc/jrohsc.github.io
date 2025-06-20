@@ -13,6 +13,7 @@ papers:
     venue: "ACL 2025"
     paper_pdf: "https://arxiv.org/abs/2407.03181"
     code: https://github.com/UKPLab/acl2025-diverse-cot
+    website: https://ukplab.github.io/acl2025-diverse-cot/
     selected: y
 
   - title: "Code Prompting Elicits Conditional Reasoning Abilities in Text+Code LLMs"
