@@ -1,0 +1,12 @@
+/* ==========================================================================
+   Custom SCSS for GitHub Pages
+   Overrides font family and optionally other styles
+   ========================================================================== */
+
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+/* Font family overrides */
+$global-font-family: 'Poppins', sans-serif !default;
+$header-font-family: 'Poppins', sans-serif !default;
+$caption-font-family: 'Poppins', sans-serif !default;
