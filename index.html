@@ -96,6 +96,10 @@ layout: default
           {% if paper.code %}
           <a class="button" href="{{ paper.code }}" target="_blank">Code</a>
           {% endif %}
+
+          {% if paper.data %}
+          <a class="button" href="{{ paper.data }}" target="_blank">Data</a>
+          {% endif %}
         </div>
       </div>
       {% endfor %}
@@ -130,6 +134,10 @@ layout: default
 
           {% if paper.code %}
           <a class="button" href="{{ paper.code }}" target="_blank">Code</a>
+          {% endif %}
+
+          {% if paper.data %}
+          <a class="button" href="{{ paper.data }}" target="_blank">Data</a>
           {% endif %}
         </div>
       </div>

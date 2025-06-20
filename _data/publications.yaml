@@ -1,4 +1,21 @@
 papers:
+
+  - title: "C-SEO Bench: Does Conversational SEO Work?"
+    authors:  <b>Haritz Puerto</b>, Martin Gubri, Tommaso Green, Seong Joon Oh, Sangdoo Yun
+    venue: arxiv 2025
+    paper_pdf: https://arxiv.org/abs/2506.11097
+    code: https://github.com/parameterlab/c-seo-bench
+    data: https://huggingface.co/datasets/parameterlab/c-seo-bench
+    selected: y
+
+  - title: "Leaky Thoughts: Large Reasoning Models Are Not Private Thinkers"
+    authors:  Tommaso Green, Martin Gubri, <b>Haritz Puerto</b>, Seong Joon Oh, Sangdoo Yun
+    venue: arxiv 2025
+    paper_pdf: https://arxiv.org/abs/2506.15674
+    code: https://github.com/parameterlab/leaky_thoughts
+    data: https://huggingface.co/datasets/parameterlab/leaky_thoughts
+    selected: y
+
   - title: "Scaling Up Membership Inference: When and How Attacks Succeed on Large Language Models"
     authors:  <b>Haritz Puerto</b>, Martin Gubri, Sangdoo Yun, Seong Joon Oh
     venue: Findings of NAACL 2025
