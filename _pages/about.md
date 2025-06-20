@@ -111,13 +111,13 @@ Prior to my graduate studies, I earned my bachelor's degree in computer engineer
    **<u><b>Jaechul Roh</b></u>**, Yajun Fang  
    *Oral Presentation in the IEEE International Conference on Universal Village (IEEE UV2022)*  
    <!-- Oral Presentation in the IEEE International Conference on Universal Village (IEEE UV2022)   -->
-   [[paper]](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=10175525) | [[code]](https://github.com/jcroh0508/FLATS) | [[slides]](https://www.jrohs.com/_files/ugd/c489e1_bbc7e44075944cad98da82f31e7430ae.pdf) | [[video]](https://www.youtube.com/watch?v=Tj9QiJEUBXU&ab_channel=jroh)
+   [[paper]](https://arxiv.org/pdf/2211.05410) | [[code]](https://github.com/jcroh0508/FLATS) | [[slides]](https://www.jrohs.com/_files/ugd/c489e1_bbc7e44075944cad98da82f31e7430ae.pdf) | [[video]](https://www.youtube.com/watch?v=Tj9QiJEUBXU&ab_channel=jroh)
 
 **MSDT: Masked Language Model Scoring Defense in Text Domain**  
    **<u><b>Jaechul Roh</b></u>**, Minhao Cheng, Yajun Fang  
    *Oral Presentation in the IEEE International Conference on Universal Village (IEEE UV2022*)  
    <!-- Oral Presentation in the IEEE International Conference on Universal Village (IEEE UV2022)   -->
-   [[paper]](https://ieeexplore.ieee.org/document/10175524) | [[code]](https://github.com/jcroh0508/MSDT) | [[slides]](https://www.jrohs.com/_files/ugd/c489e1_bbc7e44075944cad98da82f31e7430ae.pdf) | [[video]](https://www.youtube.com/watch?v=oO3FbxnMdv0&ab_channel=jroh)
+   [[paper]](https://arxiv.org/pdf/2211.05371) | [[code]](https://github.com/jcroh0508/MSDT) | [[slides]](https://www.jrohs.com/_files/ugd/c489e1_bbc7e44075944cad98da82f31e7430ae.pdf) | [[video]](https://www.youtube.com/watch?v=oO3FbxnMdv0&ab_channel=jroh)
 
 **Impact of Adversarial Training on the Robustness of Deep Neural Networks**  
    **<u><b>Jaechul Roh</b></u>**  
