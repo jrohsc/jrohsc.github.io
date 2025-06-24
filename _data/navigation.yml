@@ -1,5 +1,7 @@
 main:
   - title: Home
     url: /
+  - title: Publication
+    url: https://jrohsc.github.io/#%EF%B8%8F-preprint--publications
   - title: Writing
     url: /posts/
