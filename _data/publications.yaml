@@ -1,5 +1,15 @@
 papers:
 
+  - title: "Fine-Tuning on Diverse Reasoning Chains Drives Within-Inference CoT Refinement in LLMs"
+    authors: <b>Haritz Puerto</b>, Tilek Chubakov, Xiaodan Zhu, Harish Tayyar Madabushi, Iryna Gurevych
+    venue: "ACL 2025"
+    paper_pdf: "https://arxiv.org/abs/2407.03181"
+    code: https://github.com/UKPLab/acl2025-diverse-cot
+    website: https://ukplab.github.io/acl2025-diverse-cot/
+    poster: /assets/publications/2025_diverse_cot/poster.pdf
+    slides: /assets/publications/2025_diverse_cot/slides.pdf
+    selected: y
+
   - title: "C-SEO Bench: Does Conversational SEO Work?"
     authors:  <b>Haritz Puerto</b>, Martin Gubri, Tommaso Green, Seong Joon Oh, Sangdoo Yun
     venue: arxiv 2025
@@ -23,14 +33,6 @@ papers:
     website: https://haritzpuerto.github.io/scaling-mia/
     code: https://github.com/parameterlab/mia-scaling
     poster: /assets/publications/2025_scaling_mia/poster.pdf
-    selected: y
-  
-  - title: "Fine-Tuning on Diverse Reasoning Chains Drives Within-Inference CoT Refinement in LLMs"
-    authors: <b>Haritz Puerto</b>, Tilek Chubakov, Xiaodan Zhu, Harish Tayyar Madabushi, Iryna Gurevych
-    venue: "ACL 2025"
-    paper_pdf: "https://arxiv.org/abs/2407.03181"
-    code: https://github.com/UKPLab/acl2025-diverse-cot
-    website: https://ukplab.github.io/acl2025-diverse-cot/
     selected: y
 
   - title: "Code Prompting Elicits Conditional Reasoning Abilities in Text+Code LLMs"
