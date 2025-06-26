@@ -20,10 +20,15 @@ My research focuses on exploring the **privacy, security, and trustworthiness** 
 
 Prior to my graduate studies, I earned my bachelor's degree in computer engineering from the Hong Kong University of Science and Technology (HKUST) in the year 2023, where I completed my Final Year Thesis (FYT) on the topic of "Adversarial Attacks in Federated Learning" under the supervision of <a href="https://eejzhang.people.ust.hk/" target="_black">Prof. Jun Zhang</a>. I have also worked with [Prof. Minhao Cheng](https://cmhcbb.github.io/) on the robustness of language models, specifically exploring methods associated with backdoor defense in text domain.
 
-✅ I'm currently holding 30-minute weekly office hours. Whether you're curious about research projects, seeking career advice, or navigating the PhD application process, I am more than happy to assist or discuss. Lately, my research has focused on the trustworthiness of AI agents and AI safety in audio modalities, but I'm always open to exploring new areas and directions you might bring. We can also just chat casually—I'm a huge football (soccer) fan, so that's always on the table too ⚽️. Feel free to book a time that works for you through my [Calendly](https://calendly.com/jroh-scm). Looking forward to meeting you!
+--------
+
+[[Résumé]](files/CV - Jaechul Roh.pdf) / [[Google Scholar]](https://scholar.google.com/citations?user=knCeRjsAAAAJ&hl=ko) / [[GitHub]](https://github.com/jrohsc) / [[Linkedin]](https://www.linkedin.com/in/jaechul-roh-572363155/)
 
 --------
-[[Résumé]](files/CV - Jaechul Roh.pdf) / [[Google Scholar]](https://scholar.google.com/citations?user=knCeRjsAAAAJ&hl=ko) / [[GitHub]](https://github.com/jrohsc) / [[Linkedin]](https://www.linkedin.com/in/jaechul-roh-572363155/)
+
+## 💬 Office Hours
+I’m hosting 30-minute weekly office hours—feel free to drop by! I'm happy to chat about research (esp. trustworthy AI agents & audio safety), PhD apps, or anything else on your mind. Casual chats welcome too—I’m a big football (soccer) fan ⚽️. Feel free to book a time that works for you through my [Calendly](https://calendly.com/jroh-scm).
+
 
 <!-- <span style="font-family: 'Courier New', Courier, monospace;">ideas.txt</span> -->
 <!-- ############################################################################################### -->
