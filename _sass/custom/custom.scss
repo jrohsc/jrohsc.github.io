@@ -1,12 +1,29 @@
 /* ==========================================================================
    Custom SCSS for GitHub Pages
-   Overrides font family and optionally other styles
    ========================================================================== */
 
-/* Import Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+/* 1. FONT STYLE CHANGES
+   The font in your image is a serif font (like Georgia or Times New Roman).
+   Your original code was importing and using 'Poppins', which is a sans-serif font.
+   The lines below are updated to use a classic serif font family to match your screenshot.
+*/
+$global-font-family: 'Georgia', 'Times New Roman', serif !default;
+$header-font-family: 'Georgia', 'Times New Roman', serif !default;
+$caption-font-family: 'Georgia', 'Times New Roman', serif !default;
 
-/* Font family overrides */
-$global-font-family: 'Poppins', sans-serif !default;
-$header-font-family: 'Poppins', sans-serif !default;
-$caption-font-family: 'Poppins', sans-serif !default;
+
+/* 2. HYPERLINK COLOR CHANGES
+   This section sets the color for your links.
+*/
+
+/* Sets the standard link color and the color for links you've already visited. */
+a,
+a:visited {
+  color: #00008B; /* This is the 'DarkBlue' color you wanted */
+}
+
+/* Optional: Sets the color for a link when you hover your mouse over it. */
+a:hover {
+  color: #0000CD; /* A slightly lighter blue for a nice hover effect */
+  text-decoration: underline; /* Adds an underline on hover */
+}
