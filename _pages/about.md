@@ -22,7 +22,7 @@ Prior to my graduate studies, I earned my bachelor's degree in computer engineer
 
 --------
 
-[[Résumé]](files/CV-Jaechul Roh.pdf) / [[Google Scholar]](https://scholar.google.com/citations?user=knCeRjsAAAAJ&hl=ko) / [[GitHub]](https://github.com/jrohsc) / [[Linkedin]](https://www.linkedin.com/in/jaechul-roh-572363155/)
+[[Résumé]](files/CV - Jaechul_Roh.pdf) / [[Google Scholar]](https://scholar.google.com/citations?user=knCeRjsAAAAJ&hl=ko) / [[GitHub]](https://github.com/jrohsc) / [[Linkedin]](https://www.linkedin.com/in/jaechul-roh-572363155/)
 
 --------
 
