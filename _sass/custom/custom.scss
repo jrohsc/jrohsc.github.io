@@ -27,3 +27,17 @@ $caption-font-family: 'Georgia', 'Times New Roman', serif !default;
 //   color: #3a3aa7; /* A slightly lighter blue for a nice hover effect */
 //   text-decoration: underline; /* Adds an underline on hover */
 // }
+
+/* --- Restore Original Navigation Link Color --- */
+/*
+  This targets the main navigation links in the header and sets their color
+  back to the default text color, overriding the blue link color.
+*/
+.masthead__inner .greedy-nav a {
+  color: $text-color;
+}
+
+/* Optional: Restore the hover effect to the theme's primary color */
+.masthead__inner .greedy-nav a:hover {
+  color: $primary-color;
+}
