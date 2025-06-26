@@ -27,7 +27,11 @@ Prior to my graduate studies, I earned my bachelor's degree in computer engineer
 --------
 
 ## 💬 Office Hours
-I’m hosting weekly office hours—feel free to drop by! I'm happy to chat about research (esp. trustworthy AI agents & audio safety), PhD apps, or anything else on your mind. Casual chats welcome too—I’m a big football (soccer) fan ⚽️. Feel free to book a time that works for you through my [Calendly](https://calendly.com/jroh-scm).
+<!-- I’m hosting weekly office hours—feel free to drop by! I'm happy to chat about research, PhD applications, or anything else on your mind. Casual chats welcome too—I’m a big football (soccer) fan ⚽️. Feel free to book a time that works for you through my [Calendly](https://calendly.com/jroh-scm).-->
+
+I’m hosting weekly office hours—feel free to drop by! I'm happy to chat about research, PhD applications, or anything else on your mind. Casual chats welcome too (I’m a big football (soccer) fan ⚽️). Lately, I've been working on trustworthiness of AI agents and audio modality safety, but I'm always open to exploring new areas and directions you might bring.
+
+Feel free to book a time that works for you through my [Calendly](https://calendly.com/jroh-scm). 
 
 
 <!-- <span style="font-family: 'Courier New', Courier, monospace;">ideas.txt</span> -->
