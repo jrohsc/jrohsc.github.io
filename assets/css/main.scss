@@ -9,3 +9,8 @@ search: false
 @import "minimal-mistakes"; // main partials
 
 @import "custom/custom";
+
+body {
+  font-size: $doc-font-size;
+  font-family: $global-font-family;
+}
