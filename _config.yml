@@ -22,7 +22,7 @@ title_separator          : "-"
 subtitle                 : # site tagline that appears below site title in masthead
 name                     : &name "Jaechul Roh"
 description              : #
-url                      : "https://jrohsc.github.io/" # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
+url                      : "https://jrohsc.github.io" # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
 repository               : "jrohsc/jrohsc.github.io"
 teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
@@ -115,7 +115,7 @@ analytics:
 author:
   name             : "Jaechul Roh"
   avatar           : "/images/Jaechul Roh Photo 2.jpg"
-  bio              : "Ph.D. Student in Computer Science @ UMass Amherst"
+  bio              : "Ph.D. Student in Computer Science"
   location         : "Amherst, MA"
   email            :
   links:
