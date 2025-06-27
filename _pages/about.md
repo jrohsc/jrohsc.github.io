@@ -31,12 +31,6 @@ I’m hosting weekly office hours—feel free to drop by! I'm happy to chat and 
 
 Feel free to book a time that works for you through my [Calendly](https://calendly.com/jroh-scm). 
 
-
-## 💬 Office Hours
-I’m hosting weekly office hours—feel free to drop by! I'm happy to chat and advise on research (or projects), PhD applications, or anything else on your mind. Casual chats welcome too (I’m a big football (soccer) fan :soccer:️). Lately, I've been working on trustworthiness of AI agents and audio modality safety, but I'm always open to exploring new areas and directions you might bring.
-Feel free to book a time that works for you through my [Calendly](https://calendly.com/jroh-scm).
-
-
 <!-- <span style="font-family: 'Courier New', Courier, monospace;">ideas.txt</span> -->
 <!-- ############################################################################################### -->
 <section id="news" style="margin: 2rem 0;">
