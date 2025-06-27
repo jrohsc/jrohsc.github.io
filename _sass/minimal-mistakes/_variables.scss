@@ -8,7 +8,7 @@
 
 
 $line-height: 1.7 !default;
-$doc-font-size: 12px !default;
+$doc-font-size: 10px !default;
 $doc-font-size-medium: $doc-font-size * 1.125 !default;
 $doc-font-size-large: $doc-font-size * 1.25 !default;
 $doc-font-size-x-large: $doc-font-size * 1.375 !default;
@@ -18,10 +18,10 @@ $paragraph-indent: false !default; // true, false (default)
 $indent-var: 1.3em !default;
 
 /* system typefaces */
-$serif: Georgia, Times, serif !default;
+$serif: "Bodoni MT", serif !default;
 // $sans-serif: -apple-system, BlinkMacSystemFont, "Roboto", "Segoe UI",
 // "Helvetica Neue", "Lucida Grande", Arial, sans-serif !default;
-$sans-serif: Georgia !default;
+$sans-serif: "Calisto MT", serif !default;
 $monospace: Monaco, Consolas, "Lucida Console", monospace !default;
 
 /* sans serif typefaces */
@@ -119,7 +119,6 @@ $xing-color: #006567 !default;
 /* links */
 // $link-color: mix(#000, $info-color, 20%) !default;
 $link-color: #1a73e8 !default;
-// $link-color: #0247FE !default;
 $link-color-hover: mix(#000, $link-color, 25%) !default;
 $link-color-visited: mix(#fff, $link-color, 15%) !default;
 $masthead-link-color: $primary-color !default;
