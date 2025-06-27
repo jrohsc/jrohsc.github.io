@@ -21,7 +21,7 @@ $indent-var: 1.3em !default;
 $serif: Georgia, Times, serif !default;
 // $sans-serif: -apple-system, BlinkMacSystemFont, "Roboto", "Segoe UI",
 // "Helvetica Neue", "Lucida Grande", Arial, sans-serif !default;
-$sans-serif: Georgia !default;
+$sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !default;
 $monospace: Monaco, Consolas, "Lucida Console", monospace !default;
 
 /* sans serif typefaces */
@@ -118,8 +118,9 @@ $xing-color: #006567 !default;
 
 /* links */
 // $link-color: mix(#000, $info-color, 20%) !default;
-$link-color: #1a73e8 !default;
+// $link-color: #1a73e8 !default;
 // $link-color: #0247FE !default;
+$link-color: #0000FF !default;
 $link-color-hover: mix(#000, $link-color, 25%) !default;
 $link-color-visited: mix(#fff, $link-color, 15%) !default;
 $masthead-link-color: $primary-color !default;
