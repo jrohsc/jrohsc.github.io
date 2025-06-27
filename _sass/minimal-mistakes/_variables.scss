@@ -118,9 +118,9 @@ $xing-color: #006567 !default;
 
 /* links */
 // $link-color: mix(#000, $info-color, 20%) !default;
-// $link-color: #1a73e8 !default;
+$link-color: #1a73e8 !default;
 // $link-color: #0247FE !default;
-$link-color: #0000FF !default;
+// $link-color: #0000FF !default;
 $link-color-hover: mix(#000, $link-color, 25%) !default;
 $link-color-visited: mix(#fff, $link-color, 15%) !default;
 $masthead-link-color: $primary-color !default;
