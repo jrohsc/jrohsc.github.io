@@ -62,7 +62,7 @@ Feel free to book a time that works for you through my [Calendly](https://calend
 <!-- ######################################################################################################################################## -->
 ## 🖨️ Preprint / Publications
 
-## 2025 
+## Preprint
 **Chain-of-Code Collapse: Reasoning Failures in LLMs via Adversarial Prompting in Code Generation** <br>
    **<u><b>Jaechul Roh</b></u>**, Varun Gandhi, Shivani Anilkumar, Arin Garg <br>
    *Preprint at arXiv* <br>
@@ -75,31 +75,39 @@ Feel free to book a time that works for you through my [Calendly](https://calend
    <!-- NeurIPS 2024 -->
    [[paper]](https://arxiv.org/pdf/2505.12625)
 
-**Multilingual and Multi-Accent Jailbreaking of Audio LLMs** <br>
-   **<u><b>Jaechul Roh</b></u>**, Virat Shejwalkar, Amir Houmansadr <br>
-   *COLM 2025* <br>
-   <!-- NeurIPS 2024 -->
-   [[paper]](https://arxiv.org/abs/2504.01094)
-
 **OverThink: Slowdown Attacks on Reasoning LLMs** <br>
    Abhinav Kumar, **<u><b>Jaechul Roh</b></u>**, Ali Naseh, Marezna Karpinska, Mohit Iyyer, Amir Houmansadr, and Eugene Bagdasaryan <br>
    *Preprint at arXiv* <br>
    <!-- NeurIPS 2024 -->
    [[paper]](https://arxiv.org/abs/2502.02542) [[code]](https://github.com/akumar2709/OVERTHINK_public)
 
-## 2024
 **FameBias: Embedding Manipulation Bias Attack in Text-to-Image Models** <br>
    **<u><b>Jaechul Roh</b></u>**, Andrew Yuan, Jinsong Mao <br>
    *Preprint at arXiv* <br>
    <!-- NeurIPS 2024 -->
    <a href="https://arxiv.org/pdf/2412.18302" target="_blank">[paper]</a>
 
+**Understanding (Un)Intended Memorization in Text-to-Image Generative Models**  
+   Ali Naseh, **<u><b>Jaechul Roh</b></u>**, Amir Houmansadr  
+   *Preprint at arXiv*  
+   [[paper]](https://arxiv.org/pdf/2312.07550)
+
+
+## 2025 
+**Multilingual and Multi-Accent Jailbreaking of Audio LLMs** <br>
+   **<u><b>Jaechul Roh</b></u>**, Virat Shejwalkar, Amir Houmansadr <br>
+   *COLM 2025* <br>
+   <!-- NeurIPS 2024 -->
+   [[paper]](https://arxiv.org/abs/2504.01094)
+
 **Backdooring Bias into Text-to-Image Models**  
    Ali Naseh, **<u><b>Jaechul Roh</b></u>**, Eugene Bagdasaryan, Amir Houmansadr  
    *USENIX Security '25*  
    <!-- NeurIPS 2024 -->
    [[paper]](https://arxiv.org/pdf/2406.15213) [[code]](https://github.com/jcroh0508/Backdororing_Bias/)
+   
 
+## 2024
 **OSLO: One-Shot Label-Only Membership Inference Attacks** <br>
    Yuefeng Peng, <u><b>Jaechul Roh</b></u>, Subhransu Maji, Amir Houmansadr <br>
    *NeurIPS 2024* <br>
@@ -112,10 +120,7 @@ Feel free to book a time that works for you through my [Calendly](https://calend
    <!-- The 5th AAAI Workshop on Privacy-Preserving Artificial Intelligence -->
    [[paper]](https://arxiv.org/pdf/2312.03692)
 
-**Understanding (Un)Intended Memorization in Text-to-Image Generative Models**  
-   Ali Naseh, **<u><b>Jaechul Roh</b></u>**, Amir Houmansadr  
-   *Preprint at arXiv*  
-   [[paper]](https://arxiv.org/pdf/2312.07550)
+
 
 ## 2023
 **Robust Smart Home Face Recognition under Starving Federated Data**  
