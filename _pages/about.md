@@ -37,6 +37,9 @@ Feel free to book a time that works for you through my [Calendly](https://calend
   <h2 style="font-size: 1.5rem;">📣 News</h2>
   <div style="height: 240px; overflow-y: auto; position: relative; border-left: 4px solid #007acc; padding-left: 1rem;">
     <div id="news-ticker" style="display: flex; flex-direction: column;">
+   
+      <p>🎉 <strong>July 7 '25</strong>: Our <a href="https://arxiv.org/abs/2504.01094" target="_blank">Multilingual and Multi-Accent Jailbreaking of Audio LLMs</a> paper has been accepted to <em>COLM (Conference on Language Modeling) 2025</em>!</p>
+
       <p>💪 <strong>Jun 16 '25</strong>: I will be working as a Summer Research Intern at Brave Software under the supervision of Dr. <a href="https://alishahin.github.io/" target="_blank">Ali Shahin Shamsabadi</a> on privacy and security of AI Agents.</p>
       
       <p>🎉 <strong>Jun 11 '25</strong>: Our <a href="https://arxiv.org/pdf/2406.15213" target="_blank">Backdooring Bias into Text-to-Image Models</a> paper has been accepted to <em>USENIX Security '25</em>!</p>
@@ -74,7 +77,7 @@ Feel free to book a time that works for you through my [Calendly](https://calend
 
 **Multilingual and Multi-Accent Jailbreaking of Audio LLMs** <br>
    **<u><b>Jaechul Roh</b></u>**, Virat Shejwalkar, Amir Houmansadr <br>
-   *Preprint at arXiv* <br>
+   *COLM 2025* <br>
    <!-- NeurIPS 2024 -->
    [[paper]](https://arxiv.org/abs/2504.01094)
 
