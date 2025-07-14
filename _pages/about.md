@@ -65,11 +65,11 @@ Feel free to book a time that works for you through my [Calendly](https://calend
 ## 🖨️ Preprint / Publications
 
 ## Preprint
-**Chain-of-Code Collapse: Reasoning Failures in LLMs via Adversarial Prompting in Code Generation** <br>
+[Chain-of-Code Collapse: Reasoning Failures in LLMs via Adversarial Prompting in Code Generation](https://arxiv.org/pdf/2506.06971) <br>
    **<u><b>Jaechul Roh</b></u>**, Varun Gandhi, Shivani Anilkumar, Arin Garg <br>
    *Preprint at arXiv* <br>
    <!-- NeurIPS 2024 -->
-   [[paper]](https://arxiv.org/pdf/2506.06971) [[code]](https://github.com/jrohsc/Chain-of-Code-Collapse)
+   [[code]](https://github.com/jrohsc/Chain-of-Code-Collapse)
 
 **R1dacted: Investigating Local Censorship in DeepSeek's R1 Language Model** <br>
    Ali Naseh, Harsh Chaudhari, **<u><b>Jaechul Roh</b></u>**, Mingshi Wu, Alina Oprea, Amir Houmansadr <br>
