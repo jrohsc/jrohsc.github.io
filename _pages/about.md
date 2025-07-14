@@ -55,7 +55,7 @@ Feel free to book a time that works for you through my [Calendly](https://calend
   <style>
     #news-ticker p {
       margin: 0.5rem 0;
-      line-height: 1.4;
+      line-height: 1.7;
     }
   </style>
 </section>
