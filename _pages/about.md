@@ -37,7 +37,9 @@ Feel free to book a time that works for you through my [Calendly](https://calend
   <h2 style="font-size: 1.5rem;">📣 News</h2>
   <div style="height: 240px; overflow-y: auto; position: relative; border-left: 4px solid #007acc; padding-left: 1rem;">
     <div id="news-ticker" style="display: flex; flex-direction: column;">
-   
+
+      <p>🎙️ <strong>July 11 '25</strong>: I will be giving a talk at the NFM Reading Group led by the Speech Technologies Group at Google Deemind on our <a href="https://arxiv.org/abs/2504.01094" target="_blank">Multilingual and Multi-Accent Jailbreaking of Audio LLMs</a> paper. View talk <a href="https://docs.google.com/presentation/d/1LOQ5W4fck5dfnv5I6LJBvbk4FOHydcJ-/edit?usp=sharing&ouid=104745020285400681437&rtpof=true&sd=true" target="_blank">slides</a></p>
+
       <p>🎉 <strong>July 7 '25</strong>: Our <a href="https://arxiv.org/abs/2504.01094" target="_blank">Multilingual and Multi-Accent Jailbreaking of Audio LLMs</a> paper has been accepted to <em>COLM (Conference on Language Modeling) 2025</em>!</p>
 
       <p>💪 <strong>Jun 16 '25</strong>: I will be working as a Summer Research Intern at Brave Software under the supervision of Dr. <a href="https://alishahin.github.io/" target="_blank">Ali Shahin Shamsabadi</a> on privacy and security of AI Agents.</p>
