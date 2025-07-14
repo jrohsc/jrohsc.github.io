@@ -38,7 +38,7 @@ Feel free to book a time that works for you through my [Calendly](https://calend
   <div style="height: 240px; overflow-y: auto; position: relative; border-left: 4px solid #007acc; padding-left: 1rem;">
     <div id="news-ticker" style="display: flex; flex-direction: column;">
 
-      <p>🎙️ <strong>July 11 '25</strong>: I will be giving a talk at the NFM Reading Group led by the Speech Technologies Group at Google Deemind on our <a href="https://arxiv.org/abs/2504.01094" target="_blank">Multilingual and Multi-Accent Jailbreaking of Audio LLMs</a> paper. <a href="https://docs.google.com/presentation/d/1LOQ5W4fck5dfnv5I6LJBvbk4FOHydcJ-/edit?usp=sharing&ouid=104745020285400681437&rtpof=true&sd=true" target="_blank">[slides]</a></p>.
+      <p>🎙️ <strong>July 11 '25</strong>: I will be giving a talk at the NFM Reading Group led by the Speech Technologies Group at Google Deemind on our <a href="https://arxiv.org/abs/2504.01094" target="_blank">Multilingual and Multi-Accent Jailbreaking of Audio LLMs</a> paper. View <a href="https://docs.google.com/presentation/d/1LOQ5W4fck5dfnv5I6LJBvbk4FOHydcJ-/edit?usp=sharing&ouid=104745020285400681437&rtpof=true&sd=true" target="_blank">[slides]</a></p>
 
       <p>🎉 <strong>July 7 '25</strong>: Our <a href="https://arxiv.org/abs/2504.01094" target="_blank">Multilingual and Multi-Accent Jailbreaking of Audio LLMs</a> paper has been accepted to <em>COLM (Conference on Language Modeling) 2025</em>!</p>
 
@@ -63,66 +63,233 @@ Feel free to book a time that works for you through my [Calendly](https://calend
 
 <!-- ######################################################################################################################################## -->
 ## 🖨️ Preprint / Publications
+<style>
+.paper-container {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 2rem;
+  gap: 1rem;
+}
+
+.paper-image {
+  flex-shrink: 0;
+  width: 150px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 5px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.paper-content {
+  flex: 1;
+}
+
+.paper-title {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.paper-authors {
+  margin-bottom: 0.3rem;
+}
+
+.paper-venue {
+  font-style: italic;
+  margin-bottom: 0.5rem;
+}
+
+.paper-links {
+  font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+  .paper-container {
+    flex-direction: column;
+  }
+  
+  .paper-image {
+    width: 100%;
+    height: 150px;
+  }
+}
+</style>
+
+
 ### Preprint
-[**Chain-of-Code Collapse: Reasoning Failures in LLMs via Adversarial Prompting in Code Generation**](https://arxiv.org/pdf/2506.06971) <br>
-   **<u><b>Jaechul Roh</b></u>**, Varun Gandhi, Shivani Anilkumar, Arin Garg <br>
-   *Preprint at arXiv* <br>
-   [[code]](https://github.com/jrohsc/Chain-of-Code-Collapse)
-
-[**R1dacted: Investigating Local Censorship in DeepSeek's R1 Language Model**](https://arxiv.org/pdf/2505.12625) <br>
-   Ali Naseh, Harsh Chaudhari, **<u><b>Jaechul Roh</b></u>**, Mingshi Wu, Alina Oprea, Amir Houmansadr <br>
-   *Preprint at arXiv* <br>
-
-[**OverThink: Slowdown Attacks on Reasoning LLMs**](https://arxiv.org/abs/2502.02542) <br>
-   Abhinav Kumar, **<u><b>Jaechul Roh</b></u>**, Ali Naseh, Marezna Karpinska, Mohit Iyyer, Amir Houmansadr, and Eugene Bagdasaryan <br>
-   *Preprint at arXiv* <br>
-   [[code]](https://github.com/akumar2709/OVERTHINK_public)
-
-[**FameBias: Embedding Manipulation Bias Attack in Text-to-Image Models**](https://arxiv.org/pdf/2412.18302) <br>
-   **<u><b>Jaechul Roh</b></u>**, Andrew Yuan, Jinsong Mao <br>
-   *Preprint at arXiv* <br>
-
-[**Understanding (Un)Intended Memorization in Text-to-Image Generative Models**](https://arxiv.org/pdf/2312.07550)  
-   Ali Naseh, **<u><b>Jaechul Roh</b></u>**, Amir Houmansadr  
-   *Preprint at arXiv*  
+<div class="paper-container">
+  <img src="paper_figures/cocc.png" alt="Chain-of-Code Collapse" class="paper-image">
+  <div class="paper-content">
+    <div class="paper-title">
+      <a href="https://arxiv.org/pdf/2506.06971" target="_blank">Chain-of-Code Collapse: Reasoning Failures in LLMs via Adversarial Prompting in Code Generation</a>
+    </div>
+    <div class="paper-authors">
+      <strong><u>Jaechul Roh</u></strong>, Varun Gandhi, Shivani Anilkumar, Arin Garg
+    </div>
+    <div class="paper-venue">Preprint at arXiv</div>
+    <div class="paper-links">
+      <a href="https://github.com/jrohsc/Chain-of-Code-Collapse" target="_blank">[code]</a>
+    </div>
+  </div>
+</div>
+<div class="paper-container">
+  <img src="paper_figures/r1dacted.png" alt="R1dacted" class="paper-image">
+  <div class="paper-content">
+    <div class="paper-title">
+      <a href="https://arxiv.org/pdf/2505.12625" target="_blank">R1dacted: Investigating Local Censorship in DeepSeek's R1 Language Model</a>
+    </div>
+    <div class="paper-authors">
+      Ali Naseh, Harsh Chaudhari, <strong><u>Jaechul Roh</u></strong>, Mingshi Wu, Alina Oprea, Amir Houmansadr
+    </div>
+    <div class="paper-venue">Preprint at arXiv</div>
+  </div>
+</div>
+<div class="paper-container">
+  <img src="paper_figures/overthink.png" alt="OverThink" class="paper-image">
+  <div class="paper-content">
+    <div class="paper-title">
+      <a href="https://arxiv.org/abs/2502.02542" target="_blank">OverThink: Slowdown Attacks on Reasoning LLMs</a>
+    </div>
+    <div class="paper-authors">
+      Abhinav Kumar, <strong><u>Jaechul Roh</u></strong>, Ali Naseh, Marezna Karpinska, Mohit Iyyer, Amir Houmansadr, and Eugene Bagdasaryan
+    </div>
+    <div class="paper-venue">Preprint at arXiv</div>
+    <div class="paper-links">
+      <a href="https://github.com/akumar2709/OVERTHINK_public" target="_blank">[code]</a>
+    </div>
+  </div>
+</div>
+<div class="paper-container">
+  <img src="paper_figures/fambias.png" alt="FameBias" class="paper-image">
+  <div class="paper-content">
+    <div class="paper-title">
+      <a href="https://arxiv.org/pdf/2412.18302" target="_blank">FameBias: Embedding Manipulation Bias Attack in Text-to-Image Models</a>
+    </div>
+    <div class="paper-authors">
+      <strong><u>Jaechul Roh</u></strong>, Andrew Yuan, Jinsong Mao
+    </div>
+    <div class="paper-venue">Preprint at arXiv</div>
+  </div>
+</div>
+<div class="paper-container">
+  <img src="paper_figures/unintended.png" alt="Understanding Memorization" class="paper-image">
+  <div class="paper-content">
+    <div class="paper-title">
+      <a href="https://arxiv.org/pdf/2312.07550" target="_blank">Understanding (Un)Intended Memorization in Text-to-Image Generative Models</a>
+    </div>
+    <div class="paper-authors">
+      Ali Naseh, <strong><u>Jaechul Roh</u></strong>, Amir Houmansadr
+    </div>
+    <div class="paper-venue">Preprint at arXiv</div>
+  </div>
+</div>
 
 
 ### 2025 
 
-[**Multilingual and Multi-Accent Jailbreaking of Audio LLMs**](https://arxiv.org/abs/2504.01094) <br>
-   **<u><b>Jaechul Roh</b></u>**, Virat Shejwalkar, Amir Houmansadr <br>
-   *COLM 2025* <br>
-
-[**Backdooring Bias into Text-to-Image Models**](https://arxiv.org/pdf/2406.15213)  
-   Ali Naseh, **<u><b>Jaechul Roh</b></u>**, Eugene Bagdasaryan, Amir Houmansadr  
-   *USENIX Security '25*  
-   [[code]](https://github.com/jcroh0508/Backdororing_Bias/)
+<div class="paper-container">
+  <img src="paper_figures/multi_audiojail.png" alt="Multilingual Audio Jailbreaking" class="paper-image">
+  <div class="paper-content">
+    <div class="paper-title">
+      <a href="https://arxiv.org/abs/2504.01094" target="_blank">Multilingual and Multi-Accent Jailbreaking of Audio LLMs</a>
+    </div>
+    <div class="paper-authors">
+      <strong><u>Jaechul Roh</u></strong>, Virat Shejwalkar, Amir Houmansadr
+    </div>
+    <div class="paper-venue">COLM 2025</div>
+  </div>
+</div>
+<div class="paper-container">
+  <img src="paper_figures/backdooring_bias_(2).png" alt="Backdooring Bias" class="paper-image">
+  <div class="paper-content">
+    <div class="paper-title">
+      <a href="https://arxiv.org/pdf/2406.15213" target="_blank">Backdooring Bias into Text-to-Image Models</a>
+    </div>
+    <div class="paper-authors">
+      Ali Naseh, <strong><u>Jaechul Roh</u></strong>, Eugene Bagdasaryan, Amir Houmansadr
+    </div>
+    <div class="paper-venue">USENIX Security '25</div>
+    <div class="paper-links">
+      <a href="https://github.com/jcroh0508/Backdororing_Bias/" target="_blank">[code]</a>
+    </div>
+  </div>
+</div>
    
 
 ### 2024
 
-[**OSLO: One-Shot Label-Only Membership Inference Attacks**](https://arxiv.org/pdf/2405.16978) <br>
-   Yuefeng Peng, <u><b>Jaechul Roh</b></u>, Subhransu Maji, Amir Houmansadr <br>
-   *NeurIPS 2024* <br>
-
-[**Memory Triggers: Unveiling Memorization in Text-To-Image Generative Models through Word-Level Duplication**](https://arxiv.org/pdf/2312.03692)  
-   Ali Naseh, **<u><b>Jaechul Roh</b></u>**, Amir Houmansadr  
-   *The 5th AAAI Workshop on Privacy-Preserving Artificial Intelligence*  
-
+<div class="paper-container">
+  <img src="paper_figures/oslo.png" alt="OSLO" class="paper-image">
+  <div class="paper-content">
+    <div class="paper-title">
+      <a href="https://arxiv.org/pdf/2405.16978" target="_blank">OSLO: One-Shot Label-Only Membership Inference Attacks</a>
+    </div>
+    <div class="paper-authors">
+      Yuefeng Peng, <strong><u>Jaechul Roh</u></strong>, Subhransu Maji, Amir Houmansadr
+    </div>
+    <div class="paper-venue">NeurIPS 2024</div>
+  </div>
+</div>
+<div class="paper-container">
+  <img src="paper_figures/memory_trigger.png" alt="Memory Triggers" class="paper-image">
+  <div class="paper-content">
+    <div class="paper-title">
+      <a href="https://arxiv.org/pdf/2312.03692" target="_blank">Memory Triggers: Unveiling Memorization in Text-To-Image Generative Models through Word-Level Duplication</a>
+    </div>
+    <div class="paper-authors">
+      Ali Naseh, <strong><u>Jaechul Roh</u></strong>, Amir Houmansadr
+    </div>
+    <div class="paper-venue">The 5th AAAI Workshop on Privacy-Preserving Artificial Intelligence</div>
+  </div>
+</div>
 
 ### 2023
 
-[**Robust Smart Home Face Recognition under Starving Federated Data**](https://arxiv.org/pdf/2211.05410)  
-   **<u><b>Jaechul Roh</b></u>**, Yajun Fang  
-   *Oral Presentation in the IEEE International Conference on Universal Village (IEEE UV2022)*  
-   [[code]](https://github.com/jcroh0508/FLATS) | [[slides]](https://www.jrohs.com/_files/ugd/c489e1_bbc7e44075944cad98da82f31e7430ae.pdf) | [[video]](https://www.youtube.com/watch?v=Tj9QiJEUBXU&ab_channel=jroh)
-
-[**MSDT: Masked Language Model Scoring Defense in Text Domain**](https://arxiv.org/pdf/2211.05371)  
-   **<u><b>Jaechul Roh</b></u>**, Minhao Cheng, Yajun Fang  
-   *Oral Presentation in the IEEE International Conference on Universal Village (IEEE UV2022*)  
-   [[code]](https://github.com/jcroh0508/MSDT) | [[slides]](https://www.jrohs.com/_files/ugd/c489e1_bbc7e44075944cad98da82f31e7430ae.pdf) | [[video]](https://www.youtube.com/watch?v=oO3FbxnMdv0&ab_channel=jroh)
-
-[**Impact of Adversarial Training on the Robustness of Deep Neural Networks**](https://ieeexplore.ieee.org/abstract/document/9927611)  
-   **<u><b>Jaechul Roh</b></u>**  
-   *2022 IEEE 5th International Conference on Information Systems and Computer Aided Education (ICISCAE)*  
-   [[code]](https://github.com/jcroh0508/Adversarial_Training_Impact)
+<div class="paper-container">
+  <img src="paper_figures/robust_smarthome.png" alt="Robust Smart Home" class="paper-image">
+  <div class="paper-content">
+    <div class="paper-title">
+      <a href="https://arxiv.org/pdf/2211.05410" target="_blank">Robust Smart Home Face Recognition under Starving Federated Data</a>
+    </div>
+    <div class="paper-authors">
+      <strong><u>Jaechul Roh</u></strong>, Yajun Fang
+    </div>
+    <div class="paper-venue">Oral Presentation in the IEEE International Conference on Universal Village (IEEE UV2022)</div>
+    <div class="paper-links">
+      <a href="https://github.com/jcroh0508/FLATS" target="_blank">[code]</a> | 
+      <a href="https://www.jrohs.com/_files/ugd/c489e1_bbc7e44075944cad98da82f31e7430ae.pdf" target="_blank">[slides]</a> | 
+      <a href="https://www.youtube.com/watch?v=Tj9QiJEUBXU&ab_channel=jroh" target="_blank">[video]</a>
+    </div>
+  </div>
+</div>
+<div class="paper-container">
+  <img src="paper_figures/MSDT.png" alt="MSDT" class="paper-image">
+  <div class="paper-content">
+    <div class="paper-title">
+      <a href="https://arxiv.org/pdf/2211.05371" target="_blank">MSDT: Masked Language Model Scoring Defense in Text Domain</a>
+    </div>
+    <div class="paper-authors">
+      <strong><u>Jaechul Roh</u></strong>, Minhao Cheng, Yajun Fang
+    </div>
+    <div class="paper-venue">Oral Presentation in the IEEE International Conference on Universal Village (IEEE UV2022)</div>
+    <div class="paper-links">
+      <a href="https://github.com/jcroh0508/MSDT" target="_blank">[code]</a> | 
+      <a href="https://www.jrohs.com/_files/ugd/c489e1_bbc7e44075944cad98da82f31e7430ae.pdf" target="_blank">[slides]</a> | 
+      <a href="https://www.youtube.com/watch?v=oO3FbxnMdv0&ab_channel=jroh" target="_blank">[video]</a>
+    </div>
+  </div>
+</div>
+<div class="paper-container">
+  <img src="paper_figures/impact_adv_training.png" alt="Impact of Adversarial Training" class="paper-image">
+  <div class="paper-content">
+    <div class="paper-title">
+      <a href="https://ieeexplore.ieee.org/abstract/document/9927611" target="_blank">Impact of Adversarial Training on the Robustness of Deep Neural Networks</a>
+    </div>
+    <div class="paper-authors">
+      <strong><u>Jaechul Roh</u></strong>
+    </div>
+    <div class="paper-venue">2022 IEEE 5th International Conference on Information Systems and Computer Aided Education (ICISCAE)</div>
+    <div class="paper-links">
+      <a href="https://github.com/jcroh0508/Adversarial_Training_Impact" target="_blank">[code]</a>
+    </div>
+  </div>
+</div>
