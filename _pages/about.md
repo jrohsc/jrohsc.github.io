@@ -240,7 +240,7 @@ Feel free to book a time that works for you through my [Calendly](https://calend
     <div class="paper-authors">
       Ali Naseh, <strong><u>Jaechul Roh</u></strong>, Amir Houmansadr
     </div>
-    <div class="paper-venue">The 5th AAAI Workshop on Privacy-Preserving Artificial Intelligence</div>
+    <div class="paper-venue">The 5th PPAI (AAAI Workshop)</div>
   </div>
 </div>
 
@@ -256,7 +256,7 @@ Feel free to book a time that works for you through my [Calendly](https://calend
     <div class="paper-authors">
       <strong><u>Jaechul Roh</u></strong>, Yajun Fang
     </div>
-    <div class="paper-venue">Oral Presentation in the IEEE International Conference on Universal Village (IEEE UV2022)</div>
+    <div class="paper-venue"> IEEE UV 2022 (Oral Presentation)</div>
     <div class="paper-links">
       <a href="https://github.com/jcroh0508/FLATS" target="_blank">[code]</a> | 
       <a href="https://www.jrohs.com/_files/ugd/c489e1_bbc7e44075944cad98da82f31e7430ae.pdf" target="_blank">[slides]</a> | 
@@ -273,7 +273,7 @@ Feel free to book a time that works for you through my [Calendly](https://calend
     <div class="paper-authors">
       <strong><u>Jaechul Roh</u></strong>, Minhao Cheng, Yajun Fang
     </div>
-    <div class="paper-venue">Oral Presentation in the IEEE International Conference on Universal Village (IEEE UV2022)</div>
+    <div class="paper-venue">IEEE UV 2022 (Oral Presentation)</div>
     <div class="paper-links">
       <a href="https://github.com/jcroh0508/MSDT" target="_blank">[code]</a> | 
       <a href="https://www.jrohs.com/_files/ugd/c489e1_bbc7e44075944cad98da82f31e7430ae.pdf" target="_blank">[slides]</a> | 
@@ -290,7 +290,7 @@ Feel free to book a time that works for you through my [Calendly](https://calend
     <div class="paper-authors">
       <strong><u>Jaechul Roh</u></strong>
     </div>
-    <div class="paper-venue">2022 IEEE 5th International Conference on Information Systems and Computer Aided Education (ICISCAE)</div>
+    <div class="paper-venue">IEEE ICISCAE 2022</div>
     <div class="paper-links">
       <a href="https://github.com/jcroh0508/Adversarial_Training_Impact" target="_blank">[code]</a>
     </div>
