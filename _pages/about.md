@@ -116,6 +116,7 @@ Feel free to book a time that works for you through my [Calendly](https://calend
 
 
 ### Preprint
+--------
 <div class="paper-container">
   <img src="paper_figures/cocc.png" alt="Chain-of-Code Collapse" class="paper-image">
   <div class="paper-content">
@@ -185,7 +186,7 @@ Feel free to book a time that works for you through my [Calendly](https://calend
 
 
 ### 2025 
-
+--------
 <div class="paper-container">
   <img src="paper_figures/multi_audiojail.png" alt="Multilingual Audio Jailbreaking" class="paper-image">
   <div class="paper-content">
@@ -216,6 +217,7 @@ Feel free to book a time that works for you through my [Calendly](https://calend
    
 
 ### 2024
+--------
 
 <div class="paper-container">
   <img src="paper_figures/oslo.png" alt="OSLO" class="paper-image">
@@ -242,8 +244,9 @@ Feel free to book a time that works for you through my [Calendly](https://calend
   </div>
 </div>
 
-### 2023
 
+### 2023
+--------
 <div class="paper-container">
   <img src="paper_figures/robust_smarthome.png" alt="Robust Smart Home" class="paper-image">
   <div class="paper-content">
