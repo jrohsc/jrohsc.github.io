@@ -132,8 +132,6 @@ Feel free to book a time that works for you through my [Calendly](https://calend
   </div>
 </div>
 
---------
-
 <div class="paper-container">
   <img src="paper_figures/r1dacted.png" alt="R1dacted" class="paper-image">
   <div class="paper-content">
@@ -146,8 +144,6 @@ Feel free to book a time that works for you through my [Calendly](https://calend
     <div class="paper-venue">arXiv</div>
   </div>
 </div>
-
---------
 
 <div class="paper-container">
   <img src="paper_figures/overthink.png" alt="OverThink" class="paper-image">
@@ -165,7 +161,6 @@ Feel free to book a time that works for you through my [Calendly](https://calend
   </div>
 </div>
 
---------
 
 <div class="paper-container">
   <img src="paper_figures/fambias.png" alt="FameBias" class="paper-image">
@@ -180,7 +175,6 @@ Feel free to book a time that works for you through my [Calendly](https://calend
   </div>
 </div>
 
---------
 
 <div class="paper-container">
   <img src="paper_figures/(un)intended.png" alt="Understanding Memorization" class="paper-image">
@@ -195,7 +189,6 @@ Feel free to book a time that works for you through my [Calendly](https://calend
   </div>
 </div>
 
---------
 ## 2025 
 
 <div class="paper-container">
@@ -227,7 +220,6 @@ Feel free to book a time that works for you through my [Calendly](https://calend
 </div>
    
 
---------
 ## 2024
 
 <div class="paper-container">
@@ -243,7 +235,6 @@ Feel free to book a time that works for you through my [Calendly](https://calend
   </div>
 </div>
 
---------
 
 <div class="paper-container">
   <img src="paper_figures/memory_trigger.png" alt="Memory Triggers" class="paper-image">
@@ -258,7 +249,6 @@ Feel free to book a time that works for you through my [Calendly](https://calend
   </div>
 </div>
 
---------
 ## 2023
 
 <div class="paper-container">
@@ -279,7 +269,6 @@ Feel free to book a time that works for you through my [Calendly](https://calend
   </div>
 </div>
 
---------
 
 <div class="paper-container">
   <img src="paper_figures/MSDT.png" alt="MSDT" class="paper-image">
@@ -299,7 +288,6 @@ Feel free to book a time that works for you through my [Calendly](https://calend
   </div>
 </div>
 
---------
 
 <div class="paper-container">
   <img src="paper_figures/impact_adv_training.png" alt="Impact of Adversarial Training" class="paper-image">
