@@ -14,11 +14,11 @@ layouts_gallery:
 ---
 
 <!-- ######################################################################################################################################## -->
-I am a Ph.D. student in computer science at the University of Massachusetts Amherst, advised by <a href="https://people.cs.umass.edu/~amir/" target="_blank">Prof. Amir Houmansadr</a>. 
+I am a Ph.D. student in computer science at the University of Massachusetts Amherst, advised by <a href="https://people.cs.umass.edu/~amir/" target="_blank">Amir Houmansadr</a>. 
 
-My research focuses on exploring the **privacy, security, and trustworthiness** of AI models. Recently, I have been investigating the reliability of multimodal models, while also maintaining a strong interest in related areas such as **fairness, interpretability, and responsible AI**. My current work delves into assessing the trustworthiness of multimodal generative models across diverse domains, including text-to-image and audio-based modalities. I am currently doing a Summer Internship at Brave Software working on privacy and security of AI agents with Dr. Ali Shahin Shamsabadi.
+My research focuses on exploring the **privacy, security, and trustworthiness** of AI models. Recently, I have been investigating the reliability of multimodal models, while also maintaining a strong interest in related areas such as **fairness, interpretability, and responsible AI**. My current work delves into assessing the trustworthiness of multimodal generative models across diverse domains, including text-to-image and audio-based modalities. I am currently doing a Summer Internship at Brave Software working on privacy and security of AI agents with [Ali Shahin Shamsabadi](https://alishahin.github.io/).
 
-Prior to my graduate studies, I earned my bachelor's degree in computer engineering from the Hong Kong University of Science and Technology (HKUST) in the year 2023, where I completed my Final Year Thesis (FYT) on the topic of "Adversarial Attacks in Federated Learning" under the supervision of <a href="https://eejzhang.people.ust.hk/" target="_black">Prof. Jun Zhang</a>. I have also worked with [Prof. Minhao Cheng](https://cmhcbb.github.io/) on the robustness of language models, specifically exploring methods associated with backdoor defense in text domain.
+Prior to my graduate studies, I earned my bachelor's degree in computer engineering from the Hong Kong University of Science and Technology (HKUST) in the year 2023, where I completed my Final Year Thesis (FYT) on the topic of "Adversarial Attacks in Federated Learning" under the supervision of <a href="https://eejzhang.people.ust.hk/" target="_black">Jun Zhang</a>. I have also worked with [Minhao Cheng](https://cmhcbb.github.io/) on the robustness of language models, specifically exploring methods associated with backdoor defense in text domain.
 
 --------
 
@@ -38,7 +38,7 @@ Feel free to book a time that works for you through my [Calendly](https://calend
   <div style="height: 240px; overflow-y: auto; position: relative; border-left: 4px solid #007acc; padding-left: 1rem;">
     <div id="news-ticker" style="display: flex; flex-direction: column;">
 
-      <p>🎙️ <strong>July 11 '25</strong>: I will be giving a talk at the NFM Reading Group led by the Speech Technologies Group at Google Deemind on our <a href="https://arxiv.org/abs/2504.01094" target="_blank">Multilingual and Multi-Accent Jailbreaking of Audio LLMs</a> paper. View talk <a href="https://docs.google.com/presentation/d/1LOQ5W4fck5dfnv5I6LJBvbk4FOHydcJ-/edit?usp=sharing&ouid=104745020285400681437&rtpof=true&sd=true" target="_blank">slides</a></p>
+      <p>🎙️ <strong>July 11 '25</strong>: I will be giving a talk at the NFM Reading Group led by the Speech Technologies Group at Google Deemind on our <a href="https://arxiv.org/abs/2504.01094" target="_blank">Multilingual and Multi-Accent Jailbreaking of Audio LLMs</a> paper. <a href="https://docs.google.com/presentation/d/1LOQ5W4fck5dfnv5I6LJBvbk4FOHydcJ-/edit?usp=sharing&ouid=104745020285400681437&rtpof=true&sd=true" target="_blank">[slides]</a></p>.
 
       <p>🎉 <strong>July 7 '25</strong>: Our <a href="https://arxiv.org/abs/2504.01094" target="_blank">Multilingual and Multi-Accent Jailbreaking of Audio LLMs</a> paper has been accepted to <em>COLM (Conference on Language Modeling) 2025</em>!</p>
 
@@ -63,82 +63,67 @@ Feel free to book a time that works for you through my [Calendly](https://calend
 
 <!-- ######################################################################################################################################## -->
 ## 🖨️ Preprint / Publications
+### Preprint
 
-## Preprint
 [**Chain-of-Code Collapse: Reasoning Failures in LLMs via Adversarial Prompting in Code Generation**](https://arxiv.org/pdf/2506.06971) <br>
    **<u><b>Jaechul Roh</b></u>**, Varun Gandhi, Shivani Anilkumar, Arin Garg <br>
    *Preprint at arXiv* <br>
-   <!-- NeurIPS 2024 -->
    [[code]](https://github.com/jrohsc/Chain-of-Code-Collapse)
 
-**R1dacted: Investigating Local Censorship in DeepSeek's R1 Language Model** <br>
+[**R1dacted: Investigating Local Censorship in DeepSeek's R1 Language Model**](https://arxiv.org/pdf/2505.12625) <br>
    Ali Naseh, Harsh Chaudhari, **<u><b>Jaechul Roh</b></u>**, Mingshi Wu, Alina Oprea, Amir Houmansadr <br>
    *Preprint at arXiv* <br>
-   <!-- NeurIPS 2024 -->
-   [[paper]](https://arxiv.org/pdf/2505.12625)
 
-**OverThink: Slowdown Attacks on Reasoning LLMs** <br>
+[**OverThink: Slowdown Attacks on Reasoning LLMs**](https://arxiv.org/abs/2502.02542) <br>
    Abhinav Kumar, **<u><b>Jaechul Roh</b></u>**, Ali Naseh, Marezna Karpinska, Mohit Iyyer, Amir Houmansadr, and Eugene Bagdasaryan <br>
    *Preprint at arXiv* <br>
-   <!-- NeurIPS 2024 -->
-   [[paper]](https://arxiv.org/abs/2502.02542) [[code]](https://github.com/akumar2709/OVERTHINK_public)
+   [[code]](https://github.com/akumar2709/OVERTHINK_public)
 
-**FameBias: Embedding Manipulation Bias Attack in Text-to-Image Models** <br>
+[**FameBias: Embedding Manipulation Bias Attack in Text-to-Image Models**](https://arxiv.org/pdf/2412.18302) <br>
    **<u><b>Jaechul Roh</b></u>**, Andrew Yuan, Jinsong Mao <br>
    *Preprint at arXiv* <br>
-   <!-- NeurIPS 2024 -->
-   <a href="https://arxiv.org/pdf/2412.18302" target="_blank">[paper]</a>
 
-**Understanding (Un)Intended Memorization in Text-to-Image Generative Models**  
+[**Understanding (Un)Intended Memorization in Text-to-Image Generative Models**](https://arxiv.org/pdf/2312.07550)  
    Ali Naseh, **<u><b>Jaechul Roh</b></u>**, Amir Houmansadr  
    *Preprint at arXiv*  
-   [[paper]](https://arxiv.org/pdf/2312.07550)
 
 
-## 2025 
-**Multilingual and Multi-Accent Jailbreaking of Audio LLMs** <br>
+### 2025 
+
+[**Multilingual and Multi-Accent Jailbreaking of Audio LLMs**](https://arxiv.org/abs/2504.01094) <br>
    **<u><b>Jaechul Roh</b></u>**, Virat Shejwalkar, Amir Houmansadr <br>
    *COLM 2025* <br>
-   <!-- NeurIPS 2024 -->
-   [[paper]](https://arxiv.org/abs/2504.01094)
 
-**Backdooring Bias into Text-to-Image Models**  
+[**Backdooring Bias into Text-to-Image Models**](https://arxiv.org/pdf/2406.15213)  
    Ali Naseh, **<u><b>Jaechul Roh</b></u>**, Eugene Bagdasaryan, Amir Houmansadr  
    *USENIX Security '25*  
-   <!-- NeurIPS 2024 -->
-   [[paper]](https://arxiv.org/pdf/2406.15213) [[code]](https://github.com/jcroh0508/Backdororing_Bias/)
+   [[code]](https://github.com/jcroh0508/Backdororing_Bias/)
    
 
-## 2024
-**OSLO: One-Shot Label-Only Membership Inference Attacks** <br>
+### 2024
+
+[**OSLO: One-Shot Label-Only Membership Inference Attacks**](https://arxiv.org/pdf/2405.16978) <br>
    Yuefeng Peng, <u><b>Jaechul Roh</b></u>, Subhransu Maji, Amir Houmansadr <br>
    *NeurIPS 2024* <br>
-   <!-- NeurIPS 2024 -->
-   <a href="https://arxiv.org/pdf/2405.16978" target="_blank">[paper]</a>
 
-**Memory Triggers: Unveiling Memorization in Text-To-Image Generative Models through Word-Level Duplication**  
+[**Memory Triggers: Unveiling Memorization in Text-To-Image Generative Models through Word-Level Duplication**](https://arxiv.org/pdf/2312.03692)  
    Ali Naseh, **<u><b>Jaechul Roh</b></u>**, Amir Houmansadr  
    *The 5th AAAI Workshop on Privacy-Preserving Artificial Intelligence*  
-   <!-- The 5th AAAI Workshop on Privacy-Preserving Artificial Intelligence -->
-   [[paper]](https://arxiv.org/pdf/2312.03692)
 
 
+### 2023
 
-## 2023
-**Robust Smart Home Face Recognition under Starving Federated Data**  
+[**Robust Smart Home Face Recognition under Starving Federated Data**](https://arxiv.org/pdf/2211.05410)  
    **<u><b>Jaechul Roh</b></u>**, Yajun Fang  
    *Oral Presentation in the IEEE International Conference on Universal Village (IEEE UV2022)*  
-   <!-- Oral Presentation in the IEEE International Conference on Universal Village (IEEE UV2022)   -->
-   [[paper]](https://arxiv.org/pdf/2211.05410) | [[code]](https://github.com/jcroh0508/FLATS) | [[slides]](https://www.jrohs.com/_files/ugd/c489e1_bbc7e44075944cad98da82f31e7430ae.pdf) | [[video]](https://www.youtube.com/watch?v=Tj9QiJEUBXU&ab_channel=jroh)
+   [[code]](https://github.com/jcroh0508/FLATS) | [[slides]](https://www.jrohs.com/_files/ugd/c489e1_bbc7e44075944cad98da82f31e7430ae.pdf) | [[video]](https://www.youtube.com/watch?v=Tj9QiJEUBXU&ab_channel=jroh)
 
-**MSDT: Masked Language Model Scoring Defense in Text Domain**  
+[**MSDT: Masked Language Model Scoring Defense in Text Domain**](https://arxiv.org/pdf/2211.05371)  
    **<u><b>Jaechul Roh</b></u>**, Minhao Cheng, Yajun Fang  
    *Oral Presentation in the IEEE International Conference on Universal Village (IEEE UV2022*)  
-   <!-- Oral Presentation in the IEEE International Conference on Universal Village (IEEE UV2022)   -->
-   [[paper]](https://arxiv.org/pdf/2211.05371) | [[code]](https://github.com/jcroh0508/MSDT) | [[slides]](https://www.jrohs.com/_files/ugd/c489e1_bbc7e44075944cad98da82f31e7430ae.pdf) | [[video]](https://www.youtube.com/watch?v=oO3FbxnMdv0&ab_channel=jroh)
+   [[code]](https://github.com/jcroh0508/MSDT) | [[slides]](https://www.jrohs.com/_files/ugd/c489e1_bbc7e44075944cad98da82f31e7430ae.pdf) | [[video]](https://www.youtube.com/watch?v=oO3FbxnMdv0&ab_channel=jroh)
 
-**Impact of Adversarial Training on the Robustness of Deep Neural Networks**  
+[**Impact of Adversarial Training on the Robustness of Deep Neural Networks**](https://ieeexplore.ieee.org/abstract/document/9927611)  
    **<u><b>Jaechul Roh</b></u>**  
    *2022 IEEE 5th International Conference on Information Systems and Computer Aided Education (ICISCAE)*  
-   <!-- 2022 IEEE 5th International Conference on Information Systems and Computer Aided Education (ICISCAE)   -->
-   [[paper]](https://ieeexplore.ieee.org/abstract/document/9927611) | [[code]](https://github.com/jcroh0508/Adversarial_Training_Impact)
+   [[code]](https://github.com/jcroh0508/Adversarial_Training_Impact)
