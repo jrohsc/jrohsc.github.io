@@ -126,7 +126,7 @@ Feel free to book a time that works for you through my [Calendly](https://calend
     <div class="paper-authors">
       <strong><u>Jaechul Roh</u></strong>, Varun Gandhi, Shivani Anilkumar, Arin Garg
     </div>
-    <div class="paper-venue">Preprint at arXiv</div>
+    <div class="paper-venue">arXiv</div>
     <div class="paper-links">
       <a href="https://github.com/jrohsc/Chain-of-Code-Collapse" target="_blank">[code]</a>
     </div>
@@ -141,7 +141,7 @@ Feel free to book a time that works for you through my [Calendly](https://calend
     <div class="paper-authors">
       Ali Naseh, Harsh Chaudhari, <strong><u>Jaechul Roh</u></strong>, Mingshi Wu, Alina Oprea, Amir Houmansadr
     </div>
-    <div class="paper-venue">Preprint at arXiv</div>
+    <div class="paper-venue">arXiv</div>
   </div>
 </div>
 <div class="paper-container">
@@ -153,7 +153,7 @@ Feel free to book a time that works for you through my [Calendly](https://calend
     <div class="paper-authors">
       Abhinav Kumar, <strong><u>Jaechul Roh</u></strong>, Ali Naseh, Marezna Karpinska, Mohit Iyyer, Amir Houmansadr, and Eugene Bagdasaryan
     </div>
-    <div class="paper-venue">Preprint at arXiv</div>
+    <div class="paper-venue">arXiv</div>
     <div class="paper-links">
       <a href="https://github.com/akumar2709/OVERTHINK_public" target="_blank">[code]</a>
     </div>
@@ -168,7 +168,7 @@ Feel free to book a time that works for you through my [Calendly](https://calend
     <div class="paper-authors">
       <strong><u>Jaechul Roh</u></strong>, Andrew Yuan, Jinsong Mao
     </div>
-    <div class="paper-venue">Preprint at arXiv</div>
+    <div class="paper-venue">arXiv</div>
   </div>
 </div>
 <div class="paper-container">
@@ -180,7 +180,7 @@ Feel free to book a time that works for you through my [Calendly](https://calend
     <div class="paper-authors">
       Ali Naseh, <strong><u>Jaechul Roh</u></strong>, Amir Houmansadr
     </div>
-    <div class="paper-venue">Preprint at arXiv</div>
+    <div class="paper-venue">arXiv</div>
   </div>
 </div>
 
