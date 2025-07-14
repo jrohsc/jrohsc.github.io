@@ -171,7 +171,7 @@ Feel free to book a time that works for you through my [Calendly](https://calend
   </div>
 </div>
 <div class="paper-container">
-  <img src="paper_figures/unintended.png" alt="Understanding Memorization" class="paper-image">
+  <img src="paper_figures/(un)intended.png" alt="Understanding Memorization" class="paper-image">
   <div class="paper-content">
     <div class="paper-title">
       <a href="https://arxiv.org/pdf/2312.07550" target="_blank">Understanding (Un)Intended Memorization in Text-to-Image Generative Models</a>
@@ -199,7 +199,7 @@ Feel free to book a time that works for you through my [Calendly](https://calend
   </div>
 </div>
 <div class="paper-container">
-  <img src="paper_figures/backdooring_bias_(2).png" alt="Backdooring Bias" class="paper-image">
+  <img src="paper_figures/backdooring_bias_t2i.png" alt="Backdooring Bias" class="paper-image">
   <div class="paper-content">
     <div class="paper-title">
       <a href="https://arxiv.org/pdf/2406.15213" target="_blank">Backdooring Bias into Text-to-Image Models</a>
