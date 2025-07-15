@@ -20,11 +20,39 @@
 </div>
 
 <style>
+/* Make profile photo larger */
+.author__avatar img {
+  width: 180px !important;
+  height: 180px !important;
+  max-width: 180px !important;
+}
+
+/* Center the name and bio */
+.author__name {
+  text-align: center !important;
+  margin: 0.5rem 0 !important;
+}
+
+.author__bio {
+  text-align: center !important;
+  margin: 0.5rem 0 !important;
+}
+
+/* Center the location and email */
+.author__urls-wrapper {
+  text-align: center !important;
+}
+
+.author__urls {
+  text-align: center !important;
+}
+
+/* Social icons styling */
 .author__urls-custom {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 4px;
+  gap: 6px;
   margin: 1rem 0;
   flex-wrap: wrap;
   text-align: center;
@@ -35,10 +63,10 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 35px;
-  height: 35px;
+  width: 45px;
+  height: 45px;
   color: #52739e !important;
-  font-size: 18px;
+  font-size: 22px;
   text-decoration: none;
   transition: all 0.3s ease;
   border-radius: 3px;
@@ -60,7 +88,7 @@
 
 .cv-text-icon {
   font-weight: bold;
-  font-size: 12px;
+  font-size: 14px;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   color: #52739e !important;
 }
