@@ -116,8 +116,8 @@ author:
   name: "Jaechul Roh"
   avatar: "/images/Jaechul Roh Photo 2.jpg"
   bio: "Ph.D. Student in Computer Science @ UMass Amherst"
-  location: "Amherst, MA"
-  email: "jroh@umass.edu"
+  # location: "Amherst, MA"
+  # email: "jroh@umass.edu"
   # links:
   #   - label: "Email"
   #     icon: "fas fa-fw fa-envelope-square"

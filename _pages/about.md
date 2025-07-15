@@ -100,7 +100,7 @@ Prior to my graduate studies, I earned my bachelor's degree in computer engineer
 
 -------- -->
 
---------
+
 <h2 style="font-size: 1.5rem;">💬 Office Hours</h2>
 I’m hosting weekly office hours—feel free to drop by! I'm happy to chat and advise on research (or projects), PhD applications, or anything else on your mind. Casual chats welcome too (I’m a big football (soccer) fan ⚽️). Lately, I've been working on trustworthiness of AI agents and audio modality safety, but I'm always open to exploring new areas and directions you might bring.
 
