@@ -313,18 +313,10 @@ compress_html:
 
 # Defaults
 defaults:
-  # _posts
   - scope:
       path: ""
-      type: posts
     values:
-      css: "assets/css/custom.scss"
-      layout: single
-      author_profile: true
-      read_time: true
-      comments: # true
-      share: true
-      related: true
+      css: "assets/css/custom.css"
   # _pages
   - scope:
       path: "_pages"
