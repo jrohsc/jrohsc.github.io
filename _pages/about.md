@@ -25,8 +25,7 @@ Prior to my graduate studies, I earned my bachelor's degree in computer engineer
 [[Résumé]](files/CV - Jaechul_Roh.pdf) / [[Google Scholar]](https://scholar.google.com/citations?user=knCeRjsAAAAJ&hl=ko) / [[GitHub]](https://github.com/jrohsc) / [[Linkedin]](https://www.linkedin.com/in/jaechul-roh-572363155/)
 
 --------
-
-## 💬 Office Hours
+<h2 style="font-size: 1.5rem;">💬 Office Hours</h2>
 I’m hosting weekly office hours—feel free to drop by! I'm happy to chat and advise on research (or projects), PhD applications, or anything else on your mind. Casual chats welcome too (I’m a big football (soccer) fan ⚽️). Lately, I've been working on trustworthiness of AI agents and audio modality safety, but I'm always open to exploring new areas and directions you might bring.
 
 Feel free to book a time that works for you through my [Calendly](https://calendly.com/jroh-scm). 
@@ -116,7 +115,7 @@ Feel free to book a time that works for you through my [Calendly](https://calend
 </style>
 
 
-## Preprint
+<h3 style="font-size: 1.5rem;">Preprint</h2>
 <div class="paper-container">
   <img src="paper_figures/cocc.png" alt="Chain-of-Code Collapse" class="paper-image">
   <div class="paper-content">
@@ -190,7 +189,7 @@ Feel free to book a time that works for you through my [Calendly](https://calend
   </div>
 </div>
 
-## 2025 
+<h3 style="font-size: 1.5rem;">2025</h2>
 
 <div class="paper-container">
   <img src="paper_figures/multi_audiojail.png" alt="Multilingual Audio Jailbreaking" class="paper-image">
@@ -221,7 +220,7 @@ Feel free to book a time that works for you through my [Calendly](https://calend
 </div>
    
 
-## 2024
+<h3 style="font-size: 1.5rem;">2024</h2>
 
 <div class="paper-container">
   <img src="paper_figures/oslo.png" alt="OSLO" class="paper-image">
@@ -250,7 +249,7 @@ Feel free to book a time that works for you through my [Calendly](https://calend
   </div>
 </div>
 
-## 2023
+<h3 style="font-size: 1.5rem;">2023</h2>
 
 <div class="paper-container">
   <img src="paper_figures/robust_smarthome.png" alt="Robust Smart Home" class="paper-image">
