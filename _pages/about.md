@@ -62,7 +62,8 @@ Feel free to book a time that works for you through my [Calendly](https://calend
 
 
 <!-- ######################################################################################################################################## -->
-## 🖨️ Preprint / Publications
+
+<h2 style="font-size: 1.5rem;">🖨️ Preprint / Publications</h2>
 <style>
 .paper-container {
   display: flex;
