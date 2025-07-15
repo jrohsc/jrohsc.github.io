@@ -7,6 +7,10 @@
    Your original code was importing and using 'Poppins', which is a sans-serif font.
    The lines below are updated to use a classic serif font family to match your screenshot.
 */
-$global-font-family: 'Georgia', 'Times New Roman', serif !default;
-$header-font-family: 'Georgia', 'Times New Roman', serif !default;
-$caption-font-family: 'Georgia', 'Times New Roman', serif !default;
+// $global-font-family: 'Georgia', 'Times New Roman', serif !default;
+// $header-font-family: 'Georgia', 'Times New Roman', serif !default;
+// $caption-font-family: 'Georgia', 'Times New Roman', serif !default;
+
+.author__urls .author__url .label {
+  display: none;
+}

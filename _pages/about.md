@@ -25,7 +25,7 @@ Prior to my graduate studies, I earned my bachelor's degree in computer engineer
 [[Résumé]](files/CV - Jaechul_Roh.pdf) / [[Google Scholar]](https://scholar.google.com/citations?user=knCeRjsAAAAJ&hl=ko) / [[GitHub]](https://github.com/jrohsc) / [[Linkedin]](https://www.linkedin.com/in/jaechul-roh-572363155/) -->
 
 <!-- Social Media Icons -->
-<div class="social-icons">
+<!-- <div class="social-icons">
   <a href="mailto:jroh@cs.umass.edu" class="social-icon" title="Email">
     <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
       <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
@@ -72,7 +72,7 @@ Prior to my graduate studies, I earned my bachelor's degree in computer engineer
   justify-content: center;
   width: 50px;
   height: 40px;
-  background-color: #4a5568;
+  background-color:rgb(255, 255, 255);
   color: white;
   text-decoration: none;
   transition: all 0.3s ease;
@@ -98,7 +98,7 @@ Prior to my graduate studies, I earned my bachelor's degree in computer engineer
 }
 </style>
 
---------
+-------- -->
 
 --------
 <h2 style="font-size: 1.5rem;">💬 Office Hours</h2>
