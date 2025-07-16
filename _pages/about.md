@@ -53,7 +53,7 @@ Prior to my graduate studies, I earned my bachelor's degree in computer engineer
   </a>
   <a href="https://www.linkedin.com/in/jaechul-roh-572363155/" class="social-icon" title="LinkedIn">
     <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-      <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+      <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h4.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019h4.555V9h4.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
     </svg>
   </a>
 </div>
@@ -191,7 +191,7 @@ Feel free to book a time that works for you through my [Calendly](https://calend
 </style>
 
 
-<h3 style="font-size: 1.5rem;">Preprint</h3>
+<h4 style="font-size: 1.5rem;">Preprint</h4>
 <div class="paper-container">
   <img src="paper_figures/cocc.png" alt="Chain-of-Code Collapse" class="paper-image">
   <div class="paper-content">
@@ -265,7 +265,7 @@ Feel free to book a time that works for you through my [Calendly](https://calend
   </div>
 </div>
 
-<h3 style="font-size: 1.5rem;">2025</h3>
+<h4 style="font-size: 1.5rem;">2025</h4>
 
 <div class="paper-container">
   <img src="paper_figures/multi_audiojail.png" alt="Multilingual Audio Jailbreaking" class="paper-image">
@@ -296,7 +296,7 @@ Feel free to book a time that works for you through my [Calendly](https://calend
 </div>
    
 
-<h3 style="font-size: 1.5rem;">2024</h3>
+<h4 style="font-size: 1.5rem;">2024</h4>
 
 <div class="paper-container">
   <img src="paper_figures/oslo.png" alt="OSLO" class="paper-image">
@@ -325,7 +325,7 @@ Feel free to book a time that works for you through my [Calendly](https://calend
   </div>
 </div>
 
-<h3 style="font-size: 1.5rem;">2023</h3>
+<h4 style="font-size: 1.5rem;">2023</h4>
 
 <div class="paper-container">
   <img src="paper_figures/robust_smarthome.png" alt="Robust Smart Home" class="paper-image">
