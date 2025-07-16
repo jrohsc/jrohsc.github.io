@@ -40,21 +40,22 @@ layouts_gallery:
 }
 
 .profile-info h1 {
-  font-size: 40px;
+  font-size: 4rem !important;
   margin: 0 0 0.5rem 0;
   color: #2c3e50;
+  font-weight: bold;
 }
 
 .profile-info .title {
   font-size: 1rem;
   color: #666;
-  margin-bottom: 0.1rem;
+  margin-bottom: 0.3rem;
 }
 
 .profile-info .affiliation {
   font-size: 1rem;
   color: #666;
-  margin-bottom: 0.3rem;
+  margin-bottom: 1.5rem;
 }
 
 .social-icons {
@@ -111,6 +112,8 @@ layouts_gallery:
   }
 }
 </style>
+
+
 <!-- Profile Header Section -->
 <div class="profile-header">
   <div class="profile-photo">
