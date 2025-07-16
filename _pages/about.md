@@ -29,7 +29,7 @@ layouts_gallery:
 
 .profile-photo img {
   width: 200px;
-  height: 200px;
+  height: 220px;
   border-radius: 50%;
   object-fit: cover;
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
@@ -48,7 +48,7 @@ layouts_gallery:
 .profile-info .title {
   font-size: 1.1rem;
   color: #666;
-  margin-bottom: 1rem;
+  margin-bottom: 0.3rem;
 }
 
 .profile-info .affiliation {
@@ -111,13 +111,16 @@ layouts_gallery:
   }
 }
 </style>
+
+
+
 <!-- Profile Header Section -->
 <div class="profile-header">
   <div class="profile-photo">
-    <img src="/images/Jaechul_Roh_Photo_2.jpg" alt="Jaechul Roh">
+    <img src="/images/Jaechul Roh Photo 2.jpg" alt="Jaechul Roh">
   </div>
   <div class="profile-info">
-    <h1>Jaechul Roh</h1>
+    <h2>Jaechul Roh</h2>
     <div class="title">Ph.D. Student in Computer Science</div>
     <div class="affiliation">University of Massachusetts Amherst</div>
 
