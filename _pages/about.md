@@ -170,6 +170,13 @@ layouts_gallery:
 
 
 <!-- ######################################################################################################################################## -->
+<h2 style="font-size: 1.5rem; display: flex; align-items: center; gap: 0.5rem; color: #2c3e50;">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="#2c3e50">
+    <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+  </svg>
+  About
+</h2>
+
 I am a Ph.D. student in computer science at the University of Massachusetts Amherst, advised by <a href="https://people.cs.umass.edu/~amir/" target="_blank">Amir Houmansadr</a>. 
 
 My research focuses on exploring the **privacy, security, and trustworthiness** of AI models. Recently, I have been investigating the reliability of multimodal models, while also maintaining a strong interest in related areas such as **fairness, interpretability, and responsible AI**. My current work delves into assessing the trustworthiness of multimodal generative models across diverse domains, including text-to-image and audio-based modalities. I am currently doing a Summer Internship at Brave Software working on privacy and security of AI agents with [Ali Shahin Shamsabadi](https://alishahin.github.io/).
