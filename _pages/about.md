@@ -117,7 +117,7 @@ layouts_gallery:
     <img src="/images/Jaechul Roh Photo 2.jpg" alt="Jaechul Roh">
   </div>
   <div class="profile-info">
-    <h2>Jaechul Roh</h2>
+    <h1>Jaechul Roh</h1>
     <div class="title">Ph.D. Student in Computer Science</div>
     <div class="affiliation">University of Massachusetts Amherst</div>
 
