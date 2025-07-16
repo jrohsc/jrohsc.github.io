@@ -28,8 +28,8 @@ layouts_gallery:
 }
 
 .profile-photo img {
-  width: 220px;
-  height: 230px;
+  width: 200px;
+  height: 200px;
   border-radius: 50%;
   object-fit: cover;
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
@@ -40,7 +40,7 @@ layouts_gallery:
 }
 
 .profile-info h1 {
-  font-size: 2.5rem;
+  font-size: 18px;
   margin: 0 0 0.5rem 0;
   color: #2c3e50;
 }
@@ -48,7 +48,7 @@ layouts_gallery:
 .profile-info .title {
   font-size: 1.1rem;
   color: #666;
-  margin-bottom: 0.3rem;
+  margin-bottom: 0.1rem;
 }
 
 .profile-info .affiliation {
