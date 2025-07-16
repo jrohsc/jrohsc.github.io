@@ -257,7 +257,7 @@ Feel free to book a time that works for you through my [Calendly](https://calend
 <!-- ############################################################################################### -->
 <section id="news" style="margin: 2rem 0;">
   <h2 style="font-size: 1.5rem;">📣 News</h2>
-  <div style="height: 240px; overflow-y: auto; position: relative; border-left: 4px solid #007acc; padding-left: 1rem; background-color:rgb(176, 206, 235); border-radius: 8px; padding: 1rem;">
+  <div style="height: 240px; overflow-y: auto; position: relative; border-left: 4px solid #007acc; padding-left: 1rem; background-color: #f8f9fa; border-radius: 8px; padding: 1rem;">
     <div id="news-ticker" style="display: flex; flex-direction: column;">
   <p>🎙️ <strong style="color: #fd7e14;">July 11 '25</strong>: I gave a talk at the NFM Reading Group led by the Speech Technologies Group at Google Deemind on our <a href="https://arxiv.org/abs/2504.01094" target="_blank">Multilingual and Multi-Accent Jailbreaking of Audio LLMs</a> paper. View <a href="https://docs.google.com/presentation/d/1LOQ5W4fck5dfnv5I6LJBvbk4FOHydcJ-/edit?usp=sharing&ouid=104745020285400681437&rtpof=true&sd=true" target="_blank">[slides]</a></p>
 
