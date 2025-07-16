@@ -51,13 +51,14 @@ layouts_gallery:
 
 .profile-info .title {
   font-size: 1rem;
-  font-style: italic;
+  /* font-style: italic; */
   color: #666;
   margin-bottom: 0.1rem;
 }
 
 .profile-info .affiliation {
   font-size: 1rem;
+  font-style: italic;
   color: #666;
   margin-bottom: 1.5rem;
 }
@@ -129,8 +130,8 @@ layouts_gallery:
   </div>
   <div class="profile-info">
     <h1>Jaechul Roh</h1>
-    <div class="title">Ph.D. Student in Computer Science, University of Massachusetts Amherst</div>
-    <!-- <div class="affiliation">University of Massachusetts Amherst</div> -->
+    <div class="title">Ph.D. Student in Computer Science</div>
+    <div class="affiliation">University of Massachusetts Amherst</div>
 
   <!-- Social Media Icons -->
   <div class="social-icons">
