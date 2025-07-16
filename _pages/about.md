@@ -97,6 +97,14 @@ layouts_gallery:
   height: 20px;
 }
 
+.cv-text {
+          font-size: 12px;
+          font-weight: bold;
+          color: white !important;
+          text-align: center;
+          line-height: 1;
+}
+
 @media (max-width: 768px) {
   .profile-header {
     flex-direction: column;
