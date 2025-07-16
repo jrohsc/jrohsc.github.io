@@ -40,9 +40,10 @@ layouts_gallery:
 }
 
 .profile-info h1 {
-  font-size: $type-size-1 !important; // ~39.056px
+  font-size: 45px !important;
   margin: 0 0 0.5rem 0;
   color: #2c3e50;
+  border-bottom: 1px solid #ccc;
   font-weight: bold;
 }
 
