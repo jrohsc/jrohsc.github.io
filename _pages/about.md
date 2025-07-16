@@ -49,7 +49,7 @@ layouts_gallery:
 .profile-info .title {
   font-size: 1rem;
   color: #666;
-  margin-bottom: 0.3rem;
+  margin-bottom: 0.1rem;
 }
 
 .profile-info .affiliation {
