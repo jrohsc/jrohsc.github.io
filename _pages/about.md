@@ -40,13 +40,13 @@ layouts_gallery:
 }
 
 .profile-info h1 {
-  font-size: 18px;
+  font-size: 25px;
   margin: 0 0 0.5rem 0;
   color: #2c3e50;
 }
 
 .profile-info .title {
-  font-size: 1.1rem;
+  font-size: 1rem;
   color: #666;
   margin-bottom: 0.1rem;
 }
@@ -54,7 +54,7 @@ layouts_gallery:
 .profile-info .affiliation {
   font-size: 1rem;
   color: #666;
-  margin-bottom: 1.5rem;
+  margin-bottom: 0.3rem;
 }
 
 .social-icons {
