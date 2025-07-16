@@ -40,7 +40,7 @@ layouts_gallery:
 }
 
 .profile-info h1 {
-  font-size: 4rem !important;
+  font-size: 7rem !important;
   margin: 0 0 0.5rem 0;
   color: #2c3e50;
   font-weight: bold;
