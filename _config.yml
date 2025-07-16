@@ -113,9 +113,9 @@ analytics:
 
 # Site Author
 author:
-  name: "Jaechul Roh"
-  avatar: "/images/Jaechul Roh Photo 2.jpg"
-  bio: "Ph.D. Student in Computer Science <br> University of Massachusetts Amherst"
+  # name: "Jaechul Roh"
+  # avatar: "/images/Jaechul Roh Photo 2.jpg"
+  # bio: "Ph.D. Student in Computer Science <br> University of Massachusetts Amherst"
   # location: "Amherst, MA"
   # email: "jroh@umass.edu"
   # links:
