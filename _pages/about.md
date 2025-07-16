@@ -98,11 +98,11 @@ layouts_gallery:
 }
 
 .cv-text {
-          font-size: 12px;
-          font-weight: bold;
-          color: white !important;
-          text-align: center;
-          line-height: 1;
+  font-size: 16px;
+  font-weight: bold;
+  color: white !important;
+  text-align: center;
+  line-height: 1;
 }
 
 @media (max-width: 768px) {
