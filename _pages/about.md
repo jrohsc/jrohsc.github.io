@@ -40,12 +40,12 @@ layouts_gallery:
 }
 
 .profile-info h1 {
-  font-size: 4.5rem;
+  font-size: 4rem;
   margin: 0 0 0.5rem 0;
   color: #2c3e50;
   font-weight: bold;
   display: inline-block;
-  border-bottom: 2px solid #2c3e50;
+  border-bottom: 1px solid #ccc;
   padding-bottom: 0.3rem;
 }
 
