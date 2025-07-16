@@ -28,8 +28,8 @@ layouts_gallery:
 }
 
 .profile-photo img {
-  width: 200px;
-  height: 220px;
+  width: 220px;
+  height: 230px;
   border-radius: 50%;
   object-fit: cover;
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
@@ -111,9 +111,6 @@ layouts_gallery:
   }
 }
 </style>
-
-
-
 <!-- Profile Header Section -->
 <div class="profile-header">
   <div class="profile-photo">
