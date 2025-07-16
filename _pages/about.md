@@ -129,8 +129,8 @@ layouts_gallery:
   </div>
   <div class="profile-info">
     <h1>Jaechul Roh</h1>
-    <div class="title">Ph.D. Student in Computer Science</div>
-    <div class="affiliation">University of Massachusetts Amherst</div>
+    <div class="title">Ph.D. Student in Computer Science, University of Massachusetts Amherst</div>
+    <!-- <div class="affiliation">University of Massachusetts Amherst</div> -->
 
   <!-- Social Media Icons -->
   <div class="social-icons">
