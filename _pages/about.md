@@ -14,6 +14,12 @@ layouts_gallery:
 ---
 
 <style>
+.follow-button,
+[class*="follow"],
+[id*="follow"] {
+    display: none !important;
+}
+
 .profile-header {
   display: flex;
   align-items: center;
