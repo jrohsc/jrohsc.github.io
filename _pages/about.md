@@ -307,6 +307,14 @@ Feel free to book a time that works for you through my [Calendly](https://calend
 <!-- ######################################################################################################################################## -->
 
 <style>
+
+.paper-image-container {
+  position: relative;
+  flex-shrink: 0;
+  width: 130px;
+  height: 100px;
+}
+
 .paper-container {
   display: flex;
   align-items: flex-start;
