@@ -228,7 +228,7 @@ Prior to my graduate studies, I earned my bachelor's degree in computer engineer
         <img src="/images/brave_software.png" 
              alt="Brave Software Logo" 
              class="logo-emoji"> 
-        I am currently doing a Summer Internship at Brave Software working on privacy and security of AI agents with <a href="https://alishahin.github.io/">Ali Shahin Shamsabadi</a>.
+        I am currently doing a Summer Research Internship at Brave Software working on privacy and security of AI agents with <a href="https://alishahin.github.io/">Ali Shahin Shamsabadi</a>.
     </p>
 
 <!-- --------
