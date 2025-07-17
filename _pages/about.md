@@ -204,9 +204,11 @@ div[class*="follow"] {
 
 I am a Ph.D. student in computer science at the University of Massachusetts Amherst, advised by <a href="https://people.cs.umass.edu/~amir/" target="_blank">Amir Houmansadr</a>. 
 
-My research focuses on exploring the **privacy, security, and trustworthiness** of AI models. Recently, I have been investigating the reliability of multimodal models, while also maintaining a strong interest in related areas such as **fairness, interpretability, and responsible AI**. My current work delves into assessing the trustworthiness of multimodal generative models across diverse domains, including text-to-image and audio-based modalities. I am currently doing a Summer Internship at Brave Software working on privacy and security of AI agents with [Ali Shahin Shamsabadi](https://alishahin.github.io/).
+My research focuses on exploring the **privacy, security, and trustworthiness of AI model and agents**. Recently, I have been investigating the reliability of multimodal models, while also maintaining a strong interest in related areas such as **fairness, interpretability, and responsible AI**. My current work spans across various domains, including **text-to-image** and **audio** modalities. 
 
 Prior to my graduate studies, I earned my bachelor's degree in computer engineering from the Hong Kong University of Science and Technology (HKUST) in the year 2023, where I completed my Final Year Thesis (FYT) on the topic of "Adversarial Attacks in Federated Learning" under the supervision of <a href="https://eejzhang.people.ust.hk/" target="_black">Jun Zhang</a>. I have also worked with [Minhao Cheng](https://cmhcbb.github.io/) on the robustness of language models, specifically exploring methods associated with backdoor defense in text domain.
+
+I am currently doing a Summer Internship at Brave Software working on privacy and security of AI agents with [Ali Shahin Shamsabadi](https://alishahin.github.io/).
 
 <!-- --------
 
