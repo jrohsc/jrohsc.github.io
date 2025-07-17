@@ -195,6 +195,22 @@ div[class*="follow"] {
 
 
 <!-- ######################################################################################################################################## -->
+
+<style>
+        .logo-emoji {
+            width: 1.2em;
+            height: 1.2em;
+            vertical-align: -0.1em;
+            display: inline-block;
+        }
+        
+        .text-with-logo {
+            font-size: 16px;
+            line-height: 1.4;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+    </style>
+
 <h2 style="font-size: 1.5rem; display: flex; align-items: center; gap: 0.5rem; color: #2c3e50;">
   <svg width="30" height="30" viewBox="0 0 24 24" fill="#2c3e50">
     <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
@@ -204,11 +220,16 @@ div[class*="follow"] {
 
 I am a Ph.D. student in computer science at the University of Massachusetts Amherst, advised by <a href="https://people.cs.umass.edu/~amir/" target="_blank">Amir Houmansadr</a>. 
 
-My research centers on the **privacy, security, and trustworthiness** of **AI models and agentic systems**. I am particularly interested in understanding and mitigating vulnerabilities in multimodal systems, with recent work examining the reliability of models that process **text, text-to-image, and audio** inputs. Alongside these efforts, I remain engaged with broader topics in **fairness, interpretability, and responsible AI**, aiming to develop methods that make AI systems not only powerful but also aligned with societal values.
+My research centers on the **privacy, security,** and **trustworthiness** of **AI models** and **agentic systems**. I am particularly interested in understanding and mitigating vulnerabilities in multimodal systems, with recent work examining the reliability of models that process **text, text-to-image,** and **audio** inputs. Alongside these efforts, I remain engaged with broader topics in **fairness, interpretability, and responsible AI**, aiming to develop methods that make AI systems not only powerful but also aligned with societal values.
 
 Prior to my graduate studies, I earned my bachelor's degree in computer engineering from the Hong Kong University of Science and Technology (HKUST) in the year 2023, where I completed my Final Year Thesis (FYT) on the topic of "Adversarial Attacks in Federated Learning" under the supervision of <a href="https://eejzhang.people.ust.hk/" target="_black">Jun Zhang</a>. I have also worked with [Minhao Cheng](https://cmhcbb.github.io/) on the robustness of language models, specifically exploring methods associated with defense against backdoor attacks in language models.
 
-I am currently doing a Summer Internship at Brave Software working on privacy and security of AI agents with [Ali Shahin Shamsabadi](https://alishahin.github.io/).
+<p class="text-with-logo">
+        <img src="/images/brave_software.png" 
+             alt="Brave Software Logo" 
+             class="logo-emoji"> 
+        I am currently doing a Summer Internship at Brave Software working on privacy and security of AI agents with <a href="https://alishahin.github.io/">Ali Shahin Shamsabadi</a>.
+    </p>
 
 <!-- --------
 
