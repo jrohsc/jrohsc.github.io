@@ -564,7 +564,7 @@ Feel free to book a time that works for you through my [Calendly](https://calend
     <div class="paper-authors">
       Ali Naseh, <strong><u>Jaechul Roh</u></strong>, Amir Houmansadr
     </div>
-    <div class="paper-venue">The 5th PPAI (AAAI Workshop)</div>
+    <div class="paper-venue">The 5th PPAI (AAAI Workshop) 2024</div>
   </div>
 </div>
 
