@@ -300,7 +300,6 @@ Feel free to book a time that works for you through my [Calendly](https://calend
 
 <!-- ######################################################################################################################################## -->
 
-<h2 style="font-size: 1.5rem;">🖨️ Preprint / Publications</h2>
 <style>
 .paper-container {
   display: flex;
@@ -311,8 +310,8 @@ Feel free to book a time that works for you through my [Calendly](https://calend
 
 .paper-image {
   flex-shrink: 0;
-  width: 170px;
-  height: 130px;
+  width: 130px;
+  height: 100px;
   object-fit: cover;
   border-radius: 5px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
@@ -325,6 +324,27 @@ Feel free to book a time that works for you through my [Calendly](https://calend
 .paper-title {
   font-weight: bold;
   margin-bottom: 0.5rem;
+}
+
+.venue-tag {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  color: white;
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-size: 0.7rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+}
+
+.venue-tag.preprint {
+  background-color: #6c757d;
+}
+
+.venue-tag.published {
+  background-color: #2c3e50;
 }
 
 .paper-authors {
@@ -352,6 +372,138 @@ Feel free to book a time that works for you through my [Calendly](https://calend
 }
 </style>
 
+ <!-- Publications Section -->
+  <h2 style="font-size: 1.5rem;">🖨️ Preprint / Publications</h2>
+
+  <h4 style="font-size: 1.3rem;">Preprint</h4>
+  <div class="paper-container">
+    <div class="paper-image-container">
+      <img src="https://via.placeholder.com/130x100/6c757d/white?text=COCC" alt="Chain-of-Code Collapse" class="paper-image">
+      <span class="venue-tag preprint">arXiv</span>
+    </div>
+    <div class="paper-content">
+      <div class="paper-title">
+        <a href="https://arxiv.org/pdf/2506.06971" target="_blank">Chain-of-Code Collapse: Reasoning Failures in LLMs via Adversarial Prompting in Code Generation</a>
+      </div>
+      <div class="paper-authors">
+        <strong><u>Jaechul Roh</u></strong>, Varun Gandhi, Shivani Anilkumar, Arin Garg
+      </div>
+      <div class="paper-venue">arXiv</div>
+      <div class="paper-links">
+        <a href="https://github.com/jrohsc/Chain-of-Code-Collapse" target="_blank">[code]</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="paper-container">
+    <div class="paper-image-container">
+      <img src="https://via.placeholder.com/130x100/6c757d/white?text=R1" alt="R1dacted" class="paper-image">
+      <span class="venue-tag preprint">arXiv</span>
+    </div>
+    <div class="paper-content">
+      <div class="paper-title">
+        <a href="https://arxiv.org/pdf/2505.12625" target="_blank">R1dacted: Investigating Local Censorship in DeepSeek's R1 Language Model</a>
+      </div>
+      <div class="paper-authors">
+        Ali Naseh, Harsh Chaudhari, <strong><u>Jaechul Roh</u></strong>, Mingshi Wu, Alina Oprea, Amir Houmansadr
+      </div>
+      <div class="paper-venue">arXiv</div>
+    </div>
+  </div>
+
+  <div class="paper-container">
+    <div class="paper-image-container">
+      <img src="https://via.placeholder.com/130x100/6c757d/white?text=OT" alt="OverThink" class="paper-image">
+      <span class="venue-tag preprint">arXiv</span>
+    </div>
+    <div class="paper-content">
+      <div class="paper-title">
+        <a href="https://arxiv.org/abs/2502.02542" target="_blank">OverThink: Slowdown Attacks on Reasoning LLMs</a>
+      </div>
+      <div class="paper-authors">
+        Abhinav Kumar, <strong><u>Jaechul Roh</u></strong>, Ali Naseh, Marezna Karpinska, Mohit Iyyer, Amir Houmansadr, and Eugene Bagdasaryan
+      </div>
+      <div class="paper-venue">arXiv</div>
+      <div class="paper-links">
+        <a href="https://github.com/akumar2709/OVERTHINK_public" target="_blank">[code]</a>
+      </div>
+    </div>
+  </div>
+
+  <h4 style="font-size: 1.3rem;">2025</h4>
+
+  <div class="paper-container">
+    <div class="paper-image-container">
+      <img src="https://via.placeholder.com/130x100/2c3e50/white?text=Audio" alt="Multilingual Audio Jailbreaking" class="paper-image">
+      <span class="venue-tag published">COLM '25</span>
+    </div>
+    <div class="paper-content">
+      <div class="paper-title">
+        <a href="https://arxiv.org/abs/2504.01094" target="_blank">Multilingual and Multi-Accent Jailbreaking of Audio LLMs</a>
+      </div>
+      <div class="paper-authors">
+        <strong><u>Jaechul Roh</u></strong>, Virat Shejwalkar, Amir Houmansadr
+      </div>
+      <div class="paper-venue">COLM 2025</div>
+    </div>
+  </div>
+
+  <div class="paper-container">
+    <div class="paper-image-container">
+      <img src="https://via.placeholder.com/130x100/2c3e50/white?text=Bias" alt="Backdooring Bias" class="paper-image">
+      <span class="venue-tag published">USENIX '25</span>
+    </div>
+    <div class="paper-content">
+      <div class="paper-title">
+        <a href="https://arxiv.org/pdf/2406.15213" target="_blank">Backdooring Bias into Text-to-Image Models</a>
+      </div>
+      <div class="paper-authors">
+        Ali Naseh, <strong><u>Jaechul Roh</u></strong>, Eugene Bagdasaryan, Amir Houmansadr
+      </div>
+      <div class="paper-venue">USENIX Security '25</div>
+      <div class="paper-links">
+        <a href="https://github.com/jcroh0508/Backdororing_Bias/" target="_blank">[code]</a>
+      </div>
+    </div>
+  </div>
+
+  <h4 style="font-size: 1.3rem;">2024</h4>
+
+  <div class="paper-container">
+    <div class="paper-image-container">
+      <img src="https://via.placeholder.com/130x100/2c3e50/white?text=OSLO" alt="OSLO" class="paper-image">
+      <span class="venue-tag published">NeurIPS '24</span>
+    </div>
+    <div class="paper-content">
+      <div class="paper-title">
+        <a href="https://arxiv.org/pdf/2405.16978" target="_blank">OSLO: One-Shot Label-Only Membership Inference Attacks</a>
+      </div>
+      <div class="paper-authors">
+        Yuefeng Peng, <strong><u>Jaechul Roh</u></strong>, Subhransu Maji, Amir Houmansadr
+      </div>
+      <div class="paper-venue">NeurIPS 2024</div>
+    </div>
+  </div>
+
+  <div class="paper-container">
+    <div class="paper-image-container">
+      <img src="https://via.placeholder.com/130x100/2c3e50/white?text=Memory" alt="Memory Triggers" class="paper-image">
+      <span class="venue-tag published">AAAI WS</span>
+    </div>
+    <div class="paper-content">
+      <div class="paper-title">
+        <a href="https://arxiv.org/pdf/2312.03692" target="_blank">Memory Triggers: Unveiling Memorization in Text-To-Image Generative Models through Word-Level Duplication</a>
+      </div>
+      <div class="paper-authors">
+        Ali Naseh, <strong><u>Jaechul Roh</u></strong>, Amir Houmansadr
+      </div>
+      <div class="paper-venue">The 5th PPAI (AAAI Workshop)</div>
+    </div>
+  </div>
+
+
+
+<!-- 
 
 <h4 style="font-size: 1.5rem;">Preprint</h4>
 <div class="paper-container">
@@ -541,4 +693,4 @@ Feel free to book a time that works for you through my [Calendly](https://calend
       <a href="https://github.com/jcroh0508/Adversarial_Training_Impact" target="_blank">[code]</a>
     </div>
   </div>
-</div>
+</div> -->
