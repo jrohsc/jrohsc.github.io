@@ -209,7 +209,7 @@ div[class*="follow"] {
             line-height: 1.4;
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
         }
-    </style>
+</style>
 
 <h2 style="font-size: 1.5rem; display: flex; align-items: center; gap: 0.5rem; color: #2c3e50;">
   <svg width="30" height="30" viewBox="0 0 24 24" fill="#2c3e50">
@@ -229,7 +229,7 @@ Prior to my graduate studies, I earned my bachelor's degree in computer engineer
              alt="Brave Software Logo" 
              class="logo-emoji"> 
         I am currently doing a Summer Research Internship at Brave Software working on privacy and security of AI agents with <a href="https://alishahin.github.io/">Ali Shahin Shamsabadi</a>.
-    </p>
+</p>
 
 <!-- --------
 
@@ -310,8 +310,6 @@ Prior to my graduate studies, I earned my bachelor's degree in computer engineer
 </style>
 
 -------- -->
-
-
 <h2 style="font-size: 1.5rem;">💬 Office Hours</h2>
 I’m hosting weekly office hours—feel free to drop by! I'm happy to chat and advise on research (or projects), PhD applications, or anything else on your mind. Casual chats welcome too (I’m a big football (soccer) fan ⚽️). Lately, I've been working on trustworthiness of AI agents and audio modality safety, but I'm always open to exploring new areas and directions you might bring.
 
@@ -327,7 +325,11 @@ Feel free to book a time that works for you through my [Calendly](https://calend
 
   <p>🎉 <strong style="color: #fd7e14;">July 7 '25</strong>: Our <a href="https://arxiv.org/abs/2504.01094" target="_blank">Multilingual and Multi-Accent Jailbreaking of Audio LLMs</a> paper has been accepted to <em>COLM (Conference on Language Modeling) 2025</em>!</p>
 
-  <p>💪 <strong style="color: #fd7e14;">Jun 16 '25</strong>: I will be working as a Summer Research Intern at Brave Software under the supervision of Dr. <a href="https://alishahin.github.io/" target="_blank">Ali Shahin Shamsabadi</a> on privacy and security of AI Agents.</p>
+  <p><img src="/images/brave_software.png" 
+             alt="Brave Software Logo" 
+             class="logo-emoji">  
+  <strong style="color: #fd7e14;">Jun 16 '25</strong>: I will be working as a Summer Research Intern at Brave Software under the supervision of Dr. <a href="https://alishahin.github.io/" target="_blank">Ali Shahin Shamsabadi</a> on privacy and security of AI Agents.
+  </p>
   
   <p>🎉 <strong style="color: #fd7e14;">Jun 11 '25</strong>: Our <a href="https://arxiv.org/pdf/2406.15213" target="_blank">Backdooring Bias into Text-to-Image Models</a> paper has been accepted to <em>USENIX Security '25</em>!</p>
   
