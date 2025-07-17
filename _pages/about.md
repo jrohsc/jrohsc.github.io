@@ -14,9 +14,27 @@ layouts_gallery:
 ---
 
 <style>
+
+/* Hide follow buttons */
 .follow-button,
 [class*="follow"],
-[id*="follow"] {
+[id*="follow"],
+.follow,
+#follow,
+button[class*="follow"],
+a[class*="follow"],
+div[class*="follow"] {
+    display: none !important;
+    visibility: hidden !important;
+}
+
+/* More specific selectors for common platforms */
+.wp-block-social-links,
+.social-follow,
+.follow-me,
+.follow-btn,
+.followButton,
+.follow-widget {
     display: none !important;
 }
 
@@ -367,6 +385,7 @@ Feel free to book a time that works for you through my [Calendly](https://calend
 
 .paper-venue {
   font-style: italic;
+  font-family: "Times New Roman", Times, serif;
   margin-bottom: 0.5rem;
 }
 
