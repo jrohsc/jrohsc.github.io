@@ -329,8 +329,8 @@ Feel free to book a time that works for you through my [Calendly](https://calend
 .paper-image-container {
   position: relative;
   flex-shrink: 0;
-  width: 130px;
-  height: 100px;
+  width: 150px;
+  height: 120px;
 }
 
 .paper-container {
@@ -342,8 +342,8 @@ Feel free to book a time that works for you through my [Calendly](https://calend
 
 .paper-image {
   flex-shrink: 0;
-  width: 130px;
-  height: 100px;
+  width: 150px;
+  height: 120px;
   object-fit: cover;
   border-radius: 5px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
