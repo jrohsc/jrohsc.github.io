@@ -244,7 +244,7 @@ Feel free to book a time that works for you through my [Calendly](https://calend
   <div style="height: 240px; overflow-y: auto; position: relative; border-left: 4px solid #007acc; padding-left: 1rem; background-color: #f8f9fa; border-radius: 8px; padding: 1rem;">
     <div id="news-ticker" style="display: flex; flex-direction: column;">
   <p class="text-with-logo">🎙️ 
-    <strong style="color: #fd7e14;">July 11 '25</strong>: I gave a talk at the NFM Reading Group led by the Speech Technologies Group at Google DeeMind <img src="/images/google-deepmind.png.png" 
+    <strong style="color: #fd7e14;">July 11 '25</strong>: I gave a talk at the NFM Reading Group led by the Speech Technologies Group at Google DeeMind <img src="/images/google-deepmind.png" 
              alt="Google DeepMind Logo" 
              class="logo-emoji">  on our <a href="https://arxiv.org/abs/2504.01094" target="_blank">Multilingual and Multi-Accent Jailbreaking of Audio LLMs</a> paper. View <a href="/files/Multi-AudioJail.pptx.pdf" target="_blank">[slides]</a>
   
