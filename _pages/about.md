@@ -231,84 +231,6 @@ Prior to my graduate studies, I earned my bachelor's degree in computer engineer
         I am currently doing a Summer Research Internship at Brave Software working on privacy and security of AI agents with <a href="https://alishahin.github.io/">Ali Shahin Shamsabadi</a>.
 </p>
 
-<!-- --------
-
-[[Résumé]](files/CV - Jaechul_Roh.pdf) / [[Google Scholar]](https://scholar.google.com/citations?user=knCeRjsAAAAJ&hl=ko) / [[GitHub]](https://github.com/jrohsc) / [[Linkedin]](https://www.linkedin.com/in/jaechul-roh-572363155/) -->
-
-<!-- Social Media Icons -->
-<!-- <div class="social-icons">
-  <a href="mailto:jroh@cs.umass.edu" class="social-icon" title="Email">
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-      <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
-    </svg>
-  </a>
-  <a href="https://x.com/JaechulRoh" class="social-icon" title="Twitter">
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-      <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/>
-    </svg>
-  </a>
-  <a href="https://scholar.google.com/citations?user=knCeRjsAAAAJ&hl=ko" class="social-icon" title="Google Scholar">
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-      <path d="M12 24a7 7 0 1 1 0-14 7 7 0 0 1 0 14zm0-24L0 9.5l4.838 3.94A8 8 0 0 1 12 9a8 8 0 0 1 7.162 4.44L24 9.5z"/>
-    </svg>
-  </a>
-  <a href="https://github.com/jrohsc" class="social-icon" title="GitHub">
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-      <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-    </svg>
-  </a>
-  <a href="files/CV - Jaechul_Roh.pdf" class="social-icon" title="CV/Resume">
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-      <path d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z"/>
-    </svg>
-  </a>
-  <a href="https://www.linkedin.com/in/jaechul-roh-572363155/" class="social-icon" title="LinkedIn">
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-      <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h4.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019h4.555V9h4.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-    </svg>
-  </a>
-</div>
-
-<style>
-.social-icons {
-  display: flex;
-  gap: 0;
-  margin: 2rem 0;
-  justify-content: flex-start;
-}
-
-.social-icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 50px;
-  height: 40px;
-  background-color:rgb(255, 255, 255);
-  color: white;
-  text-decoration: none;
-  transition: all 0.3s ease;
-  border: none;
-}
-
-.social-icon:first-child {
-  border-radius: 5px 0 0 5px;
-}
-
-.social-icon:last-child {
-  border-radius: 0 5px 5px 0;
-}
-
-.social-icon:hover {
-  background-color: #2d3748;
-  transform: translateY(-2px);
-}
-
-.social-icon svg {
-  width: 20px;
-  height: 20px;
-}
-</style>
-
 -------- -->
 <h2 style="font-size: 1.5rem;">💬 Office Hours</h2>
 I’m hosting weekly office hours—feel free to drop by! I'm happy to chat and advise on research (or projects), PhD applications, or anything else on your mind. Casual chats welcome too (I’m a big football (soccer) fan ⚽️). Lately, I've been working on trustworthiness of AI agents and audio modality safety, but I'm always open to exploring new areas and directions you might bring.
@@ -321,7 +243,12 @@ Feel free to book a time that works for you through my [Calendly](https://calend
   <h2 style="font-size: 1.5rem;">📣 News</h2>
   <div style="height: 240px; overflow-y: auto; position: relative; border-left: 4px solid #007acc; padding-left: 1rem; background-color: #f8f9fa; border-radius: 8px; padding: 1rem;">
     <div id="news-ticker" style="display: flex; flex-direction: column;">
-  <p>🎙️ <strong style="color: #fd7e14;">July 11 '25</strong>: I gave a talk at the NFM Reading Group led by the Speech Technologies Group at Google Deemind on our <a href="https://arxiv.org/abs/2504.01094" target="_blank">Multilingual and Multi-Accent Jailbreaking of Audio LLMs</a> paper. View <a href="https://docs.google.com/presentation/d/1LOQ5W4fck5dfnv5I6LJBvbk4FOHydcJ-/edit?usp=sharing&ouid=104745020285400681437&rtpof=true&sd=true" target="_blank">[slides]</a></p>
+  <p class="text-with-logo">🎙️ 
+    <strong style="color: #fd7e14;">July 11 '25</strong>: I gave a talk at the NFM Reading Group led by the Speech Technologies Group at Google DeeMind <img src="/images/google-deepmind.png.png" 
+             alt="Google DeepMind Logo" 
+             class="logo-emoji">  on our <a href="https://arxiv.org/abs/2504.01094" target="_blank">Multilingual and Multi-Accent Jailbreaking of Audio LLMs</a> paper. View <a href="/files/Multi-AudioJail.pptx.pdf" target="_blank">[slides]</a>
+  
+  </p>
 
   <p>🎉 <strong style="color: #fd7e14;">July 7 '25</strong>: Our <a href="https://arxiv.org/abs/2504.01094" target="_blank">Multilingual and Multi-Accent Jailbreaking of Audio LLMs</a> paper has been accepted to <em>COLM (Conference on Language Modeling) 2025</em>!</p>
 
