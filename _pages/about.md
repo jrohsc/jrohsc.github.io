@@ -228,7 +228,7 @@ div[class*="follow"] {
 <!-- Profile Header Section -->
 <div class="profile-header">
   <div class="profile-photo">
-    <img src="/images/Jaechul Roh Photo 2.jpg" alt="Jaechul Roh">
+    <img src="/images/Jaechul Roh Photo 3.jpg" alt="Jaechul Roh">
   </div>
   <div class="profile-info">
     <h1>Jaechul Roh</h1>
