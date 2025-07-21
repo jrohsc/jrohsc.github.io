@@ -15,214 +15,173 @@ layouts_gallery:
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-<style>
 
-/* Hide follow buttons */
-.follow-button,
-[class*="follow"],
-[id*="follow"],
-.follow,
-#follow,
-button[class*="follow"],
-a[class*="follow"],
-div[class*="follow"] {
-    display: none !important;
-    visibility: hidden !important;
-}
+/* Mobile Optimizations - ADD THIS TO YOUR EXISTING STYLE BLOCK */
 
-/* More specific selectors for common platforms */
-.wp-block-social-links,
-.social-follow,
-.follow-me,
-.follow-btn,
-.followButton,
-.follow-widget {
-    display: none !important;
-}
-
-.profile-header {
-  display: flex;
-  align-items: center;
-  margin-bottom: 3rem;
-  gap: 2rem;
-  padding: 2rem 0;
-  border-bottom: 2px solid #e0e0e0;
-}
-
-.profile-photo {
-  flex-shrink: 0;
-}
-
-.profile-photo img {
-  width: 200px;
-  height: 200px;
-  border-radius: 50%;
-  object-fit: cover;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-}
-
-.profile-info {
-  flex: 1;
-}
-
-.profile-info h1 {
-  font-size: 2.2rem;
-  margin: 0 0 0.5rem 0;
-  color: #2c3e50;
-  font-weight: bold;
-  display: inline-block;
-  border-bottom: 1px solid #ccc;
-  padding-bottom: 0.3rem;
-}
-
-.profile-info .title {
-  font-size: 1rem;
-  /* font-style: italic; */
-  color: #666;
-  margin-bottom: 0.1rem;
-}
-
-.profile-info .affiliation {
-  font-size: 1rem;
-  font-style: italic;
-  color: #666;
-  margin-bottom: 1.5rem;
-}
-
-.social-icons {
-  display: flex;
-  gap: 0;
-  margin: 1rem 0;
-  justify-content: flex-start;
-}
-
-.social-icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 50px;
-  height: 40px;
-  background-color: #4a5568;
-  color: white;
-  text-decoration: none;
-  transition: all 0.3s ease;
-  border: none;
-}
-
-.social-icon:first-child {
-  border-radius: 5px 0 0 5px;
-}
-
-.social-icon:last-child {
-  border-radius: 0 5px 5px 0;
-}
-
-.social-icon:hover {
-  background-color: #2d3748;
-  transform: translateY(-2px);
-}
-
-.social-icon svg {
-  width: 20px;
-  height: 20px;
-}
-
-.cv-text {
-  font-size: 20px;
-  font-weight: bold;
-  color: white !important;
-  text-align: center;
-  line-height: 1;
-}
-
-@media (max-width: 768px) {
-  .profile-header {
-    flex-direction: column;
-    text-align: center;
-  }
-  
-  .profile-photo img {
-    width: 150px;
-    height: 150px;
-  }
-}
-
+/* Ensure proper mobile scaling */
 * {
   box-sizing: border-box;
 }
 
-/* ADD THIS: Mobile optimizations */
-@media (max-width: 480px) {
+/* Mobile-specific improvements */
+@media (max-width: 768px) {
+  /* Better paper container layout */
+  .paper-container {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    margin-bottom: 2rem !important;
+    gap: 1rem !important;
+  }
+  
+  /* Optimize paper images for mobile */
+  .paper-image-container {
+    width: 100% !important;
+    height: auto !important;
+    display: flex !important;
+    justify-content: center !important;
+  }
+  
+  .paper-image {
+    width: 80% !important;
+    max-width: 250px !important;
+    height: auto !important;
+    aspect-ratio: 4/3 !important;
+    object-fit: cover !important;
+  }
+  
+  /* Better typography for mobile */
+  .paper-title {
+    font-size: 1rem !important;
+    line-height: 1.4 !important;
+    margin-bottom: 0.8rem !important;
+  }
+  
+  .paper-authors {
+    font-size: 0.9rem !important;
+    line-height: 1.4 !important;
+    margin-bottom: 0.5rem !important;
+  }
+  
+  .paper-venue {
+    font-size: 0.85rem !important;
+    margin-bottom: 0.8rem !important;
+  }
+  
+  .paper-links {
+    font-size: 0.9rem !important;
+  }
+  
+  .paper-links a {
+    display: inline-block !important;
+    margin-right: 1rem !important;
+    margin-bottom: 0.5rem !important;
+    padding: 0.3rem 0 !important;
+    min-height: 44px !important;
+    line-height: 1.4 !important;
+  }
+  
+  /* Profile section mobile optimization */
   .profile-header {
-    flex-direction: column;
-    text-align: center;
-    padding: 1.5rem 0;
-    gap: 1.5rem;
+    flex-direction: column !important;
+    text-align: center !important;
+    padding: 1.5rem 0 !important;
+    gap: 1.5rem !important;
   }
   
   .profile-photo img {
-    width: 120px;
-    height: 120px;
+    width: 140px !important;
+    height: 140px !important;
   }
   
   .profile-info h1 {
-    font-size: 1.8rem;
+    font-size: 1.8rem !important;
+    margin-bottom: 0.5rem !important;
   }
   
+  .profile-info .title,
+  .profile-info .affiliation {
+    font-size: 1rem !important;
+  }
+  
+  /* Social icons mobile */
   .social-icons {
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 0.5rem;
+    justify-content: center !important;
+    flex-wrap: wrap !important;
+    gap: 0.3rem !important;
   }
   
   .social-icon {
-    width: 45px;
-    height: 35px;
-    border-radius: 5px !important;
+    width: 48px !important;
+    height: 40px !important;
+    border-radius: 6px !important;
   }
   
-  .paper-container {
-    flex-direction: column;
-    margin-bottom: 1.5rem;
-    gap: 0.8rem;
+  /* Section headers */
+  h2 {
+    font-size: 1.4rem !important;
+    margin: 2rem 0 1rem 0 !important;
   }
   
-  .paper-image-container,
+  h4 {
+    font-size: 1.2rem !important;
+    margin: 1.5rem 0 1rem 0 !important;
+  }
+  
+  /* News section */
+  #news div {
+    height: 220px !important;
+    padding: 1rem !important;
+    font-size: 0.9rem !important;
+  }
+  
+  /* Venue tags */
+  .venue-tag {
+    font-size: 0.65rem !important;
+    padding: 2px 5px !important;
+  }
+  
+  /* General spacing */
+  body {
+    padding: 0 1rem !important;
+    font-size: 16px !important;
+    line-height: 1.5 !important;
+  }
+  
+  /* Logo emoji */
+  .logo-emoji {
+    width: 1.1em !important;
+    height: 1.1em !important;
+  }
+  
+  .text-with-logo {
+    font-size: 15px !important;
+  }
+}
+
+/* Very small screens (iPhone SE, etc.) */
+@media (max-width: 375px) {
+  .profile-info h1 {
+    font-size: 1.6rem !important;
+  }
+  
+  .social-icon {
+    width: 44px !important;
+    height: 36px !important;
+  }
+  
   .paper-image {
-    width: 100%;
-    height: 120px;
-  }
-  
-  .paper-title {
-    font-size: 0.95rem;
-    line-height: 1.4;
+    width: 90% !important;
   }
   
   h2 {
     font-size: 1.3rem !important;
   }
   
-  h4 {
-    font-size: 1.1rem !important;
-  }
-  
   body {
-    padding: 0 1rem;
+    padding: 0 0.8rem !important;
   }
 }
 
-@media (max-width: 320px) {
-  .profile-info h1 {
-    font-size: 1.6rem;
-  }
-  
-  .social-icon {
-    width: 40px;
-    height: 32px;
-  }
-}
-
-.social-icon,
 /* Touch improvements */
 .paper-title a,
 .paper-links a,
@@ -238,9 +197,6 @@ a[href] {
 .paper-links a:hover {
   color: #005a9e !important;
 }
-
-
-</style>
 
 
 <!-- Profile Header Section -->
