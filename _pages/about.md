@@ -144,6 +144,89 @@ div[class*="follow"] {
     height: 150px;
   }
 }
+
+
+/* ADD THIS: Mobile optimizations */
+@media (max-width: 480px) {
+  .profile-header {
+    flex-direction: column;
+    text-align: center;
+    padding: 1.5rem 0;
+    gap: 1.5rem;
+  }
+  
+  .profile-photo img {
+    width: 120px;
+    height: 120px;
+  }
+  
+  .profile-info h1 {
+    font-size: 1.8rem;
+  }
+  
+  .social-icons {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  
+  .social-icon {
+    width: 45px;
+    height: 35px;
+    border-radius: 5px !important;
+  }
+  
+  .paper-container {
+    flex-direction: column;
+    margin-bottom: 1.5rem;
+    gap: 0.8rem;
+  }
+  
+  .paper-image-container,
+  .paper-image {
+    width: 100%;
+    height: 120px;
+  }
+  
+  .paper-title {
+    font-size: 0.95rem;
+    line-height: 1.4;
+  }
+  
+  h2 {
+    font-size: 1.3rem !important;
+  }
+  
+  h4 {
+    font-size: 1.1rem !important;
+  }
+  
+  body {
+    padding: 0 1rem;
+  }
+}
+
+@media (max-width: 320px) {
+  .profile-info h1 {
+    font-size: 1.6rem;
+  }
+  
+  .social-icon {
+    width: 40px;
+    height: 32px;
+  }
+}
+
+.social-icon,
+.paper-title a,
+.paper-links a {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  padding: 0.5rem;
+}
+
+
 </style>
 
 
@@ -231,7 +314,7 @@ Prior to my graduate studies, I earned my bachelor's degree in computer engineer
         I am currently doing a Summer Research Internship at Brave Software working on privacy and security of AI agents with <a href="https://alishahin.github.io/">Ali Shahin Shamsabadi</a>.
 </p>
 
--------- -->
+
 <h2 style="font-size: 1.5rem;">💬 Office Hours</h2>
 I’m hosting weekly office hours—feel free to drop by! I'm happy to chat and advise on research (or projects), PhD applications, or anything else on your mind. Casual chats welcome too (I’m a big football (soccer) fan ⚽️). Lately, I've been working on trustworthiness of AI agents and audio modality safety, but I'm always open to exploring new areas and directions you might bring.
 
