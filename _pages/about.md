@@ -222,24 +222,6 @@ div[class*="follow"] {
   }
 }
 
-.social-icon,
-/* Touch improvements */
-.paper-title a,
-.paper-links a,
-a[href] {
-  min-height: 44px !important;
-  display: inline-flex !important;
-  align-items: center !important;
-  text-decoration: underline !important;
-  color: #007acc !important;
-}
-
-.paper-title a:hover,
-.paper-links a:hover {
-  color: #005a9e !important;
-}
-
-
 </style>
 
 
