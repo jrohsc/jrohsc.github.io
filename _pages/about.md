@@ -548,7 +548,7 @@ Feel free to book a time that works for you through my [Calendly](https://calend
   </div>
   <div class="paper-content">
     <div class="paper-title">
-      <a href="https://arxiv.org/pdf/2406.15213" target="_blank">Backdooring Bias into Text-to-Image Models</a>
+      <a href="https://arxiv.org/pdf/2406.15213" target="_blank">Backdooring Bias (B<sup>2</sup>) into Stable Diffusion Models</a>
     </div>
     <div class="paper-authors">
       Ali Naseh, <strong><u>Jaechul Roh</u></strong>, Eugene Bagdasaryan, Amir Houmansadr
