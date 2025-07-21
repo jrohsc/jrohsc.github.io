@@ -13,6 +13,8 @@ layouts_gallery:
     alt: "archive layout example"
 ---
 
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
 <style>
 
 /* Hide follow buttons */
@@ -145,6 +147,9 @@ div[class*="follow"] {
   }
 }
 
+* {
+  box-sizing: border-box;
+}
 
 /* ADD THIS: Mobile optimizations */
 @media (max-width: 480px) {
@@ -218,12 +223,20 @@ div[class*="follow"] {
 }
 
 .social-icon,
+/* Touch improvements */
 .paper-title a,
-.paper-links a {
-  min-height: 44px;
-  display: inline-flex;
-  align-items: center;
-  padding: 0.5rem;
+.paper-links a,
+a[href] {
+  min-height: 44px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  text-decoration: underline !important;
+  color: #007acc !important;
+}
+
+.paper-title a:hover,
+.paper-links a:hover {
+  color: #005a9e !important;
 }
 
 
