@@ -439,6 +439,25 @@ Feel free to book a time that works for you through my [Calendly](https://calend
   <h4 style="font-size: 1.3rem;">Preprint</h4>
 <div class="paper-container">
   <div class="paper-image-container">
+    <img src="paper_figures/bobs_confetti.png" alt="Bob's Confetti" class="paper-image">
+    <span class="venue-tag preprint">arXiv</span>
+  </div>
+  <div class="paper-content">
+    <div class="paper-title">
+      <a href="hhttps://arxiv.org/pdf/2507.17937" target="_blank">Bob’s Confetti: Phonetic Memorization Attacks in Music and Video Generation</a>
+    </div>
+    <div class="paper-authors">
+      <strong><u>Jaechul Roh</u></strong>, Zachary Novack, Yuefeng Peng, Niloofar Mireshghallah, Taylor Berg-Kirkpatrick, Amir Houmansadr
+    </div>
+    <div class="paper-venue">Preprint at arXiv</div>
+    <div class="paper-links">
+      <a href="https://jrohsc.github.io/music_attack/" target="_blank">[demo page]</a>
+    </div>
+  </div>
+</div>
+
+<div class="paper-container">
+  <div class="paper-image-container">
     <img src="paper_figures/cocc.png" alt="Chain-of-Code Collapse" class="paper-image">
     <span class="venue-tag preprint">arXiv</span>
   </div>
