@@ -444,7 +444,7 @@ Feel free to book a time that works for you through my [Calendly](https://calend
   </div>
   <div class="paper-content">
     <div class="paper-title">
-      <a href="hhttps://arxiv.org/pdf/2507.17937" target="_blank">Bob’s Confetti: Phonetic Memorization Attacks in Music and Video Generation</a>
+      <a href="https://arxiv.org/pdf/2507.17937" target="_blank"><em>Bob’s Confetti</em>: Phonetic Memorization Attacks in Music and Video Generation</a>
     </div>
     <div class="paper-authors">
       <strong><u>Jaechul Roh</u></strong>, Zachary Novack, Yuefeng Peng, Niloofar Mireshghallah, Taylor Berg-Kirkpatrick, Amir Houmansadr
