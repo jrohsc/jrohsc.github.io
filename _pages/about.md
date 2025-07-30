@@ -370,7 +370,7 @@ Feel free to book a time that works for you through my [Calendly](https://calend
 
 .paper-image {
   flex-shrink: 0;
-  width: 150px;
+  width: 170px;
   height: 120px;
   object-fit: cover;
   border-radius: 5px;
