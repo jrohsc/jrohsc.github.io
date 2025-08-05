@@ -19,7 +19,7 @@ papers:
   - title: "Fine-Tuning on Diverse Reasoning Chains Drives Within-Inference CoT Refinement in LLMs"
     authors: <b>Haritz Puerto</b>, Tilek Chubakov, Xiaodan Zhu, Harish Tayyar Madabushi, Iryna Gurevych
     venue: "ACL 2025"
-    paper_pdf: "https://arxiv.org/abs/2407.03181"
+    paper_pdf: https://aclanthology.org/2025.acl-long.191/
     code: https://github.com/UKPLab/acl2025-diverse-cot
     website: https://ukplab.github.io/acl2025-diverse-cot/
     poster: /assets/publications/2025_diverse_cot/poster.pdf
@@ -29,7 +29,7 @@ papers:
   - title: "Scaling Up Membership Inference: When and How Attacks Succeed on Large Language Models"
     authors:  <b>Haritz Puerto</b>, Martin Gubri, Sangdoo Yun, Seong Joon Oh
     venue: Findings of NAACL 2025
-    paper_pdf: https://arxiv.org/abs/2411.00154
+    paper_pdf: https://aclanthology.org/2025.findings-naacl.234/
     website: https://haritzpuerto.github.io/scaling-mia/
     code: https://github.com/parameterlab/mia-scaling
     poster: /assets/publications/2025_scaling_mia/poster.pdf
@@ -38,7 +38,7 @@ papers:
   - title: "Code Prompting Elicits Conditional Reasoning Abilities in Text+Code LLMs"
     authors: <b>Haritz Puerto</b>, Martin Tutek, Somak Aditya, Xiaodan Zhu, Iryna Gurevych
     venue: "EMNLP 2024"
-    paper_pdf: "https://arxiv.org/abs/2401.10065"
+    paper_pdf: https://aclanthology.org/2024.emnlp-main.629/
     website: https://haritzpuerto.github.io/code-prompting/
     code: https://github.com/UKPLab/arxiv2024-conditional-reasoning-llms
     poster: /assets/publications/2024_code_prompting/poster.pdf
@@ -53,7 +53,7 @@ papers:
   - title: "UKP-SQuARE: An Interactive Tool for Teaching Question Answering"
     authors: Haishuo Fang, <b>Haritz Puerto</b>, Iryna Gurevych
     venue: "BEA Workshop@ACL 2023"
-    paper_pdf: "https://arxiv.org/abs/2305.19748"
+    paper_pdf: https://aclanthology.org/2023.bea-1.17/
     code: https://github.com/UKP-SQuARE/square-core
     website: https://square.ukp-lab.de
     selected: n
@@ -61,7 +61,7 @@ papers:
   - title: "UKP-SQuARE v3: A Platform for Multi-Agent QA Research"
     authors: <b>Haritz Puerto</b>, Tim Baumgärtner, Rachneet Sachdeva, Haishuo Fang, Hao Zhang, Sewin Tariverdian, Kexin Wang, Iryna Gurevych
     venue: "ACL 2023 Demo Track"
-    paper_pdf: "https://arxiv.org/abs/2303.18120"
+    paper_pdf: https://aclanthology.org/2023.acl-demo.55/
     code: https://github.com/UKP-SQuARE/square-core
     website: https://square.ukp-lab.de
     selected: y
