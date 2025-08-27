@@ -311,9 +311,11 @@ Prior to my graduate studies, I earned my bachelor's degree in computer engineer
 
 
 <h2 style="font-size: 1.5rem;">💬 Office Hours</h2>
-I’m hosting weekly office hours—feel free to drop by! I'm happy to chat and advise on research (or projects), PhD applications, or anything else on your mind. Lately, I've been working on trustworthiness of AI agents and audio modality safety, but I'm always open to exploring new areas and directions you might bring.
+I'm happy to chat and advise on research (or projects), PhD applications, or anything else on your mind. Lately, I've been working on trustworthiness of AI agents and audio modality safety, but I'm always open to exploring new areas and directions you might bring.
 
-Feel free to book a time that works for you through my [Calendly](https://calendly.com/jroh-scm). 
+Feel free to send me an email to schedule an office hour!
+
+<!-- Feel free to book a time that works for you through my [Calendly](https://calendly.com/jroh-scm).  -->
 
 <!-- <span style="font-family: 'Courier New', Courier, monospace;">ideas.txt</span> -->
 <!-- ############################################################################################### -->
