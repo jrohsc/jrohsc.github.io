@@ -321,14 +321,12 @@ div[class*="follow"] {
     <h1>Jaechul Roh</h1>
     <div class="title">Ph.D. Student in Computer Science</div>
     <div class="affiliation">University of Massachusetts Amherst</div>
+    <div class="email-contact">
+      <a href="mailto:jroh@cs.umass.edu">jroh@cs.umass.edu</a>
+    </div>
 
   <!-- Social Media Icons -->
   <div class="social-icons">
-    <a href="mailto:jroh@cs.umass.edu" class="social-icon" title="Email">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
-        <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
-      </svg>
-    </a>
     <a href="https://x.com/JaechulRoh" class="social-icon" title="Twitter">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
         <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/>
@@ -387,7 +385,7 @@ I am a Ph.D. student in computer science at the University of Massachusetts Amhe
 
 My research centers on the **privacy and security** of **AI models** and **agentic systems**. I am particularly interested in understanding and mitigating vulnerabilities in multimodal systems, with recent work examining the reliability of models that process **audio**, **text**, and **vision** inputs. Alongside these efforts, I remain engaged with broader topics in **fairness, interpretability,** and **responsible AI**, aiming to develop methods that make AI systems not only powerful but also aligned with societal values.
 
-Prior to my graduate studies, I earned my bachelor's degree in computer engineering from the Hong Kong University of Science and Technology (HKUST) in the year 2023, where I completed my Final Year Thesis (FYT) on the topic of "Adversarial Attacks in Federated Learning" under the supervision of <a href="https://eejzhang.people.ust.hk/" target="_black">Jun Zhang</a>. I have also worked with [Minhao Cheng](https://cmhcbb.github.io/) on the robustness of language models, specifically exploring methods associated with defense against backdoor attacks in language models.
+Prior to my graduate studies, I earned my bachelor's degree in computer engineering from the Hong Kong University of Science and Technology (HKUST) in the year 2023, where I completed my Final Year Thesis (FYT) on the topic of "Adversarial Attacks in Federated Learning" under the supervision of <a href="https://eejzhang.people.ust.hk/" target="_blank">Jun Zhang</a>. I have also worked with [Minhao Cheng](https://cmhcbb.github.io/) on the robustness of language models, specifically exploring methods associated with defense against backdoor attacks in language models.
 
 <p class="text-with-logo">
         <img src="/images/brave_software.png" 
