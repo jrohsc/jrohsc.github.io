@@ -1,15 +1,14 @@
 papers:
-
   - title: "C-SEO Bench: Does Conversational SEO Work?"
-    authors:  <b>Haritz Puerto</b>, Martin Gubri, Tommaso Green, Seong Joon Oh, Sangdoo Yun
-    venue: arxiv 2025
+    authors: <b>Haritz Puerto</b>, Martin Gubri, Tommaso Green, Seong Joon Oh, Sangdoo Yun
+    venue: NeurIPS D&B 2025
     paper_pdf: https://arxiv.org/abs/2506.11097
     code: https://github.com/parameterlab/c-seo-bench
     data: https://huggingface.co/datasets/parameterlab/c-seo-bench
     selected: y
 
   - title: "Leaky Thoughts: Large Reasoning Models Are Not Private Thinkers"
-    authors:  Tommaso Green, Martin Gubri, <b>Haritz Puerto</b>, Seong Joon Oh, Sangdoo Yun
+    authors: Tommaso Green, Martin Gubri, <b>Haritz Puerto</b>, Seong Joon Oh, Sangdoo Yun
     venue: EMNLP 2025
     paper_pdf: https://arxiv.org/abs/2506.15674
     code: https://github.com/parameterlab/leaky_thoughts
@@ -27,7 +26,7 @@ papers:
     selected: y
 
   - title: "Scaling Up Membership Inference: When and How Attacks Succeed on Large Language Models"
-    authors:  <b>Haritz Puerto</b>, Martin Gubri, Sangdoo Yun, Seong Joon Oh
+    authors: <b>Haritz Puerto</b>, Martin Gubri, Sangdoo Yun, Seong Joon Oh
     venue: Findings of NAACL 2025
     paper_pdf: https://aclanthology.org/2025.findings-naacl.234/
     website: https://haritzpuerto.github.io/scaling-mia/
@@ -48,7 +47,7 @@ papers:
     authors: Ji-Ung Lee, <b>Haritz Puerto</b>, Betty van Aken, Yuki Arase, Jessica Zosa Forde, Leon Derczynski, Andreas Rücklé, Iryna Gurevych, Roy Schwartz, Emma Strubell, Jesse Dodge
     venue: "arXiv preprint 2023"
     paper_pdf: "https://arxiv.org/pdf/2306.16900.pdf"
-    selected: y
+    selected: n
 
   - title: "UKP-SQuARE: An Interactive Tool for Teaching Question Answering"
     authors: Haishuo Fang, <b>Haritz Puerto</b>, Iryna Gurevych
@@ -83,7 +82,7 @@ papers:
     selected: n
 
   - title: "UKP-SQUARE: An Online Platform for Question Answering Research"
-    authors: Tim Baumgärtner, Kexin Wang, Rachneet Sachdeva, Max Eichler, Gregor Geigle, Clifton Poth, Hannah Sterz, <b>Haritz Puerto</b>, Leonardo F. R. Ribeiro, Jonas Pfeiffer, Nils Reimers, Gözde Gül Şahin, Iryna Gurevych 
+    authors: Tim Baumgärtner, Kexin Wang, Rachneet Sachdeva, Max Eichler, Gregor Geigle, Clifton Poth, Hannah Sterz, <b>Haritz Puerto</b>, Leonardo F. R. Ribeiro, Jonas Pfeiffer, Nils Reimers, Gözde Gül Şahin, Iryna Gurevych
     venue: "ACL 2022 Demo Track"
     paper_pdf: "https://aclanthology.org/2022.acl-demo.2/"
     code: https://github.com/UKP-SQuARE/square-core
