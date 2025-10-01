@@ -524,6 +524,23 @@ Feel free to send me an email to schedule an office hour!
   <h2 style="font-size: 1.5rem;">🖨️ Preprint / Publications</h2>
 
   <h4 style="font-size: 1.3rem;">Preprint</h4>
+
+<div class="paper-container">
+  <div class="paper-image-container">
+    <img src="paper_figures/throttling.png" alt="Throttling" class="paper-image">
+    <span class="venue-tag preprint">arXiv</span>
+  </div>
+  <div class="paper-content">
+    <div class="paper-title">
+      <a href="https://arxiv.org/pdf/2509.01619" target="_blank">Throttling Web Agents Using Reasoning Gates</a>
+    </div>
+    <div class="paper-authors">
+      Abhinav Kumar, <strong><u>Jaechul Roh</u></strong>, Ali Naseh, Amir Houmansadr, Eugene Bagdasarian
+    </div>
+    <div class="paper-venue">Preprint at arXiv (Under Review)</div>
+  </div>
+</div>
+
 <div class="paper-container">
   <div class="paper-image-container">
     <img src="paper_figures/bobs_confetti.png" alt="Bob's Confetti" class="paper-image">
