@@ -557,6 +557,7 @@ Feel free to send me an email to schedule an office hour!
     <div class="paper-links">
       <a href="https://jrohsc.github.io/music_attack/" target="_blank">[demo page]</a>
     </div>
+    <a href="/files/bobs_confetti_poster.png" target="_blank">[poster]</a>
   </div>
 </div>
 
@@ -660,6 +661,7 @@ Feel free to send me an email to schedule an office hour!
     <div class="paper-authors">
       <strong><u>Jaechul Roh</u></strong>, Virat Shejwalkar, Amir Houmansadr
     </div>
+    <a href="/files/bobs_confetti_poster.png" target="_blank">[poster]</a>
     <div class="paper-venue">COLM 2025</div>
   </div>
 </div>
