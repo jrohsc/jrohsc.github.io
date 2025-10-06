@@ -1,4 +1,4 @@
-# Haritz Puerto's Website (based on Junmo Kang's Website, which is based on Martin Saveski's template)
+# Jaechul Roh's Website (based on Haritz Puert's Website, which is based on Junmo Kang's template)
 
 ## Updates guide
 Change one of the files in `_data`, unless you are changing the look of the website.
