@@ -5,12 +5,6 @@ papers:
     conference: n
     preprint: y
 
-  - title: "World-To-Image: Grounding Text-To-Image Generation With Agent-Driven World Knowledge"
-    authors: Moo Hyun Son, Jintaek Oh, Sub Bin Mun, <b>Jaechul Roh</b>, Sehyun Choi
-    venue: arXiv (Under Review)
-    conference: n
-    preprint: y
-
   - title: "Throttling Web Agents Using Reasoning Gates"
     authors: Abhinav Kumar, <b>Jaechul Roh</b>, Ali Naseh, Amir Houmansadr, Eugene Bagdasarian
     venue: arXiv (Under Review)
@@ -25,6 +19,20 @@ papers:
     website: https://jrohsc.github.io/music_attack/
     video: https://www.youtube.com/watch?v=MswaaYUPUgc&ab_channel=JRoh
     # poster: /files/bobs_confetti_poster.png
+    conference: n
+    preprint: y
+
+  - title: "OverThink: Slowdown Attacks on Reasoning LLMs"
+    authors: Abhinav Kumar, <b>Jaechul Roh</b>, Ali Naseh, Marezna Karpinska, Mohit Iyyer, Amir Houmansadr, Eugene Bagdasaryan
+    venue: arXiv (Under Review)
+    paper_pdf: https://arxiv.org/abs/2502.02542
+    code: https://github.com/akumar2709/OVERTHINK_public
+    conference: n
+    preprint: y
+
+  - title: "World-To-Image: Grounding Text-To-Image Generation With Agent-Driven World Knowledge"
+    authors: Moo Hyun Son, Jintaek Oh, Sub Bin Mun, <b>Jaechul Roh</b>, Sehyun Choi
+    venue: arXiv (Under Review)
     conference: n
     preprint: y
 
@@ -43,13 +51,7 @@ papers:
     conference: n
     preprint: y
 
-  - title: "OverThink: Slowdown Attacks on Reasoning LLMs"
-    authors: Abhinav Kumar, <b>Jaechul Roh</b>, Ali Naseh, Marezna Karpinska, Mohit Iyyer, Amir Houmansadr, Eugene Bagdasaryan
-    venue: arXiv
-    paper_pdf: https://arxiv.org/abs/2502.02542
-    code: https://github.com/akumar2709/OVERTHINK_public
-    conference: n
-    preprint: y
+  
 
   - title: "FameBias: Embedding Manipulation Bias Attack in Text-to-Image Models"
     authors: <b>Jaechul Roh</b>*, Andrew Yuan*, Jinsong Mao*

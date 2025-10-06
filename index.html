@@ -63,11 +63,9 @@ layout: default
     <li>
       <div class="button active" data-ref="#papers-selected">Conference</div>
     </li>
-
     <li>
       <div class="button" data-ref="#papers-preprint">Under Review / Preprint</div>
     </li>
-
     <li>
       <div class="button" data-ref="#papers-all">All</div>
     </li>
@@ -114,7 +112,7 @@ layout: default
       {% endfor %}
     </div>
 
-    <div class="tab-pane active" id="papers-preprint">
+    <div class="tab-pane" id="papers-preprint">
       {% assign selected_papers = site.data.publications.papers | where: "preprint", "y" %}
       {% for paper in selected_papers %}
       <div class="paper">
