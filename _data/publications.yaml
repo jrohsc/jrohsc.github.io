@@ -1,7 +1,7 @@
 papers:
   - title: "SPILLage: Agentic Oversharing on the Web"
     authors: <b>Jaechul Roh</b>, Eugene Bagdasarian, Hamed Haddadi, Ali Shahin Shamsabadi
-    venue: arXiv (Under Review)
+    venue: Under Review
     conference: n
     preprint: y
 
@@ -32,7 +32,7 @@ papers:
 
   - title: "World-To-Image: Grounding Text-To-Image Generation With Agent-Driven World Knowledge"
     authors: Moo Hyun Son, Jintaek Oh, Sub Bin Mun, <b>Jaechul Roh</b>, Sehyun Choi
-    venue: arXiv (Under Review)
+    venue: Under Review
     conference: n
     preprint: y
 
