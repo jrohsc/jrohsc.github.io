@@ -62,10 +62,13 @@ layout: default
 
   <ul class="tab-nav">
     <li>
-      <div class="button active" data-ref="#papers-selected">Conference</div>
+      <div class="button active" data-ref="#papers-under-review">Under Review</div>
     </li>
     <li>
-      <div class="button" data-ref="#papers-preprint">Under Review / Preprint</div>
+      <div class="button" data-ref="#papers-conference">Conference</div>
+    </li>
+    <li>
+      <div class="button" data-ref="#papers-preprint">Preprint</div>
     </li>
     <li>
       <div class="button" data-ref="#papers-all">All</div>
@@ -73,7 +76,48 @@ layout: default
   </ul>
 
   <div class="tab-content">
-    <div class="tab-pane active" id="papers-selected">
+    <div class="tab-pane active" id="papers-under-review">
+        {% assign selected_papers = site.data.publications.papers | where: "under_review", "y" %}
+        {% for paper in selected_papers %}
+        <div class="paper">
+          <p class="title"><b>{{ paper.title }}</b></p>
+          <p>{{ paper.authors }}</p>
+          <p><i>{{ paper.venue }}</i></p>
+          <div class="paper-buttons">
+            {% if paper.paper_pdf %}
+            <a class="button" href="{{ paper.paper_pdf }}" target="_blank">Paper</a>
+            {% endif %}
+
+            {% if paper.slides %}
+            <a class="button" href="{{ paper.slides | prepend: site.baseurl }}" target="_blank">Slides</a>
+            {% endif %}
+
+            {% if paper.poster %}
+            <a class="button" href="{{ paper.poster | prepend: site.baseurl }}" target="_blank">Poster</a>
+            {% endif %}
+
+            {% if paper.video %}
+            <a class="button" href="{{ paper.video }}" target="_blank">Video</a>
+            {% endif %}
+
+            {% if paper.website %}
+            <a class="button" href="{{ paper.website }}" target="_blank">Demo</a>
+            {% endif %}
+
+            {% if paper.code %}
+            <a class="button" href="{{ paper.code }}" target="_blank">Code</a>
+            {% endif %}
+
+            {% if paper.data %}
+            <a class="button" href="{{ paper.data }}" target="_blank">Data</a>
+            {% endif %}
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+
+  
+    <div class="tab-pane" id="papers-conference">
       {% assign selected_papers = site.data.publications.papers | where: "conference", "y" %}
       {% for paper in selected_papers %}
       <div class="paper">

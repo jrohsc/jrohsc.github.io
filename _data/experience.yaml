@@ -3,12 +3,13 @@ experiences:
 - place: "Brave Software"
   time: "Jun. 2025 - Sep. 2025"
   title: "Research Intern"
+  subtitle: "Research Area: Privacy in Web Agent"
   category: "work"
 
 - place: "UMass Amherst"
   time: "Jan. 2021 - "
-  title: "Ph.D. Student"
-  subtitle: "Computer Science"
+  title: "Ph.D. Student in Computer Science"
+  subtitle: "Research Area: Privacy & Security in AI"
   category: "school"
 
 - place: "Super Chain AI"

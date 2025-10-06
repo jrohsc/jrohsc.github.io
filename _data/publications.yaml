@@ -2,15 +2,19 @@ papers:
   - title: "SPILLage: Agentic Oversharing on the Web"
     authors: <b>Jaechul Roh</b>, Eugene Bagdasarian, Hamed Haddadi, Ali Shahin Shamsabadi
     venue: Under Review
+    under_review: y    
     conference: n
-    preprint: y
+    preprint: n
+    
 
   - title: "Throttling Web Agents Using Reasoning Gates"
     authors: Abhinav Kumar, <b>Jaechul Roh</b>, Ali Naseh, Amir Houmansadr, Eugene Bagdasarian
     venue: arXiv (Under Review)
     paper_pdf: https://arxiv.org/pdf/2509.01619
+    under_review: y
     conference: n
     preprint: y
+    
 
   - title: "<em>Bob's Confetti</em>: Phonetic Memorization Attacks in Music and Video Generation"
     authors: <b>Jaechul Roh</b>*, Zachary Novack*, Yuefeng Peng, Niloofar Mireshghallah, Taylor Berg-Kirkpatrick, Amir Houmansadr
@@ -19,22 +23,29 @@ papers:
     website: https://jrohsc.github.io/music_attack/
     video: https://www.youtube.com/watch?v=MswaaYUPUgc&ab_channel=JRoh
     # poster: /files/bobs_confetti_poster.png
+    under_review: y
     conference: n
     preprint: y
+    
 
   - title: "OverThink: Slowdown Attacks on Reasoning LLMs"
     authors: Abhinav Kumar, <b>Jaechul Roh</b>, Ali Naseh, Marezna Karpinska, Mohit Iyyer, Amir Houmansadr, Eugene Bagdasaryan
     venue: arXiv (Under Review)
     paper_pdf: https://arxiv.org/abs/2502.02542
     code: https://github.com/akumar2709/OVERTHINK_public
+    
+    under_review: y
     conference: n
     preprint: y
+    
 
   - title: "World-To-Image: Grounding Text-To-Image Generation With Agent-Driven World Knowledge"
     authors: Moo Hyun Son, Jintaek Oh, Sub Bin Mun, <b>Jaechul Roh</b>, Sehyun Choi
     venue: Under Review
+    under_review: y
     conference: n
-    preprint: y
+    preprint: n
+    
 
   - title: "Chain-of-Code Collapse: Reasoning Failures in LLMs via Adversarial Prompting in Code Generation"
     authors: <b>Jaechul Roh</b>, Varun Gandhi, Shivani Anilkumar, Arin Garg
@@ -51,7 +62,6 @@ papers:
     conference: n
     preprint: y
 
-  
 
   - title: "FameBias: Embedding Manipulation Bias Attack in Text-to-Image Models"
     authors: <b>Jaechul Roh</b>*, Andrew Yuan*, Jinsong Mao*
@@ -72,7 +82,7 @@ papers:
     authors: <b>Jaechul Roh</b>, Virat Shejwalkar, Amir Houmansadr
     venue: COLM 2025
     paper_pdf: https://arxiv.org/abs/2504.01094
-    poster: /files/bobs_confetti_poster.png
+    poster: /assets/image/COLM_Poster.png
     conference: y
 
   - title: "Backdooring Bias (B²) into Stable Diffusion Models"
