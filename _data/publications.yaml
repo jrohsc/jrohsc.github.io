@@ -49,12 +49,15 @@ papers:
     paper_pdf: https://arxiv.org/abs/2502.02542
     code: https://github.com/akumar2709/OVERTHINK_public
     conference: n
+    preprint: y
 
   - title: "FameBias: Embedding Manipulation Bias Attack in Text-to-Image Models"
     authors: <b>Jaechul Roh</b>*, Andrew Yuan*, Jinsong Mao*
     venue: arXiv
     paper_pdf: https://arxiv.org/pdf/2412.18302
     conference: n
+    preprint: y
+
 
   - title: "Understanding (Un)Intended Memorization in Text-to-Image Generative Models"
     authors: Ali Naseh, <b>Jaechul Roh</b>, Amir Houmansadr
