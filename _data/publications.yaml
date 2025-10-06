@@ -1,116 +1,115 @@
 papers:
-  - title: "C-SEO Bench: Does Conversational SEO Work?"
-    authors: <b>Haritz Puerto</b>, Martin Gubri, Tommaso Green, Seong Joon Oh, Sangdoo Yun
-    venue: NeurIPS D&B 2025
-    paper_pdf: https://arxiv.org/abs/2506.11097
-    code: https://github.com/parameterlab/c-seo-bench
-    data: https://huggingface.co/datasets/parameterlab/c-seo-bench
-    selected: y
+  - title: "SPILLage: Agentic Oversharing on the Web"
+    authors: <b>Jaechul Roh</b>, Eugene Bagdasarian, Hamed Haddadi, Ali Shahin Shamsabadi
+    venue: arXiv (Under Review)
+    conference: n
+    preprint: y
 
-  - title: "Leaky Thoughts: Large Reasoning Models Are Not Private Thinkers"
-    authors: Tommaso Green, Martin Gubri, <b>Haritz Puerto</b>, Seong Joon Oh, Sangdoo Yun
-    venue: EMNLP 2025
-    paper_pdf: https://arxiv.org/abs/2506.15674
-    code: https://github.com/parameterlab/leaky_thoughts
-    data: https://huggingface.co/datasets/parameterlab/leaky_thoughts
-    selected: y
+  - title: "World-To-Image: Grounding Text-To-Image Generation With Agent-Driven World Knowledge"
+    authors: Moo Hyun Son, Jintaek Oh, Sub Bin Mun, <b>Jaechul Roh</b>, Sehyun Choi
+    venue: arXiv (Under Review)
+    conference: n
+    preprint: y
 
-  - title: "Fine-Tuning on Diverse Reasoning Chains Drives Within-Inference CoT Refinement in LLMs"
-    authors: <b>Haritz Puerto</b>, Tilek Chubakov, Xiaodan Zhu, Harish Tayyar Madabushi, Iryna Gurevych
-    venue: "ACL 2025"
-    paper_pdf: https://aclanthology.org/2025.acl-long.191/
-    code: https://github.com/UKPLab/acl2025-diverse-cot
-    website: https://ukplab.github.io/acl2025-diverse-cot/
-    poster: /assets/publications/2025_diverse_cot/poster.pdf
-    slides: /assets/publications/2025_diverse_cot/slides.pdf
-    selected: y
+  - title: "Throttling Web Agents Using Reasoning Gates"
+    authors: Abhinav Kumar, <b>Jaechul Roh</b>, Ali Naseh, Amir Houmansadr, Eugene Bagdasarian
+    venue: arXiv (Under Review)
+    paper_pdf: https://arxiv.org/pdf/2509.01619
+    conference: n
+    preprint: y
 
-  - title: "Scaling Up Membership Inference: When and How Attacks Succeed on Large Language Models"
-    authors: <b>Haritz Puerto</b>, Martin Gubri, Sangdoo Yun, Seong Joon Oh
-    venue: Findings of NAACL 2025
-    paper_pdf: https://aclanthology.org/2025.findings-naacl.234/
-    website: https://haritzpuerto.github.io/scaling-mia/
-    code: https://github.com/parameterlab/mia-scaling
-    poster: /assets/publications/2025_scaling_mia/poster.pdf
-    selected: y
+  - title: "<em>Bob's Confetti</em>: Phonetic Memorization Attacks in Music and Video Generation"
+    authors: <b>Jaechul Roh</b>*, Zachary Novack*, Yuefeng Peng, Niloofar Mireshghallah, Taylor Berg-Kirkpatrick, Amir Houmansadr
+    venue: arXiv (Under Review)
+    paper_pdf: https://arxiv.org/pdf/2507.17937
+    website: https://jrohsc.github.io/music_attack/
+    video: https://www.youtube.com/watch?v=MswaaYUPUgc&ab_channel=JRoh
+    # poster: /files/bobs_confetti_poster.png
+    conference: n
+    preprint: y
 
-  - title: "Code Prompting Elicits Conditional Reasoning Abilities in Text+Code LLMs"
-    authors: <b>Haritz Puerto</b>, Martin Tutek, Somak Aditya, Xiaodan Zhu, Iryna Gurevych
-    venue: "EMNLP 2024"
-    paper_pdf: https://aclanthology.org/2024.emnlp-main.629/
-    website: https://haritzpuerto.github.io/code-prompting/
-    code: https://github.com/UKPLab/arxiv2024-conditional-reasoning-llms
-    poster: /assets/publications/2024_code_prompting/poster.pdf
-    selected: y
+  - title: "Chain-of-Code Collapse: Reasoning Failures in LLMs via Adversarial Prompting in Code Generation"
+    authors: <b>Jaechul Roh</b>, Varun Gandhi, Shivani Anilkumar, Arin Garg
+    venue: arXiv
+    paper_pdf: https://arxiv.org/pdf/2506.06971
+    code: https://github.com/jrohsc/Chain-of-Code-Collapse
+    conference: n
+    preprint: y
 
-  - title: "Surveying (Dis)Parities and Concerns of Compute Hungry NLP Research"
-    authors: Ji-Ung Lee, <b>Haritz Puerto</b>, Betty van Aken, Yuki Arase, Jessica Zosa Forde, Leon Derczynski, Andreas Rücklé, Iryna Gurevych, Roy Schwartz, Emma Strubell, Jesse Dodge
-    venue: "arXiv preprint 2023"
-    paper_pdf: "https://arxiv.org/pdf/2306.16900.pdf"
-    selected: n
+  - title: "R1dacted: Investigating Local Censorship in DeepSeek's R1 Language Model"
+    authors: Ali Naseh, Harsh Chaudhari, <b>Jaechul Roh</b>, Mingshi Wu, Alina Oprea, Amir Houmansadr
+    venue: arXiv
+    paper_pdf: https://arxiv.org/pdf/2505.12625
+    conference: n
+    preprint: y
 
-  - title: "UKP-SQuARE: An Interactive Tool for Teaching Question Answering"
-    authors: Haishuo Fang, <b>Haritz Puerto</b>, Iryna Gurevych
-    venue: "BEA Workshop@ACL 2023"
-    paper_pdf: https://aclanthology.org/2023.bea-1.17/
-    code: https://github.com/UKP-SQuARE/square-core
-    website: https://square.ukp-lab.de
-    selected: n
+  - title: "OverThink: Slowdown Attacks on Reasoning LLMs"
+    authors: Abhinav Kumar, <b>Jaechul Roh</b>, Ali Naseh, Marezna Karpinska, Mohit Iyyer, Amir Houmansadr, Eugene Bagdasaryan
+    venue: arXiv
+    paper_pdf: https://arxiv.org/abs/2502.02542
+    code: https://github.com/akumar2709/OVERTHINK_public
+    conference: n
 
-  - title: "UKP-SQuARE v3: A Platform for Multi-Agent QA Research"
-    authors: <b>Haritz Puerto</b>, Tim Baumgärtner, Rachneet Sachdeva, Haishuo Fang, Hao Zhang, Sewin Tariverdian, Kexin Wang, Iryna Gurevych
-    venue: "ACL 2023 Demo Track"
-    paper_pdf: https://aclanthology.org/2023.acl-demo.55/
-    code: https://github.com/UKP-SQuARE/square-core
-    website: https://square.ukp-lab.de
-    selected: y
+  - title: "FameBias: Embedding Manipulation Bias Attack in Text-to-Image Models"
+    authors: <b>Jaechul Roh</b>*, Andrew Yuan*, Jinsong Mao*
+    venue: arXiv
+    paper_pdf: https://arxiv.org/pdf/2412.18302
+    conference: n
 
-  - title: "MetaQA: Combining Expert Agents for Multi-Skill Question Answering"
-    authors: <b>Haritz Puerto</b>, Gözde Gül Şahin, Iryna Gurevych
-    venue: EACL 2023.
-    paper_pdf: https://aclanthology.org/2023.eacl-main.259/
-    code: https://github.com/UKPLab/MetaQA
-    video: https://doi.org/10.48448/q7ak-a589
-    selected: y
+  - title: "Understanding (Un)Intended Memorization in Text-to-Image Generative Models"
+    authors: Ali Naseh, <b>Jaechul Roh</b>, Amir Houmansadr
+    venue: arXiv
+    paper_pdf: https://arxiv.org/pdf/2312.07550
+    conference: n
+    preprint: y
 
-  - title: "UKP-SQuARE v2: Explainability and Adversarial Attacks for Trustworthy QA"
-    authors: Rachneet Sachdeva*, <b>Haritz Puerto<sup>*</sup></b>, Tim Baumgärtner, Sewin Tariverdian, Hao Zhang, Kexin Wang, Hossain Shaikh Saadi, Leonardo F. R. Ribeiro, Iryna Gurevych
-    venue: "AACL 2022 Demo Track"
-    paper_pdf: "https://aclanthology.org/2022.aacl-demo.4/"
-    code: https://github.com/UKP-SQuARE/square-core
-    website: https://square.ukp-lab.de
-    selected: n
+  - title: "Multilingual and Multi-Accent Jailbreaking of Audio LLMs"
+    authors: <b>Jaechul Roh</b>, Virat Shejwalkar, Amir Houmansadr
+    venue: COLM 2025
+    paper_pdf: https://arxiv.org/abs/2504.01094
+    poster: /files/bobs_confetti_poster.png
+    conference: y
 
-  - title: "UKP-SQUARE: An Online Platform for Question Answering Research"
-    authors: Tim Baumgärtner, Kexin Wang, Rachneet Sachdeva, Max Eichler, Gregor Geigle, Clifton Poth, Hannah Sterz, <b>Haritz Puerto</b>, Leonardo F. R. Ribeiro, Jonas Pfeiffer, Nils Reimers, Gözde Gül Şahin, Iryna Gurevych
-    venue: "ACL 2022 Demo Track"
-    paper_pdf: "https://aclanthology.org/2022.acl-demo.2/"
-    code: https://github.com/UKP-SQuARE/square-core
-    website: https://square.ukp-lab.de
-    selected: n
+  - title: "Backdooring Bias (B²) into Stable Diffusion Models"
+    authors: Ali Naseh, <b>Jaechul Roh</b>, Eugene Bagdasaryan, Amir Houmansadr
+    venue: USENIX Security 2025
+    paper_pdf: https://arxiv.org/pdf/2406.15213
+    code: https://github.com/jcroh0508/Backdororing_Bias/
+    conference: y
 
-  - title: Regularization of Distinct Strategies for Unsupervised Question Generation
-    authors: Junmo Kang<sup>*</sup>, Giwon Hong<sup>*</sup>, <b>Haritz Puerto<sup>*</sup></b>, Sung-Hyon Myaeng
-    venue: In Proceedings of Findings of EMNLP, 2020.
-    paper_pdf: https://www.aclweb.org/anthology/2020.findings-emnlp.293.pdf
-    code: "https://github.com/HaritzPuerto/UQA"
-    selected: y
+  - title: "OSLO: One-Shot Label-Only Membership Inference Attacks"
+    authors: Yuefeng Peng, <b>Jaechul Roh</b>, Subhransu Maji, Amir Houmansadr
+    venue: NeurIPS 2024
+    paper_pdf: https://arxiv.org/pdf/2405.16978
+    conference: y
 
-  - title: "Let Me Know What to Ask: Interrogative-Word-Aware Question Generation"
-    authors: Junmo Kang<sup>*</sup>, <b>Haritz Puerto<sup>*</sup></b>, Sung-Hyon Myaeng
-    venue: In Proceedings of MRQA@EMNLP, 2019.
-    paper_pdf: https://www.aclweb.org/anthology/D19-5822.pdf
-    poster: "/assets/publications/2019_let_me_know/poster.pdf"
-    selected: y
+  - title: "Memory Triggers: Unveiling Memorization in Text-To-Image Generative Models through Word-Level Duplication"
+    authors: Ali Naseh, <b>Jaechul Roh</b>, Amir Houmansadr
+    venue: AAAI PPAI 2024
+    paper_pdf: https://arxiv.org/pdf/2312.03692
+    conference: y
 
-  - title: "Analysis of the Semantic Answer Types to Understand the Limitations of MRQA Models"
-    authors: Doyeon Lim<sup>*</sup>, <b>Haritz Puerto<sup>*</sup></b>, Sung-Hyon Myaeng
-    venue: In Journal of KIISE, 2020.
-    paper_pdf: "/assets/publications/KIISE_paper.pdf"
-    selected: n
+  - title: "Robust Smart Home Face Recognition under Starving Federated Data"
+    authors: <b>Jaechul Roh</b>, Yajun Fang
+    venue: IEEE UV 2022
+    paper_pdf: https://arxiv.org/pdf/2211.05410
+    code: https://github.com/jcroh0508/FLATS
+    slides: https://www.jrohs.com/_files/ugd/c489e1_bbc7e44075944cad98da82f31e7430ae.pdf
+    video: https://www.youtube.com/watch?v=Tj9QiJEUBXU&ab_channel=jroh
+    conference: y
 
-  - title: Analysis of Answer Type Application Ability of State-of-the-Art Reading Comprehension Models for Question Answering Task
-    authors: <b>Haritz Puerto<sup>*</sup></b>, Doyeon Lim<sup>*</sup>, Sung-Hyon Myaeng
-    venue: In Proceedings of Korean Computer Congress, 2019. <b>(Best Paper Award)</b>
-    paper_pdf: "/assets/publications/KCC_paper.pdf"
-    selected: n
+  - title: "MSDT: Masked Language Model Scoring Defense in Text Domain"
+    authors: <b>Jaechul Roh</b>, Minhao Cheng, Yajun Fang
+    venue: IEEE UV 2022
+    paper_pdf: https://arxiv.org/pdf/2211.05371
+    code: https://github.com/jcroh0508/MSDT
+    slides: https://www.jrohs.com/_files/ugd/c489e1_bbc7e44075944cad98da82f31e7430ae.pdf
+    video: https://www.youtube.com/watch?v=oO3FbxnMdv0&ab_channel=jroh
+    conference: y
+
+  - title: "Impact of Adversarial Training on the Robustness of Deep Neural Networks"
+    authors: <b>Jaechul Roh</b>
+    venue: IEEE ICISCAE 2022
+    paper_pdf: https://ieeexplore.ieee.org/abstract/document/9927611
+    code: https://github.com/jcroh0508/Adversarial_Training_Impact
+    conference: y
