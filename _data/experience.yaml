@@ -7,10 +7,16 @@ experiences:
   category: "work"
 
 - place: "UMass Amherst"
-  time: "Jan. 2021 - "
+  time: "Aug. 2023 - "
   title: "Ph.D. Student in Computer Science"
   subtitle: "Research Area: Privacy & Security in AI"
   category: "school"
+
+- place: "IEEE Universal Village"
+  time: "Jun. 2022 - Sept. 2022"
+  title: "Student Researcher"
+  # subtitle: "Research Area: Federated Learning"
+  category: "work"
 
 - place: "Super Chain AI"
   time: "Jun. 2021 - Aug. 2021"
