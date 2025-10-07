@@ -16,7 +16,7 @@ papers:
     preprint: y
     
 
-  - title: "<em>Bob's Confetti</em>: Phonetic Memorization Attacks in Music and Video Generation"
+  - title: "<em>Bob's Confetti</em> : Phonetic Memorization Attacks in Music and Video Generation"
     authors: <b>Jaechul Roh</b>*, Zachary Novack*, Yuefeng Peng, Niloofar Mireshghallah, Taylor Berg-Kirkpatrick, Amir Houmansadr
     venue: arXiv (Under Review)
     paper_pdf: https://arxiv.org/pdf/2507.17937
@@ -41,10 +41,12 @@ papers:
 
   - title: "World-To-Image: Grounding Text-To-Image Generation With Agent-Driven World Knowledge"
     authors: Moo Hyun Son, Jintaek Oh, Sub Bin Mun, <b>Jaechul Roh</b>, Sehyun Choi
-    venue: Under Review
+    venue: arXiv (Under Review)
+    paper_pdf: https://arxiv.org/abs/2510.04201
+    code: https://github.com/mhson-kyle/World-To-Image
     under_review: y
     conference: n
-    preprint: n
+    preprint: y
     
 
   - title: "Chain-of-Code Collapse: Reasoning Failures in LLMs via Adversarial Prompting in Code Generation"
