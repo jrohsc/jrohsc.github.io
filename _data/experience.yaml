@@ -9,7 +9,7 @@ experiences:
 - place: "UMass Amherst"
   time: "Aug. 2023 - "
   title: "Ph.D. Student in Computer Science"
-  subtitle: "Research Area: Privacy & Security in AI"
+  subtitle: "SPIN Lab, UMass AI Security Lab"
   category: "school"
 
 - place: "IEEE Universal Village"
@@ -27,10 +27,11 @@ experiences:
 - place: "Military Service (R.O.K Army)"
   time: "Jul. 2018 - Mar. 2020"
   title: "Sergeant (Squad Leader)"
+  # subtitle: ""
   category: "work"
 
 - place: "HKUST"
   time: "Aug. 2017 - May. 2023"
   title: "B.Eng. in Computer Engineering"
-  # subtitle: "<i>Summa Cum Laude</i>"
+  subtitle: "Final Year Thesis: Adversarial Attacks in Federated Learning"
   category: "school"
