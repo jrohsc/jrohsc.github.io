@@ -22,7 +22,7 @@ papers:
     paper_pdf: https://arxiv.org/pdf/2507.17937
     website: https://jrohsc.github.io/music_attack/
     video: https://www.youtube.com/watch?v=MswaaYUPUgc&ab_channel=JRoh
-    # poster: /files/bobs_confetti_poster.png
+    poster: /assets/image/Bobs_confetti_poster.png
     under_review: y
     conference: n
     preprint: y
