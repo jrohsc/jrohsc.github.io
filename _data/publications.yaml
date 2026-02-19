@@ -1,7 +1,7 @@
 papers:
   - title: "SPILLage: Agentic Oversharing on the Web"
     authors: <b>Jaechul Roh</b>, Eugene Bagdasarian, Hamed Haddadi, Ali Shahin Shamsabadi
-    paper_pdf: https://arxiv.org/pdf/2507.17937
+    paper_pdf: https://www.arxiv.org/abs/2602.13516
     code: https://github.com/jrohsc/SPILLage
     venue: Under Review
     under_review: y
