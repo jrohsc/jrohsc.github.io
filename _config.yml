@@ -5,3 +5,8 @@ includes:    ./_includes
 collections:
   projects:
     output: true
+
+# Application source is built separately and is not part of the Jekyll site.
+exclude:
+  - terminal-source
+  - README.md

@@ -1,0 +1,60 @@
+name: Publish website and refresh AI Safety Monitor
+on:
+  push:
+    branches: [master]
+  workflow_dispatch:
+  schedule:
+    - cron: '7,22,37,52 * * * *'
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+concurrency:
+  group: pages
+  cancel-in-progress: false
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: terminal-source/package-lock.json
+      - name: Install terminal dependencies
+        working-directory: terminal-source
+        run: npm ci
+      - name: Verify feed parsing and research metadata
+        working-directory: terminal-source
+        run: npm test
+      - name: Build public terminal
+        working-directory: terminal-source
+        run: npm run build:pages
+      - name: Collect public research and lab posts
+        working-directory: terminal-source
+        env:
+          OPENALEX_API_KEY: ${{ secrets.OPENALEX_API_KEY }}
+        run: node scripts/export-snapshot.mjs --refresh --seed=../ai-safety-monitor/data.json
+      - name: Prepare Pages
+        uses: actions/configure-pages@v5
+      - name: Build existing personal website
+        uses: actions/jekyll-build-pages@v1
+        with:
+          source: ./
+          destination: ./_site
+      - name: Install terminal at its public path
+        run: |
+          mkdir -p _site/ai-safety-monitor
+          cp -R terminal-source/dist/. _site/ai-safety-monitor/
+      - name: Upload website
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+      - name: Deploy website
+        id: deployment
+        uses: actions/deploy-pages@v4
