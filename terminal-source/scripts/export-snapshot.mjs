@@ -1,3 +1,4 @@
+import {normalizeVenue,latestConference} from '../shared/venues.js';
 import {filterRelevantPapers} from '../shared/relevance.js';
 import {readFile,writeFile,mkdir} from 'node:fs/promises';
 import {resolve} from 'node:path';
@@ -15,7 +16,7 @@ const {enrichAffiliations,affiliationCache}=await import('../affiliations.js');
 let conferences;
 if(refresh){const results=await Promise.allSettled([refreshPapers(),getConferences(),refreshBlogs()]);for(const [i,r] of results.entries())if(r.status==='rejected')console.log(`Source group ${i} failed: ${r.reason?.message}`);conferences=results[1].status==='fulfilled'?results[1].value:JSON.parse(await readFile(new URL('data/conference-cache.json',root),'utf8'));await Promise.all([enrichAffiliations(paperSnapshot().papers,{limit:18}),enrichFigures(paperSnapshot().papers,{limit:18})]);}
 else conferences=JSON.parse(await readFile(new URL('data/conference-cache.json',root),'utf8'));
-conferences={...conferences,papers:filterRelevantPapers(conferences.papers)};
+conferences={...conferences,papers:filterRelevantPapers(conferences.papers.map(normalizeVenue)).sort(latestConference)};
 const snapshot={schemaVersion:1,generatedAt:new Date().toISOString(),updateMode:'scheduled',scheduleMinutes:15,papers:{...paperSnapshot(),refreshing:false},conferences,blogs:{...blogSnapshot(),refreshing:false},affiliations:{...affiliationCache(),refreshing:false},figures:figureCache()};
 if(!snapshot.papers.papers.length||!snapshot.blogs.items.length)throw Error('Refusing to publish an empty research or blog snapshot');
 await mkdir(resolve(output,'..'),{recursive:true});await writeFile(output,JSON.stringify(snapshot));

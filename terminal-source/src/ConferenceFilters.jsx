@@ -1,0 +1,6 @@
+import React from 'react';
+import {CURATED_VENUES, matchesConference} from '../shared/venues.js';
+export default function ConferenceFilters({papers,scope,setScope,track,setTrack,venue,setVenue,prefix=''}){
+ const names=[...new Set(papers.filter(p=>matchesConference(p,scope,track)).map(p=>p.venue))].sort();
+ return <div className="conference-controls"><select aria-label={prefix+'Conference coverage'} value={scope} onChange={e=>{setScope(e.target.value);setVenue('all')}}><option value="curated">Curated venues</option><option value="all">All indexed venues</option></select><select aria-label={prefix+'Conference track'} value={track} onChange={e=>{setTrack(e.target.value);setVenue('all')}}><option value="all">All tracks</option>{['Main proceedings','Findings','Workshop','Other track','Track unverified'].map(t=><option key={t}>{t}</option>)}</select><select aria-label={prefix+'Conference venue'} value={venue} onChange={e=>setVenue(e.target.value)}><option value="all">All venues in view</option>{['Security / privacy','AI / language','Multimodal / audio','Specialist','Other indexed venues'].map(group=><optgroup key={group} label={group}>{names.filter(n=>(CURATED_VENUES.find(v=>v[0]===n)?.[1]||'Other indexed venues')===group).map(n=><option key={n}>{n}</option>)}</optgroup>)}</select></div>;
+}

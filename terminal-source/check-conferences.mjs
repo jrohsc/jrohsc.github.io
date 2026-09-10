@@ -1,0 +1,32 @@
+import {chromium} from '@playwright/test';
+import assert from 'node:assert/strict';
+import {normalizeVenue,matchesConference,latestConference} from './shared/venues.js';
+import {mergeResearch} from './shared/research.js';
+import {filterRelevantPapers} from './shared/relevance.js';
+const base=process.argv[2]||'http://localhost:5174/ai-safety-monitor/';
+const data=await fetch(new URL('data.json',base)).then(r=>r.json());
+const conferences=filterRelevantPapers(mergeResearch(data.papers.papers,data.conferences.papers.map(normalizeVenue))).filter(p=>p.publicationType==='conference').sort(latestConference);
+const curated=conferences.filter(p=>matchesConference(p));
+assert(curated.length>0);assert(curated.length<conferences.length);
+const browser=await chromium.launch({channel:'chrome'});
+try{
+ const page=await browser.newPage({viewport:{width:1440,height:1050}});const errors=[];page.on('pageerror',e=>errors.push(e.message));
+ await page.goto(base);await page.locator('.desk-card').first().waitFor();
+ assert.equal(await page.getByLabel('Desk Conference coverage',{exact:true}).inputValue(),'curated');
+ assert.equal(await page.locator('.desk-column').nth(1).locator('.desk-card-title').first().textContent(),curated[0].title);
+ await page.getByLabel('Desk Conference coverage',{exact:true}).selectOption('all');
+ assert.equal(await page.locator('.desk-column').nth(1).locator('.desk-card-title').first().textContent(),conferences[0].title);
+ await page.locator('.sidebar nav button').filter({hasText:'Conferences'}).click();
+ assert.equal(await page.getByLabel('Conference coverage',{exact:true}).inputValue(),'curated');
+ assert.equal(await page.getByLabel('Sort papers').inputValue(),'Newest first');
+ assert.deepEqual(await page.locator('.paper-title').allTextContents(),curated.map(p=>p.title));
+ await page.getByLabel('Conference coverage',{exact:true}).selectOption('all');
+ assert.deepEqual(await page.locator('.paper-title').allTextContents(),conferences.map(p=>p.title));
+ await page.getByLabel('Sort papers').selectOption('Oldest first');
+ assert.deepEqual(await page.locator('.paper-title').allTextContents(),[...conferences].reverse().map(p=>p.title));
+ await page.getByLabel('Conference track',{exact:true}).selectOption('Workshop');
+ assert.equal(await page.locator('.paper').count(),conferences.filter(p=>matchesConference(p,'all','Workshop')).length);
+ await page.setViewportSize({width:390,height:844});assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false);
+ await page.screenshot({path:'/tmp/terminal-conferences-mobile.png'});
+ assert.deepEqual(errors,[]);console.log(`Passed: ${curated.length} curated / ${conferences.length} all conferences; latest proceedings ordering, scope/track filters, mobile layout.`);
+}finally{await browser.close()}

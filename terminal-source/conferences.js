@@ -1,3 +1,4 @@
+import {CURATED_VENUES,normalizeVenue,venueInfo,latestConference} from './shared/venues.js';
 import {assessRelevance,filterRelevantPapers} from './shared/relevance.js';
 import {setTimeout as delay} from 'node:timers/promises';
 import {readFile,writeFile} from 'node:fs/promises';
@@ -17,27 +18,30 @@ export function parseConferenceWorks(data,now=new Date()){
  return data.results.flatMap(w=>{
   if(w.is_retracted||!w.title||!w.publication_date||Date.parse(w.publication_date)>+now)return[];
   const locations=[w.primary_location,...(w.locations||[])].filter(Boolean);
-  const location=locations.find(l=>VENUES.some(v=>l.source?.id?.endsWith('/'+v[1])))||locations.find(l=>w.type==='conference-paper'&&l.is_published&&l.source?.type!=='repository'&&l.source?.display_name);
+  const location=locations.find(l=>VENUES.some(v=>l.source?.id?.endsWith('/'+v[1])))||locations.find(l=>/privacy enhancing technologies/i.test(l.source?.display_name||''))||locations.find(l=>w.type==='conference-paper'&&l.is_published&&l.source?.type!=='repository'&&l.source?.display_name);
   if(!location)return[];
-  const venue=VENUES.find(v=>location.source.id.endsWith('/'+v[1]))||[location.raw_source_name||location.source.display_name,location.source.id,'Other'];const abstract=decodeAbstract(w.abstract_inverted_index);
-  if(!assessRelevance({title:w.title,abstract,venue:venue[0],publicationType:'conference'}).included)return[];
+  const venue=VENUES.find(v=>location.source.id?.endsWith('/'+v[1]))||[location.raw_source_name||location.source.display_name,location.source.id,'Other'];const abstract=decodeAbstract(w.abstract_inverted_index);
+  if(!assessRelevance({title:w.title,abstract,venue:venueInfo({venue:venue[0],venueName:location.raw_source_name||location.source.display_name}).venue,publicationType:'conference'}).included)return[];
   const arxiv=locations.map(l=>l.landing_page_url||'').map(u=>u.match(/arxiv\.org\/abs\/([^?#]+)/)?.[1]?.replace(/v\d+$/,'')).find(Boolean);
   const url=safeURL(location.landing_page_url)||safeURL(w.doi)||safeURL(w.id);if(!url)return[];
-  return[{id:`openalex:${w.id.split('/').pop()}`,kind:'paper',source:'OpenAlex',publicationType:'conference',venue:venue[0],venueName:location.source.display_name,venueEvidence:location.source.id,conferencePublished:w.publication_date,published:w.publication_date+'T00:00:00Z',year:w.publication_year,title:w.title,abstract:abstract||'Abstract not supplied by the conference metadata index. Open the proceedings link to read the paper.',abstractAvailable:!!abstract,authors:(w.authorships||[]).map(a=>a.author?.display_name).filter(Boolean),groups:[...new Set((w.authorships||[]).flatMap(a=>(a.institutions||[]).map(i=>i.display_name)).filter(Boolean))],groupEvidence:'Author affiliations indexed by OpenAlex',topics:classify(`${w.title} ${abstract}`),doi:w.doi,url,pdfUrl:safeURL(location.pdf_url)||safeURL(w.best_oa_location?.pdf_url),arxivId:arxiv,metadataUrl:safeURL(w.id),citationCount:w.cited_by_count||0}];
+  return[normalizeVenue({id:`openalex:${w.id.split('/').pop()}`,kind:'paper',source:'OpenAlex',publicationType:'conference',venue:venue[0],venueName:location.raw_source_name||location.source.display_name,venueRawName:location.raw_source_name,conferenceDatePrecision:'day',venueEvidence:location.source.id,conferencePublished:w.publication_date,published:w.publication_date+'T00:00:00Z',year:w.publication_year,title:w.title,abstract:abstract||'Abstract not supplied by the conference metadata index. Open the proceedings link to read the paper.',abstractAvailable:!!abstract,authors:(w.authorships||[]).map(a=>a.author?.display_name).filter(Boolean),groups:[...new Set((w.authorships||[]).flatMap(a=>(a.institutions||[]).map(i=>i.display_name)).filter(Boolean))],groupEvidence:'Author affiliations indexed by OpenAlex',topics:classify(`${w.title} ${abstract}`),doi:w.doi,url,pdfUrl:safeURL(location.pdf_url)||safeURL(w.best_oa_location?.pdf_url),arxivId:arxiv,metadataUrl:safeURL(w.id),citationCount:w.cited_by_count||0})];
  });
 }
 const cacheURL=new URL('./data/conference-cache.json',import.meta.url);let cache={papers:[],sources:[],status:'loading',venues:VENUES.map(v=>v[0])},last=0,pending;
-try{cache=JSON.parse(await readFile(cacheURL,'utf8'));cache.papers=filterRelevantPapers(cache.papers);}catch{}
+try{cache=JSON.parse(await readFile(cacheURL,'utf8'));cache.papers=filterRelevantPapers(cache.papers.map(normalizeVenue));}catch{}
 export async function getConferences(){
  if(pending)return pending;if(Date.now()-last<3600000)return cache;last=Date.now();
  pending=(async()=>{
  const since=`${new Date().getUTCFullYear()-2}-01-01`,until=new Date().toISOString().slice(0,10);
- const results=await Promise.allSettled(['ML','NLP','Vision','Security','Other proceedings','Crossref hallucination','Crossref adversarial','Crossref privacy','Crossref ransomware'].map(async (group,index)=>{
+ const queries=[...['ML','NLP','Vision','Security','Other proceedings','Crossref hallucination','Crossref adversarial','Crossref privacy','Crossref ransomware'],...CURATED_VENUES.map(v=>'Venue: '+v[0])];
+ const results=await Promise.allSettled(queries.map(async (group,index)=>{
   await delay(index*1400);
-  if(group.startsWith('Crossref ')){
+  if(group.startsWith('Crossref ')||group.startsWith('Venue: ')){
    const url=new URL('https://api.crossref.org/works');url.search=new URLSearchParams({filter:`type:proceedings-article,from-pub-date:${since},until-pub-date:${until}`,query:group.split(' ')[1],rows:'100',sort:'published',order:'desc'});
+   const target=CURATED_VENUES.find(v=>group==='Venue: '+v[0]);
+   if(target){url.searchParams.set('sort','relevance');url.searchParams.set('query.container-title',target[2]);url.searchParams.delete('query');if(target[0]==='PETS / PoPETs')url.searchParams.set('filter',`from-pub-date:${since},until-pub-date:${until}`);}
    const res=await fetch(url,{signal:AbortSignal.timeout(30000),headers:{'User-Agent':'SentinelResearchTerminal/1.0'}});if(!res.ok)throw Error(`Crossref HTTP ${res.status}`);
-   const data=await res.json();return{group,papers:parseCrossref(data),totalAvailable:data.message?.['total-results']};
+   const data=await res.json();return{group,papers:parseCrossref(data).filter(p=>!target||p.venue===target[0]),totalAvailable:data.message?.['total-results']};
   }
   const url=new URL('https://api.openalex.org/works');
   const params={filter:`${group==='Other proceedings'?'type:conference-paper':'locations.source.id:'+VENUES.filter(v=>v[2]===group).map(v=>v[1]).join('|')},from_publication_date:${since},to_publication_date:${until},is_retracted:false`,sort:'publication_date:desc',per_page:'200',select:'id,type,doi,title,publication_date,publication_year,primary_location,locations,best_oa_location,authorships,abstract_inverted_index,cited_by_count,is_retracted'};
@@ -46,8 +50,8 @@ export async function getConferences(){
   url.search=new URLSearchParams(params);const res=await fetch(url,{signal:AbortSignal.timeout(30000)});if(!res.ok)throw Error(`OpenAlex HTTP ${res.status}`);
   const data=await res.json();return{group,papers:parseConferenceWorks(data),totalAvailable:data.meta?.count};
  }));
- const sources=results.map((r,i)=>r.status==='fulfilled'?{name:['ML','NLP','Vision','Security','Other proceedings','Crossref hallucination','Crossref adversarial','Crossref privacy','Crossref ransomware'][i],status:'connected',count:r.value.papers.length,totalAvailable:r.value.totalAvailable,lastSuccess:new Date().toISOString()}:{name:['ML','NLP','Vision','Security','Other proceedings','Crossref hallucination','Crossref adversarial','Crossref privacy','Crossref ransomware'][i],status:'offline',error:r.reason.message});
- cache={papers:filterRelevantPapers(mergeResearch(cache.papers,...results.filter(r=>r.status==='fulfilled').map(r=>r.value.papers))).slice(0,3000),sources,status:sources.every(s=>s.status==='connected')?'connected':sources.some(s=>s.status==='connected')?'partial':'offline',venues:[...new Set(VENUES.map(v=>v[0]))],since,until,pollInterval:3600000};
+ const sources=results.map((r,i)=>r.status==='fulfilled'?{name:queries[i],status:'connected',count:r.value.papers.length,totalAvailable:r.value.totalAvailable,lastSuccess:new Date().toISOString()}:{name:queries[i],status:'offline',error:r.reason.message});
+ cache={papers:filterRelevantPapers(mergeResearch(cache.papers,...results.filter(r=>r.status==='fulfilled').map(r=>r.value.papers))).sort(latestConference).slice(0,3000),sources,status:sources.every(s=>s.status==='connected')?'connected':sources.some(s=>s.status==='connected')?'partial':'offline',venues:CURATED_VENUES.map(v=>v[0]),since,until,pollInterval:3600000};
  try{await writeFile(cacheURL,JSON.stringify(cache));}catch{cache.persistenceError='Unable to save conference metadata';}return cache;
  })().finally(()=>{pending=null});return pending;
 }

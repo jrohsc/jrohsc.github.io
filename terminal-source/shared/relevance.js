@@ -1,7 +1,7 @@
 // Admission is separate from topic tagging: a modality or generic benchmark is not evidence of safety relevance.
 export const RELEVANCE_VERSION=1;
 const AI=/\b(?:AI|LLMs?|VLMs?|ML|RLHF|DPO)\b|artificial intelligence|machine learning|deep learning|neural network|language model|foundation model|generative model|vision.language|diffusion model|reinforcement learning|recommender|autonomous (?:agent|vehicle|driving)|\brobot(?:ic|ics|s)?\b/i;
-const AI_VENUES=new Set(['NeurIPS','ICLR','ICML','ACL','EMNLP','NAACL','CVPR','ICCV','ECCV']);
+const AI_VENUES=new Set(['NeurIPS','ICLR','ICML','ACL','EMNLP','NAACL','CVPR','ICCV','ECCV','COLM','AAAI','IJCAI']);
 const AI_CATEGORY=/^(?:cs\.(?:AI|LG|CL|CV|SD|RO)|stat\.ML|eess\.(?:AS|IV))$/;
 const SECURITY_VENUES=new Set(['USENIX Security','CCS','NDSS','IEEE S&P']);
 const cyber=[
