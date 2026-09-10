@@ -19,3 +19,5 @@
 .terminal-theme .conference-note{line-height:1.6}
 /* Keep the primary navigation focused on monitoring; secondary saved/watch views remain available from workspace actions. */
 .terminal-theme .sidebar nav>button:nth-child(6),.terminal-theme .sidebar nav>button:nth-child(7),.terminal-theme .sidebar nav>button:nth-child(8),.terminal-theme .function-bar>button:nth-child(6),.terminal-theme .function-bar>button:nth-child(7),.terminal-theme .function-bar>button:nth-child(8){display:none}
+.terminal-theme .signal-badge,.terminal-theme .citation-badge{font:8px/1.6 var(--mono);padding:3px 5px;border:1px solid #6b5420;background:#211a08;color:#ffcf75}
+.terminal-theme .citation-badge{border-color:#285b70;background:#0b2634;color:#8ed8f0}
