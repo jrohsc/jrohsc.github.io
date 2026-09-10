@@ -9,7 +9,7 @@ npm run dev
 Open http://localhost:5173. For a production build, run `npm run build`, then `npm start`. The server listens on loopback by default.
 
 ## Starter desk
-The default Live Intelligence Desk follows the local Axiom starter reference at port 4173: dark blue cards and three independently scrolling columns for lab blogs, conference papers and arXiv. Search across titles, authors, institutions and IDs; filter topics, lab publishers or conference venues. F1 / DESK opens this view. The daily briefing and landscape remain available in the sidebar.
+The default Live Research Monitor follows the local Axiom starter reference at port 4173: dark blue cards and three independently scrolling columns for lab blogs, conference papers and arXiv. Search across titles, authors, institutions and IDs; filter topics, lab publishers or conference venues. F1 / DESK opens this view. The daily briefing and landscape remain available in the sidebar.
 
 ## Daily briefing
 The daily Bloomberg-style briefing keeps black panels, orange headers, terminal navigation and a scrolling paper ticker. Toggle headlines in the view bar. Review three prioritized papers, scan activity by area, and open the landscape for broader trends. Briefs use metadata and abstract excerpts; relevance explanations are not independent assessments of findings. Visit baselines, reviewed states and bookmarks persist in this browser. F4 or BRIEF opens the briefing.
