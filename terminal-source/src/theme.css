@@ -17,3 +17,5 @@
 .terminal-theme .desk-column-filter:has(.conference-controls){display:block;height:auto}
 .terminal-theme .desk-column-filter:has(.conference-controls)>span{display:none}
 .terminal-theme .conference-note{line-height:1.6}
+/* Keep the primary navigation focused on monitoring; secondary saved/watch views remain available from workspace actions. */
+.terminal-theme .sidebar nav>button:nth-child(6),.terminal-theme .sidebar nav>button:nth-child(7),.terminal-theme .sidebar nav>button:nth-child(8),.terminal-theme .function-bar>button:nth-child(6),.terminal-theme .function-bar>button:nth-child(7),.terminal-theme .function-bar>button:nth-child(8){display:none}
