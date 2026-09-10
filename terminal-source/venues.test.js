@@ -3,6 +3,14 @@ import assert from 'node:assert/strict';
 import {normalizeVenue,venueInfo,matchesConference,latestConference,conferenceDateLabel,CURATED_VENUES} from './shared/venues.js';
 import {mergeResearch} from './shared/research.js';
 import {parseCrossref} from './crossref.js';
+import {signalScore,qualityGate} from './shared/signals.js';
+test('signal ranking rewards citations and verified metadata while rejecting obvious junk',()=>{
+ const established={title:'A substantial safety research paper',abstract:'A clear abstract with enough research context.',published:'2026-01-01',citationCount:120,venue:'ACL',authors:['A'],groups:['Research lab'],abstractAvailable:true,relevance:{reasons:['Alignment','Robustness']}};
+ const emerging={...established,citationCount:0,venue:undefined,groups:[]};
+ assert(signalScore(established)>signalScore(emerging));
+ assert.equal(qualityGate({title:'asdf',abstract:'anything'}).ok,false);
+ assert.equal(qualityGate({title:'Prompt injection in language models',abstract:''}).ok,true);
+});
 test('curated venues normalize full names and distinguish tracks',()=>{
  assert.equal(CURATED_VENUES.length,27);
  for(const [alias,,full] of CURATED_VENUES)assert.equal(venueInfo({venueName:full}).venue,alias);

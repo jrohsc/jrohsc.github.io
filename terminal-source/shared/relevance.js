@@ -1,3 +1,4 @@
+import {qualityGate} from './signals.js';
 // Admission is separate from topic tagging: a modality or generic benchmark is not evidence of safety relevance.
 export const RELEVANCE_VERSION=1;
 const AI=/\b(?:AI|LLMs?|VLMs?|ML|RLHF|DPO)\b|artificial intelligence|machine learning|deep learning|neural network|language model|foundation model|generative model|vision.language|diffusion model|reinforcement learning|recommender|autonomous (?:agent|vehicle|driving)|\brobot(?:ic|ics|s)?\b/i;
@@ -37,4 +38,4 @@ export function assessRelevance(p){
  }
  return {included:reasons.length>0,reasons:[...new Set(reasons)],version:RELEVANCE_VERSION};
 }
-export function filterRelevantPapers(papers){return papers.flatMap(p=>{const relevance=assessRelevance(p);return relevance.included?[{...p,relevance}]:[];});}
+export function filterRelevantPapers(papers){return papers.flatMap(p=>{const relevance=assessRelevance(p);const quality=p.source==='arXiv'?qualityGate(p):{ok:true};return relevance.included&&quality.ok?[{...p,relevance}]:[];});}
