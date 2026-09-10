@@ -40,6 +40,10 @@ jobs:
         env:
           OPENALEX_API_KEY: ${{ secrets.OPENALEX_API_KEY }}
         run: node scripts/export-snapshot.mjs --refresh --seed=../ai-safety-monitor/data.json
+      - name: Install terminal before Jekyll assembles the site
+        run: |
+          mkdir -p ai-safety-monitor
+          cp -R terminal-source/dist/. ai-safety-monitor/
       - name: Prepare Pages
         uses: actions/configure-pages@v5
       - name: Build existing personal website
@@ -47,10 +51,6 @@ jobs:
         with:
           source: ./
           destination: ./_site
-      - name: Install terminal at its public path
-        run: |
-          mkdir -p _site/ai-safety-monitor
-          cp -R terminal-source/dist/. _site/ai-safety-monitor/
       - name: Upload website
         uses: actions/upload-pages-artifact@v3
         with:
