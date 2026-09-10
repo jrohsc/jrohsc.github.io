@@ -1,9 +1,10 @@
+import {filterRelevantPapers} from './shared/relevance.js';
 import {readFile,writeFile} from 'node:fs/promises';
 import {setTimeout as delay} from 'node:timers/promises';
 import {parseFeed,queryFamilies,RESULTS_PER_QUERY,MAX_RETAINED,coverage} from './feed.js';
 import {reclassifyPaper} from './shared/topics.js';
 let cache={papers:[],lastSuccess:null,families:[]};let lastAttempt=0;let pending;let error=null;
-try {cache=JSON.parse(await readFile(new URL('./data/cache.json',import.meta.url),'utf8'));cache.papers=cache.papers.map(reclassifyPaper);}catch{}
+try {cache=JSON.parse(await readFile(new URL('./data/cache.json',import.meta.url),'utf8'));cache.papers=filterRelevantPapers(cache.papers.map(reclassifyPaper));}catch{}
 export async function refreshPapers(){
  if(pending)return pending;
  if(Date.now()-lastAttempt<300000)return;

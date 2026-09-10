@@ -1,3 +1,4 @@
+import {assessRelevance,filterRelevantPapers} from './shared/relevance.js';
 import {setTimeout as delay} from 'node:timers/promises';
 import {readFile,writeFile} from 'node:fs/promises';
 import {classify} from './shared/topics.js';
@@ -9,7 +10,6 @@ export const VENUES=[
  ['CVPR','S4210176548','Vision'],['ICCV','S4306419272','Vision'],['ECCV','S4306418318','Vision'],
  ['USENIX Security','S4306421123','Security'],['CCS','S4306417956','Security'],['CCS','S4393917527','Security'],['NDSS','S4306420590','Security'],['IEEE S&P','S4210233669','Security'],
 ];
-const relevance=/safety|secur|adversar|jailbreak|hallucinat|privacy|fairness|\bbias\b|interpretabil|alignment|unlearning|deepfake|watermark|personali[sz]|misinformation|robustness|reward hack|prompt injection|malware|ransomware|vulnerabilit|phishing/i;
 const safeURL=s=>{try{const u=new URL(s);return ['http:','https:'].includes(u.protocol)?u.href:null}catch{return null}};
 export function decodeAbstract(index){const words=[];for(const [word,positions] of Object.entries(index||{}))for(const i of positions)if(Number.isInteger(i)&&i>=0&&i<10000)words[i]=word;return words.join(' ').trim();}
 export function parseConferenceWorks(data,now=new Date()){
@@ -20,14 +20,14 @@ export function parseConferenceWorks(data,now=new Date()){
   const location=locations.find(l=>VENUES.some(v=>l.source?.id?.endsWith('/'+v[1])))||locations.find(l=>w.type==='conference-paper'&&l.is_published&&l.source?.type!=='repository'&&l.source?.display_name);
   if(!location)return[];
   const venue=VENUES.find(v=>location.source.id.endsWith('/'+v[1]))||[location.raw_source_name||location.source.display_name,location.source.id,'Other'];const abstract=decodeAbstract(w.abstract_inverted_index);
-  if(venue[2]!=='Security'&&!relevance.test(`${w.title} ${abstract}`))return[];
+  if(!assessRelevance({title:w.title,abstract,venue:venue[0],publicationType:'conference'}).included)return[];
   const arxiv=locations.map(l=>l.landing_page_url||'').map(u=>u.match(/arxiv\.org\/abs\/([^?#]+)/)?.[1]?.replace(/v\d+$/,'')).find(Boolean);
   const url=safeURL(location.landing_page_url)||safeURL(w.doi)||safeURL(w.id);if(!url)return[];
   return[{id:`openalex:${w.id.split('/').pop()}`,kind:'paper',source:'OpenAlex',publicationType:'conference',venue:venue[0],venueName:location.source.display_name,venueEvidence:location.source.id,conferencePublished:w.publication_date,published:w.publication_date+'T00:00:00Z',year:w.publication_year,title:w.title,abstract:abstract||'Abstract not supplied by the conference metadata index. Open the proceedings link to read the paper.',abstractAvailable:!!abstract,authors:(w.authorships||[]).map(a=>a.author?.display_name).filter(Boolean),groups:[...new Set((w.authorships||[]).flatMap(a=>(a.institutions||[]).map(i=>i.display_name)).filter(Boolean))],groupEvidence:'Author affiliations indexed by OpenAlex',topics:classify(`${w.title} ${abstract}`),doi:w.doi,url,pdfUrl:safeURL(location.pdf_url)||safeURL(w.best_oa_location?.pdf_url),arxivId:arxiv,metadataUrl:safeURL(w.id),citationCount:w.cited_by_count||0}];
  });
 }
 const cacheURL=new URL('./data/conference-cache.json',import.meta.url);let cache={papers:[],sources:[],status:'loading',venues:VENUES.map(v=>v[0])},last=0,pending;
-try{cache=JSON.parse(await readFile(cacheURL,'utf8'));}catch{}
+try{cache=JSON.parse(await readFile(cacheURL,'utf8'));cache.papers=filterRelevantPapers(cache.papers);}catch{}
 export async function getConferences(){
  if(pending)return pending;if(Date.now()-last<3600000)return cache;last=Date.now();
  pending=(async()=>{
@@ -47,7 +47,7 @@ export async function getConferences(){
   const data=await res.json();return{group,papers:parseConferenceWorks(data),totalAvailable:data.meta?.count};
  }));
  const sources=results.map((r,i)=>r.status==='fulfilled'?{name:['ML','NLP','Vision','Security','Other proceedings','Crossref hallucination','Crossref adversarial','Crossref privacy','Crossref ransomware'][i],status:'connected',count:r.value.papers.length,totalAvailable:r.value.totalAvailable,lastSuccess:new Date().toISOString()}:{name:['ML','NLP','Vision','Security','Other proceedings','Crossref hallucination','Crossref adversarial','Crossref privacy','Crossref ransomware'][i],status:'offline',error:r.reason.message});
- cache={papers:mergeResearch(cache.papers,...results.filter(r=>r.status==='fulfilled').map(r=>r.value.papers)).slice(0,3000),sources,status:sources.every(s=>s.status==='connected')?'connected':sources.some(s=>s.status==='connected')?'partial':'offline',venues:[...new Set(VENUES.map(v=>v[0]))],since,until,pollInterval:3600000};
+ cache={papers:filterRelevantPapers(mergeResearch(cache.papers,...results.filter(r=>r.status==='fulfilled').map(r=>r.value.papers))).slice(0,3000),sources,status:sources.every(s=>s.status==='connected')?'connected':sources.some(s=>s.status==='connected')?'partial':'offline',venues:[...new Set(VENUES.map(v=>v[0]))],since,until,pollInterval:3600000};
  try{await writeFile(cacheURL,JSON.stringify(cache));}catch{cache.persistenceError='Unable to save conference metadata';}return cache;
  })().finally(()=>{pending=null});return pending;
 }

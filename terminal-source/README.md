@@ -1,4 +1,4 @@
-# SENTINEL
+# AI SAFETY & SECURITY TERMINAL
 A Bloomberg-inspired AI safety and security monitoring website, built with React, Vite and Express.
 
 ## Run
@@ -59,3 +59,10 @@ Alerts require browser notification permission and an open terminal. There is no
 `npm test` checks Atom parsing, normalization and classification; `npm run build` builds production assets. `node check-desk.mjs` verifies the three-feed starter, live blog sources, institution filters, bookmarks and responsive layout. `node check-briefing.mjs` verifies the Bloomberg briefing, labels, navigation and mobile width. `node check-landscape.mjs` verifies map/heatmap drill-down, conference navigation, evidence links, dataset/window controls and mobile width. `node check-browser.mjs` runs the desktop/mobile smoke check using installed Google Chrome and a local server. The browser check adds a bookmark and test keyword in its isolated browser profile.
 
 API references: https://info.arxiv.org/help/api/user-manual.html
+
+## Consistent Desk design and paper relevance
+All nine views and settings share the Desk design: dark blue cards, cyan panel headings, amber navigation and a persistent terminal header/ticker. The public name is AI SAFETY & SECURITY TERMINAL; the deployed URL stays `/ai-safety-monitor/`. Existing browser storage keys stay compatible with saved reading lists.
+
+`shared/relevance.js` enforces admission separately from topic tags, at ingestion, cache load, export and client rendering. cs.CR and named security conference papers qualify by subject/venue. Other papers require explicit AI safety, privacy, adversarial, fairness, interpretability, robustness or related evidence in title/abstract. Generic benchmarks, personalization and multimodal work alone no longer qualify. This is heuristic filtering, not a guarantee of relevance. Saved items are preserved; their details show whether they meet current criteria.
+
+`figures.js` retrieves up to two figures per paper from the arXiv HTML representation, prioritizing architecture/overview figures. The title must match and image URLs must remain on arXiv. Scheduled collection enriches 18 additional eligible papers per run; unavailable HTML is retried after seven days. Thumbnails appear in the Desk, paper feeds, briefing and detail view, with enlargement and original-source links. Missing or broken images are omitted. The paper itself may contain additional figures. `node check-terminal.mjs` checks branding, all tabs, mobile widths and actual figure loading.

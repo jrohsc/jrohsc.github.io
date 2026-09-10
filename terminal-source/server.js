@@ -1,6 +1,7 @@
 import express from 'express';
 import {getConferences} from './conferences.js';
 import {enrichAffiliations,affiliationCache} from './affiliations.js';
+import {enrichFigures,figureCache} from './figures.js';
 import {refreshBlogs,blogSnapshot} from './blogs.js';
 import {refreshPapers,paperSnapshot} from './papers.js';
 import {fileURLToPath} from 'node:url';
@@ -11,6 +12,8 @@ app.get('/api/affiliations',async(req,res)=>{
  if(!affiliationJob){affiliationJob=true;enrichAffiliations(paperSnapshot().papers).finally(()=>{affiliationJob=false});}
  res.json({...affiliationCache(),refreshing:affiliationJob});
 });
+let figuresPending=false;
+app.get('/api/figures',(req,res)=>{if(!figuresPending){figuresPending=true;enrichFigures(paperSnapshot().papers).finally(()=>{figuresPending=false});}res.json(figureCache());});
 app.get('/api/blogs',(req,res)=>{refreshBlogs().catch(()=>{});res.json(blogSnapshot());});
 app.get('/api/conferences',async(req,res)=>res.json(await getConferences()));
 app.get('/api/papers',(req,res)=>{refreshPapers().catch(()=>{});res.json(paperSnapshot());});

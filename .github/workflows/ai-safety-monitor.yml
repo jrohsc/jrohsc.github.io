@@ -1,4 +1,4 @@
-name: Publish website and refresh AI Safety Monitor
+name: Publish website and refresh AI Safety Terminal
 on:
   push:
     branches: [master]
