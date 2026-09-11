@@ -13,13 +13,13 @@ const cyber=[
 const direct=[
  ['Adversarial attacks / misuse',/jailbreak|prompt injection|adversarial (?:attack|example|robustness|perturbation|defen[cs]e)|backdoor attack|data poisoning|model poisoning|training.data poisoning|red.teaming|model misuse|AI misuse|harmful (?:content|request|output)|unsafe (?:content|output|model)|refusal behavior|content moderation|moderate online content/i],
  ['Alignment / control',/misalignment|reward hacking|specification gaming|sycophancy|scheming|alignment faking|(?:human|value|preference|safety|ethical|behavioral|AI|LLM|language model)[ -]alignment|aligning (?:AI|LLM|language model)|constitutional AI|reinforcement learning from human feedback|\bRLHF\b|direct preference optimization|scalable oversight|AI control|AI deception/i],
- ['Hallucination / authenticity',/hallucinat|factuality|factual (?:consistency|accuracy)|deep[ -]?fake|voice clon|synthetic media (?:detect|authentic)|content provenance|AI.generated (?:text|image|video|audio) detection|misinformation|disinformation/i],
+ ['Hallucination / authenticity',/hallucinat|factuality|factual (?:consistency|accuracy)|deep[ -]?fake|voice clon|synthetic media (?:detect|authentic)|content provenance|AI.generated (?:text|image|video|audio) detection|audio spoof|speech spoof|synthetic speech|audio watermark|voice authentication|misinformation|disinformation/i],
  ['Fairness / human harm',/fairness|demographic (?:bias|disparit)|gender bias|racial bias|social bias|algorithmic bias|representational harm|stereotyp|hate speech|toxic(?:ity| content)|automation bias|over.reliance|emotional dependen|child safety/i],
  ['Privacy / interpretability',/machine unlearning|model unlearning|mechanistic interpretability|sparse autoencoder|training.data (?:leak|contamin)|benchmark contamination|model inversion|privacy (?:leak|attack|risk|protect)|memorization (?:risk|attack)|model interpretability/i],
 ];
 const adjacent=[
  ['Safety / security',/\b(?:safety|safe|security|secure|privacy|safeguard|trustworthy)\b/i],
- ['Robustness / reliability',/robustness|out.of.distribution|distribution shift|uncertainty|calibrat|\babstention\b|reliability|faithfulness|watermark/i],
+ ['Robustness / reliability',/robustness|out.of.distribution|distribution shift|uncertainty|calibrat|\babstention\b|reliability|faithfulness|watermark|audio security|speech security|audio adversarial|speech agent|audio language model|speech language model|full duplex/i],
  ['Interpretability / governance',/interpretability|interpretable|explainability|responsible AI|AI governance|AI regulation|AI risk|catastrophic risk|existential risk|alignment|human feedback/i],
 ];
 const unrelatedSecurity=/\b(?:food|water|energy|job|employment|social|financial|economic|livelihood) security\b/gi;

@@ -18,7 +18,8 @@ test('classifies safety-adjacent domains with overlapping labels',()=>{
 });
 test('query families include requested domains and safety constraints',async()=>{
  const {queryFamilies}=await import('./feed.js');
- assert.equal(queryFamilies.length,6);
+ assert.equal(queryFamilies.length,7);
+ assert(queryFamilies.find(f=>f.id==='audio-safety').query.includes('full duplex'));
  assert.equal(queryFamilies.find(f=>f.id==='cybersecurity').query,'cat:cs.CR');
  const all=queryFamilies.map(f=>f.query).join(' ');
  for(const term of ['multimodal','personalization','hallucination','deepfake','speech','embodied','mental health'])assert.ok(all.includes(`all:"${term}"`),term);

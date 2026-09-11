@@ -33,11 +33,11 @@ export async function getConferences(){
  if(pending)return pending;if(Date.now()-last<3600000)return cache;last=Date.now();
  pending=(async()=>{
  const since=`${new Date().getUTCFullYear()-2}-01-01`,until=new Date().toISOString().slice(0,10);
- const queries=[...['ML','NLP','Vision','Security','Other proceedings','Crossref hallucination','Crossref adversarial','Crossref privacy','Crossref ransomware'],...CURATED_VENUES.map(v=>'Venue: '+v[0])];
+ const queries=[...['ML','NLP','Vision','Security','Other proceedings','Crossref hallucination','Crossref adversarial','Crossref privacy','Crossref ransomware','Crossref audio deepfake','Crossref speech security','Crossref audio language model','Crossref full duplex speech','Crossref voice cloning'],...CURATED_VENUES.map(v=>'Venue: '+v[0])];
  const results=await Promise.allSettled(queries.map(async (group,index)=>{
   await delay(index*1400);
   if(group.startsWith('Crossref ')||group.startsWith('Venue: ')){
-   const url=new URL('https://api.crossref.org/works');url.search=new URLSearchParams({filter:`type:proceedings-article,from-pub-date:${since},until-pub-date:${until}`,query:group.split(' ')[1],rows:'100',sort:'published',order:'desc'});
+   const url=new URL('https://api.crossref.org/works');url.search=new URLSearchParams({filter:`type:proceedings-article,from-pub-date:${since},until-pub-date:${until}`,query:group.startsWith('Crossref ')?group.slice(9):group.slice(7),rows:'100',sort:'published',order:'desc'});
    const target=CURATED_VENUES.find(v=>group==='Venue: '+v[0]);
    if(target){url.searchParams.set('sort','relevance');url.searchParams.set('query.container-title',target[2]);url.searchParams.delete('query');if(target[0]==='PETS / PoPETs')url.searchParams.set('filter',`from-pub-date:${since},until-pub-date:${until}`);}
    const res=await fetch(url,{signal:AbortSignal.timeout(30000),headers:{'User-Agent':'SentinelResearchTerminal/1.0'}});if(!res.ok)throw Error(`Crossref HTTP ${res.status}`);
