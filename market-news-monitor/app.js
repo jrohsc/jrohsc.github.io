@@ -5,3 +5,5 @@ function render(){const q=filter.value.toLowerCase();grid.innerHTML=stocks.filte
 filter.addEventListener('input',render);render();
 function tick(){document.querySelector('#clock').textContent=new Date().toUTCString().slice(17,25)+' UTC'}setInterval(tick,1000);tick();
 document.querySelector('#ticker').innerHTML=stocks.map(([t,n])=>`<span><b>${t}</b> ${n}</span>`).join(' <em>◆</em> ');
+
+async function loadNews(){try{const d=await fetch('/api/news').then(r=>r.json());document.querySelector('#updated').textContent=d.lastRefresh?'Updated '+new Date(d.lastRefresh).toLocaleTimeString():'Collecting…';document.querySelector('#newslist').innerHTML=d.items.slice(0,40).map(i=>`<article class="newsitem"><div><b>${i.ticker}</b><span>${i.source}</span><time>${i.published?new Date(i.published).toLocaleString():''}</time></div><a href="${i.link}" target="_blank">${i.title} ↗</a><p>${i.summary.slice(0,360)}</p></article>`).join('')||'<p class="empty">No public headlines returned yet.</p>'}catch(e){document.querySelector('#updated').textContent='Feed unavailable'}}loadNews();setInterval(loadNews,60000);
