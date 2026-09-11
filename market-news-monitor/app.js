@@ -1,0 +1,7 @@
+const stocks=[['NVDA','NVIDIA'],['QQQM','Invesco NASDAQ 100 ETF'],['PLTR','Palantir'],['TSLA','Tesla'],['SOXX','iShares Semiconductor ETF'],['VOO','Vanguard S&P 500 ETF'],['SKHY','Sky Harbour'],['MU','Micron'],['SPCX','SPAC'],['GOOGL','Alphabet / Google']];
+const finance=t=>`https://www.google.com/finance/quote/${t}:NASDAQ`,news=(t,n)=>`https://news.google.com/search?q=${encodeURIComponent(`${t} ${n}`)}&hl=en-US&gl=US&ceid=US:en`,social=t=>`https://x.com/search?q=${encodeURIComponent('$'+t)}&src=typed_query&f=live`;
+const grid=document.querySelector('#grid'),filter=document.querySelector('#filter');
+function render(){const q=filter.value.toLowerCase();grid.innerHTML=stocks.filter(([t,n])=>(t+' '+n).toLowerCase().includes(q)).map(([t,n],i)=>`<article><div class="cardtop"><span class="rank">${String(i+1).padStart(2,'0')}</span><div><h2>${t}</h2><p>${n}</p></div><span class="live-dot"></span></div><div class="links"><a href="${news(t,n)}" target="_blank">GOOGLE NEWS <b>↗</b></a><a href="${finance(t)}" target="_blank">GOOGLE FINANCE <b>↗</b></a><a href="${social(t)}" target="_blank">X LIVE SEARCH <b>↗</b></a></div></article>`).join('')||'<div class="empty">No watchlist matches.</div>'}
+filter.addEventListener('input',render);render();
+function tick(){document.querySelector('#clock').textContent=new Date().toUTCString().slice(17,25)+' UTC'}setInterval(tick,1000);tick();
+document.querySelector('#ticker').innerHTML=stocks.map(([t,n])=>`<span><b>${t}</b> ${n}</span>`).join(' <em>◆</em> ');
