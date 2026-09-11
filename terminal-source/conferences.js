@@ -33,7 +33,7 @@ export async function getConferences(){
  if(pending)return pending;if(Date.now()-last<3600000)return cache;last=Date.now();
  pending=(async()=>{
  const since=`${new Date().getUTCFullYear()-2}-01-01`,until=new Date().toISOString().slice(0,10);
- const queries=[...['ML','NLP','Vision','Security','Other proceedings','Crossref hallucination','Crossref adversarial','Crossref privacy','Crossref ransomware','Crossref audio deepfake','Crossref speech security','Crossref audio language model','Crossref full duplex speech','Crossref voice cloning'],...CURATED_VENUES.map(v=>'Venue: '+v[0])];
+ const queries=[...['ML','NLP','Vision','Security','Other proceedings','Crossref hallucination','Crossref adversarial','Crossref privacy','Crossref ransomware','Crossref audio deepfake','Crossref speech security','Crossref audio language model','Crossref full duplex speech','Crossref voice cloning','Crossref multimodal safety','Crossref omni model','Crossref vision language alignment','Crossref image jailbreak','Crossref cross modal attack','Crossref multimodal hallucination'],...CURATED_VENUES.map(v=>'Venue: '+v[0])];
  const results=await Promise.allSettled(queries.map(async (group,index)=>{
   await delay(index*1400);
   if(group.startsWith('Crossref ')||group.startsWith('Venue: ')){
