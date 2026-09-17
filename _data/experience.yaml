@@ -1,37 +1,35 @@
+---
 experiences:
-
-- place: "Brave Software"
-  time: "Jun. 2025 - Sep. 2025"
-  title: "Research Intern"
-  subtitle: "Research Area: Privacy in Web Agent"
-  category: "work"
-
-- place: "UMass Amherst"
-  time: "Aug. 2023 - "
-  title: "Ph.D. Student in Computer Science"
-  subtitle: "SPIN Lab, UMass AI Security Lab"
-  category: "school"
-
-- place: "IEEE Universal Village"
-  time: "Jun. 2022 - Sept. 2022"
-  title: "Student Researcher"
-  # subtitle: "Research Area: Federated Learning"
-  category: "work"
-
-- place: "Super Chain AI"
-  time: "Jun. 2021 - Aug. 2021"
-  title: "NLP Engineer Intern"
-  # subtitle: "IR&NLP Lab"
-  category: "work"
-
-- place: "Military Service (R.O.K Army)"
-  time: "Jul. 2018 - Mar. 2020"
-  title: "Sergeant (Squad Leader)"
-  # subtitle: ""
-  category: "work"
-
-- place: "HKUST"
-  time: "Aug. 2017 - May. 2023"
-  title: "B.Eng. in Computer Engineering"
-  subtitle: "Final Year Thesis: Adversarial Attacks in Federated Learning"
-  category: "school"
+- place: Dolby Laboratories
+  time: Jun. 2026 - Sep. 2026
+  title: Ph.D. Research Intern
+  subtitle: 'Safety and security of real-time full-duplex speech models.<br>Supervisors:
+    Deepak Chandran and Andrea Fanelli'
+  category: work
+- place: Brave Software
+  time: Jun. 2025 - Sep. 2025
+  title: Ph.D. Research Intern
+  subtitle: 'Web agent privacy.<br>Supervisor: Ali Shahin Shamsabadi'
+  category: work
+- place: UMass Amherst
+  time: Sep. 2023 - Present
+  title: Ph.D. Candidate in Computer Science
+  subtitle: SPIN Lab, UMass AI Security Lab
+  category: school
+- place: IEEE Universal Village
+  time: Jun. 2022 - Sept. 2022
+  title: Student Researcher
+  category: work
+- place: Super Chain AI
+  time: Jun. 2021 - Aug. 2021
+  title: NLP Engineer Intern
+  category: work
+- place: Military Service (R.O.K Army)
+  time: Jul. 2018 - Mar. 2020
+  title: Sergeant (Squad Leader)
+  category: work
+- place: HKUST
+  time: Sep. 2017 - May 2023
+  title: B.Eng. in Computer Engineering
+  subtitle: 'Final Year Thesis: Adversarial Attacks in Federated Learning'
+  category: school

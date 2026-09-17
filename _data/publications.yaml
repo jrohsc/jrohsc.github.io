@@ -1,134 +1,148 @@
+---
 papers:
-  - title: "SPILLage: Agentic Oversharing on the Web"
-    authors: <b>Jaechul Roh</b>, Eugene Bagdasarian, Hamed Haddadi, Ali Shahin Shamsabadi
-    paper_pdf: https://www.arxiv.org/abs/2602.13516
-    code: https://github.com/jrohsc/SPILLage
-    venue: Under Review
-    under_review: y
-    conference: n
-    preprint: y
-    
-
-  - title: "Throttling Web Agents Using Reasoning Gates"
-    authors: Abhinav Kumar, <b>Jaechul Roh</b>, Ali Naseh, Amir Houmansadr, Eugene Bagdasarian
-    venue: arXiv (Under Review)
-    paper_pdf: https://arxiv.org/pdf/2509.01619
-    under_review: y
-    conference: n
-    preprint: y
-    
-
-  - title: "<em>Bob's Confetti</em> : Phonetic Memorization Attacks in Music and Video Generation"
-    authors: <b>Jaechul Roh</b>*, Zachary Novack*, Yuefeng Peng, Niloofar Mireshghallah, Taylor Berg-Kirkpatrick, Amir Houmansadr
-    venue: arXiv
-    paper_pdf: https://arxiv.org/pdf/2507.17937
-    website: https://jrohsc.github.io/music_attack/
-    video: https://www.youtube.com/watch?v=MswaaYUPUgc&ab_channel=JRoh
-    poster: /assets/image/Bobs_confetti_poster.png
-    under_review: n
-    conference: n
-    preprint: y
-    
-
-  - title: "OverThink: Slowdown Attacks on Reasoning LLMs"
-    authors: Abhinav Kumar, <b>Jaechul Roh</b>, Ali Naseh, Marezna Karpinska, Mohit Iyyer, Amir Houmansadr, Eugene Bagdasaryan
-    venue: arXiv (Under Review)
-    paper_pdf: https://arxiv.org/abs/2502.02542
-    code: https://github.com/akumar2709/OVERTHINK_public
-    
-    under_review: y
-    conference: n
-    preprint: y
-    
-
-  - title: "World-To-Image: Grounding Text-To-Image Generation With Agent-Driven World Knowledge"
-    authors: Moo Hyun Son, Jintaek Oh, Sub Bin Mun, <b>Jaechul Roh</b>, Sehyun Choi
-    venue: arXiv
-    paper_pdf: https://arxiv.org/abs/2510.04201
-    code: https://github.com/mhson-kyle/World-To-Image
-    under_review: n
-    conference: n
-    preprint: y
-    
-
-  - title: "Chain-of-Code Collapse: Reasoning Failures in LLMs via Adversarial Prompting in Code Generation"
-    authors: <b>Jaechul Roh</b>, Varun Gandhi, Shivani Anilkumar, Arin Garg
-    venue: arXiv
-    paper_pdf: https://arxiv.org/pdf/2506.06971
-    code: https://github.com/jrohsc/Chain-of-Code-Collapse
-    conference: n
-    preprint: y
-
-  - title: "R1dacted: Investigating Local Censorship in DeepSeek's R1 Language Model"
-    authors: Ali Naseh, Harsh Chaudhari, <b>Jaechul Roh</b>, Mingshi Wu, Alina Oprea, Amir Houmansadr
-    venue: arXiv
-    paper_pdf: https://arxiv.org/pdf/2505.12625
-    conference: n
-    preprint: y
-
-
-  - title: "FameBias: Embedding Manipulation Bias Attack in Text-to-Image Models"
-    authors: <b>Jaechul Roh</b>*, Andrew Yuan*, Jinsong Mao*
-    venue: arXiv
-    paper_pdf: https://arxiv.org/pdf/2412.18302
-    conference: n
-    preprint: y
-
-
-  - title: "Understanding (Un)Intended Memorization in Text-to-Image Generative Models"
-    authors: Ali Naseh, <b>Jaechul Roh</b>, Amir Houmansadr
-    venue: arXiv
-    paper_pdf: https://arxiv.org/pdf/2312.07550
-    conference: n
-    preprint: y
-
-  - title: "Multilingual and Multi-Accent Jailbreaking of Audio LLMs"
-    authors: <b>Jaechul Roh</b>, Virat Shejwalkar, Amir Houmansadr
-    venue: COLM 2025
-    paper_pdf: https://arxiv.org/abs/2504.01094
-    poster: /assets/image/COLM_Poster.png
-    conference: y
-
-  - title: "Backdooring Bias (B²) into Stable Diffusion Models"
-    authors: Ali Naseh, <b>Jaechul Roh</b>, Eugene Bagdasaryan, Amir Houmansadr
-    venue: USENIX Security 2025
-    paper_pdf: https://arxiv.org/pdf/2406.15213
-    code: https://github.com/jcroh0508/Backdororing_Bias/
-    conference: y
-
-  - title: "OSLO: One-Shot Label-Only Membership Inference Attacks"
-    authors: Yuefeng Peng, <b>Jaechul Roh</b>, Subhransu Maji, Amir Houmansadr
-    venue: NeurIPS 2024
-    paper_pdf: https://arxiv.org/pdf/2405.16978
-    conference: y
-
-  - title: "Memory Triggers: Unveiling Memorization in Text-To-Image Generative Models through Word-Level Duplication"
-    authors: Ali Naseh, <b>Jaechul Roh</b>, Amir Houmansadr
-    venue: AAAI PPAI 2024
-    paper_pdf: https://arxiv.org/pdf/2312.03692
-    conference: y
-
-  - title: "Robust Smart Home Face Recognition under Starving Federated Data"
-    authors: <b>Jaechul Roh</b>, Yajun Fang
-    venue: IEEE UV 2022
-    paper_pdf: https://arxiv.org/pdf/2211.05410
-    code: https://github.com/jcroh0508/FLATS
-    slides: https://www.jrohs.com/_files/ugd/c489e1_bbc7e44075944cad98da82f31e7430ae.pdf
-    video: https://www.youtube.com/watch?v=Tj9QiJEUBXU&ab_channel=jroh
-    conference: y
-
-  - title: "MSDT: Masked Language Model Scoring Defense in Text Domain"
-    authors: <b>Jaechul Roh</b>, Minhao Cheng, Yajun Fang
-    venue: IEEE UV 2022
-    paper_pdf: https://arxiv.org/pdf/2211.05371
-    code: https://github.com/jcroh0508/MSDT
-    slides: https://www.jrohs.com/_files/ugd/c489e1_bbc7e44075944cad98da82f31e7430ae.pdf
-    video: https://www.youtube.com/watch?v=oO3FbxnMdv0&ab_channel=jroh
-    conference: y
-
-  - title: "Impact of Adversarial Training on the Robustness of Deep Neural Networks"
-    authors: <b>Jaechul Roh</b>
-    venue: IEEE ICISCAE 2022
-    paper_pdf: https://ieeexplore.ieee.org/abstract/document/9927611
-    code: https://github.com/jcroh0508/Adversarial_Training_Impact
-    conference: y
+- title: 'DuplexJail: Spoken Interruption Attacks on Full-Duplex Speech Models'
+  authors: "<b>Jaechul Roh</b>, Deepak Chandran, Amir Houmansadr, Andrea Fanelli"
+  paper_pdf: https://arxiv.org/pdf/2609.09420
+  website: https://jrohsc.github.io/full-duplex-safety/#demos
+  venue: arXiv
+  preprint: y
+  selected: y
+- title: Benign Fine-Tuning Breaks Safety Alignment in Audio LLMs
+  authors: "<b>Jaechul Roh</b>, Virat Shejwalkar, Amir Houmansadr"
+  paper_pdf: https://arxiv.org/abs/2604.16659
+  venue: arXiv
+  preprint: y
+  selected: y
+- title: 'CodecAttack: Codec-Robust Latent-Space Prompt-Injection Attacks on Audio
+    LLMs'
+  authors: "<b>Jaechul Roh</b>, Jean-Philippe Monteuuis, Jonathan Petit, Amir Houmansadr"
+  paper_pdf: https://arxiv.org/abs/2605.20519
+  code: https://github.com/jrohsc/CodecAttack
+  venue: arXiv
+  preprint: y
+  selected: y
+- title: Multilingual and Multi-Accent Jailbreaking of Audio LLMs
+  authors: "<b>Jaechul Roh</b>, Virat Shejwalkar, Amir Houmansadr"
+  venue: COLM 2025
+  paper_pdf: https://arxiv.org/abs/2504.01094
+  poster: "/assets/image/COLM_Poster.png"
+  conference: y
+  selected: y
+  code: https://github.com/jrohsc/Multi-AudioJail
+- title: Backdooring Bias (B²) into Stable Diffusion Models
+  authors: Ali Naseh, <b>Jaechul Roh</b>, Eugene Bagdasaryan, Amir Houmansadr
+  venue: USENIX Security 2025
+  paper_pdf: https://arxiv.org/pdf/2406.15213
+  code: https://github.com/jrohsc/Backdororing_Bias
+  conference: y
+  selected: y
+- title: 'OSLO: One-Shot Label-Only Membership Inference Attacks'
+  authors: Yuefeng Peng, <b>Jaechul Roh</b>, Subhransu Maji, Amir Houmansadr
+  venue: NeurIPS 2024
+  paper_pdf: https://arxiv.org/pdf/2405.16978
+  conference: y
+  selected: y
+- title: "<em>Bob's Confetti</em> : Phonetic Memorization Attacks in Music and Video
+    Generation"
+  authors: "<b>Jaechul Roh</b>*, Zachary Novack*, Yuefeng Peng, Niloofar Mireshghallah,
+    Taylor Berg-Kirkpatrick, Amir Houmansadr"
+  venue: arXiv
+  paper_pdf: https://arxiv.org/pdf/2507.17937
+  website: https://jrohsc.github.io/music_attack/
+  video: https://www.youtube.com/watch?v=MswaaYUPUgc&ab_channel=JRoh
+  poster: "/assets/image/Bobs_confetti_poster.png"
+  under_review: n
+  conference: n
+  preprint: y
+  selected: y
+- title: 'OverThink: Slowdown Attacks on Reasoning LLMs'
+  authors: Abhinav Kumar, <b>Jaechul Roh</b>, Ali Naseh, Marezna Karpinska, Mohit
+    Iyyer, Amir Houmansadr, Eugene Bagdasaryan
+  venue: arXiv
+  paper_pdf: https://arxiv.org/abs/2502.02542
+  code: https://github.com/akumar2709/OVERTHINK_public
+  under_review: n
+  conference: n
+  preprint: y
+  selected: y
+- title: 'SPILLage: Agentic Oversharing on the Web'
+  authors: "<b>Jaechul Roh</b>, Eugene Bagdasarian, Hamed Haddadi, Ali Shahin Shamsabadi"
+  paper_pdf: https://www.arxiv.org/abs/2602.13516
+  code: https://github.com/jrohsc/SPILLage
+  venue: arXiv
+  under_review: n
+  conference: n
+  preprint: y
+  selected: y
+  article: https://brave.com/blog/agentic-oversharing/
+- title: Throttling Web Agents Using Reasoning Gates
+  authors: Abhinav Kumar, <b>Jaechul Roh</b>, Ali Naseh, Amir Houmansadr, Eugene Bagdasarian
+  venue: arXiv (Under Review)
+  paper_pdf: https://arxiv.org/pdf/2509.01619
+  under_review: y
+  conference: n
+  preprint: y
+- title: 'World-To-Image: Grounding Text-To-Image Generation With Agent-Driven World
+    Knowledge'
+  authors: Moo Hyun Son, Jintaek Oh, Sub Bin Mun, <b>Jaechul Roh</b>, Sehyun Choi
+  venue: arXiv
+  paper_pdf: https://arxiv.org/abs/2510.04201
+  code: https://github.com/mhson-kyle/World-To-Image
+  under_review: n
+  conference: n
+  preprint: y
+- title: 'Chain-of-Code Collapse: Reasoning Failures in LLMs via Adversarial Prompting
+    in Code Generation'
+  authors: "<b>Jaechul Roh</b>, Varun Gandhi, Shivani Anilkumar, Arin Garg"
+  venue: arXiv
+  paper_pdf: https://arxiv.org/pdf/2506.06971
+  code: https://github.com/jrohsc/Chain-of-Code-Collapse
+  conference: n
+  preprint: y
+- title: 'R1dacted: Investigating Local Censorship in DeepSeek''s R1 Language Model'
+  authors: Ali Naseh, Harsh Chaudhari, <b>Jaechul Roh</b>, Mingshi Wu, Alina Oprea,
+    Amir Houmansadr
+  venue: arXiv
+  paper_pdf: https://arxiv.org/pdf/2505.12625
+  conference: n
+  preprint: y
+- title: 'FameBias: Embedding Manipulation Bias Attack in Text-to-Image Models'
+  authors: "<b>Jaechul Roh</b>*, Andrew Yuan*, Jinsong Mao*"
+  venue: arXiv
+  paper_pdf: https://arxiv.org/pdf/2412.18302
+  conference: n
+  preprint: y
+- title: Understanding (Un)Intended Memorization in Text-to-Image Generative Models
+  authors: Ali Naseh, <b>Jaechul Roh</b>, Amir Houmansadr
+  venue: arXiv
+  paper_pdf: https://arxiv.org/pdf/2312.07550
+  conference: n
+  preprint: y
+- title: 'Memory Triggers: Unveiling Memorization in Text-To-Image Generative Models
+    through Word-Level Duplication'
+  authors: Ali Naseh, <b>Jaechul Roh</b>, Amir Houmansadr
+  venue: AAAI PPAI 2024
+  paper_pdf: https://arxiv.org/pdf/2312.03692
+  conference: y
+- title: Robust Smart Home Face Recognition under Starving Federated Data
+  authors: "<b>Jaechul Roh</b>, Yajun Fang"
+  venue: IEEE UV 2022
+  paper_pdf: https://arxiv.org/pdf/2211.05410
+  code: https://github.com/jcroh0508/FLATS
+  slides: https://www.jrohs.com/_files/ugd/c489e1_bbc7e44075944cad98da82f31e7430ae.pdf
+  video: https://www.youtube.com/watch?v=Tj9QiJEUBXU&ab_channel=jroh
+  conference: y
+- title: 'MSDT: Masked Language Model Scoring Defense in Text Domain'
+  authors: "<b>Jaechul Roh</b>, Minhao Cheng, Yajun Fang"
+  venue: IEEE UV 2022
+  paper_pdf: https://arxiv.org/pdf/2211.05371
+  code: https://github.com/jcroh0508/MSDT
+  slides: https://www.jrohs.com/_files/ugd/c489e1_bbc7e44075944cad98da82f31e7430ae.pdf
+  video: https://www.youtube.com/watch?v=oO3FbxnMdv0&ab_channel=jroh
+  conference: y
+- title: Impact of Adversarial Training on the Robustness of Deep Neural Networks
+  authors: "<b>Jaechul Roh</b>"
+  venue: IEEE ICISCAE 2022
+  paper_pdf: https://ieeexplore.ieee.org/abstract/document/9927611
+  code: https://github.com/jcroh0508/Adversarial_Training_Impact
+  conference: y

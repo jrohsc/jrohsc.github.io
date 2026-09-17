@@ -5,14 +5,17 @@ layout: default
 <div class="docs-section" id="about">
   <h4>About</h4>
   <p>
-    I am a third-year Ph.D. candidate in computer science at the University of Massachusetts Amherst, 
+    I am a Ph.D. candidate in computer science at the University of Massachusetts Amherst,
     advised by <a href="https://people.cs.umass.edu/~amir/" target="_blank">Amir Houmansadr</a> and
     also closely collaborating with <a href="https://people.cs.umass.edu/~eugene/" target="_blank">Eugene Bagdasarian</a>. 
     I am affiliated to both <a href="https://people.cs.umass.edu/~amir/Research.html" target="_blank">SPIN Lab</a> and 
     <a href="https://aisec.cs.umass.edu/" target="_blank">UMass AI Security Lab</a>. 
-    My research centers on the <b>privacy and security</b> of <b>AI models</b> and <b>agentic systems</b>. 
-    I am particularly interested in understanding and mitigating vulnerabilities in multimodal systems, 
-    with recent work examining the reliability of models that process <b>audio, text, and vision</b> inputs. 
+    My research focuses on the <b>safety and security of AI models and agents</b>.
+    I study the trustworthiness of multimodal generative and interactive models across
+    <b>audio, text, and vision</b>, with work published at NeurIPS, USENIX Security, and COLM.
+    I also collaborate with researchers at Google DeepMind and Qualcomm.
+    Most recently, I completed a research internship at <b>Dolby Laboratories</b>,
+    where I worked on the safety and security of real-time full-duplex speech models.
   </p>
 
 
@@ -32,13 +35,13 @@ layout: default
 <div class="docs-section" id="education">
   <h4>Education</h4>
   <div class="paper">
-    <p class="title"><b>University of Massachusetts Amherst<b style="float:right;">August 2023 - Current</b></b></p>
+    <p class="title"><b>University of Massachusetts Amherst<b style="float:right;">September 2023 - Present</b></b></p>
     <p>Ph.D. in Computer Science</p>
     <p></p>
   </div>
 
   <div class="paper">
-    <p class="title"><b>University of Massachusetts Amherst<b style="float:right;">August 2023 - May 2026</b></b></p>
+    <p class="title"><b>University of Massachusetts Amherst<b style="float:right;">September 2023 - May 2026</b></b></p>
     <p>M.S. in Computer Science</p>
     <p></p>
   </div>
@@ -53,187 +56,43 @@ layout: default
 <!-- ========== PUBLICATIONS ========== -->
 <div class="docs-section" id="publications">
   <h4>Selected Publications</h4>
+  <p>For the full list, see <a href="{{ site.data.main_info.google_scholar }}" target="_blank">Google Scholar</a>.<br>
+  <sup>*</sup> indicates equal contribution.</p>
 
-  <!-- <p>Most recent publications on <a href="{{ site.data.main_info.google_scholar }}" target="_blank">Google Scholar</a>.<br/> -->
-  <sup>*</sup> indicates equal contribution.
-  </p>
-
-  <ul class="tab-nav">
-    <li>
-      <div class="button active" data-ref="#papers-under-review">Under Review</div>
-    </li>
-    <li>
-      <div class="button" data-ref="#papers-conference">Conference</div>
-    </li>
-    <li>
-      <div class="button" data-ref="#papers-preprint">Preprint</div>
-    </li>
-    <li>
-      <div class="button" data-ref="#papers-all">All</div>
-    </li>
-  </ul>
-
-  <div class="tab-content">
-    <div class="tab-pane active" id="papers-under-review">
-        {% assign selected_papers = site.data.publications.papers | where: "under_review", "y" %}
-        {% for paper in selected_papers %}
-        <div class="paper">
-          <p class="title"><b>{{ paper.title }}</b></p>
-          <p>{{ paper.authors }}</p>
-          <p><i>{{ paper.venue }}</i></p>
-          <div class="paper-buttons">
-            {% if paper.paper_pdf %}
-            <a class="button" href="{{ paper.paper_pdf }}" target="_blank">Paper</a>
-            {% endif %}
-
-            {% if paper.slides %}
-            <a class="button" href="{{ paper.slides | prepend: site.baseurl }}" target="_blank">Slides</a>
-            {% endif %}
-
-            {% if paper.poster %}
-            <a class="button" href="{{ paper.poster | prepend: site.baseurl }}" target="_blank">Poster</a>
-            {% endif %}
-
-            {% if paper.video %}
-            <a class="button" href="{{ paper.video }}" target="_blank">Video</a>
-            {% endif %}
-
-            {% if paper.website %}
-            <a class="button" href="{{ paper.website }}" target="_blank">Demo</a>
-            {% endif %}
-
-            {% if paper.code %}
-            <a class="button" href="{{ paper.code }}" target="_blank">Code</a>
-            {% endif %}
-
-            {% if paper.data %}
-            <a class="button" href="{{ paper.data }}" target="_blank">Data</a>
-            {% endif %}
-          </div>
-        </div>
-        {% endfor %}
-      </div>
-
-  
-    <div class="tab-pane" id="papers-conference">
-      {% assign selected_papers = site.data.publications.papers | where: "conference", "y" %}
-      {% for paper in selected_papers %}
-      <div class="paper">
-        <p class="title"><b>{{ paper.title }}</b></p>
-        <p>{{ paper.authors }}</p>
-        <p><i>{{ paper.venue }}</i></p>
-        <div class="paper-buttons">
-          {% if paper.paper_pdf %}
-          <a class="button" href="{{ paper.paper_pdf }}" target="_blank">Paper</a>
-          {% endif %}
-
-          {% if paper.slides %}
-          <a class="button" href="{{ paper.slides | prepend: site.baseurl }}" target="_blank">Slides</a>
-          {% endif %}
-
-          {% if paper.poster %}
-          <a class="button" href="{{ paper.poster | prepend: site.baseurl }}" target="_blank">Poster</a>
-          {% endif %}
-
-          {% if paper.video %}
-          <a class="button" href="{{ paper.video }}" target="_blank">Video</a>
-          {% endif %}
-
-          {% if paper.website %}
-          <a class="button" href="{{ paper.website }}" target="_blank">Demo</a>
-          {% endif %}
-
-          {% if paper.code %}
-          <a class="button" href="{{ paper.code }}" target="_blank">Code</a>
-          {% endif %}
-
-          {% if paper.data %}
-          <a class="button" href="{{ paper.data }}" target="_blank">Data</a>
-          {% endif %}
-        </div>
-      </div>
-      {% endfor %}
-    </div>
-
-    <div class="tab-pane" id="papers-preprint">
-      {% assign selected_papers = site.data.publications.papers | where: "preprint", "y" %}
-      {% for paper in selected_papers %}
-      <div class="paper">
-        <p class="title"><b>{{ paper.title }}</b></p>
-        <p>{{ paper.authors }}</p>
-        <p><i>{{ paper.venue }}</i></p>
-        <div class="paper-buttons">
-          {% if paper.paper_pdf %}
-          <a class="button" href="{{ paper.paper_pdf }}" target="_blank">Paper</a>
-          {% endif %}
-
-          {% if paper.slides %}
-          <a class="button" href="{{ paper.slides | prepend: site.baseurl }}" target="_blank">Slides</a>
-          {% endif %}
-
-          {% if paper.poster %}
-          <a class="button" href="{{ paper.poster | prepend: site.baseurl }}" target="_blank">Poster</a>
-          {% endif %}
-
-          {% if paper.video %}
-          <a class="button" href="{{ paper.video }}" target="_blank">Video</a>
-          {% endif %}
-
-          {% if paper.website %}
-          <a class="button" href="{{ paper.website }}" target="_blank">Demo</a>
-          {% endif %}
-
-          {% if paper.code %}
-          <a class="button" href="{{ paper.code }}" target="_blank">Code</a>
-          {% endif %}
-
-          {% if paper.data %}
-          <a class="button" href="{{ paper.data }}" target="_blank">Data</a>
-          {% endif %}
-        </div>
-      </div>
-      {% endfor %}
-    </div>
-
-    <div class="tab-pane" id="papers-all">
-      {% for paper in site.data.publications.papers %}
-      <div class="paper">
-        <p class="title"><b>{{ paper.title }}</b></p>
-        <p>{{ paper.authors }}</p>
-        <p><i>{{ paper.venue }}</i></p>
-        <div class="paper-buttons">
-          {% if paper.paper_pdf %}
-          <a class="button" href="{{ paper.paper_pdf | prepend: site.baseurl }}" target="_blank">Paper</a>
-          {% endif %}
-
-          {% if paper.slides %}
-          <a class="button" href="{{ paper.slides | prepend: site.baseurl }}" target="_blank">Slides</a>
-          {% endif %}
-
-          {% if paper.poster %}
-          <a class="button" href="{{ paper.poster | prepend: site.baseurl }}" target="_blank">Poster</a>
-          {% endif %}
-
-          {% if paper.video %}
-          <a class="button" href="{{ paper.video }}" target="_blank">Video</a>
-          {% endif %}
-
-          {% if paper.website %}
-          <a class="button" href="{{ paper.website }}" target="_blank">Demo</a>
-          {% endif %}
-
-          {% if paper.code %}
-          <a class="button" href="{{ paper.code }}" target="_blank">Code</a>
-          {% endif %}
-
-          {% if paper.data %}
-          <a class="button" href="{{ paper.data }}" target="_blank">Data</a>
-          {% endif %}
-        </div>
-      </div>
-      {% endfor %}
+  {% assign selected_papers = site.data.publications.papers | where: "selected", "y" %}
+  {% for paper in selected_papers %}
+  <div class="paper">
+    <p class="title"><b>{{ paper.title }}</b></p>
+    <p>{{ paper.authors }}</p>
+    <p><i>{{ paper.venue }}</i></p>
+    <div class="paper-buttons">
+      {% if paper.paper_pdf %}
+      <a class="button" href="{{ paper.paper_pdf }}" target="_blank">Paper</a>
+      {% endif %}
+      {% if paper.slides %}
+      <a class="button" href="{{ paper.slides }}" target="_blank">Slides</a>
+      {% endif %}
+      {% if paper.poster %}
+      <a class="button" href="{{ paper.poster }}" target="_blank">Poster</a>
+      {% endif %}
+      {% if paper.video %}
+      <a class="button" href="{{ paper.video }}" target="_blank">Video</a>
+      {% endif %}
+      {% if paper.website %}
+      <a class="button" href="{{ paper.website }}" target="_blank">Demo</a>
+      {% endif %}
+      {% if paper.code %}
+      <a class="button" href="{{ paper.code }}" target="_blank">Code</a>
+      {% endif %}
+      {% if paper.data %}
+      <a class="button" href="{{ paper.data }}" target="_blank">Data</a>
+      {% endif %}
+      {% if paper.article %}
+      <a class="button" href="{{ paper.article }}" target="_blank">Article</a>
+      {% endif %}
     </div>
   </div>
+  {% endfor %}
 </div>
 
 <!-- ========== PROJECTS ========== -->
@@ -358,7 +217,10 @@ layout: default
   <ul>
     Invited Talks:
     <li>
-      <b>Google Speech Technologies Group</b>: Presented our ”Multilingual and Multi-Accent Jailbreaking of Audio LLMs” paper to the NFM Reading Group led
+      <b>AI Safety Night SF</b> (August 2026, San Francisco): Talk on modality-unique safety and security.
+    </li>
+    <li>
+      <b>Google Speech Technologies Group</b> (July 2025): Presented our ”Multilingual and Multi-Accent Jailbreaking of Audio LLMs” paper to the NFM Reading Group led
       by the Speech Technologies Group at Google DeepMind. 
       <a href={{ "/assets/slides/Multi-AudioJail.pdf" | prepend: site.baseurl }} target="_blank">[Slides]</a>
     </li>
@@ -374,7 +236,7 @@ layout: default
   <ul>
     Reviewer:
     <li>
-      <b>Main conference</b>: ICLR (2025, 2026), ICASSP (2026)
+      <b>Main conference</b>: ICLR (2025, 2026), ICASSP (2026), ICML (2026, Best Reviewer), COLM (2026), NeurIPS (2026)
     </li>
     <li>
       <b>Workshop</b>: COLM XLLM-Workshop (2025)
@@ -415,7 +277,6 @@ layout: default
   <p><a href="/ai-safety-monitor/">Open the AI Safety &amp; Security Terminal &rarr;</a><br>
   A research terminal for safety and alignment blog posts, conference papers, and arXiv research, with scheduled feed updates.</p>
 </div>
-
 
 </div>
 
