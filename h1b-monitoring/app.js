@@ -1,68 +1,54 @@
-const holiday = '2026-10-12';
-let checking = false;
-let lastSignature = '';
+const holidayKeys = new Set(['2026-01-01','2026-01-19','2026-02-16','2026-05-25','2026-06-19','2026-07-03','2026-09-07','2026-10-12','2026-11-11','2026-11-26','2026-12-25']);
+const originalText = new Map(Array.from(document.querySelectorAll('[data-i18n]'), node => [node, node.innerHTML]));
+const korean = {
+  topLabel:'H-1B 진행 현황', home:'홈으로 ↗', eyebrow:'개인 케이스 추적 / 네브래스카', headline:'다음 <em>소식을 기다리는 중.</em>',
+  intro:'프리미엄 프로세싱 접수일은 2026년 9월 22일, 접수 통지서 발행일은 9월 25일입니다. 예정된 근무 시작일은 <strong>10월 12일</strong>입니다.',
+  targetLabel:'근무 시작 목표일', oct:'10월', day12:'12일', year2026:'2026년', targetText:'이날까지 승인되면 예정대로 일을 시작하는 데 도움이 됩니다. 10월 12일은 연방 공휴일이므로 그 전 마지막 영업일은 10월 9일입니다.',
+  clockLabel:'프리미엄 심사 기간', oct14:'10월 14일', day15label:'예상 15번째 영업일', clockText:'9월 22일 접수일 다음 날인 9월 23일부터 15영업일을 계산하고 10월 12일 연방 공휴일을 제외했습니다. 실제 시작일은 통지서 또는 변호사의 USCIS 확인 내용을 따릅니다.', receivedShort:'9월 22일 · 접수',
+  forecastKicker:'공개 사례를 바탕으로 한 예상', forecastHeadline:'10월 1일에도 대기 중이라면 <span>10월 5–9일을 주목하세요.</span>', forecastText:'7영업일을 넘긴 승인 사례의 승인일 중앙값은 11영업일째였습니다. 이번 접수일에 대입하면 10월 7일입니다. 이는 시점 비교일 뿐 승인 확률이 아닙니다. 추가서류 요청(RFE) 등으로 경로가 달라질 수 있습니다.',
+  caseKicker:'01 / 내 케이스', timelineTitle:'진행 일정', nebraskaPremium:'네브래스카 · 프리미엄', sep22:'9월 22일', receivedTitle:'USCIS 접수', receivedDescription:'프리미엄 프로세싱 접수일', sep25:'9월 25일', noticeTitle:'접수 통지서 발행', noticeDescription:'접수 통지서 발행일', oct12:'10월 12일', startTitle:'예정된 근무 시작', startDescription:'개인 목표일 · 연방 공휴일', actionTitle:'예상 프리미엄 15영업일째', actionDescription:'승인, 거절, 추가서류 요청 등 규정에 따른 조치가 있을 수 있음', clockCaveat:'접수일과 통지일은 다릅니다. 통지서상 프리미엄 심사 시작일이 다르면 예상 종료일도 달라집니다.',
+  interpretKicker:'02 / 해석', interpretTitle:'이 패턴을 읽는 법', oct5:'10월 5일', oct9:'10월 9일', windowLead:'집중해서 확인할 기간일 뿐, 승인 보장일은 아닙니다.', windowText:'분석한 글은 승인 사실을 올린 사람들의 사례입니다. 전체 접수 건을 포함하지 않으므로 10월 12일까지 승인될 확률을 계산할 수 없습니다. 변호사에게 승인 이메일이 먼저 도착하고 공개 상태 조회는 나중에 바뀔 수도 있습니다.', workNote:'10월 12일 근무 시작에 필요한 승인 증빙이 무엇인지 고용주와 변호사에게 확인하세요. 공휴일 전 마지막 연방 영업일은 10월 9일입니다.',
+  patternsKicker:'03 / 근거', patternsTitle:'날짜가 확인된 사례의 분포', analysisIntro:'2026년 네브래스카 프리미엄 승인 글 중 프리미엄 접수일 또는 시계 시작일과 승인일이 모두 확인되는 20건을 모았습니다. 시작일 다음 날부터 주말과 연방 공휴일을 제외한 영업일을 계산했습니다. 각 행에서 원문을 열 수 있습니다.', medianMetric:'전체 승인 사례의 영업일 중앙값', conditionalMetric:'7영업일을 넘긴 승인 사례의 중앙값', recentMetric:'9월 승인 사례의 중앙값', chartTitle:'영업일별 승인 보고 건수', chartNote:'선별된 승인 글 안에서의 건수이며 승인 확률 그래프가 아닙니다.', early:'빠름', later:'늦음', findingsTitle:'패턴 해석', finding1:'전체 사례의 중앙값을 9월 22일 접수에 적용하면 약 10월 6–7일입니다.', finding2:'이 작은 표본에서 9월 승인 사례의 중앙값은 8영업일로 더 빨랐습니다. 이번 케이스에서는 10월 2일에 해당합니다.', finding3:'7영업일을 넘겨 승인된 사례의 중앙값은 11영업일, 즉 10월 7일입니다. 아직 대기 중이라면 이 비교가 더 가깝습니다.', finding4:'9월 25일 통지일만으로 USCIS 내부 심사 단계나 승인일을 알 수는 없습니다.', recordsTitle:'원문별 기록', recordsNote:'청원 유형을 선택해 비교 범위를 좁히세요. ‘미상’은 원문에 유형이 없다는 뜻입니다.', thType:'유형', thStart:'접수 / 시작', thApproved:'승인', thDays:'영업일', thSource:'원문', methodNote:'한계: Reddit 글은 본인 보고이며 결과가 나온 사람이 더 많이 글을 올릴 수 있습니다. 접수일과 프리미엄 시작일이 다를 수 있고 케이스 난이도도 알 수 없습니다. 대표 표본이나 승인율 추정치가 아닙니다.',
+  lateKicker:'04 / 반대 사례', lateTitle:'훨씬 오래 대기 중인 보고도 있습니다', lateText:'아래 글은 표기된 업데이트 시점까지 승인이 확인되지 않았습니다. 승인일 그래프에는 포함되지 않지만 예측의 불확실성을 보여줍니다. 이후 승인, RFE, 다른 프리미엄 시작일이 누락되었을 수도 있습니다.',
+  liveKicker:'05 / 최근 게시물', liveTitle:'새 공개 게시물', liveDescription:'페이지를 열어 둔 동안 15초마다 새 결과를 확인합니다. 약 5분 간격의 예약 작업이 네브래스카 프리미엄 관련 Reddit 글의 검색 색인 결과를 수집하지만, 색인 반영은 더 늦을 수 있습니다. USCIS나 Reddit의 실시간 피드는 아닙니다.', checkNow:'지금 확인 ↻',
+  sourcesKicker:'06 / 공식 자료', sourcesTitle:'날짜 계산의 근거', uscisLink:'USCIS 프리미엄 프로세싱 ↗', holidaysLink:'2026년 연방 공휴일 ↗', statusLink:'USCIS 케이스 상태 조회 ↗', footerLeft:'개인 일정 · 2026년 10월 1일까지 자료 검토', footerRight:'공개 글은 참고 사례입니다. 내 케이스의 근거는 USCIS와 변호사의 안내입니다.'
+};
+const typeLabels = {
+  en:{all:'All',coe:'Transfer',extension:'Extension',cos:'Change of status',initial:'Initial',amendment:'Amendment',unknown:'Unknown'},
+  ko:{all:'전체',coe:'이직',extension:'연장',cos:'신분 변경',initial:'최초',amendment:'수정',unknown:'미상'}
+};
+const basisLabels={en:{receipt:'receipt','premium receipt':'PP receipt','premium clock':'PP clock','I-907 received':'I-907 received'},ko:{receipt:'접수일','premium receipt':'프리미엄 접수일','premium clock':'프리미엄 시작일','I-907 received':'I-907 접수일'}};
+let language=localStorage.getItem('h1b-language')||((navigator.language||'').toLowerCase().startsWith('ko')?'ko':'en');
+let caseData=null, activeFilter='all', feedItems=[], checking=false, lastSignature='';
 
-function easternDateParts(date) {
-  const parts = new Intl.DateTimeFormat('en-US', {timeZone:'America/New_York',year:'numeric',month:'2-digit',day:'2-digit'}).formatToParts(date);
-  return Object.fromEntries(parts.map(part => [part.type, part.value]));
+function easternKey(date) {
+  const parts=new Intl.DateTimeFormat('en-US',{timeZone:'America/New_York',year:'numeric',month:'2-digit',day:'2-digit'}).formatToParts(date);
+  const p=Object.fromEntries(parts.map(part=>[part.type,part.value]));
+  return `${p.year}-${p.month}-${p.day}`;
 }
-function dateKey(date) { const p = easternDateParts(date); return `${p.year}-${p.month}-${p.day}`; }
-function daysBetween(a,b) { return Math.round((Date.UTC(+b.slice(0,4),+b.slice(5,7)-1,+b.slice(8))-Date.UTC(+a.slice(0,4),+a.slice(5,7)-1,+a.slice(8)))/86400000); }
-function businessDaysSinceReceipt(now) {
-  const today=dateKey(now), start='2026-09-22'; let count=0;
-  for(let offset=1;offset<=Math.min(60,Math.max(0,daysBetween(start,today)));offset++) {
-    const d=new Date(Date.UTC(2026,8,22+offset)); const key=d.toISOString().slice(0,10);
-    if(d.getUTCDay()!==0&&d.getUTCDay()!==6&&key!==holiday) count++;
-  }
-  return count;
-}
-function updateClock() {
-  const now=new Date(); const days=daysBetween(dateKey(now),'2026-10-12');
-  const countdown=document.getElementById('target-countdown');
-  countdown.textContent=days>1?`${days} calendar days until planned start`:days===1?'Tomorrow is the planned start':days===0?'Planned start date is today':`${Math.abs(days)} calendar day${Math.abs(days)===1?'':'s'} past planned start`;
-  const count=businessDaysSinceReceipt(now);
-  document.getElementById('business-day').textContent=`Day ${Math.min(count,15)} of 15`;
-  document.getElementById('clock-progress').style.width=`${Math.min(100,count/15*100)}%`;
-}
-function safeLink(value) { try { const url=new URL(value); return url.protocol==='https:'&&['news.google.com','www.reddit.com','reddit.com'].includes(url.hostname)?url.href:null; } catch{return null;} }
-function renderFeed(items) {
-  const list=document.getElementById('feed-list'); list.replaceChildren();
-  if(!items.length){const empty=document.createElement('p');empty.className='feed-empty';empty.textContent='No recent matching posts appeared in the indexed feed. Check the linked reports above while the feed catches up.';list.append(empty);return;}
-  for(const item of items.slice(0,8)) {
-    const link=safeLink(item.link); if(!link) continue;
-    const a=document.createElement('a');a.className='feed-item';a.href=link;a.target='_blank';a.rel='noopener noreferrer';
-    const title=document.createElement('span');title.className='feed-title';title.textContent=item.title.replace(/ - Reddit$/i,'');
-    const date=document.createElement('time');date.className='feed-date';date.dateTime=item.date.toISOString();date.textContent=new Intl.DateTimeFormat('en-US',{month:'short',day:'numeric',timeZone:'America/New_York'}).format(item.date)+' ↗';
-    a.append(title,date);list.append(a);
-  }
-}
-async function checkFeed() {
-  if(checking||document.hidden)return; checking=true;
-  const state=document.getElementById('feed-state');state.textContent='Checking…';
-  try {
-    // The proxy permits a static GitHub Pages site to read the public RSS feed.
-    const source=location.hostname==='jrohsc.github.io'
-      ? 'https://raw.githubusercontent.com/jrohsc/jrohsc.github.io/master/h1b-monitoring/feed.json'
-      : 'feed.json';
-    const url=source+'?check='+Date.now();
-    const controller=new AbortController(); const timer=setTimeout(()=>controller.abort(),11000);
-    let response;
-    try { response=await fetch(url,{signal:controller.signal,cache:'no-store'}); } finally {clearTimeout(timer);}
-    if(!response.ok)throw new Error('Feed unavailable');
-    const data=await response.json();
-    if(!Array.isArray(data.items))throw new Error('Invalid feed');
-    const recent=data.items.map(item=>({title:item.title||'',link:item.link||'',date:new Date(item.date||0)})).filter(item=>item.title&&Number.isFinite(item.date.getTime())).sort((a,b)=>b.date-a.date);
-    const signature=recent.map(item=>item.link).join('|');
-    if(signature!==lastSignature){renderFeed(recent);lastSignature=signature;}
-    state.textContent=recent.length?`${recent.length} indexed posts`:'Feed checked';
-    document.getElementById('last-check').textContent='Last checked '+new Intl.DateTimeFormat('en-US',{hour:'numeric',minute:'2-digit',second:'2-digit',timeZone:'America/New_York'}).format(new Date())+' ET · source scan may lag';
-  } catch {
-    state.textContent='Feed temporarily unavailable';
-    document.getElementById('last-check').textContent='Showing last available results; try again shortly';
-    if(!lastSignature)document.getElementById('feed-list').innerHTML='<p class="feed-empty">Could not load the public-post feed right now. The reported timelines above remain available.</p>';
-  } finally {checking=false;}
-}
-updateClock();setInterval(updateClock,60000);
-document.getElementById('refresh-feed').addEventListener('click',checkFeed);
-document.addEventListener('visibilitychange',()=>{if(!document.hidden)checkFeed();});
-checkFeed();setInterval(checkFeed,15000);
+function utcDay(key){return new Date(`${key}T12:00:00Z`);}
+function businessDays(start,end){let count=0;const stop=utcDay(end);for(let day=utcDay(start);day<stop;){day.setUTCDate(day.getUTCDate()+1);const key=day.toISOString().slice(0,10);if(day.getUTCDay()!==0&&day.getUTCDay()!==6&&!holidayKeys.has(key))count++;}return count;}
+function daysBetween(start,end){return Math.round((utcDay(end)-utcDay(start))/86400000);}
+function median(values){if(!values.length)return null;const sorted=[...values].sort((a,b)=>a-b);const m=sorted.length/2;return sorted.length%2?sorted[Math.floor(m)]:(sorted[m-1]+sorted[m])/2;}
+function formatNumber(value){return value==null?'—':new Intl.NumberFormat(language==='ko'?'ko-KR':'en-US',{maximumFractionDigits:1}).format(value);}
+function displayDate(key){return new Intl.DateTimeFormat(language==='ko'?'ko-KR':'en-US',{month:'short',day:'numeric',timeZone:'UTC'}).format(utcDay(key));}
+function safeLink(value){try{const url=new URL(value);return url.protocol==='https:'&&['news.google.com','www.reddit.com','reddit.com'].includes(url.hostname)?url.href:null;}catch{return null;}}
+
+function updateClock(){const now=new Date();const remaining=daysBetween(easternKey(now),'2026-10-12');document.getElementById('target-countdown').textContent=language==='ko'?(remaining>0?`근무 시작 예정일까지 ${remaining}일`:remaining===0?'오늘이 예정된 근무 시작일입니다':`예정된 시작일로부터 ${Math.abs(remaining)}일 지남`):(remaining>1?`${remaining} calendar days until planned start`:remaining===1?'Tomorrow is the planned start':remaining===0?'Planned start date is today':`${Math.abs(remaining)} calendar day${Math.abs(remaining)===1?'':'s'} past planned start`);const count=businessDays('2026-09-22',easternKey(now));document.getElementById('business-day').textContent=language==='ko'?`15영업일 중 ${Math.min(count,15)}일째`:`Day ${Math.min(count,15)} of 15`;document.getElementById('clock-progress').style.width=`${Math.min(100,count/15*100)}%`;}
+
+function setLanguage(next){language=next;localStorage.setItem('h1b-language',next);document.documentElement.lang=next;document.title=next==='ko'?'H-1B 진행 현황 · 네브래스카 프리미엄 프로세싱':'H-1B timeline · Nebraska premium processing';for(const [node,english] of originalText){node.innerHTML=next==='ko'?(korean[node.dataset.i18n]||english):english;}for(const button of document.querySelectorAll('[data-language]')){const selected=button.dataset.language===next;button.classList.toggle('active',selected);button.setAttribute('aria-pressed',String(selected));}updateClock();renderAnalysis();renderFeed(feedItems);updateFeedStatus();}
+
+function renderAnalysis(){if(!caseData)return;const all=caseData.cases.map(item=>({...item,days:businessDays(item.start,item.approved)}));const days=all.map(item=>item.days);document.getElementById('sample-size').textContent=language==='ko'?`승인 보고 ${all.length}건`:`${all.length} approved reports`;document.getElementById('metric-median').textContent=formatNumber(median(days));document.getElementById('metric-pending').textContent=formatNumber(median(days.filter(day=>day>7)));document.getElementById('metric-september').textContent=formatNumber(median(all.filter(item=>item.approved.startsWith('2026-09')).map(item=>item.days)));
+  const filters=document.getElementById('case-filters');filters.replaceChildren();for(const type of ['all','coe','extension','cos','initial','amendment','unknown']){const button=document.createElement('button');button.type='button';button.textContent=typeLabels[language][type];button.className=activeFilter===type?'selected':'';button.setAttribute('aria-pressed',String(activeFilter===type));button.addEventListener('click',()=>{activeFilter=type;renderAnalysis();});filters.append(button);}
+  const filtered=activeFilter==='all'?all:all.filter(item=>item.type===activeFilter);renderHistogram(filtered);
+  const body=document.getElementById('cases-body');body.replaceChildren();for(const item of [...filtered].sort((a,b)=>b.approved.localeCompare(a.approved))){const row=document.createElement('tr');const type=document.createElement('td');type.textContent=typeLabels[language][item.type];row.append(type);const start=document.createElement('td');start.textContent=displayDate(item.start);const basis=document.createElement('small');basis.className='basis';basis.textContent=basisLabels[language][item.basis]||item.basis;start.append(basis);row.append(start);for(const value of [displayDate(item.approved),String(item.days)]){const cell=document.createElement('td');cell.textContent=value;row.append(cell);}const source=document.createElement('td');const a=document.createElement('a');a.href=item.url;a.target='_blank';a.rel='noopener noreferrer';a.textContent=language==='ko'?'원문 ↗':'Post ↗';a.setAttribute('aria-label',(language==='ko'?'원문 열기: ':'Open source post: ')+displayDate(item.start)+' '+displayDate(item.approved));source.append(a);row.append(source);body.append(row);}
+  const pending=document.getElementById('pending-list');pending.replaceChildren();for(const item of caseData.pendingExamples){const a=document.createElement('a');a.className='pending-item';a.href=item.url;a.target='_blank';a.rel='noopener noreferrer';a.textContent=(language==='ko'?item.labelKo:item.label)+' ↗';pending.append(a);}}
+function renderHistogram(items){const counts=new Map();for(const item of items)counts.set(item.days,(counts.get(item.days)||0)+1);const max=Math.max(1,...counts.values());const chart=document.getElementById('histogram');chart.replaceChildren();for(let day=4;day<=15;day++){const count=counts.get(day)||0;const column=document.createElement('div');column.className='hist-column';column.setAttribute('aria-label',language==='ko'?`${day}영업일: ${count}건`:`Day ${day}: ${count} reports`);const number=document.createElement('span');number.className='hist-count';number.textContent=count||'';const bar=document.createElement('span');bar.className='hist-bar';bar.style.height=`${Math.max(3,count/max*108)}px`;if(!count)bar.classList.add('empty');const label=document.createElement('small');label.textContent=day;column.append(number,bar,label);chart.append(column);}chart.setAttribute('aria-label',language==='ko'?'영업일별 승인 보고 건수 그래프':'Histogram of reported approvals by business day');}
+
+function renderFeed(items){const list=document.getElementById('feed-list');list.replaceChildren();if(!items.length){const empty=document.createElement('p');empty.className='feed-empty';empty.textContent=language==='ko'?'최근 검색 색인에 일치하는 게시물이 없습니다. 아래 원문 기록도 확인해 보세요.':'No recent matching posts appeared in the indexed feed. Check the source records above while indexing catches up.';list.append(empty);return;}for(const item of items.slice(0,8)){const link=safeLink(item.link);if(!link)continue;const a=document.createElement('a');a.className='feed-item';a.href=link;a.target='_blank';a.rel='noopener noreferrer';const title=document.createElement('span');title.className='feed-title';title.textContent=item.title.replace(/ - Reddit$/i,'');const date=document.createElement('time');date.className='feed-date';date.dateTime=item.date.toISOString();date.textContent=new Intl.DateTimeFormat(language==='ko'?'ko-KR':'en-US',{month:'short',day:'numeric',timeZone:'America/New_York'}).format(item.date)+' ↗';a.append(title,date);list.append(a);}}
+function updateFeedStatus(){const state=document.getElementById('feed-state');if(state.dataset.error==='true'){state.textContent=language==='ko'?'피드에 일시적으로 연결할 수 없음':'Feed temporarily unavailable';return;}state.textContent=checking?(language==='ko'?'확인 중…':'Checking…'):(language==='ko'?`색인 게시물 ${feedItems.length}건`:`${feedItems.length} indexed posts`);}
+async function checkFeed(){if(checking||document.hidden)return;checking=true;updateFeedStatus();try{const source=location.hostname==='jrohsc.github.io'?'https://raw.githubusercontent.com/jrohsc/jrohsc.github.io/master/h1b-monitoring/feed.json':'feed.json';const controller=new AbortController();const timer=setTimeout(()=>controller.abort(),11000);let response;try{response=await fetch(source+'?check='+Date.now(),{signal:controller.signal,cache:'no-store'});}finally{clearTimeout(timer);}if(!response.ok)throw new Error('Feed unavailable');const data=await response.json();if(!Array.isArray(data.items))throw new Error('Invalid feed');const items=data.items.map(item=>({title:item.title||'',link:item.link||'',date:new Date(item.date||0)})).filter(item=>item.title&&Number.isFinite(item.date.getTime())).sort((a,b)=>b.date-a.date);const signature=items.map(item=>item.link).join('|');feedItems=items;if(signature!==lastSignature){renderFeed(feedItems);lastSignature=signature;}document.getElementById('feed-state').dataset.error='false';document.getElementById('last-check').textContent=(language==='ko'?'마지막 확인 ':'Last checked ')+new Intl.DateTimeFormat(language==='ko'?'ko-KR':'en-US',{hour:'numeric',minute:'2-digit',second:'2-digit',timeZone:'America/New_York'}).format(new Date())+' ET';}catch{document.getElementById('feed-state').dataset.error='true';document.getElementById('last-check').textContent=language==='ko'?'마지막으로 확인된 결과를 표시합니다. 잠시 후 다시 시도하세요.':'Showing last available results; try again shortly';if(!lastSignature){const list=document.getElementById('feed-list');list.replaceChildren();const p=document.createElement('p');p.className='feed-empty';p.textContent=language==='ko'?'지금은 공개 게시물 피드를 불러올 수 없습니다. 위의 원문 기록은 계속 볼 수 있습니다.':'Could not load the public-post feed. The source records above remain available.';list.append(p);}}finally{checking=false;updateFeedStatus();}}
+
+for(const button of document.querySelectorAll('[data-language]'))button.addEventListener('click',()=>setLanguage(button.dataset.language));document.getElementById('refresh-feed').addEventListener('click',checkFeed);document.addEventListener('visibilitychange',()=>{if(!document.hidden)checkFeed();});
+fetch('cases.json').then(response=>{if(!response.ok)throw new Error('Missing case data');return response.json();}).then(data=>{caseData=data;renderAnalysis();}).catch(()=>{document.getElementById('analysis-title').textContent=language==='ko'?'사례 데이터를 불러올 수 없습니다':'Case data unavailable';});
+setLanguage(language);checkFeed();setInterval(checkFeed,15000);setInterval(updateClock,60000);
