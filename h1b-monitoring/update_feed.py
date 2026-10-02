@@ -30,8 +30,8 @@ def fetch_reddit_items():
         title = (entry.findtext(f'{ATOM}title') or '').strip()
         content = entry.findtext(f'{ATOM}content') or ''
         link = next((node.get('href', '') for node in entry.findall(f'{ATOM}link')
-                     if node.get('rel') == 'alternate'), '')
-        published = entry.findtext(f'{ATOM}published') or ''
+                     if node.get('rel', 'alternate') == 'alternate'), '')
+        published = entry.findtext(f'{ATOM}published') or entry.findtext(f'{ATOM}updated') or ''
         body = re.sub(r'<[^>]+>', ' ', title + ' ' + content)
         if not re.search(r'\bnebraska\b|\bnsc\b', body, re.I):
             continue
