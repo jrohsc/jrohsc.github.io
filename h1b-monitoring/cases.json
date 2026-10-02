@@ -1,5 +1,5 @@
 {
-  "reviewedAt": "2026-10-01",
+  "reviewedAt": "2026-10-02",
   "method": "Public self-reports with Nebraska, premium processing, a clear receipt or premium-clock date, and a dated approval. One report per apparent case; no RFE-response restarts. Business days exclude the receipt day, weekends, and 2026 federal holidays.",
   "cases": [
     {"start":"2026-05-20","approved":"2026-06-02","type":"initial","basis":"receipt","url":"https://www.reddit.com/r/h1b/comments/1tk68i0/h1b_premium_processing_timelines_for_may_2026/"},
@@ -16,7 +16,11 @@
     {"start":"2026-07-13","approved":"2026-07-27","type":"coe","basis":"receipt","url":"https://www.reddit.com/r/h1b/comments/1v87w83/h1b_premium_processing_july_2026/"},
     {"start":"2026-08-20","approved":"2026-09-01","type":"coe","basis":"receipt","url":"https://www.reddit.com/r/h1b/comments/1vzab5t/delayed_h1b_coe_premium_processing_from_nebraska/"},
     {"start":"2026-08-21","approved":"2026-09-08","type":"cos","basis":"receipt","url":"https://www.reddit.com/r/h1b/comments/1waot0i/approvals_today_98/"},
+    {"start":"2026-08-27","approved":"2026-09-08","type":"extension","basis":"receipt","url":"https://www.reddit.com/r/h1b/comments/1wbk7nn/h1b_approval_0909/"},
+    {"start":"2026-08-27","approved":"2026-09-14","type":"coe","basis":"premium receipt","url":"https://www.reddit.com/r/h1b/comments/1wg43hx/any_approvals_0914/"},
+    {"start":"2026-08-28","approved":"2026-09-10","type":"extension","basis":"receipt","url":"https://www.reddit.com/r/h1b/comments/1wcl5rt/h1b_approval_0910/"},
     {"start":"2026-09-02","approved":"2026-09-12","type":"amendment","basis":"receipt","url":"https://www.reddit.com/r/h1b/comments/1wg43hx/any_approvals_0914/"},
+    {"start":"2026-09-02","approved":"2026-09-15","type":"coe","basis":"receipt","url":"https://www.reddit.com/r/h1b/comments/1wcl5rt/h1b_approval_0910/"},
     {"start":"2026-09-10","approved":"2026-09-22","type":"coe","basis":"I-907 received","url":"https://www.reddit.com/r/h1b/comments/1wmqzsk/h1b_coe_pp_nebraska_any_approvals_in_week_of_921/"},
     {"start":"2026-09-14","approved":"2026-09-24","type":"coe","basis":"receipt","url":"https://www.reddit.com/r/h1b/comments/1wmqzsk/h1b_coe_pp_nebraska_any_approvals_in_week_of_921/"},
     {"start":"2026-09-14","approved":"2026-09-28","type":"unknown","basis":"receipt","url":"https://www.reddit.com/r/h1b/comments/1wmsi4g/h1b_premium_processing_receipt_date_914/"},
