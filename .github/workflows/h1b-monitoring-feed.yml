@@ -17,7 +17,7 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Scan indexed Reddit posts
+      - name: Scan Reddit RSS and indexed posts
         run: python h1b-monitoring/update_feed.py
       - name: Publish changed results
         run: |
