@@ -4,7 +4,7 @@ import re
 import urllib.parse
 import urllib.request
 import xml.etree.ElementTree as ET
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from email.utils import format_datetime, parsedate_to_datetime
 from pathlib import Path
 
@@ -69,6 +69,7 @@ def fetch_items(query):
 
 
 def main():
+    previous = json.loads(OUTPUT.read_text()) if OUTPUT.exists() else {}
     items = {}
     errors = []
     try:
@@ -88,11 +89,21 @@ def main():
     if len(errors) == len(QUERIES) + 1:
         raise RuntimeError('All public-post sources failed: ' + '; '.join(errors))
 
+    # Keep recent links during temporary source throttling or indexing gaps.
+    cutoff = datetime.now(timezone.utc) - timedelta(days=7)
+    for item in previous.get('items', []):
+        try:
+            recent = parsedate_to_datetime(item['date']) >= cutoff
+            title = item['title'].casefold()
+        except (KeyError, TypeError, ValueError):
+            continue
+        if recent:
+            items.setdefault(title, item)
+
     # A transient empty feed must not erase the last useful snapshot.
     if not items:
         raise RuntimeError('Feed returned no relevant items')
     sorted_items = sorted(items.values(), key=lambda item: parsedate_to_datetime(item['date']), reverse=True)[:12]
-    previous = json.loads(OUTPUT.read_text()) if OUTPUT.exists() else {}
     if previous.get('items') == sorted_items:
         print('No new public posts')
         return

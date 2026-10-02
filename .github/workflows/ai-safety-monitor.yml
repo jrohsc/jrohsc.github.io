@@ -4,6 +4,8 @@ on:
     branches: [master]
     paths-ignore:
       - 'h1b-monitoring/feed.json'
+      - 'h1b-monitoring/update_feed.py'
+      - '.github/workflows/h1b-monitoring-feed.yml'
   workflow_dispatch:
   schedule:
     - cron: '7,22,37,52 * * * *'
