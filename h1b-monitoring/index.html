@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#102a43">
+  <meta name="description" content="A personal H-1B premium processing timeline for a September 22, 2026 Nebraska receipt, with an October 12 work-start target and public reports.">
+  <title>H-1B timeline · Nebraska premium processing</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="/">JR<span class="brand-dot">.</span></a>
+    <span class="topbar-label">H-1B monitoring</span>
+    <a class="home-link" href="/">Back to home <span aria-hidden="true">↗</span></a>
+  </header>
+
+  <main class="shell">
+    <div class="eyebrow"><span class="pulse" aria-hidden="true"></span> PERSONAL CASE TRACKER <span class="eyebrow-separator">/</span> NEBRASKA</div>
+    <h1>Waiting for the <em>next update.</em></h1>
+    <p class="intro">Premium processing received September 22, 2026. The receipt notice is dated September 25. My planned work start is <strong>October 12</strong>.</p>
+
+    <section class="overview" aria-label="Key dates">
+      <article class="target-card">
+        <div class="card-kicker">WORK-START TARGET</div>
+        <div class="hero-date">Oct <strong>12</strong><span>2026</span></div>
+        <p>Approval by this date would support my planned start. October 12 is a federal holiday, so I should confirm the start plan with my employer and attorney.</p>
+        <div class="countdown" id="target-countdown" aria-live="polite">Calculating time remaining…</div>
+      </article>
+      <article class="clock-card">
+        <div class="card-kicker">PREMIUM-PROCESSING WINDOW</div>
+        <div class="clock-value">Oct 14 <span>estimated day 15</span></div>
+        <p>Fifteen <strong>business</strong> days from the September 22 received date, counting September 23 as day 1 and excluding the October 12 federal holiday. The notice or attorney’s USCIS confirmation controls the actual clock.</p>
+        <div class="clock-progress"><span id="clock-progress"></span></div>
+        <div class="clock-foot"><span>Sep 22 · received</span><span id="business-day">Day 0 of 15</span></div>
+      </article>
+    </section>
+
+    <div class="content-grid">
+      <section class="panel timeline-panel" aria-labelledby="timeline-title">
+        <div class="section-head"><div><div class="section-label">01 / MY CASE</div><h2 id="timeline-title">Timeline</h2></div><span class="quiet-tag">Nebraska · premium</span></div>
+        <ol class="timeline">
+          <li class="done"><time datetime="2026-09-22">Sep 22</time><div><strong>Received by USCIS</strong><span>Premium-processing received date</span></div></li>
+          <li class="done"><time datetime="2026-09-25">Sep 25</time><div><strong>Notice issued</strong><span>Receipt notice date</span></div></li>
+          <li class="target"><time datetime="2026-10-12">Oct 12</time><div><strong>Planned work start</strong><span>My decision deadline · federal holiday</span></div></li>
+          <li><time datetime="2026-10-14">Oct 14</time><div><strong>Estimated premium day 15</strong><span>USCIS must take a qualifying action, which may be approval, denial, RFE, or another permitted action</span></div></li>
+        </ol>
+        <p class="fineprint">The receipt date and notice date are different. This calculation uses the received date; if the premium clock on the notice began another day, the end date changes.</p>
+      </section>
+
+      <section class="panel estimate-panel" aria-labelledby="estimate-title">
+        <div class="section-head"><div><div class="section-label">02 / EXPECTATION</div><h2 id="estimate-title">When might I hear?</h2></div></div>
+        <div class="estimate-range"><span>Oct 2</span><span class="range-line" aria-hidden="true"></span><span>Oct 14</span></div>
+        <p class="estimate-lead">A practical watch window, <strong>not an approval forecast</strong>.</p>
+        <p>A few public Nebraska premium reports show action in roughly one to two working weeks, but the examples are self-reported, mixed across petition types, and far too few to estimate a reliable probability. An RFE or other action can arrive within the window instead of an approval.</p>
+        <div class="decision-note"><span class="note-icon" aria-hidden="true">!</span><span>For an October 12 start, ask the employer or attorney which exact approval evidence they require and what happens if the case is still pending then.</span></div>
+      </section>
+    </div>
+
+    <section class="reports-section" aria-labelledby="reports-title">
+      <div class="section-head reports-heading"><div><div class="section-label">03 / COMMUNITY SIGNALS</div><h2 id="reports-title">Reported timelines</h2></div><p>Small, unverified sample · linked to original posts</p></div>
+      <div class="report-grid">
+        <a class="report-card" href="https://www.reddit.com/r/h1b/comments/1wmhvt7/h1b_transfer_pp_timeline_sept_2026/" target="_blank" rel="noopener noreferrer"><span class="report-date">SEP 2026 · NEBRASKA</span><strong>Sep 18 → Sep 30</strong><span>Premium clock started Sep 18; approval reported Sep 30 in a transfer thread.</span><span class="report-link">Read report ↗</span></a>
+        <a class="report-card" href="https://www.reddit.com/r/h1b/comments/1wmsi4g/h1b_premium_processing_receipt_date_914/" target="_blank" rel="noopener noreferrer"><span class="report-date">SEP 2026 · NEBRASKA</span><strong>Sep 14 → Sep 28</strong><span>Commenter reported premium receipt Sep 14 and approval Sep 28.</span><span class="report-link">Read report ↗</span></a>
+        <a class="report-card" href="https://www.reddit.com/r/h1b/comments/1tk68i0/h1b_premium_processing_timelines_for_may_2026/" target="_blank" rel="noopener noreferrer"><span class="report-date">MAY–JUN 2026 · NEBRASKA</span><strong>May 28 → Jun 5</strong><span>Commenter reported a May 28 premium clock start and June 5 online approval.</span><span class="report-link">Read report ↗</span></a>
+        <a class="report-card" href="https://www.reddit.com/r/h1b/comments/1uojxp4/h1b_premium_processing_timeline_for_nebraska/" target="_blank" rel="noopener noreferrer"><span class="report-date">JUN–JUL 2026 · NEBRASKA</span><strong>Jun 17 → Jul 7</strong><span>Extension commenter reported an approval on business day 13.</span><span class="report-link">Read report ↗</span></a>
+      </div>
+    </section>
+
+    <section class="live-section panel" aria-labelledby="live-title">
+      <div class="section-head live-heading"><div><div class="section-label">04 / RECENT POSTS</div><h2 id="live-title">New public reports</h2></div><span class="live-pill" id="feed-state"><span class="small-pulse"></span> Checking…</span></div>
+      <p class="live-description">The page checks for new results every 15 seconds while open. A scheduled scan searches indexed Reddit H-1B posts about Nebraska premium processing roughly every five minutes; indexing and site publishing may add more delay. This is a watchlist, not a real-time USCIS or Reddit feed.</p>
+      <div id="feed-list" class="feed-list" aria-live="polite"><p class="feed-empty">Checking for recent indexed posts…</p></div>
+      <div class="live-footer"><span id="last-check">No successful check yet</span><button type="button" id="refresh-feed">Check now <span aria-hidden="true">↻</span></button></div>
+    </section>
+
+    <section class="source-strip" aria-labelledby="sources-title"><div><div class="section-label">05 / PRIMARY SOURCES</div><h2 id="sources-title">Rules behind the dates</h2></div><div class="source-links"><a href="https://www.uscis.gov/forms/all-forms/how-do-i-request-premium-processing" target="_blank" rel="noopener noreferrer">USCIS premium processing ↗</a><a href="https://www.opm.gov/policy-data-oversight/pay-leave/federal-holidays/" target="_blank" rel="noopener noreferrer">2026 federal holidays ↗</a><a href="https://egov.uscis.gov/" target="_blank" rel="noopener noreferrer">USCIS case status ↗</a></div></section>
+  </main>
+  <footer class="footer"><span>Personal timeline · last source review October 1, 2026</span><span>Public reports are anecdotes; USCIS and my attorney are the sources for my case.</span></footer>
+</body>
+</html>
