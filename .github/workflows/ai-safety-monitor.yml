@@ -2,6 +2,8 @@ name: Publish website and refresh AI Safety Terminal
 on:
   push:
     branches: [master]
+    paths-ignore:
+      - 'h1b-monitoring/feed.json'
   workflow_dispatch:
   schedule:
     - cron: '7,22,37,52 * * * *'
