@@ -1,4 +1,4 @@
-name: Publish website and refresh AI Safety Terminal
+name: Publish website and refresh research and job monitors
 on:
   push:
     branches: [master]
@@ -19,7 +19,7 @@ concurrency:
 jobs:
   publish:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 30
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
@@ -33,6 +33,17 @@ jobs:
       - name: Install terminal dependencies
         working-directory: terminal-source
         run: npm ci
+      - name: Install job monitor dependencies
+        working-directory: jobs-source
+        run: npm ci
+      - name: Verify job classification and feed preservation
+        working-directory: jobs-source
+        run: npm test
+      - name: Refresh US AI opportunities when due
+        working-directory: jobs-source
+        timeout-minutes: 12
+        continue-on-error: true
+        run: node collect.mjs --seed-url=https://jrohsc.github.io/ai-jobs/data.json --max-age-minutes=120
       - name: Verify feed parsing and research metadata
         working-directory: terminal-source
         run: npm test

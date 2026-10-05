@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="US AI security, safety, privacy, audio and multimodal opportunities. Big Tech first, with full-time roles and research internships.">
+  <meta name="theme-color" content="#151b2b">
+  <title>AI Opportunity Radar · Jaechul Roh</title>
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./style.css">
+  <script type="module" src="./app.js"></script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to opportunities</a>
+  <aside class="sidebar">
+    <a class="brand" href="./" aria-label="AI Opportunity Radar home"><span class="brand-icon" aria-hidden="true">◎</span><span>opportunity<span class="brand-sub">AI RESEARCH RADAR</span></span></a>
+    <div class="workspace-label">YOUR WORKSPACE</div>
+    <nav class="nav" aria-label="Workspace">
+      <button data-view="all" class="active"><span>◫</span> Opportunities <b id="nav-all">—</b></button>
+      <button data-view="saved"><span>♡</span> Saved <b id="nav-saved">0</b></button>
+      <button data-view="applied"><span>✓</span> Applied <b id="nav-applied">0</b></button>
+      <button data-view="sources"><span>◉</span> Sources <b id="nav-sources">—</b></button>
+    </nav>
+    <div class="sidebar-scope"><span class="workspace-label">MONITORING SCOPE</span><p>United States <span class="scope-tag">US</span></p><p class="muted">Full-time + internships</p><hr><span class="workspace-label">PRIORITY ORDER</span><ol><li><span>01</span> Big Tech</li><li><span>02</span> Frontier AI labs</li><li><span>03</span> Specialist teams</li></ol></div>
+    <div class="sidebar-bottom"><p>Saved roles &amp; application status stay in this browser.</p><div class="backup-actions"><button id="export">Export</button><button id="import">Import</button><input type="file" id="import-file" accept="application/json" hidden></div><a href="/">Jaechul Roh’s homepage <span aria-hidden="true">↗</span></a></div>
+  </aside>
+  <div class="workspace">
+    <header class="topbar"><span>CAREER WORKSPACE <span class="slash">/</span> <strong>United States</strong></span><div class="sync"><span id="sync-label">Loading official listings…</span><button id="refresh" class="icon-button" aria-label="Reload latest published feed" title="Reload latest published feed">⟳</button></div></header>
+    <main id="main">
+      <div class="page-heading"><div><div class="eyebrow">THE NEXT CHAPTER</div><h1 id="page-title">Find your next research role.</h1><p id="page-description">AI security, safety, privacy, audio &amp; multimodal. Big Tech first.</p></div><span class="location-pill">◎ &nbsp; United States only</span></div>
+      <div id="notice" class="notice" role="status" hidden></div>
+      <section class="stats" aria-label="Opportunity summary">
+        <button data-stat="all"><span>OPEN OPPORTUNITIES</span><strong id="stat-total">—</strong><small>Across monitored sources</small></button>
+        <button data-stat="bigtech"><span>BIG TECH</span><strong id="stat-bigtech">—</strong><small>Your first priority</small></button>
+        <button data-stat="internship"><span>INTERNSHIPS</span><strong id="stat-internships">—</strong><small>Including student research</small></button>
+        <button data-stat="new"><span>DISCOVERED IN 24H</span><strong id="stat-new">—</strong><small>First seen by this monitor</small></button>
+      </section>
+      <section id="opportunities" aria-label="Job search">
+        <div class="filter-panel">
+          <div class="search-row"><label class="search"><span aria-hidden="true">⌕</span><input id="search" type="search" placeholder="Search roles, teams or keywords" aria-label="Search roles, teams or keywords"><kbd>/</kbd></label><label class="select-label"><span class="sr-only">Employment type</span><select id="type"><option value="">All role types</option><option>Full-time</option><option>Internship</option><option value="Unspecified">Type not specified</option></select></label><label class="select-label"><span class="sr-only">Company</span><select id="company"><option value="">All companies</option></select></label></div>
+          <div class="topic-row" id="topics" aria-label="Research topics"><button data-topic="" class="selected" aria-pressed="true">All topics</button><button data-topic="AI Security" aria-pressed="false">AI Security</button><button data-topic="AI Safety" aria-pressed="false">AI Safety</button><button data-topic="Privacy" aria-pressed="false">Privacy</button><button data-topic="Audio" aria-pressed="false">Audio</button><button data-topic="Multimodal" aria-pressed="false">Multimodal</button><button data-topic="AI Research" aria-pressed="false">Related AI research</button></div>
+        </div>
+        <div class="results-toolbar"><div><strong id="results-count" aria-live="polite">Loading opportunities</strong><button id="reset" class="text-button" hidden>Clear filters</button></div><label class="sort-label">Sort <select id="sort"><option value="priority">Big Tech first</option><option value="newest">Newest posted</option><option value="discovered">Recently discovered</option><option value="match">Topic relevance</option></select></label></div>
+        <div class="quick-filters"><label><input id="bigtech" type="checkbox"> Big Tech only</label><label><input id="remote" type="checkbox"> Remote mentioned</label><label><input id="new" type="checkbox"> Discovered in 24h</label><label><input id="include-archived" type="checkbox"> Include no-longer-listed roles</label></div>
+        <div id="job-list" class="job-list" aria-live="polite"><div class="empty"><span class="loading-ring"></span><h2>Checking your next opportunity…</h2><p>Loading the latest collection from official career pages.</p></div></div>
+        <button id="load-more" class="load-more" hidden>Show more opportunities</button>
+      </section>
+      <section id="source-panel" hidden aria-label="Source coverage"></section>
+      <footer class="footer"><span>Official sources. Direct applications.</span><span>Collection target: every 2 hours · <button id="coverage-link">View coverage &amp; freshness</button></span><p>Coverage depends on each employer’s public board. Listings may change between checks; confirm availability and eligibility on the original posting.</p><p><button id="footer-export">Export tracker</button> · <button id="footer-import">Import tracker</button> · Application states stay in this browser.</p></footer>
+    </main>
+  </div>
+  <dialog id="details"><div id="detail-content"></div></dialog>
+  <div id="toast" role="status" hidden></div>
+  <noscript><p class="noscript">Enable JavaScript to search and save opportunities. <a href="./data.json">Download the latest job feed</a>.</p></noscript>
+</body>
+</html>

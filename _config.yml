@@ -9,4 +9,5 @@ collections:
 # Application source is built separately and is not part of the Jekyll site.
 exclude:
   - terminal-source
+  - jobs-source
   - README.md
