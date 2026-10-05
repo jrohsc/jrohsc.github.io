@@ -1,8 +1,9 @@
-import { readFile, writeFile, mkdir } from 'node:fs/promises';
+import { readFile, writeFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import { sources } from './sources.mjs';
 import { collectSource, pool, request } from './adapters.mjs';
 import { mergeSnapshot } from './model.mjs';
+import { writeSnapshot } from './snapshot.mjs';
 
 const output = new URL('../ai-jobs/data.json', import.meta.url);
 const args = process.argv.slice(2);
@@ -17,7 +18,7 @@ if (value('seed-url')) {
 }
 const maxAge = Number(value('max-age-minutes') || 0);
 if (previous && Date.now() - Date.parse(previous.updatedAt) < maxAge * 60000) {
-  await writeFile(output, JSON.stringify(previous));
+  await writeSnapshot(previous, output);
   console.log(`Reused ${previous.updatedAt} snapshot; collection cadence is ${maxAge} minutes.`);
 } else {
   // Keep the newest known good feed on disk even if CI interrupts a slow crawl.
@@ -38,7 +39,6 @@ if (previous && Date.now() - Date.parse(previous.updatedAt) < maxAge * 60000) {
   }
   const healthy = snapshot.sources.filter(s => ['ok', 'partial'].includes(s.status));
   if (!healthy.length && !previous) throw new Error('No source could be collected; refusing to publish an empty initial feed');
-  await mkdir(new URL('../ai-jobs/', import.meta.url), { recursive: true });
-  await writeFile(output, JSON.stringify(snapshot));
+  await writeSnapshot(snapshot, output);
   console.log(`Saved ${snapshot.jobs.length} US matches to ${fileURLToPath(output)} (${healthy.length}/${snapshot.sources.length} sources with results).`);
 }

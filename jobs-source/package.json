@@ -5,7 +5,7 @@
   "scripts": {
     "collect": "node collect.mjs",
     "test": "node --test test/*.test.mjs",
-    "preview": "python3 -m http.server 8766 --directory .."
+    "preview": "python3 -m http.server 8766 --bind 127.0.0.1 --directory .."
   },
   "dependencies": { "cheerio": "1.2.0" },
   "devDependencies": { "@playwright/test": "1.55.0" }

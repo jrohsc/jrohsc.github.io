@@ -7,8 +7,8 @@
   <meta name="theme-color" content="#151b2b">
   <title>AI Opportunity Radar · Jaechul Roh</title>
   <link rel="icon" href="./favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="./style.css">
-  <script type="module" src="./app.js"></script>
+  <link rel="stylesheet" href="./style.css?v=intern-live-1">
+  <script type="module" src="./app.js?v=intern-live-1"></script>
 </head>
 <body>
   <a class="skip" href="#main">Skip to opportunities</a>
@@ -25,9 +25,9 @@
     <div class="sidebar-bottom"><p>Saved roles &amp; application status stay in this browser.</p><div class="backup-actions"><button id="export">Export</button><button id="import">Import</button><input type="file" id="import-file" accept="application/json" hidden></div><a href="/">Jaechul Roh’s homepage <span aria-hidden="true">↗</span></a></div>
   </aside>
   <div class="workspace">
-    <header class="topbar"><span>CAREER WORKSPACE <span class="slash">/</span> <strong>United States</strong></span><div class="sync"><span id="sync-label">Loading official listings…</span><button id="refresh" class="icon-button" aria-label="Reload latest published feed" title="Reload latest published feed">⟳</button></div></header>
+    <header class="topbar"><span>CAREER WORKSPACE <span class="slash">/</span> <strong>United States</strong></span><div class="sync"><div class="sync-copy"><span id="sync-label">Loading official listings…</span><small id="sync-meta">Automatic checks every 30s</small></div><button id="refresh" class="icon-button" aria-label="Check for latest openings" title="Check for latest openings">⟳</button></div></header>
     <main id="main">
-      <div class="page-heading"><div><div class="eyebrow">THE NEXT CHAPTER</div><h1 id="page-title">Find your next research role.</h1><p id="page-description">AI security, safety, privacy, audio &amp; multimodal. Big Tech first.</p></div><span class="location-pill">◎ &nbsp; United States only</span></div>
+      <div class="page-heading"><div><div class="eyebrow">THE NEXT CHAPTER</div><h1 id="page-title">Find your next research internship.</h1><p id="page-description">AI security, safety, privacy, audio &amp; multimodal. Big Tech first.</p></div><span class="location-pill">◎ &nbsp; United States only</span></div>
       <div id="notice" class="notice" role="status" hidden></div>
       <section class="stats" aria-label="Opportunity summary">
         <button data-stat="all"><span>OPEN OPPORTUNITIES</span><strong id="stat-total">—</strong><small>Across monitored sources</small></button>
@@ -36,17 +36,25 @@
         <button data-stat="new"><span>DISCOVERED IN 24H</span><strong id="stat-new">—</strong><small>First seen by this monitor</small></button>
       </section>
       <section id="opportunities" aria-label="Job search">
+        <div class="role-tabs" role="tablist" aria-label="Role category">
+          <button id="tab-internship" role="tab" data-type="Internship" aria-selected="true" aria-controls="role-results" class="selected">Internships <span>—</span></button>
+          <button id="tab-fulltime" role="tab" data-type="Full-time" aria-selected="false" aria-controls="role-results" tabindex="-1">Full-time <span>—</span></button>
+          <button id="tab-all" role="tab" data-type="" aria-selected="false" aria-controls="role-results" tabindex="-1">All roles <span>—</span></button>
+          <button id="tab-unspecified" role="tab" data-type="Unspecified" aria-selected="false" aria-controls="role-results" tabindex="-1">Unspecified <span>—</span></button>
+        </div>
+        <div id="role-results" role="tabpanel" aria-labelledby="tab-internship">
         <div class="filter-panel">
-          <div class="search-row"><label class="search"><span aria-hidden="true">⌕</span><input id="search" type="search" placeholder="Search roles, teams or keywords" aria-label="Search roles, teams or keywords"><kbd>/</kbd></label><label class="select-label"><span class="sr-only">Employment type</span><select id="type"><option value="">All role types</option><option>Full-time</option><option>Internship</option><option value="Unspecified">Type not specified</option></select></label><label class="select-label"><span class="sr-only">Company</span><select id="company"><option value="">All companies</option></select></label></div>
+          <div class="search-row"><label class="search"><span aria-hidden="true">⌕</span><input id="search" type="search" placeholder="Search roles, teams or keywords" aria-label="Search roles, teams or keywords"><kbd>/</kbd></label><label class="select-label"><span class="sr-only">Company</span><select id="company"><option value="">All companies</option></select></label></div>
           <div class="topic-row" id="topics" aria-label="Research topics"><button data-topic="" class="selected" aria-pressed="true">All topics</button><button data-topic="AI Security" aria-pressed="false">AI Security</button><button data-topic="AI Safety" aria-pressed="false">AI Safety</button><button data-topic="Privacy" aria-pressed="false">Privacy</button><button data-topic="Audio" aria-pressed="false">Audio</button><button data-topic="Multimodal" aria-pressed="false">Multimodal</button><button data-topic="AI Research" aria-pressed="false">Related AI research</button></div>
         </div>
         <div class="results-toolbar"><div><strong id="results-count" aria-live="polite">Loading opportunities</strong><button id="reset" class="text-button" hidden>Clear filters</button></div><label class="sort-label">Sort <select id="sort"><option value="priority">Big Tech first</option><option value="newest">Newest posted</option><option value="discovered">Recently discovered</option><option value="match">Topic relevance</option></select></label></div>
         <div class="quick-filters"><label><input id="bigtech" type="checkbox"> Big Tech only</label><label><input id="remote" type="checkbox"> Remote mentioned</label><label><input id="new" type="checkbox"> Discovered in 24h</label><label><input id="include-archived" type="checkbox"> Include no-longer-listed roles</label></div>
         <div id="job-list" class="job-list" aria-live="polite"><div class="empty"><span class="loading-ring"></span><h2>Checking your next opportunity…</h2><p>Loading the latest collection from official career pages.</p></div></div>
         <button id="load-more" class="load-more" hidden>Show more opportunities</button>
+        </div>
       </section>
       <section id="source-panel" hidden aria-label="Source coverage"></section>
-      <footer class="footer"><span>Official sources. Direct applications.</span><span>Collection target: every 2 hours · <button id="coverage-link">View coverage &amp; freshness</button></span><p>Coverage depends on each employer’s public board. Listings may change between checks; confirm availability and eligibility on the original posting.</p><p><button id="footer-export">Export tracker</button> · <button id="footer-import">Import tracker</button> · Application states stay in this browser.</p></footer>
+      <footer class="footer"><span>Official sources. Direct applications.</span><span>Collection target: every 5 min · Page checks: every 30s · <button id="coverage-link">Coverage &amp; freshness</button></span><p>Collection can be delayed by the scheduler or employer access limits. Confirm availability and eligibility on the original posting.</p><p><button id="footer-export">Export tracker</button> · <button id="footer-import">Import tracker</button> · Application states stay in this browser.</p></footer>
     </main>
   </div>
   <dialog id="details"><div id="detail-content"></div></dialog>

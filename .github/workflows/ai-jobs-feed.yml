@@ -1,0 +1,59 @@
+name: Refresh US AI job feed
+
+on:
+  schedule:
+    - cron: '3-59/5 * * * *'
+  workflow_dispatch:
+  push:
+    branches: [master]
+    paths:
+      - 'jobs-source/**'
+      - '.github/workflows/ai-jobs-feed.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: ai-jobs-feed
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: master
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: jobs-source/package-lock.json
+      - name: Install collector
+        working-directory: jobs-source
+        run: npm ci
+      - name: Verify job feeds
+        working-directory: jobs-source
+        run: npm test
+      - name: Collect official US opportunities
+        working-directory: jobs-source
+        timeout-minutes: 12
+        run: node collect.mjs --seed-url=https://raw.githubusercontent.com/jrohsc/jrohsc.github.io/master/ai-jobs/data.json
+      - name: Publish feed and revision together
+        run: |
+          if git diff --quiet -- ai-jobs/data.json ai-jobs/manifest.json; then
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add ai-jobs/data.json ai-jobs/manifest.json
+          git commit -m 'Refresh US AI job feed'
+          for attempt in 1 2 3; do
+            git pull --rebase origin master
+            if git push origin HEAD:master; then
+              exit 0
+            fi
+            sleep 3
+          done
+          exit 1

@@ -116,6 +116,6 @@ export function mergeSnapshot(previous, results, now) {
       note: suspicious ? 'Unusually few results; previous listings retained for verification.' : error || source.note || '',
     };
   });
-  return { schemaVersion: 1, updatedAt: now, refreshMinutes: 120, region: 'United States', sources,
+  return { schemaVersion: 1, updatedAt: now, refreshMinutes: 5, region: 'United States', sources,
     jobs: [...current.values()].sort((a, b) => a.tier - b.tier || b.score - a.score || (b.postedAt || '').localeCompare(a.postedAt || '') ) };
 }

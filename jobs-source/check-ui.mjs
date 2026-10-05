@@ -9,6 +9,12 @@ const context = await browser.newContext({ viewport: { width: 1440, height: 1080
 const page = await context.newPage(), errors = [];
 page.on('pageerror', e => errors.push(e.message));
 await page.goto(origin); await page.locator('.job-card').first().waitFor();
+assert.equal(await page.locator('#tab-internship').getAttribute('aria-selected'), 'true');
+assert.ok((await page.locator('.job-meta').allTextContents()).every(t => t.includes('Internship')));
+await page.locator('#tab-fulltime').click();
+assert.ok((await page.locator('.job-meta').allTextContents()).every(t => t.includes('Full-time')));
+await page.keyboard.press('ArrowLeft');
+assert.equal(await page.locator('#tab-internship').getAttribute('aria-selected'), 'true');
 assert.equal(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth), false);
 const first = page.locator('.job-card').first(), title = await first.locator('.job-title').textContent();
 const firstID = await first.getAttribute('data-id');
@@ -29,7 +35,7 @@ assert.match(await page.locator('#detail-content').textContent(), /Why this role
 await page.keyboard.press('Escape');
 assert.equal(await page.locator('dialog').isVisible(), false);
 await page.locator('[data-view="all"]').click();
-await page.locator('#type').selectOption('Internship');
+await page.locator('#tab-internship').click();
 assert.ok(await page.locator('.job-card').count() > 0);
 assert.ok((await page.locator('.job-meta').allTextContents()).every(t => t.includes('Internship')));
 await page.locator('#reset').click();

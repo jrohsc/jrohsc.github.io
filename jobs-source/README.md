@@ -30,14 +30,25 @@ Microsoft Research can return 403; this is shown as unavailable, not zero jobs.
 Apple and other paginated boards have a bounded page limit, surfaced as partial
 coverage. The monitor cannot guarantee every available role.
 
-The site's existing 15-minute Pages schedule reuses the latest deployed snapshot
-until it is 120 minutes old. Collection is approximately every two hours and
-depends on GitHub's scheduler and source availability. A browser reload fetches
-the latest published data; it does not start a new employer crawl. Open tabs
-reload the published feed every five minutes. Manual workflow dispatch is also
-available. Collection requires no paid service or API key.
+The dedicated `ai-jobs-feed.yml` workflow schedules collection every five minutes,
+independently of the existing Pages/research build. It atomically commits the
+feed and its small revision manifest. The browser checks the public raw GitHub
+manifest every 30 seconds and downloads the full feed only when it changes.
+Search, category, saved roles and application states survive these updates.
+Switching back to a hidden tab or going online triggers an immediate check.
+The initial category is Internships; Full-time, All roles and Unspecified are
+available as keyboard-accessible category tabs.
 
-The collector reads the published snapshot first to preserve `firstSeen` and
+This is polling, not an employer push stream. GitHub's scheduler, crawl duration,
+CDN caches and source availability can delay updates beyond five minutes. The
+page shows both the latest successful page check and the feed collection time.
+It warns when the collection is overdue or the connection fails. A failed
+refresh never clears existing results or replaces them with an older snapshot.
+If the raw feed cannot be reached on first load, the deployed Pages snapshot is
+used as a labeled backup. Manual workflow dispatch is also available. No paid
+service or API key is required.
+
+The collector reads the latest raw snapshot first to preserve `firstSeen` and
 history across ephemeral CI runners. On failure, it falls back to the checked-in
 snapshot. Failed or partial scans preserve missing jobs as `unverified`.
 Only a complete, non-anomalous scan marks missing jobs `not-listed`; that is not

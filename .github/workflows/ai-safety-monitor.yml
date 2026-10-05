@@ -6,6 +6,8 @@ on:
       - 'h1b-monitoring/feed.json'
       - 'h1b-monitoring/update_feed.py'
       - '.github/workflows/h1b-monitoring-feed.yml'
+      - 'ai-jobs/data.json'
+      - 'ai-jobs/manifest.json'
   workflow_dispatch:
   schedule:
     - cron: '7,22,37,52 * * * *'
@@ -39,11 +41,6 @@ jobs:
       - name: Verify job classification and feed preservation
         working-directory: jobs-source
         run: npm test
-      - name: Refresh US AI opportunities when due
-        working-directory: jobs-source
-        timeout-minutes: 12
-        continue-on-error: true
-        run: node collect.mjs --seed-url=https://jrohsc.github.io/ai-jobs/data.json --max-age-minutes=120
       - name: Verify feed parsing and research metadata
         working-directory: terminal-source
         run: npm test
