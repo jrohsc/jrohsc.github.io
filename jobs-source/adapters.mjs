@@ -116,7 +116,7 @@ export async function collectSource(source) {
     } else if (source.adapter === 'apple') {
       for (const query of source.queries) await attempt(async () => {
         let page = 1, total = Infinity, count = 0;
-        while (count < total && page <= MAX_PAGES) {
+        while (count < total && page <= 100) {
           const result = parseApple(await (await request(`https://jobs.apple.com/en-us/search?key=${encodeURIComponent(query)}&location=united-states-USA&page=${page++}`)).text());
           total = result.total; count += result.jobs.length;
           if (!result.jobs.length && count < total) throw new Error('Apple search ended before all results were returned');
