@@ -24,6 +24,8 @@ test('internships override their full-time hours, without matching internal or r
 test('technical matches exclude employment boilerplate and unrelated business roles', () => {
   assert.deepEqual(classify('Director, Internal Audit', 'We build AI with safety, audio and multimodal models.').topics, []);
   assert.deepEqual(classify('Strategic Finance, International', 'We build machine learning models.').topics, []);
+  assert.deepEqual(classify('Senior Technical Recruiter, AI/ML Research', 'Recruit scientists building voice AI and multimodal models.').topics, []);
+  assert.deepEqual(classify('Technical Recruiting Intern', 'Hire researchers for AI safety.').topics, []);
   assert.deepEqual(classify('Software Engineer', 'Build web apps. Our applicant privacy policy protects data.').topics, []);
   assert.equal(classify('Software Engineer', 'Use AI tools and promote cross-functional alignment.').topics.includes('AI Safety'), false);
   const result = classify(raw.title, raw.description);

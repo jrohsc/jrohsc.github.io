@@ -6,6 +6,7 @@ const STORE = 'ai-radar-tracker-v1';
 const STATES = ['To review', 'Saved', 'Applied', 'Interviewing', 'Offer', 'Passed'];
 const appliedStates = new Set(['Applied', 'Interviewing', 'Offer']);
 const topicClasses = { 'AI Security': 'security', 'AI Safety': 'safety', Privacy: 'privacy', Audio: 'audio', Multimodal: 'multimodal' };
+const companyGroups = { 1: 'Big Tech', 2: 'Major AI companies', 3: 'Specialist teams' };
 const initials = { google: 'G', apple: 'a', microsoft: 'M', amazon: 'a', nvidia: 'N', meta: '∞', openai: 'O', anthropic: 'A', xai: '𝕏', adobe: 'A', dolby: 'D', elevenlabs: 'Ⅱ', scale: 'S' };
 let data = null, records = {}, view = 'all', topic = '', roleType = 'Internship', shown = 40, toastTimer, focusedJob = null;
 let lastCheckedAt = null, feedMode = 'live', feedError = false, checking = false;
@@ -48,7 +49,16 @@ function setStatus(id, status) {
 function statusOptions(id) {
   return STATES.map(s => `<option${record(id).status === s ? ' selected' : ''}>${s}</option>`).join('');
 }
-function filtersActive() { return topic || roleType || $('#search').value || $('#company').value || ['bigtech', 'remote', 'new', 'include-archived'].some(id => $(`#${id}`).checked); }
+function filtersActive() { return topic || roleType || $('#search').value || $('#company').value || $('#company-group').value || ['remote', 'new', 'include-archived'].some(id => $(`#${id}`).checked); }
+function updateCompanies() {
+  const chosen = $('#company').value, group = $('#company-group').value;
+  const sources = data.sources.filter(s => !group || s.tier === Number(group));
+  $('#company').innerHTML = '<option value="">All companies</option>' + Object.entries(companyGroups).map(([tier, label]) => {
+    const members = sources.filter(s => s.tier === Number(tier));
+    return members.length ? `<optgroup label="${label}">${members.map(s => `<option value="${escape(s.id)}">${escape(s.name)}</option>`).join('')}</optgroup>` : '';
+  }).join('');
+  $('#company').value = sources.some(s => s.id === chosen) ? chosen : '';
+}
 function filteredJobs(ignoreType = false) {
   if (!data) return [];
   const terms = $('#search').value.toLowerCase().trim().split(/\s+/).filter(Boolean);
@@ -60,7 +70,7 @@ function filteredJobs(ignoreType = false) {
     if (topic && !job.topics.includes(topic)) return false;
     if (!ignoreType && roleType && job.type !== roleType) return false;
     if ($('#company').value && job.sourceId !== $('#company').value) return false;
-    if ($('#bigtech').checked && job.tier !== 1) return false;
+    if ($('#company-group').value && job.tier !== Number($('#company-group').value)) return false;
     if ($('#remote').checked && !job.remote) return false;
     if ($('#new').checked && !isNew(job)) return false;
     const searchable = `${job.title} ${job.company} ${job.location} ${job.department} ${job.topics.join(' ')} ${job.excerpt} ${job.evidence.map(e => e.excerpt).join(' ')}`.toLowerCase();
@@ -92,7 +102,7 @@ function jobCard(job) {
   const type = job.type === 'Unspecified' ? 'Type not specified' : job.type;
   return `<article class="job-card" data-id="${id}">
     <div class="company-logo ${escape(job.sourceId)}" aria-hidden="true">${escape(initials[job.sourceId] || job.company.slice(0, 1))}</div>
-    <div class="job-content"><div class="job-company">${escape(job.company)} ${job.tier === 1 ? '<span class="priority-badge">BIG TECH</span>' : ''} ${isNew(job) ? '<span class="new-badge" title="First discovered within the last 24 hours">NEW TO RADAR</span>' : ''}</div>
+    <div class="job-content"><div class="job-company">${escape(job.company)} ${job.tier === 1 ? '<span class="priority-badge">BIG TECH</span>' : job.tier === 2 ? '<span class="priority-badge ai-company">MAJOR AI</span>' : ''} ${isNew(job) ? '<span class="new-badge" title="First discovered within the last 24 hours">NEW TO RADAR</span>' : ''}</div>
       <button class="job-title" data-action="details">${escape(job.title)}</button>
       <div class="job-meta"><span class="place" title="${escape(job.location)}">${escape(job.location)}</span><span>${escape(type)}</span><span>${job.postedAt ? `Posted ${dateLabel(job.postedAt)}` : `Discovered ${dateLabel(job.firstSeen)}`}</span></div>
       <div class="job-tags">${tags(job)}${job.type === 'Internship' ? '<span class="tag internship">Internship</span>' : ''}${job.status !== 'open' ? `<span class="tag warning">${job.status === 'not-listed' ? 'Not in latest scan' : 'Needs verification'}</span>` : ''}</div>
@@ -145,8 +155,9 @@ function render() {
 }
 function resetFilters() {
   topic = ''; roleType = ''; shown = 40;
-  ['search', 'company'].forEach(id => { $(`#${id}`).value = ''; });
-  ['bigtech', 'remote', 'new', 'include-archived'].forEach(id => { $(`#${id}`).checked = false; });
+  ['search', 'company', 'company-group'].forEach(id => { $(`#${id}`).value = ''; });
+  if (data) updateCompanies();
+  ['remote', 'new', 'include-archived'].forEach(id => { $(`#${id}`).checked = false; });
   document.querySelectorAll('[data-topic]').forEach(b => { b.classList.toggle('selected', !b.dataset.topic); b.setAttribute('aria-pressed', String(!b.dataset.topic)); });
   render();
 }
@@ -168,9 +179,7 @@ async function loadFeed(showToast = false) {
       const oldIDs = data ? new Set(data.jobs.map(j => j.id)) : null;
       data = result.snapshot;
       const newJobs = oldIDs ? data.jobs.filter(j => !oldIDs.has(j.id) && j.status === 'open').length : 0;
-      const chosen = $('#company').value;
-      $('#company').innerHTML = '<option value="">All companies</option>' + data.sources.map(s => `<option value="${escape(s.id)}">${escape(s.name)}</option>`).join('');
-      $('#company').value = chosen; render();
+      updateCompanies(); render();
       if (newJobs) toast(`${newJobs} new ${newJobs === 1 ? 'opportunity' : 'opportunities'} added. Your filters are unchanged.`);
       else if (showToast) toast('Latest feed loaded. New opportunities appear automatically.');
     } else { updateStats(); if (showToast) toast('You’re viewing the latest available collection.'); }
@@ -198,7 +207,7 @@ document.addEventListener('click', event => {
   if (card && action === 'save') save(card.dataset.id);
   if (card && action === 'details') details(card.dataset.id);
   const stat = event.target.closest('[data-stat]');
-  if (stat) { resetFilters(); view = 'all'; if (stat.dataset.stat === 'bigtech') $('#bigtech').checked = true; if (stat.dataset.stat === 'internship') roleType = 'Internship'; if (stat.dataset.stat === 'new') $('#new').checked = true; render(); }
+  if (stat) { resetFilters(); view = 'all'; if (stat.dataset.stat === 'bigtech') { $('#company-group').value = '1'; updateCompanies(); } if (stat.dataset.stat === 'internship') roleType = 'Internship'; if (stat.dataset.stat === 'new') $('#new').checked = true; render(); }
   if (event.target.id === 'empty-reset') { resetFilters(); setView('all'); }
   if (event.target.id === 'retry') loadFeed(true);
   if (event.target.id === 'close-details') $('#details').close();
@@ -206,7 +215,8 @@ document.addEventListener('click', event => {
 document.addEventListener('change', event => {
   if (event.target.matches('[data-action="status"]')) setStatus(event.target.closest('[data-id]').dataset.id, event.target.value);
 });
-['company', 'sort', 'bigtech', 'remote', 'new', 'include-archived'].forEach(id => $(`#${id}`).addEventListener('change', () => { shown = 40; render(); }));
+['company', 'sort', 'remote', 'new', 'include-archived'].forEach(id => $(`#${id}`).addEventListener('change', () => { shown = 40; render(); }));
+$('#company-group').addEventListener('change', () => { shown = 40; updateCompanies(); render(); });
 $('.role-tabs').addEventListener('keydown', event => {
   const buttons = [...document.querySelectorAll('[data-type]')], index = buttons.indexOf(event.target);
   if (index < 0 || !['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(event.key)) return;

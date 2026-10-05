@@ -9,6 +9,8 @@ export const sources = [
   { id: 'qualcomm', name: 'Qualcomm', tier: 1, adapter: 'manual', url: 'https://careers.qualcomm.com/careers', note: 'Official careers search requires an interactive visit. Check US research and internship roles here.' },
   { id: 'openai', name: 'OpenAI', tier: 2, adapter: 'ashby', board: 'openai', url: 'https://openai.com/careers/search/' },
   { id: 'anthropic', name: 'Anthropic', tier: 2, adapter: 'greenhouse', board: 'anthropic', url: 'https://www.anthropic.com/careers/jobs' },
+  { id: 'scale', name: 'Scale AI', tier: 2, adapter: 'greenhouse', board: 'scaleai', url: 'https://www.scale.com/careers' },
+  { id: 'together', name: 'Together AI', tier: 2, adapter: 'greenhouse', board: 'togetherai', url: 'https://www.together.ai/careers' },
   { id: 'xai', name: 'xAI', tier: 2, adapter: 'greenhouse', board: 'xai', url: 'https://x.ai/careers' },
   { id: 'cohere', name: 'Cohere', tier: 2, adapter: 'ashby', board: 'cohere', url: 'https://jobs.ashbyhq.com/cohere' },
   { id: 'mistral', name: 'Mistral AI', tier: 2, adapter: 'ashby', board: 'mistral.ai', url: 'https://jobs.ashbyhq.com/mistral.ai' },
@@ -17,6 +19,5 @@ export const sources = [
   { id: 'suno', name: 'Suno', tier: 3, adapter: 'ashby', board: 'suno', url: 'https://jobs.ashbyhq.com/suno' },
   { id: 'hume', name: 'Hume AI', tier: 3, adapter: 'ashby', board: 'hume-ai', url: 'https://jobs.ashbyhq.com/hume-ai' },
   { id: 'sesame', name: 'Sesame', tier: 3, adapter: 'ashby', board: 'sesame', url: 'https://jobs.ashbyhq.com/sesame' },
-  { id: 'scale', name: 'Scale AI', tier: 3, adapter: 'greenhouse', board: 'scaleai', url: 'https://www.scale.com/careers' },
   { id: 'brave', name: 'Brave', tier: 3, adapter: 'greenhouse', board: 'brave', url: 'https://brave.com/careers/' },
 ];

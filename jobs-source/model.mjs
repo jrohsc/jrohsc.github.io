@@ -21,6 +21,8 @@ const RULES = {
 };
 
 export function classify(title, description = '', department = '') {
+  // Hiring AI researchers is not itself an AI research or engineering role.
+  if (/\b(?:recruit(?:er|ers|ing|ment)|talent acquisition)\b/i.test(title)) return { topics: [], evidence: [], score: 0 };
   const body = cleanDescription(description);
   const heading = `${title} ${department}`;
   const text = `${heading}. ${body}`;

@@ -30,6 +30,12 @@ Microsoft Research can return 403; this is shown as unavailable, not zero jobs.
 Apple and other paginated boards have a bounded page limit, surfaced as partial
 coverage. The monitor cannot guarantee every available role.
 
+Company groups follow the requested priority: Big Tech, Major AI companies,
+then Specialist teams. Major AI companies includes OpenAI, Anthropic, Scale AI,
+Together AI, Cohere, xAI and Mistral AI. The group filter combines with the
+internship/full-time tabs and topic filters; the company picker lists employers
+in the selected group. These priority groups are curated, not a size ranking.
+
 The dedicated `ai-jobs-feed.yml` workflow schedules collection every five minutes,
 independently of the existing Pages/research build. It atomically commits the
 feed and its small revision manifest. The browser checks the public raw GitHub
