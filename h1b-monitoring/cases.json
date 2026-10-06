@@ -1,35 +1,287 @@
 {
   "reviewedAt": "2026-10-02",
-  "method": "Public self-reports with Nebraska, premium processing, a clear receipt or premium-clock date, and a dated approval. One report per apparent case; no RFE-response restarts. Business days exclude the receipt day, weekends, and 2026 federal holidays.",
+  "method": "Mixed date bases as labeled in each row: reported receipt, PP receipt, I-907 received, PP clock start, or an unspecified PP date. These are not a received-only sample. Business days exclude each calculation start date, weekends and 2026 federal holidays. Basis notes distinguish known alternate dates and unresolved date meanings.",
   "cases": [
-    {"start":"2026-05-20","approved":"2026-06-02","type":"initial","basis":"receipt","url":"https://www.reddit.com/r/h1b/comments/1tk68i0/h1b_premium_processing_timelines_for_may_2026/"},
-    {"start":"2026-05-22","approved":"2026-05-29","type":"unknown","basis":"premium receipt","url":"https://www.reddit.com/r/h1b/comments/1tk68i0/h1b_premium_processing_timelines_for_may_2026/"},
-    {"start":"2026-05-22","approved":"2026-06-10","type":"coe","basis":"receipt","url":"https://www.reddit.com/r/h1b/comments/1tk68i0/h1b_premium_processing_timelines_for_may_2026/"},
-    {"start":"2026-05-28","approved":"2026-06-05","type":"coe","basis":"premium clock","url":"https://www.reddit.com/r/h1b/comments/1tk68i0/h1b_premium_processing_timelines_for_may_2026/"},
-    {"start":"2026-06-17","approved":"2026-07-06","type":"extension","basis":"premium clock","url":"https://www.reddit.com/r/h1b/comments/1uojxp4/h1b_premium_processing_timeline_for_nebraska/"},
-    {"start":"2026-06-17","approved":"2026-07-08","type":"coe","basis":"receipt","url":"https://www.reddit.com/r/h1b/comments/1uk33gy/h1b_july_2026_premium_processing_timelines/"},
-    {"start":"2026-06-22","approved":"2026-07-08","type":"coe","basis":"receipt","url":"https://www.reddit.com/r/h1b/comments/1uk33gy/h1b_july_2026_premium_processing_timelines/"},
-    {"start":"2026-06-24","approved":"2026-07-14","type":"cos","basis":"receipt","url":"https://www.reddit.com/r/h1b/comments/1uojxp4/h1b_premium_processing_timeline_for_nebraska/"},
-    {"start":"2026-06-25","approved":"2026-07-13","type":"extension","basis":"premium clock","url":"https://www.reddit.com/r/h1b/comments/1uojxp4/h1b_premium_processing_timeline_for_nebraska/"},
-    {"start":"2026-07-01","approved":"2026-07-17","type":"extension","basis":"premium clock","url":"https://www.reddit.com/r/h1b/comments/1uojxp4/h1b_premium_processing_timeline_for_nebraska/"},
-    {"start":"2026-07-02","approved":"2026-07-23","type":"coe","basis":"premium receipt","url":"https://www.reddit.com/r/h1b/comments/1v4cipm/any_approvals_today_0723/"},
-    {"start":"2026-07-13","approved":"2026-07-27","type":"coe","basis":"receipt","url":"https://www.reddit.com/r/h1b/comments/1v87w83/h1b_premium_processing_july_2026/"},
-    {"start":"2026-08-20","approved":"2026-09-01","type":"coe","basis":"receipt","url":"https://www.reddit.com/r/h1b/comments/1vzab5t/delayed_h1b_coe_premium_processing_from_nebraska/"},
-    {"start":"2026-08-21","approved":"2026-09-08","type":"cos","basis":"receipt","url":"https://www.reddit.com/r/h1b/comments/1waot0i/approvals_today_98/"},
-    {"start":"2026-08-27","approved":"2026-09-08","type":"extension","basis":"receipt","url":"https://www.reddit.com/r/h1b/comments/1wbk7nn/h1b_approval_0909/"},
-    {"start":"2026-08-27","approved":"2026-09-14","type":"coe","basis":"premium receipt","url":"https://www.reddit.com/r/h1b/comments/1wg43hx/any_approvals_0914/"},
-    {"start":"2026-08-28","approved":"2026-09-10","type":"extension","basis":"receipt","url":"https://www.reddit.com/r/h1b/comments/1wcl5rt/h1b_approval_0910/"},
-    {"start":"2026-09-02","approved":"2026-09-12","type":"amendment","basis":"receipt","url":"https://www.reddit.com/r/h1b/comments/1wg43hx/any_approvals_0914/"},
-    {"start":"2026-09-02","approved":"2026-09-15","type":"coe","basis":"receipt","url":"https://www.reddit.com/r/h1b/comments/1wcl5rt/h1b_approval_0910/"},
-    {"start":"2026-09-10","approved":"2026-09-22","type":"coe","basis":"I-907 received","url":"https://www.reddit.com/r/h1b/comments/1wmqzsk/h1b_coe_pp_nebraska_any_approvals_in_week_of_921/"},
-    {"start":"2026-09-14","approved":"2026-09-24","type":"coe","basis":"receipt","url":"https://www.reddit.com/r/h1b/comments/1wmqzsk/h1b_coe_pp_nebraska_any_approvals_in_week_of_921/"},
-    {"start":"2026-09-14","approved":"2026-09-28","type":"unknown","basis":"receipt","url":"https://www.reddit.com/r/h1b/comments/1wmsi4g/h1b_premium_processing_receipt_date_914/"},
-    {"start":"2026-09-14","approved":"2026-09-29","type":"extension","basis":"receipt","url":"https://www.reddit.com/r/h1b/comments/1wu9uo0/h1b_extension_premium_processing_timeline/"},
-    {"start":"2026-09-18","approved":"2026-09-30","type":"coe","basis":"premium clock","url":"https://www.reddit.com/r/h1b/comments/1wmhvt7/h1b_transfer_pp_timeline_sept_2026/"}
+    {
+      "start": "2026-05-20",
+      "approved": "2026-06-02",
+      "type": "initial",
+      "basis": "receipt",
+      "url": "https://www.reddit.com/r/h1b/comments/1tk68i0/h1b_premium_processing_timelines_for_may_2026/",
+      "basisNote": {
+        "en": "Receipt terminology as recorded from the post; USCIS received versus notice date has not been independently confirmed.",
+        "ko": "게시물에서 수집한 receipt 표현입니다. USCIS received와 통지서 날짜의 구분은 별도로 검증되지 않았습니다."
+      }
+    },
+    {
+      "start": "2026-05-22",
+      "approved": "2026-05-29",
+      "type": "unknown",
+      "basis": "premium receipt",
+      "url": "https://www.reddit.com/r/h1b/comments/1tk68i0/h1b_premium_processing_timelines_for_may_2026/",
+      "basisNote": {
+        "en": "Receipt terminology as recorded from the post; USCIS received versus notice date has not been independently confirmed.",
+        "ko": "게시물에서 수집한 receipt 표현입니다. USCIS received와 통지서 날짜의 구분은 별도로 검증되지 않았습니다."
+      }
+    },
+    {
+      "start": "2026-05-22",
+      "approved": "2026-06-10",
+      "type": "coe",
+      "basis": "receipt",
+      "url": "https://www.reddit.com/r/h1b/comments/1tk68i0/h1b_premium_processing_timelines_for_may_2026/",
+      "basisNote": {
+        "en": "Receipt terminology as recorded from the post; USCIS received versus notice date has not been independently confirmed.",
+        "ko": "게시물에서 수집한 receipt 표현입니다. USCIS received와 통지서 날짜의 구분은 별도로 검증되지 않았습니다."
+      }
+    },
+    {
+      "start": "2026-05-28",
+      "approved": "2026-06-05",
+      "type": "coe",
+      "basis": "premium clock",
+      "url": "https://www.reddit.com/r/h1b/comments/1tk68i0/h1b_premium_processing_timelines_for_may_2026/",
+      "basisNote": {
+        "en": "PP start May 28; May 22 is described as filed, not confirmed USCIS received.",
+        "ko": "PP 시작 5/28 기준. 5/22는 filed로 기재되어 USCIS received로 확정하지 않았습니다."
+      }
+    },
+    {
+      "start": "2026-06-17",
+      "approved": "2026-07-06",
+      "type": "extension",
+      "basis": "premium clock",
+      "url": "https://www.reddit.com/r/h1b/comments/1uojxp4/h1b_premium_processing_timeline_for_nebraska/",
+      "basisNote": {
+        "en": "Calculated from PP start Jun 17. The author separately states USCIS received Jun 15; that earlier date is not used here.",
+        "ko": "계산은 PP 시작 6/17 기준. 작성자가 별도로 밝힌 USCIS received는 6/15이며, 현재 계산에는 사용하지 않았습니다."
+      }
+    },
+    {
+      "start": "2026-06-17",
+      "approved": "2026-07-08",
+      "type": "coe",
+      "basis": "receipt",
+      "url": "https://www.reddit.com/r/h1b/comments/1uk33gy/h1b_july_2026_premium_processing_timelines/",
+      "basisNote": {
+        "en": "Receipt terminology as recorded from the post; USCIS received versus notice date has not been independently confirmed.",
+        "ko": "게시물에서 수집한 receipt 표현입니다. USCIS received와 통지서 날짜의 구분은 별도로 검증되지 않았습니다."
+      }
+    },
+    {
+      "start": "2026-06-22",
+      "approved": "2026-07-08",
+      "type": "coe",
+      "basis": "receipt",
+      "url": "https://www.reddit.com/r/h1b/comments/1uk33gy/h1b_july_2026_premium_processing_timelines/",
+      "basisNote": {
+        "en": "Receipt terminology as recorded from the post; USCIS received versus notice date has not been independently confirmed.",
+        "ko": "게시물에서 수집한 receipt 표현입니다. USCIS received와 통지서 날짜의 구분은 별도로 검증되지 않았습니다."
+      }
+    },
+    {
+      "start": "2026-06-24",
+      "approved": "2026-07-14",
+      "type": "cos",
+      "basis": "receipt",
+      "url": "https://www.reddit.com/r/h1b/comments/1uojxp4/h1b_premium_processing_timeline_for_nebraska/",
+      "basisNote": {
+        "en": "Receipt terminology as recorded from the post; USCIS received versus notice date has not been independently confirmed.",
+        "ko": "게시물에서 수집한 receipt 표현입니다. USCIS received와 통지서 날짜의 구분은 별도로 검증되지 않았습니다."
+      }
+    },
+    {
+      "start": "2026-06-25",
+      "approved": "2026-07-13",
+      "type": "extension",
+      "basis": "premium clock",
+      "url": "https://www.reddit.com/r/h1b/comments/1uojxp4/h1b_premium_processing_timeline_for_nebraska/",
+      "basisNote": {
+        "en": "The cited comment gives a PP start date; a separate USCIS received date is not confirmed there.",
+        "ko": "인용 댓글에는 PP 시작일이 기재되어 있으며, 별도의 USCIS received 날짜는 확인되지 않았습니다."
+      }
+    },
+    {
+      "start": "2026-07-01",
+      "approved": "2026-07-17",
+      "type": "extension",
+      "basis": "premium clock",
+      "url": "https://www.reddit.com/r/h1b/comments/1uojxp4/h1b_premium_processing_timeline_for_nebraska/",
+      "basisNote": {
+        "en": "PP start Jul 1. Jun 29 is an email receipt-notice date, not a confirmed USCIS received date.",
+        "ko": "PP 시작 7/1 기준. 6/29는 접수 통지 이메일 날짜이며 USCIS received로 확정할 수 없습니다."
+      }
+    },
+    {
+      "start": "2026-07-02",
+      "approved": "2026-07-23",
+      "type": "coe",
+      "basis": "premium date unclear",
+      "url": "https://www.reddit.com/r/h1b/comments/1v4cipm/any_approvals_today_0723/",
+      "basisNote": {
+        "en": "The Nebraska author writes only “PP: 07/02”; receipt versus clock start is not specified.",
+        "ko": "네브래스카 작성자는 “PP: 07/02”만 기재했습니다. 접수일인지 심사 시작일인지 불명확합니다."
+      }
+    },
+    {
+      "start": "2026-07-13",
+      "approved": "2026-07-27",
+      "type": "coe",
+      "basis": "receipt",
+      "url": "https://www.reddit.com/r/h1b/comments/1v87w83/h1b_premium_processing_july_2026/",
+      "basisNote": {
+        "en": "Receipt terminology as recorded from the post; USCIS received versus notice date has not been independently confirmed.",
+        "ko": "게시물에서 수집한 receipt 표현입니다. USCIS received와 통지서 날짜의 구분은 별도로 검증되지 않았습니다."
+      }
+    },
+    {
+      "start": "2026-08-20",
+      "approved": "2026-09-01",
+      "type": "coe",
+      "basis": "receipt",
+      "url": "https://www.reddit.com/r/h1b/comments/1vzab5t/delayed_h1b_coe_premium_processing_from_nebraska/",
+      "basisNote": {
+        "en": "Receipt terminology as recorded from the post; USCIS received versus notice date has not been independently confirmed.",
+        "ko": "게시물에서 수집한 receipt 표현입니다. USCIS received와 통지서 날짜의 구분은 별도로 검증되지 않았습니다."
+      }
+    },
+    {
+      "start": "2026-08-21",
+      "approved": "2026-09-08",
+      "type": "cos",
+      "basis": "receipt",
+      "url": "https://www.reddit.com/r/h1b/comments/1waot0i/approvals_today_98/",
+      "basisNote": {
+        "en": "Receipt terminology as recorded from the post; USCIS received versus notice date has not been independently confirmed.",
+        "ko": "게시물에서 수집한 receipt 표현입니다. USCIS received와 통지서 날짜의 구분은 별도로 검증되지 않았습니다."
+      }
+    },
+    {
+      "start": "2026-08-27",
+      "approved": "2026-09-08",
+      "type": "extension",
+      "basis": "receipt",
+      "url": "https://www.reddit.com/r/h1b/comments/1wbk7nn/h1b_approval_0909/",
+      "basisNote": {
+        "en": "Receipt terminology as recorded from the post; USCIS received versus notice date has not been independently confirmed.",
+        "ko": "게시물에서 수집한 receipt 표현입니다. USCIS received와 통지서 날짜의 구분은 별도로 검증되지 않았습니다."
+      }
+    },
+    {
+      "start": "2026-08-27",
+      "approved": "2026-09-14",
+      "type": "coe",
+      "basis": "premium receipt",
+      "url": "https://www.reddit.com/r/h1b/comments/1wg43hx/any_approvals_0914/",
+      "basisNote": {
+        "en": "Receipt terminology as recorded from the post; USCIS received versus notice date has not been independently confirmed.",
+        "ko": "게시물에서 수집한 receipt 표현입니다. USCIS received와 통지서 날짜의 구분은 별도로 검증되지 않았습니다."
+      }
+    },
+    {
+      "start": "2026-08-28",
+      "approved": "2026-09-10",
+      "type": "extension",
+      "basis": "receipt",
+      "url": "https://www.reddit.com/r/h1b/comments/1wcl5rt/h1b_approval_0910/",
+      "basisNote": {
+        "en": "Receipt terminology as recorded from the post; USCIS received versus notice date has not been independently confirmed.",
+        "ko": "게시물에서 수집한 receipt 표현입니다. USCIS received와 통지서 날짜의 구분은 별도로 검증되지 않았습니다."
+      }
+    },
+    {
+      "start": "2026-09-02",
+      "approved": "2026-09-12",
+      "type": "amendment",
+      "basis": "receipt",
+      "url": "https://www.reddit.com/r/h1b/comments/1wg43hx/any_approvals_0914/",
+      "basisNote": {
+        "en": "Receipt terminology as recorded from the post; USCIS received versus notice date has not been independently confirmed.",
+        "ko": "게시물에서 수집한 receipt 표현입니다. USCIS received와 통지서 날짜의 구분은 별도로 검증되지 않았습니다."
+      }
+    },
+    {
+      "start": "2026-09-02",
+      "approved": "2026-09-15",
+      "type": "coe",
+      "basis": "receipt",
+      "url": "https://www.reddit.com/r/h1b/comments/1wcl5rt/h1b_approval_0910/",
+      "basisNote": {
+        "en": "Receipt terminology as recorded from the post; USCIS received versus notice date has not been independently confirmed.",
+        "ko": "게시물에서 수집한 receipt 표현입니다. USCIS received와 통지서 날짜의 구분은 별도로 검증되지 않았습니다."
+      }
+    },
+    {
+      "start": "2026-09-10",
+      "approved": "2026-09-22",
+      "type": "coe",
+      "basis": "I-907 received",
+      "url": "https://www.reddit.com/r/h1b/comments/1wmqzsk/h1b_coe_pp_nebraska_any_approvals_in_week_of_921/"
+    },
+    {
+      "start": "2026-09-14",
+      "approved": "2026-09-24",
+      "type": "coe",
+      "basis": "receipt",
+      "url": "https://www.reddit.com/r/h1b/comments/1wmqzsk/h1b_coe_pp_nebraska_any_approvals_in_week_of_921/",
+      "basisNote": {
+        "en": "Receipt terminology as recorded from the post; USCIS received versus notice date has not been independently confirmed.",
+        "ko": "게시물에서 수집한 receipt 표현입니다. USCIS received와 통지서 날짜의 구분은 별도로 검증되지 않았습니다."
+      }
+    },
+    {
+      "start": "2026-09-14",
+      "approved": "2026-09-28",
+      "type": "unknown",
+      "basis": "receipt",
+      "url": "https://www.reddit.com/r/h1b/comments/1wmsi4g/h1b_premium_processing_receipt_date_914/",
+      "basisNote": {
+        "en": "Receipt terminology as recorded from the post; USCIS received versus notice date has not been independently confirmed.",
+        "ko": "게시물에서 수집한 receipt 표현입니다. USCIS received와 통지서 날짜의 구분은 별도로 검증되지 않았습니다."
+      }
+    },
+    {
+      "start": "2026-09-14",
+      "approved": "2026-09-29",
+      "type": "extension",
+      "basis": "receipt",
+      "url": "https://www.reddit.com/r/h1b/comments/1wu9uo0/h1b_extension_premium_processing_timeline/",
+      "basisNote": {
+        "en": "Receipt terminology as recorded from the post; USCIS received versus notice date has not been independently confirmed.",
+        "ko": "게시물에서 수집한 receipt 표현입니다. USCIS received와 통지서 날짜의 구분은 별도로 검증되지 않았습니다."
+      }
+    },
+    {
+      "start": "2026-09-18",
+      "approved": "2026-09-30",
+      "type": "coe",
+      "basis": "premium clock",
+      "url": "https://www.reddit.com/r/h1b/comments/1wmhvt7/h1b_transfer_pp_timeline_sept_2026/",
+      "basisNote": {
+        "en": "PP start Sep 18. The post also says “receipt” Sep 22, without confirming what that date means.",
+        "ko": "PP 시작 9/18 기준. 별도로 적힌 9/22 “receipt”는 날짜의 의미가 명확하지 않습니다."
+      }
+    }
   ],
   "pendingExamples": [
-    {"label":"Jun 23 receipt · still pending Aug 23","labelKo":"6월 23일 접수 · 8월 23일에도 대기 중","type":"coe","url":"https://www.reddit.com/r/h1b/comments/1vw6aju/nebraska_pp_timeline_pending_approvals/"},
-    {"label":"Jul 9 receipt · still pending Sep 2","labelKo":"7월 9일 접수 · 9월 2일에도 대기 중","type":"coe","url":"https://www.reddit.com/r/h1b/comments/1w4h3tu/h1_b_approvals_today_0901/"},
-    {"label":"Sep 16 receipt · still processing Oct 1","labelKo":"9월 16일 접수 · 10월 1일에도 심사 중","type":"unknown","url":"https://www.reddit.com/r/h1b/comments/1wmp5p2/is_anyone_getting_premium_processing_approvals_in/"}
-  ]
+    {
+      "label": "Jun 23 receipt · still pending Aug 23",
+      "labelKo": "6월 23일 접수 · 8월 23일에도 대기 중",
+      "type": "coe",
+      "url": "https://www.reddit.com/r/h1b/comments/1vw6aju/nebraska_pp_timeline_pending_approvals/"
+    },
+    {
+      "label": "Jul 9 receipt · still pending Sep 2",
+      "labelKo": "7월 9일 접수 · 9월 2일에도 대기 중",
+      "type": "coe",
+      "url": "https://www.reddit.com/r/h1b/comments/1w4h3tu/h1_b_approvals_today_0901/"
+    },
+    {
+      "label": "Sep 16 receipt · still processing Oct 1",
+      "labelKo": "9월 16일 접수 · 10월 1일에도 심사 중",
+      "type": "unknown",
+      "url": "https://www.reddit.com/r/h1b/comments/1wmp5p2/is_anyone_getting_premium_processing_approvals_in/"
+    }
+  ],
+  "basisNotesReviewedAt": "2026-10-05"
 }
