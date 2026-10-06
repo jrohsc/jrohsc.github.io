@@ -14,6 +14,7 @@ npm run collect
 npm run preview
 # In a second terminal, with preview running:
 node check-ui.mjs
+node check-contacts.mjs
 ```
 
 The UI check uses installed Chrome on macOS, or Playwright Chromium elsewhere
@@ -23,10 +24,12 @@ never submits applications.
 ## Collection and coverage
 
 `sources.mjs` defines employer priority and official boards. `adapters.mjs`
-supports Google Careers, Apple, Amazon, Microsoft Research, Workday, Ashby,
-Greenhouse, Lever and Dolby. Meta and Qualcomm have explicit manual links,
-because their public boards were not available to the automatic collector.
-Microsoft Research can return 403; this is shown as unavailable, not zero jobs.
+supports Google Careers, Apple, Amazon, Workday, Ashby, Greenhouse, Lever and
+Dolby. `public-careers.mjs` reads the public Microsoft/Qualcomm Eightfold boards
+and Meta's logged-out careers search, then verifies individual descriptions.
+Rate limits and missing descriptions are shown as partial coverage, not zero jobs.
+Apple and Dolby detail pages supply degree requirements missing from summaries.
+Apple general-interest talent pools are labeled, not counted as specific openings.
 Apple and other paginated boards have a bounded page limit, surfaced as partial
 coverage. The monitor cannot guarantee every available role.
 
@@ -42,7 +45,10 @@ feed and its small revision manifest. The browser checks the public raw GitHub
 manifest every 30 seconds and downloads the full feed only when it changes.
 Search, category, saved roles and application states survive these updates.
 Switching back to a hidden tab or going online triggers an immediate check.
-The initial category is Internships; Full-time, All roles and Unspecified are
+The initial category is Internships with the PhD research filter enabled. The
+posting must include doctoral eligibility and research evidence; broader
+engineering/research intakes are labeled separately. AI safety/security are
+preferences, not requirements. Full-time, All roles and Unspecified are
 available as keyboard-accessible category tabs.
 
 This is polling, not an employer push stream. GitHub's scheduler, crawl duration,
@@ -84,6 +90,32 @@ the employer's own website.
 - `test/`: meaningful regression tests for false positives, internship
   classification, safe URLs, adapter parsing, deduplication and outage behavior.
 - `check-ui.mjs`: local browser interaction and responsive checks.
+- `check-contacts.mjs`: draft editing, safe backup/import, contact status,
+  mobile layout and expiring hiring evidence. Defaults to local port 8767;
+  set `CONTACTS_TEST_URL` to use the `npm run preview` port (8766).
+
+## Research contacts
+
+`../ai-jobs/contacts/` is the separate outreach workspace linked from the radar.
+Public sources and personalized English drafts are curated in `data.mjs` using
+the October 6, 2026 CV and current research direction. It distinguishes confirmed
+2027 PhD recruitment, year-unspecified/group opportunities, pooled engineering
+intakes and research-fit contacts with no confirmed opening. Individual hosting
+and US placement are never inferred from a team's general posting.
+
+This curation is not updated by the five-minute jobs workflow. Re-check public
+affiliations, contact routes and current hiring evidence before updating each
+contact's `verifiedAt`. After 30 days (or an explicit deadline), hiring links and
+active recruiting badges are hidden until re-verified. Priority-review dates
+and Workday's "at least until" dates are not treated as hard application deadlines.
+Research/profile links remain available. Old hiring posts are not sources for
+current openings. X profile links do not imply verified X hiring posts.
+
+Draft edits, dates, notes and status are stored only in browser localStorage
+under `ai-radar-contacts-v1`, with JSON export/import. Opening profiles or mailto
+composers and copying text never mark a contact as sent. This page has no mail/DM
+sending integration. The private CV and internal proposal are not uploaded;
+drafts reference existing public papers and a short in-progress research pitch.
 
 To diagnose individual sources: `node collect.mjs --sources=apple,google`.
 This preserves unscanned sources. Full runs should be used for publication.

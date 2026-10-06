@@ -1,5 +1,6 @@
 import { load } from 'cheerio';
 import { plain, isUS, classify } from './model.mjs';
+import { collectPublicCareers } from './public-careers.mjs';
 
 const HEADERS = { 'user-agent': 'Mozilla/5.0', accept: 'application/json,text/html;q=0.9,*/*;q=0.8' };
 const MAX_PAGES = 30;
@@ -52,12 +53,24 @@ export function parseApple(html) {
   const data = JSON.parse(JSON.parse(m[1])).loaderData.search;
   if (!Array.isArray(data?.searchResults)) throw new Error('Apple returned no structured search result');
   return { total: data.totalRecords, jobs: data.searchResults.map(j => ({
-    id: j.id, title: j.postingTitle, description: j.jobSummary,
+    id: j.id, title: j.postingTitle, description: j.jobSummary, pipeline: j.type === 'PIPE',
     location: j.locations.map(l => [l.city, l.stateProvince, l.countryName].filter(Boolean).join(', ')).join('; '),
     countries: j.locations.map(l => l.countryName), postedAt: j.postDateInGMT || j.postingDate,
     department: j.team?.teamName, type: j.standardWeeklyHours >= 35 ? 'Full-time' : '',
     url: `https://jobs.apple.com/en-us/details/${j.positionId}/${j.transformedPostingTitle}`,
   })) };
+}
+export function parseAppleDetail(html) {
+  const m = html.match(/window\.__staticRouterHydrationData = JSON\.parse\(("(?:[^"\\]|\\.)*")\)/);
+  if (!m) throw new Error('Apple job detail format changed');
+  const j = JSON.parse(JSON.parse(m[1])).loaderData?.jobDetails?.jobsData;
+  if (!j?.postingTitle || !j.minimumQualifications) throw new Error('Apple job qualifications unavailable');
+  return { description: [j.jobSummary, j.description, j.minimumQualifications, j.preferredQualifications].filter(Boolean).join(' '), pipeline: j.type === 'PIPE' };
+}
+export function parseDolbyDetail(html) {
+  const $ = load(html), description = $('.jobdescription').first().html();
+  if (!description) throw new Error('Dolby job description unavailable');
+  return { description };
 }
 export function parseMSR(html) {
   const $ = load(html), jobs = [];
@@ -73,6 +86,7 @@ export function parseMSR(html) {
 }
 
 export async function collectSource(source) {
+  if (['eightfold', 'meta'].includes(source.adapter)) return collectPublicCareers(source, { request, pool });
   const jobs = [], issues = []; let complete = true, scanned = 0;
   const add = rows => { scanned += rows.length; jobs.push(...rows); };
   const attempt = async fn => { try { await fn(); } catch (e) { complete = false; issues.push(e.message); } };
@@ -200,5 +214,16 @@ export async function collectSource(source) {
       });
     }
   });
+  // Search summaries omit degree requirements and research responsibilities.
+  if (['apple', 'dolby'].includes(source.adapter)) {
+    const unique = [...new Map(jobs.map(j => [j.url, j])).values()];
+    const candidates = unique.filter(j => isUS(j.location, j.countries) && /\b(?:intern(?:ships?)?|research(?:er)?|scien(?:tist|ce))\b/i.test(j.title));
+    const details = new Map();
+    await pool(candidates, 3, async j => attempt(async () => {
+      const html = await (await request(j.url)).text();
+      details.set(j.url, source.adapter === 'apple' ? parseAppleDetail(html) : parseDolbyDetail(html));
+    }));
+    for (const j of jobs) Object.assign(j, details.get(j.url) || {});
+  }
   return { source, jobs, complete, scanned, error: [...new Set(issues)].join('; ').slice(0, 350) };
 }

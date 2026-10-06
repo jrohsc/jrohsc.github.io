@@ -26,6 +26,7 @@ const record = id => records[id] || { status: 'To review', saved: false };
 const isNew = job => Date.now() - Date.parse(job.firstSeen) < 86400000;
 const dateLabel = value => value ? new Date(value).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: new Date(value).getFullYear() !== new Date().getFullYear() ? 'numeric' : undefined }) : 'Not provided';
 const timeLabel = value => value ? new Date(value).toLocaleString('en-US', { month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit', timeZoneName: 'short' }) : 'Not yet verified';
+const researchLabel = job => job.research?.roleScope === 'broader' ? 'PhD eligible · broader intake' : 'PhD eligible · research';
 const tags = job => job.topics.map(t => `<span class="tag ${topicClasses[t] || ''}">${escape(t)}</span>`).join('');
 
 function toast(message) {
@@ -49,7 +50,7 @@ function setStatus(id, status) {
 function statusOptions(id) {
   return STATES.map(s => `<option${record(id).status === s ? ' selected' : ''}>${s}</option>`).join('');
 }
-function filtersActive() { return topic || roleType || $('#search').value || $('#company').value || $('#company-group').value || ['remote', 'new', 'include-archived'].some(id => $(`#${id}`).checked); }
+function filtersActive() { return topic || roleType || $('#search').value || $('#company').value || $('#company-group').value || ['phd', 'remote', 'new', 'include-archived'].some(id => $(`#${id}`).checked); }
 function updateCompanies() {
   const chosen = $('#company').value, group = $('#company-group').value;
   const sources = data.sources.filter(s => !group || s.tier === Number(group));
@@ -71,6 +72,7 @@ function filteredJobs(ignoreType = false) {
     if (!ignoreType && roleType && job.type !== roleType) return false;
     if ($('#company').value && job.sourceId !== $('#company').value) return false;
     if ($('#company-group').value && job.tier !== Number($('#company-group').value)) return false;
+    if ($('#phd').checked && !job.research?.phdEligible) return false;
     if ($('#remote').checked && !job.remote) return false;
     if ($('#new').checked && !isNew(job)) return false;
     const searchable = `${job.title} ${job.company} ${job.location} ${job.department} ${job.topics.join(' ')} ${job.excerpt} ${job.evidence.map(e => e.excerpt).join(' ')}`.toLowerCase();
@@ -105,12 +107,12 @@ function jobCard(job) {
     <div class="job-content"><div class="job-company">${escape(job.company)} ${job.tier === 1 ? '<span class="priority-badge">BIG TECH</span>' : job.tier === 2 ? '<span class="priority-badge ai-company">MAJOR AI</span>' : ''} ${isNew(job) ? '<span class="new-badge" title="First discovered within the last 24 hours">NEW TO RADAR</span>' : ''}</div>
       <button class="job-title" data-action="details">${escape(job.title)}</button>
       <div class="job-meta"><span class="place" title="${escape(job.location)}">${escape(job.location)}</span><span>${escape(type)}</span><span>${job.postedAt ? `Posted ${dateLabel(job.postedAt)}` : `Discovered ${dateLabel(job.firstSeen)}`}</span></div>
-      <div class="job-tags">${tags(job)}${job.type === 'Internship' ? '<span class="tag internship">Internship</span>' : ''}${job.status !== 'open' ? `<span class="tag warning">${job.status === 'not-listed' ? 'Not in latest scan' : 'Needs verification'}</span>` : ''}</div>
+      <div class="job-tags">${tags(job)}${job.research?.phdEligible ? `<span class="tag internship">${researchLabel(job)}</span>` : ''}${job.pipeline ? '<span class="tag warning">Talent pool · no specific opening</span>' : ''}${job.type === 'Internship' ? '<span class="tag internship">Internship</span>' : ''}${job.status !== 'open' ? `<span class="tag warning">${job.status === 'not-listed' ? 'Not in latest scan' : 'Needs verification'}</span>` : ''}</div>
     </div><div class="job-actions"><div class="action-line"><button class="save" data-action="save" aria-label="${r.saved ? 'Unsave' : 'Save'} ${escape(job.title)}" aria-pressed="${r.saved}">${r.saved ? '♥' : '♡'}</button><a class="apply" href="${safeLink(job.applyUrl)}" target="_blank" rel="noopener noreferrer">View &amp; apply</a></div><select class="status-select" data-action="status" aria-label="Application status for ${escape(job.title)}">${statusOptions(job.id)}</select></div>
   </article>`;
 }
 function updateStats() {
-  const open = data.jobs.filter(j => j.status === 'open');
+  const open = data.jobs.filter(j => j.status === 'open' && !j.pipeline);
   $('#stat-total').textContent = open.length.toLocaleString();
   $('#stat-bigtech').textContent = open.filter(j => j.tier === 1).length.toLocaleString();
   $('#stat-internships').textContent = open.filter(j => j.type === 'Internship').length;
@@ -134,7 +136,7 @@ function updateStats() {
 }
 function renderSources() {
   const labels = { ok: 'Collected', partial: 'Partial', error: 'Unavailable', manual: 'Manual check' };
-  $('#source-panel').innerHTML = `<p class="source-intro">${data.sources.filter(s => s.status === 'ok').length} of ${data.sources.length} sources collected successfully. Collection is scheduled every 5 minutes; this page checks for new data every 30 seconds without a reload. Scheduler delays and employer access limits may slow updates. A source error preserves earlier listings; it does not mean those roles closed. Topic matching and employer search results can miss roles, so these counts do not represent every available job.</p><div class="source-grid">${data.sources.map(s => `<article class="source-card"><header><h2>${escape(s.name)}</h2><span class="source-status ${escape(s.status)}">${labels[s.status] || 'Unknown'}</span></header><p>${s.status === 'manual' ? 'Open the official board to search current US opportunities.' : `${s.count} matching US roles · ${s.scanned || 0} listings checked`}${s.note ? `<br>${escape(s.note)}` : ''}</p><a href="${safeLink(s.url)}" target="_blank" rel="noopener noreferrer">Open official careers</a><small>Checked: ${timeLabel(s.checkedAt)}<br>Last complete collection: ${timeLabel(s.lastSuccess)}</small></article>`).join('')}</div>`;
+  $('#source-panel').innerHTML = `<p class="source-intro">${data.sources.filter(s => s.status === 'ok').length} of ${data.sources.length} sources collected successfully. Collection is scheduled every 5 minutes; this page checks for new data every 30 seconds without a reload. Scheduler delays and employer access limits may slow updates. A source error preserves earlier listings; it does not mean those roles closed. The default view requires doctoral eligibility and research work in the posting; topic preferences do not exclude other research areas. Employer search results can miss roles, so these counts do not represent every available job.</p><div class="source-grid">${data.sources.map(s => `<article class="source-card"><header><h2>${escape(s.name)}</h2><span class="source-status ${escape(s.status)}">${labels[s.status] || 'Unknown'}</span></header><p>${s.status === 'manual' ? 'Open the official board to search current US opportunities.' : `${data.jobs.filter(j => j.sourceId === s.id && j.status === 'open' && !j.pipeline && j.type === 'Internship' && j.research?.phdEligible).length} PhD research internships · ${s.count} matching US roles · ${s.scanned || 0} listings checked`}${s.note ? `<br>${escape(s.note)}` : ''}</p><a href="${safeLink(s.url)}" target="_blank" rel="noopener noreferrer">Open official careers</a><small>Checked: ${timeLabel(s.checkedAt)}<br>Last complete collection: ${timeLabel(s.lastSuccess)}</small></article>`).join('')}</div>`;
 }
 function render() {
   if (!data) return;
@@ -142,7 +144,7 @@ function render() {
   const sourceView = view === 'sources';
   $('#opportunities').hidden = sourceView; $('#source-panel').hidden = !sourceView;
   document.querySelectorAll('[data-view]').forEach(b => { b.classList.toggle('active', b.dataset.view === view); b.setAttribute('aria-current', b.dataset.view === view ? 'page' : 'false'); });
-  const titles = { all: [roleType === 'Internship' ? 'Find your next research internship.' : 'Find your next research role.', 'AI security, safety, privacy, audio & multimodal. Big Tech first.'], saved: ['Your research shortlist.', 'Saved opportunities, ready for a closer look.'], applied: ['Keep your next step in sight.', 'Your applications and interviews, stored in this browser.'], sources: ['Know what’s being monitored.', 'Official sources, collection status and honest coverage.'] };
+  const titles = { all: [roleType === 'Internship' ? 'Find your next PhD research internship.' : 'Find your next research role.', 'US PhD research internships across all topics. AI safety and security are a plus.'], saved: ['Your research shortlist.', 'Saved opportunities, ready for a closer look.'], applied: ['Keep your next step in sight.', 'Your applications and interviews, stored in this browser.'], sources: ['Know what’s being monitored.', 'Official sources, collection status and honest coverage.'] };
   $('#page-title').textContent = titles[view][0]; $('#page-description').textContent = titles[view][1];
   if (sourceView) { renderSources(); return; }
   updateRoleTabs();
@@ -157,15 +159,15 @@ function resetFilters() {
   topic = ''; roleType = ''; shown = 40;
   ['search', 'company', 'company-group'].forEach(id => { $(`#${id}`).value = ''; });
   if (data) updateCompanies();
-  ['remote', 'new', 'include-archived'].forEach(id => { $(`#${id}`).checked = false; });
+  ['phd', 'remote', 'new', 'include-archived'].forEach(id => { $(`#${id}`).checked = false; });
   document.querySelectorAll('[data-topic]').forEach(b => { b.classList.toggle('selected', !b.dataset.topic); b.setAttribute('aria-pressed', String(!b.dataset.topic)); });
   render();
 }
-function setView(next) { view = next; shown = 40; render(); }
+function setView(next) { view = next; shown = 40; if (next === 'all') { roleType = 'Internship'; $('#phd').checked = true; } render(); }
 function details(id) {
   const job = data.jobs.find(j => j.id === id); if (!job) return;
   focusedJob = id;
-  $('#detail-content').innerHTML = `<div class="detail"><div class="detail-top"><span>${escape(job.company)}</span><button id="close-details" aria-label="Close role details">×</button></div><h2>${escape(job.title)}</h2><p>${escape(job.location)}</p><div class="job-tags">${tags(job)}</div><h3>Why this role is here</h3>${job.evidence.map(e => `<div class="evidence"><strong>${escape(e.topic)} · ${escape(e.term)}</strong>…${escape(e.excerpt)}…</div>`).join('')}<h3>Posting details</h3><dl><dt>Role type</dt><dd>${job.type === 'Unspecified' ? 'Not specified by the source — confirm on the posting' : escape(job.type)}</dd><dt>Posted</dt><dd>${dateLabel(job.postedAt)}</dd><dt>First discovered</dt><dd>${timeLabel(job.firstSeen)}</dd><dt>Last seen</dt><dd>${timeLabel(job.lastSeen)}</dd><dt>Availability</dt><dd>${job.status === 'open' ? 'Listed at last collection' : job.status === 'not-listed' ? 'Not present in the latest complete scan; verify with employer' : 'Source unavailable; verify with employer'}</dd></dl><div class="detail-footer"><a class="apply" href="${safeLink(job.applyUrl)}" target="_blank" rel="noopener noreferrer">View &amp; apply on official site</a><a href="${safeLink(job.url)}" target="_blank" rel="noopener noreferrer">Original posting</a></div><p class="local-note">Opening the application does not mark it as submitted. Update your status after you apply.</p></div>`;
+  $('#detail-content').innerHTML = `<div class="detail"><div class="detail-top"><span>${escape(job.company)}</span><button id="close-details" aria-label="Close role details">×</button></div><h2>${escape(job.title)}</h2><p>${escape(job.location)}</p><div class="job-tags">${tags(job)}</div>${job.research?.phdEligible ? `<h3>Doctoral eligibility</h3><div class="evidence"><strong>${researchLabel(job)}</strong>${escape(job.research.evidence)}</div>` : ''}<h3>Why this role is here</h3>${job.evidence.map(e => `<div class="evidence"><strong>${escape(e.topic)} · ${escape(e.term)}</strong>…${escape(e.excerpt)}…</div>`).join('')}<h3>Posting details</h3><dl><dt>Role type</dt><dd>${job.type === 'Unspecified' ? 'Not specified by the source — confirm on the posting' : escape(job.type)}</dd><dt>Posted</dt><dd>${dateLabel(job.postedAt)}</dd><dt>First discovered</dt><dd>${timeLabel(job.firstSeen)}</dd><dt>Last seen</dt><dd>${timeLabel(job.lastSeen)}</dd><dt>Availability</dt><dd>${job.pipeline ? 'Talent pool only; employer does not advertise a specific opening' : job.status === 'open' ? 'Listed at last collection' : job.status === 'not-listed' ? 'Not present in the latest complete scan; verify with employer' : 'Source unavailable; verify with employer'}</dd></dl><div class="detail-footer"><a class="apply" href="${safeLink(job.applyUrl)}" target="_blank" rel="noopener noreferrer">View &amp; apply on official site</a><a href="${safeLink(job.url)}" target="_blank" rel="noopener noreferrer">Original posting</a></div><p class="local-note">Opening the application does not mark it as submitted. Update your status after you apply.</p></div>`;
   $('#details').showModal(); $('#close-details').focus();
 }
 async function loadFeed(showToast = false) {
@@ -215,7 +217,7 @@ document.addEventListener('click', event => {
 document.addEventListener('change', event => {
   if (event.target.matches('[data-action="status"]')) setStatus(event.target.closest('[data-id]').dataset.id, event.target.value);
 });
-['company', 'sort', 'remote', 'new', 'include-archived'].forEach(id => $(`#${id}`).addEventListener('change', () => { shown = 40; render(); }));
+['company', 'sort', 'phd', 'remote', 'new', 'include-archived'].forEach(id => $(`#${id}`).addEventListener('change', () => { shown = 40; render(); }));
 $('#company-group').addEventListener('change', () => { shown = 40; updateCompanies(); render(); });
 $('.role-tabs').addEventListener('keydown', event => {
   const buttons = [...document.querySelectorAll('[data-type]')], index = buttons.indexOf(event.target);

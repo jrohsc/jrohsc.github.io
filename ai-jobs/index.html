@@ -3,12 +3,12 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="US AI security, safety, privacy, audio and multimodal opportunities. Big Tech first, with full-time roles and research internships.">
+  <meta name="description" content="US PhD research internships across all topics. AI safety and security are preferences, with verified doctoral eligibility and official application links.">
   <meta name="theme-color" content="#151b2b">
   <title>AI Opportunity Radar · Jaechul Roh</title>
   <link rel="icon" href="./favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="./style.css?v=major-ai-1">
-  <script type="module" src="./app.js?v=major-ai-1"></script>
+  <link rel="stylesheet" href="./style.css?v=phd-internships-2">
+  <script type="module" src="./app.js?v=phd-internships-2"></script>
 </head>
 <body>
   <a class="skip" href="#main">Skip to opportunities</a>
@@ -20,15 +20,17 @@
       <button data-view="saved"><span>♡</span> Saved <b id="nav-saved">0</b></button>
       <button data-view="applied"><span>✓</span> Applied <b id="nav-applied">0</b></button>
       <button data-view="sources"><span>◉</span> Sources <b id="nav-sources">—</b></button>
+      <a class="contacts-nav" href="./contacts/"><span>↗</span> Research contacts</a>
     </nav>
-    <div class="sidebar-scope"><span class="workspace-label">MONITORING SCOPE</span><p>United States <span class="scope-tag">US</span></p><p class="muted">Full-time + internships</p><hr><span class="workspace-label">PRIORITY ORDER</span><ol><li><span>01</span> Big Tech</li><li><span>02</span> Major AI companies</li><li><span>03</span> Specialist teams</li></ol></div>
+    <div class="sidebar-scope"><span class="workspace-label">MONITORING SCOPE</span><p>United States <span class="scope-tag">US</span></p><p class="muted">PhD research internships first</p><hr><span class="workspace-label">PRIORITY ORDER</span><ol><li><span>01</span> Big Tech</li><li><span>02</span> Major AI companies</li><li><span>03</span> Specialist teams</li></ol></div>
     <div class="sidebar-bottom"><p>Saved roles &amp; application status stay in this browser.</p><div class="backup-actions"><button id="export">Export</button><button id="import">Import</button><input type="file" id="import-file" accept="application/json" hidden></div><a href="/">Jaechul Roh’s homepage <span aria-hidden="true">↗</span></a></div>
   </aside>
   <div class="workspace">
     <header class="topbar"><span>CAREER WORKSPACE <span class="slash">/</span> <strong>United States</strong></span><div class="sync"><div class="sync-copy"><span id="sync-label">Loading official listings…</span><small id="sync-meta">Automatic checks every 30s</small></div><button id="refresh" class="icon-button" aria-label="Check for latest openings" title="Check for latest openings">⟳</button></div></header>
     <main id="main">
-      <div class="page-heading"><div><div class="eyebrow">THE NEXT CHAPTER</div><h1 id="page-title">Find your next research internship.</h1><p id="page-description">AI security, safety, privacy, audio &amp; multimodal. Big Tech first.</p></div><span class="location-pill">◎ &nbsp; United States only</span></div>
+      <div class="page-heading"><div><div class="eyebrow">THE NEXT CHAPTER</div><h1 id="page-title">Find your next PhD research internship.</h1><p id="page-description">US PhD research internships across all topics. AI safety and security are a plus.</p></div><span class="location-pill">◎ &nbsp; United States only</span></div>
       <div id="notice" class="notice" role="status" hidden></div>
+      <a class="contacts-banner" href="./contacts/"><strong>2027 research contacts</strong><span>Ozlem · Qualcomm · Microsoft · NVIDIA · Dolby · Personalized email &amp; DM drafts</span><b aria-hidden="true">↗</b></a>
       <section class="stats" aria-label="Opportunity summary">
         <button data-stat="all"><span>OPEN OPPORTUNITIES</span><strong id="stat-total">—</strong><small>Across monitored sources</small></button>
         <button data-stat="bigtech"><span>BIG TECH</span><strong id="stat-bigtech">—</strong><small>Your first priority</small></button>
@@ -45,10 +47,10 @@
         <div id="role-results" role="tabpanel" aria-labelledby="tab-internship">
         <div class="filter-panel">
           <div class="search-row"><label class="search"><span aria-hidden="true">⌕</span><input id="search" type="search" placeholder="Search roles, teams or keywords" aria-label="Search roles, teams or keywords"><kbd>/</kbd></label><label class="select-label"><span class="sr-only">Company group</span><select id="company-group"><option value="">All company groups</option><option value="1">Big Tech</option><option value="2">Major AI companies</option><option value="3">Specialist teams</option></select></label><label class="select-label"><span class="sr-only">Company</span><select id="company"><option value="">All companies</option></select></label></div>
-          <div class="topic-row" id="topics" aria-label="Research topics"><button data-topic="" class="selected" aria-pressed="true">All topics</button><button data-topic="AI Security" aria-pressed="false">AI Security</button><button data-topic="AI Safety" aria-pressed="false">AI Safety</button><button data-topic="Privacy" aria-pressed="false">Privacy</button><button data-topic="Audio" aria-pressed="false">Audio</button><button data-topic="Multimodal" aria-pressed="false">Multimodal</button><button data-topic="AI Research" aria-pressed="false">Related AI research</button></div>
+          <div class="topic-row" id="topics" aria-label="Research topics"><button data-topic="" class="selected" aria-pressed="true">All research topics</button><button data-topic="AI Security" aria-pressed="false">AI Security</button><button data-topic="AI Safety" aria-pressed="false">AI Safety</button><button data-topic="Privacy" aria-pressed="false">Privacy</button><button data-topic="Audio" aria-pressed="false">Audio</button><button data-topic="Multimodal" aria-pressed="false">Multimodal</button><button data-topic="AI Research" aria-pressed="false">AI Research</button><button data-topic="Research" aria-pressed="false">Other research</button></div>
         </div>
         <div class="results-toolbar"><div><strong id="results-count" aria-live="polite">Loading opportunities</strong><button id="reset" class="text-button" hidden>Clear filters</button></div><label class="sort-label">Sort <select id="sort"><option value="priority">Big Tech first</option><option value="newest">Newest posted</option><option value="discovered">Recently discovered</option><option value="match">Topic relevance</option></select></label></div>
-        <div class="quick-filters"><label><input id="remote" type="checkbox"> Remote mentioned</label><label><input id="new" type="checkbox"> Discovered in 24h</label><label><input id="include-archived" type="checkbox"> Include no-longer-listed roles</label></div>
+        <div class="quick-filters"><label><input id="phd" type="checkbox" checked> PhD research only</label><label><input id="remote" type="checkbox"> Remote mentioned</label><label><input id="new" type="checkbox"> Discovered in 24h</label><label><input id="include-archived" type="checkbox"> Include no-longer-listed roles</label></div>
         <div id="job-list" class="job-list" aria-live="polite"><div class="empty"><span class="loading-ring"></span><h2>Checking your next opportunity…</h2><p>Loading the latest collection from official career pages.</p></div></div>
         <button id="load-more" class="load-more" hidden>Show more opportunities</button>
         </div>

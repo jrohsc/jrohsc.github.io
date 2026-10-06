@@ -1,7 +1,7 @@
 import { createHash } from 'node:crypto';
 import { load } from 'cheerio';
 
-export const TOPICS = ['AI Security', 'AI Safety', 'Privacy', 'Audio', 'Multimodal', 'AI Research'];
+export const TOPICS = ['AI Security', 'AI Safety', 'Privacy', 'Audio', 'Multimodal', 'AI Research', 'Research'];
 export const plain = value => load(String(value || '').replace(/<\/(?:p|div|li|h[1-6])>|<br\s*\/?>/gi, ' ')).text().replace(/\s+/g, ' ').trim();
 export const cleanDescription = value => {
   let html = String(value || '');
@@ -52,6 +52,22 @@ export function isUS(location, countries = []) {
   return /\bUnited States\b|\bUSA\b|(?:^|[,;\s-])US(?:$|[,;\s-])|\bU\.S\.|\b(?:California|Massachusetts|Washington|Texas|Virginia|Pennsylvania|Illinois|New York|New Jersey|North Carolina|Colorado|Oregon|Georgia|Florida|Utah|Michigan|Minnesota|Arizona)\b|\b(?:San Francisco|San Jose|Mountain View|Sunnyvale|Santa Clara|Palo Alto|Menlo Park|Redwood City|San Diego|Los Angeles|Cupertino|Seattle|Redmond|Bellevue|Kirkland|Boston|Cambridge,? MA|Pittsburgh|Austin|Atlanta|Chicago|New York City|Burlingame|Foster City|South San Francisco)\b/i.test(location || '');
 }
 
+export function researchFit(title, description = '', department = '') {
+  const body = cleanDescription(description), text = `${title}. ${body}`;
+  const degree = /\b(?:Ph[.\s]*D\.?|doctorate|doctoral (?:degree|student|candidate|program))\b/i;
+  const mentions = [...text.matchAll(new RegExp(degree, 'gi'))];
+  const phd = mentions.find(m => m.index < title.length || /\b(?:pursu\w*|enroll\w*|working toward\w*|obtain\w*|complet\w*|hold\w*|earn\w*|require\w*|qualifications?|prefer\w*)\b/i.test(text.slice(Math.max(0, m.index - 100), m.index)) || /^.{0,3}\s+(?:in\b|degree\b|students?\b|candidates?\b|required\b|preferred\b)/i.test(text.slice(m.index + m[0].length, m.index + m[0].length + 65)));
+  const otherDegree = /\b(?:undergrad\w*|bachelor\w*|masters?|BS\s*\/\s*MS)\b/i.test(title) && !/\b(?:Ph[.\s]*D|doctoral)\b/i.test(title);
+  const excluded = otherDegree || /\b(?:recruit(?:er|ing|ment)|talent acquisition|(?:program|product|project) manag(?:er|ement)|sales|marketing|counsel|account executive|pre[- ]?doctoral)\b/i.test(title);
+  const researchTitle = /\b(?:research(?:er)?|(?:applied|research) scien(?:tist|ce)|post[- ]?doc(?:toral)?)\b/i.test(title);
+  const researchWork = body.match(/\b(?:conduct(?:ing)? (?:\w+\s+){0,3}research|research (?:and development|areas?|projects?|skills?|experience|interests?|environment)|vulnerability research|publish(?:ing)?|publications?|novel (?:algorithms?|methods?|models?)|scientific research|NeurIPS|ICML|ICLR|ICASSP|Interspeech)\b/i);
+  const technicalTitle = /\b(?:engineer(?:ing)?|scien(?:tist|ce)|technical staff|student researcher|intern(?:s|ships?)?)\b/i.test(title);
+  const isResearch = !excluded && (researchTitle || (technicalTitle && (!!researchWork || /research/i.test(department))));
+  const index = phd?.index || 0;
+  return { phdMentioned: !!mentions.length, isResearch, phdEligible: !!phd && isResearch, roleScope: researchTitle ? 'research' : 'broader',
+    evidence: phd ? text.slice(Math.max(0, index - 80), index + 240) : 'The posting does not explicitly mention doctoral eligibility.' };
+}
+
 export function employmentType(title, type = '', description = '') {
   if (/\b(?:intern(?:s|ship(?:s)?)?|co-?op|student researcher|fellowship)\b|\b(?:AI|research|ML) residen(?:cy|t)\b/i.test(`${title} ${type}`)) return 'Internship';
   if (/contract|temporary|part[- ]?time|freelance/i.test(`${title} ${type}`)) return 'Other';
@@ -72,6 +88,11 @@ export function normalize(raw, source, now) {
   const url = safeURL(raw.url), description = cleanDescription(raw.description);
   if (!title || !url || !isUS(location, raw.countries)) return null;
   const match = classify(title, description, plain(raw.department));
+  const research = researchFit(title, description, plain(raw.department));
+  if (!match.topics.length && research.phdEligible) {
+    match.topics.push('Research');
+    match.evidence.push({ topic: 'Research', term: 'PhD research opportunity', excerpt: research.evidence });
+  }
   if (!match.topics.length) return null;
   const type = employmentType(title, raw.type, description);
   if (type === 'Other') return null;
@@ -81,8 +102,8 @@ export function normalize(raw, source, now) {
     title, location, type, typeInferred: type === 'Unspecified',
     department: plain(raw.department), url, applyUrl: safeURL(raw.applyUrl) || url,
     postedAt: isoDate(raw.postedAt), sourceUpdatedAt: isoDate(raw.updatedAt),
-    remote: /remote/i.test(`${location} ${raw.workplace || ''}`),
-    ...match, excerpt: description.slice(0, 480),
+    remote: /remote/i.test(`${location} ${raw.workplace || ''}`), pipeline: raw.pipeline === true,
+    ...match, research, excerpt: description.slice(0, 480),
     firstSeen: now, lastSeen: now, status: 'open',
   };
 }
