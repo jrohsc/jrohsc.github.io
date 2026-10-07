@@ -55,3 +55,5 @@ Every lesson includes structured `formulas`: LaTeX, a plain-English explanation,
 Existing local-storage records and user-authored notes retain their IDs and content. Legacy generated practice reasons are translated only when displayed.
 
 The dashboard opens on a nine-domain knowledge landscape. Concept status prioritizes overdue reviews, then unassessed, learning, and strong (at least 75% question mastery with no due reviews). Domain panels open the full concept list, and selecting a concept reveals connections, company relevance, and its lesson. Daily practice remains a compact side panel.
+
+The default dashboard is a compact vector atlas: nine original SVG glyphs, curved conceptual connections, short labels, and on-demand detail panels. Additional progress resources stay in an expandable section. `src/theme.css` defines the shared slate/white reading palette, blue actions, domain hues, and semantic progress marks; review state also uses distinct shapes. Browser checks cover concise default content, keyboard disclosure, mobile fit, and representative text contrast.

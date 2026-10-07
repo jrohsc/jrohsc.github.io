@@ -8,7 +8,7 @@ test("all primary pages render and curriculum filters and interactive diagrams w
   await page.goto(home);
   await expect(
     page.getByRole("heading", {
-      name: "See the whole picture. Find your next connection.",
+      name: "Your knowledge, connected.",
     }),
   ).toBeVisible();
   for (const [route, title] of [
@@ -422,9 +422,11 @@ test("dashboard map is primary, connects concepts and shows actual review state"
   });
   await page.goto(home);
   await page.reload();
-  await expect(page.locator(".atlas-domain").first()).toContainText(
-    "need review",
+  await expect(page.locator(".atlas-domain").first()).toHaveAttribute(
+    "aria-label",
+    /need review/,
   );
+  await page.locator(".atlas-domain").first().click();
   await expect(page.locator(".atlas-topic.status-due").first()).toBeVisible();
   await page.setViewportSize({ width: 390, height: 844 });
   await page.locator(".atlas-topic.status-due").first().click();
@@ -439,4 +441,73 @@ test("dashboard map is primary, connects concepts and shows actual review state"
     .getByRole("link", { name: "Start practice" })
     .click();
   await expect(page).toHaveURL(/practice/);
+});
+
+test("visual atlas keeps the overview concise and details on demand", async ({
+  page,
+}) => {
+  await page.goto(home);
+  await expect(page.locator(".atlas-detail")).toHaveCount(0);
+  await expect(page.locator(".atlas-glyph svg")).toHaveCount(9);
+  expect(
+    (await page.locator(".dashboard-atlas").innerText()).split(/\s+/).length,
+  ).toBeLessThan(100);
+  await expect(page.locator(".dashboard-more")).not.toHaveAttribute("open", "");
+  await page.locator(".atlas-domain").first().focus();
+  await page.keyboard.press("Enter");
+  await expect(page.locator(".atlas-detail")).toBeVisible();
+  await expect(page.locator(".atlas-detail .atlas-topic")).toHaveCount(10);
+  await page.getByRole("button", { name: "Clear concept selection" }).click();
+  await expect(page.locator(".atlas-detail")).toHaveCount(0);
+  await page.setViewportSize({ width: 390, height: 844 });
+  await expect(page.locator(".atlas-edges-mobile")).toBeVisible();
+  expect(
+    await page.evaluate(
+      () => document.documentElement.scrollWidth <= innerWidth,
+    ),
+  ).toBe(true);
+});
+
+test("visual theme separates domain colors and preserves readable text contrast", async ({
+  page,
+}) => {
+  await page.goto(home);
+  const colors = await page
+    .locator(".atlas-domain")
+    .evaluateAll((nodes) =>
+      nodes.map((n) =>
+        getComputedStyle(n).getPropertyValue("--domain-ink").trim(),
+      ),
+    );
+  expect(new Set(colors).size).toBeGreaterThanOrEqual(4);
+  const pairs = await page.evaluate(() => {
+    const selectors = [
+      ".atlas-node-name",
+      ".atlas-node-count",
+      ".atlas-legend",
+      ".atlas-practice .button",
+      ".nav-item.active",
+    ];
+    return selectors.map((s) => {
+      const e = document.querySelector(s),
+        c = getComputedStyle(e);
+      return [s, c.color, c.backgroundColor];
+    });
+  });
+  const rgb = (s) => s.match(/[\d.]+/g).map(Number);
+  const lum = (a) =>
+    a
+      .slice(0, 3)
+      .map((x) => x / 255)
+      .map((x) => (x <= 0.04045 ? x / 12.92 : ((x + 0.055) / 1.055) ** 2.4))
+      .reduce((n, x, i) => n + x * [0.2126, 0.7152, 0.0722][i], 0);
+  for (const [selector, fg, bg] of pairs) {
+    const f = rgb(fg),
+      b = rgb(bg);
+    const bgColor = b[3] === 0 ? [246, 248, 252] : b;
+    const l = [lum(f), lum(bgColor)].sort((a, b) => b - a);
+    expect((l[0] + 0.05) / (l[1] + 0.05), selector).toBeGreaterThanOrEqual(4.5);
+  }
+  await page.getByRole("button", { name: /Mathematics ·/ }).click();
+  await expect(page.locator(".atlas-detail")).toBeVisible();
 });

@@ -1,0 +1,524 @@
+/* Shared visual roles: blue actions, slate text, semantic learning states. */
+:root {
+  --ink: #202c40;
+  --muted: #5d6c82;
+  --line: #e1e7ef;
+  --surface: #fff;
+  --pale: #edf3ff;
+  --green: #315ed0;
+  --gold: #996410;
+  --accent: #315ed0;
+  --accent-hover: #2549a5;
+  --success: #17765d;
+  --warning: #98600b;
+  --danger: #b0444f;
+  color: var(--ink);
+  background: #f6f8fc;
+}
+::selection {
+  background: #dbe8ff;
+  color: #193573;
+}
+h1,
+h2,
+h3,
+h4 {
+  color: var(--ink);
+}
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible,
+summary:focus-visible {
+  outline-color: #315ed0;
+}
+input,
+select,
+textarea {
+  border-color: #d5dde8;
+}
+input[type="range"] {
+  accent-color: var(--accent);
+}
+.sidebar,
+.topbar {
+  background: #fff;
+  border-color: var(--line);
+}
+.brand {
+  color: #202c40;
+}
+.nav-item {
+  color: #53627a;
+}
+.nav-item.active,
+.nav-item:hover {
+  background: #edf3ff;
+  color: #254fb8;
+}
+.nav-count {
+  background: #dce8ff;
+  color: #254fb8;
+}
+.nav-label,
+.sidebar-bottom,
+.sidebar-bottom p,
+.sidebar-footer,
+.breadcrumb,
+.eyebrow,
+.section-label {
+  color: var(--muted);
+}
+.button {
+  border-radius: 8px;
+}
+.button:hover:not(:disabled) {
+  background: var(--accent-hover);
+}
+.button.secondary {
+  background: #fff;
+  color: #435571;
+  border-color: #d7e0ec;
+}
+.button.secondary:hover:not(:disabled) {
+  background: #f0f5ff;
+  color: #254fb8;
+}
+.page-head p,
+.muted,
+.lesson p,
+.details > div,
+.topic-card p,
+.company-card p,
+.company-card-bottom,
+.question-row p,
+.question-prompt,
+.diagram figcaption,
+.formula-reading p,
+.symbol-glossary dd,
+.self-check p,
+.rating-buttons small,
+.focus-date,
+.source p,
+.panel-note,
+.section-head p,
+.stat small,
+.track-card p,
+.process-list,
+.lesson-status,
+.review-note {
+  color: #526079;
+}
+.badge,
+.tag {
+  background: #f0f3f8;
+  color: #526079;
+}
+.badge.green,
+.company-label.verified {
+  background: #eaf7f0;
+  color: #17684f;
+  border-color: #cce6db;
+}
+.badge.amber,
+.company-label.inferred {
+  background: #fff6e4;
+  color: #895a14;
+  border-color: #edddbc;
+}
+.company-label small {
+  color: inherit;
+}
+.company-label.inferred small {
+  color: #895a14;
+}
+.company-more {
+  color: var(--muted);
+}
+.cat-math,
+.cat-dsa {
+  background: #edf3ff;
+  color: #315ea8;
+}
+.cat-ml,
+.cat-dl,
+.cat-llm {
+  background: #f2edff;
+  color: #7351a9;
+}
+.cat-mlcoding,
+.cat-systems {
+  background: #eaf8f8;
+  color: #087481;
+}
+.cat-research {
+  background: #fff4e4;
+  color: #98600b;
+}
+.panel,
+.topic-card,
+.company-card,
+.track-card,
+.question-detail,
+.question-row,
+.stats-grid,
+.stat {
+  border-color: var(--line);
+}
+.topic-card:hover,
+.company-card:hover,
+.track-card:hover {
+  border-color: #9bb7e7;
+  box-shadow: 0 6px 24px #1c3b6610;
+}
+.topic-card .tag {
+  background: #f0f3f8;
+}
+.bar {
+  background: #eaf0f7;
+}
+.bar > span {
+  background: #638de4;
+}
+.notice {
+  background: #edf4ff;
+  border-color: #d4e2f8;
+  color: #3c567e;
+}
+.notice.danger {
+  background: #fff1f2;
+  border-color: #f0cbd0;
+  color: var(--danger);
+}
+.hint-box {
+  background: #fff7e8;
+  border-color: #f0dfbc;
+  color: #7d581e;
+}
+.solution-lead {
+  background: #edf5ff;
+  color: #2c486d;
+}
+.solution-lead p {
+  color: #2c486d;
+}
+.math-text,
+.rendered-equation {
+  color: #253d65;
+}
+.outline-title,
+.outline-links button,
+.outline-progress,
+.outline-top {
+  color: var(--muted);
+}
+.outline-links button.active {
+  background: #edf3ff;
+  border-color: var(--accent);
+  color: #254fb8;
+}
+.outline-links button:hover {
+  background: #f0f4fa;
+}
+.outline-progress > div {
+  background: #e1e9f5;
+}
+.outline-progress i {
+  background: #638de4;
+}
+.outline-links button > span {
+  color: #667992;
+}
+.formula-card {
+  background: #fbfcff;
+  border-color: #dfe7f3;
+}
+.formula-number,
+.symbol-glossary h4,
+.formula-example h4 {
+  color: #5d6c82;
+}
+.formula-reading,
+.symbol-glossary dl > div {
+  border-color: #e1e7ef;
+}
+.rich-text .display-equation {
+  background: #eef4ff;
+}
+.formula-example {
+  background: #fff8e9;
+  border-left-color: #d5ab55;
+}
+.formula-example p {
+  color: #745624 !important;
+}
+.worked-example {
+  background: #fff8e9;
+  border-color: #eee0c5;
+  color: #745624;
+}
+.diagram {
+  background: #f7f9fd;
+  border-color: #dfe7f3;
+}
+.diagram svg {
+  color: #344f74;
+}
+.range-label {
+  color: #53627a;
+}
+.debug-challenge {
+  background: #f5f7fc;
+  border-color: #e1e7ef;
+}
+.mention-card {
+  background: #fbfcff;
+  border-color: #e1e7ef;
+}
+.mention-card p,
+.mention-card small {
+  color: #526079;
+}
+.km-root,
+.km-mini {
+  color: var(--ink);
+}
+.km-chart-panel,
+.km-detail-panel,
+.km-paths,
+.km-mini {
+  background: #fff;
+  border-color: var(--line);
+}
+.km-header p,
+.km-chart-help,
+.km-count,
+.km-legend,
+.km-mini p,
+.km-empty,
+.km-path-note {
+  color: var(--muted);
+}
+.km-node {
+  background: #fff;
+  border-color: #d5deeb;
+  color: #354762;
+}
+.km-node-current {
+  background: #edf3ff !important;
+  border-color: #6c93df !important;
+  color: #274daa;
+}
+.km-node-kind,
+.km-eyebrow,
+.km-lane-label {
+  color: #5d6c82;
+}
+.km-node-open,
+.km-action,
+.km-chips button {
+  color: #315ed0;
+  border-color: #d9e3f4;
+}
+.km-chips button {
+  background: #f4f7fd;
+}
+.km-trail button[aria-current] {
+  color: #254fb8;
+  background: #edf3ff;
+}
+.km-on-path {
+  border-color: #b6a0e1 !important;
+}
+.km-edges path,
+.km-edges line {
+  stroke: #a9bad5;
+}
+.km-line {
+  background: #92a8c8;
+}
+/* Atlas: domain hues describe fields; small status marks describe progress. */
+.atlas-main {
+  background: linear-gradient(145deg, #fff, #f7f9fe);
+  border-color: #dce4f0;
+}
+.atlas-toolbar > .eyebrow,
+.atlas-toolbar small,
+.atlas-search,
+.atlas-footer,
+.atlas-legend,
+.atlas-node-count,
+.atlas-detail p,
+.atlas-detail .eyebrow,
+.atlas-evidence,
+.atlas-results > small {
+  color: #5d6c82;
+}
+.atlas-search input {
+  border-bottom-color: #d5deeb !important;
+}
+.atlas-search input::placeholder {
+  color: #5d6c82;
+}
+.atlas-expand {
+  color: var(--accent);
+}
+.atlas-grid {
+  background-image: radial-gradient(#b0bfd333 0.65px, transparent 0.65px);
+}
+.atlas-edges path {
+  stroke: #bfcee3;
+}
+.atlas-edges path.lit {
+  stroke: #4b78c8;
+}
+.atlas-watermark {
+  background: #f9fbff;
+  color: #6d809f;
+}
+.atlas-domain {
+  --domain-ink: #315ea8;
+  --domain-pale: #edf3ff;
+  color: var(--domain-ink);
+}
+.atlas-domain[data-domain="ml"],
+.atlas-domain[data-domain="dl"],
+.atlas-domain[data-domain="llm"] {
+  --domain-ink: #7351a9;
+  --domain-pale: #f2edff;
+}
+.atlas-domain[data-domain="mlcoding"],
+.atlas-domain[data-domain="systems"] {
+  --domain-ink: #087481;
+  --domain-pale: #eaf8f8;
+}
+.atlas-domain[data-domain="research"] {
+  --domain-ink: #98600b;
+  --domain-pale: #fff4e4;
+}
+.atlas-domain[data-domain="domain"] {
+  --domain-ink: #9a526f;
+  --domain-pale: #fff0f5;
+}
+.atlas-glyph {
+  background: linear-gradient(145deg, #fff, var(--domain-pale));
+  border-color: color-mix(in srgb, var(--domain-ink) 21%, white);
+  box-shadow: 0 5px 18px #2443780a;
+}
+.atlas-domain:hover .atlas-glyph,
+.atlas-selected .atlas-glyph {
+  border-color: var(--domain-ink);
+  box-shadow: 0 7px 22px #24437818;
+}
+.atlas-node-name {
+  background: #f8faffee;
+  color: #2c3e59;
+}
+.atlas-node-count {
+  background: #f8faffdd;
+}
+.atlas-glyph .atlas-node-status {
+  box-shadow: 0 0 0 3px #fff;
+}
+.status-unseen {
+  --status-color: #73829a;
+}
+.status-learning {
+  --status-color: #315ed0;
+}
+.status-due {
+  --status-color: #ad6d07;
+}
+.status-strong {
+  --status-color: #17765d;
+}
+.status-due i {
+  border-radius: 1px;
+  transform: rotate(45deg);
+}
+.status-strong i {
+  border-radius: 2px;
+}
+.status-unseen i {
+  background: #fff;
+  border: 1.5px solid #73829a;
+}
+.atlas-domain.status-due .atlas-glyph {
+  border-color: #bc934b;
+}
+.atlas-domain.status-due .atlas-node-count {
+  color: #895a14;
+}
+.atlas-footer {
+  border-top-color: #e1e7ef;
+}
+.atlas-detail,
+.atlas-results {
+  background: #fff;
+  border-color: var(--line);
+}
+.atlas-topic {
+  border-color: #e7edf5;
+  color: #435571;
+}
+.atlas-topic:hover {
+  color: #254fb8;
+}
+.atlas-connections button {
+  border-color: #e1e7ef;
+  background: #f5f8fd;
+  color: #3d5677;
+}
+.atlas-connections small {
+  color: #5d6c82;
+}
+.atlas-practice {
+  background: #edf3ff;
+  border-color: #dce6f7;
+}
+.atlas-practice p,
+.atlas-review-link {
+  color: #47628d;
+}
+.atlas-method p {
+  background: #fff;
+  border-color: #dce4f0;
+  color: #526079;
+}
+.dashboard-more {
+  color: #526079;
+}
+.dashboard-more > summary {
+  border-color: #e1e7ef;
+}
+.page-content:has(.dashboard-atlas) .stats-grid,
+.page-content:has(.dashboard-atlas) .stat {
+  border-color: #e1e7ef;
+}
+.derivation-text,
+.independent-prompts,
+.lesson li,
+.worked-example,
+.question-prompt,
+.solution .details,
+.recall-cue,
+.topbar input,
+.topbar input::placeholder,
+.search-box,
+.simple-row,
+.source-note,
+.review-schedule,
+.study-filter-row,
+.company-legend,
+.km-detail p,
+.km-detail li,
+.km-mini-grid p {
+  color: #526079;
+}
+.derivation-text .rendered-equation {
+  color: #253d65;
+}
+.topbar .search-wrap {
+  color: #526079;
+}

@@ -66,6 +66,7 @@ import { PageOutline } from "./PageOutline";
 import { DashboardMap } from "./DashboardMap";
 import { KnowledgeMap, ConceptConnections } from "./KnowledgeMap";
 import "./style.css";
+import "./theme.css";
 const C = createContext();
 const useApp = () => useContext(C);
 const KEY = "research-practice:v1";
@@ -618,8 +619,7 @@ function Dashboard() {
     <>
       <PageHead
         eyebrow="YOUR RESEARCH JOURNEY"
-        title="See the whole picture. Find your next connection."
-        description="Explore what you know, what needs review, and how the ideas connect."
+        title="Your knowledge, connected."
         action={
           <Link to="settings" className="button secondary small">
             <Settings size={15} /> Study goals
@@ -633,39 +633,18 @@ function Dashboard() {
         renderCompanies={(topic) => <CompanyLabels topic={topic} compact />}
         practice={
           <section className="atlas-practice" aria-label="Today’s practice">
-            <span className="eyebrow">A SMALL NEXT STEP</span>
             <h3>Today's practice</h3>
             <p>
-              {state.settings.minutes} minutes · {plan.items.length} recommended
-              questions
+              {state.settings.minutes} min · {plan.items.length} questions
             </p>
-            <Link className="atlas-review-link" to={due.length ? "review" : "study"}>
-              {due.length
-                ? `${due.length} reviews ready to revisit →`
-                : "No reviews due. Explore a new concept."}
-            </Link>
-            {plan.items.slice(0, 2).map((item) => {
-              const q = questions.find((q) => q.id === item.id);
-              return (
-                <Link
-                  className="atlas-task"
-                  key={q.id}
-                  to={"questions/" + q.id}
-                >
-                  <small>
-                    {item.minutes} min · {planReason(item.reason)}
-                  </small>
-                  {q.title}
-                </Link>
-              );
-            })}
+            {due.length > 0 && (
+              <Link className="atlas-review-link" to="review">
+                {due.length} reviews due
+              </Link>
+            )}
             <Link to="practice" className="button small">
               Start practice <ArrowRight size={14} />
             </Link>
-            <p className="atlas-target">
-              {roles.find((r) => r.id === state.settings.role)?.name} ·{" "}
-              {target.map((c) => c.short).join(" / ")}
-            </p>
           </section>
         }
       />
@@ -707,132 +686,139 @@ function Dashboard() {
               <ArrowUpRight size={14} />
             </span>
             <strong>{n}</strong>
-            <small>{desc}</small>
           </Link>
         ))}
       </div>
-      <div className="dashboard-grid">
-        <div className="right-stack">
-          <section className="panel">
-            <div className="section-head">
-              <div>
-                <span className="eyebrow">KNOW YOUR GAPS</span>
-                <h2>Readiness by area</h2>
-              </div>
-              <Link to="progress" aria-label="View progress details">
-                <ArrowUpRight size={18} />
-              </Link>
-            </div>
-            {weak.slice(0, 5).map(({ cat, mastery }) => (
-              <Link
-                to={"study?category=" + cat}
-                className="mastery-row"
-                key={cat}
-              >
+      <details className="dashboard-more">
+        <summary>Progress & study resources</summary>
+        <div className="dashboard-grid">
+          <div className="right-stack">
+            <section className="panel">
+              <div className="section-head">
                 <div>
-                  <span>{categories[cat]}</span>
-                  <strong>{mastery}%</strong>
+                  <span className="eyebrow">KNOW YOUR GAPS</span>
+                  <h2>Readiness by area</h2>
                 </div>
-                <Bar value={mastery} />
-              </Link>
-            ))}
-            <small className="muted">
-              Unassessed questions count as 0%. This is not a hiring prediction.
-            </small>
-          </section>
-          <section className="quote-card">
-            <span className="eyebrow">THE PRACTICE PRINCIPLE</span>
-            <h3>
-              “Recognizing an answer
-              <br />
-              is not the same as explaining it.”
-            </h3>
-            <p>
-              Close your notes and explain it for 60 seconds.
-              <br />
-              Where you get stuck is where to start next.
-            </p>
-            <Link to="guide">
-              How to study effectively <ArrowUpRight size={15} />
-            </Link>
-          </section>
-        </div>
-      </div>
-      <section className="section-spaced">
-        <div className="section-head">
-          <div>
-            <span className="eyebrow">CONNECTED KNOWLEDGE</span>
-            <h2>From foundations to research</h2>
-            <Link to="map" className="map-entry-link">
-              <Compass size={14} /> Follow the concept map
-            </Link>
-          </div>
-          <Link to="study">
-            Full curriculum <ArrowRight size={15} />
-          </Link>
-        </div>
-        <div className="track-grid">
-          {["math", "mlcoding", "llm", "research"].map((cat) => (
-            <Link to={"study?category=" + cat} className="track-card" key={cat}>
-              <span className={"track-icon cat-" + cat}>
-                <Icon name={cat} size={23} />
-              </span>
-              <h3>{categories[cat]}</h3>
-              <p>
-                {
-                  {
-                    math: "From intuition to equations. The language behind the models.",
-                    mlcoding:
-                      "Turn theory into code, from numerical stability to debugging.",
-                    llm: "Connect attention, training, evaluation, and alignment.",
-                    research:
-                      "Sharper hypotheses. More convincing experiments.",
-                  }[cat]
-                }
-              </p>
-              <span>
-                {topics.filter((t) => t.category === cat).length} topics{" "}
-                <ArrowUpRight size={16} />
-              </span>
-            </Link>
-          ))}
-        </div>
-      </section>
-      {state.mistakes.length > 0 && (
-        <section className="panel section-spaced">
-          <div className="section-head">
-            <h2>Learn from your mistakes</h2>
-            <Link to="review">
-              Mistake notebook <ArrowRight size={15} />
-            </Link>
-          </div>
-          <div className="tags">
-            {Object.entries(mistakeCounts)
-              .sort((a, b) => b[1] - a[1])
-              .slice(0, 4)
-              .map(([id, count]) => (
-                <Link key={id} className="tag" to={"study/" + id}>
-                  {topics.find((t) => t.id === id)?.title} · {count} mistakes
+                <Link to="progress" aria-label="View progress details">
+                  <ArrowUpRight size={18} />
+                </Link>
+              </div>
+              {weak.slice(0, 5).map(({ cat, mastery }) => (
+                <Link
+                  to={"study?category=" + cat}
+                  className="mastery-row"
+                  key={cat}
+                >
+                  <div>
+                    <span>{categories[cat]}</span>
+                    <strong>{mastery}%</strong>
+                  </div>
+                  <Bar value={mastery} />
                 </Link>
               ))}
+              <small className="muted">
+                Unassessed questions count as 0%. This is not a hiring
+                prediction.
+              </small>
+            </section>
+            <section className="quote-card">
+              <span className="eyebrow">THE PRACTICE PRINCIPLE</span>
+              <h3>
+                “Recognizing an answer
+                <br />
+                is not the same as explaining it.”
+              </h3>
+              <p>
+                Close your notes and explain it for 60 seconds.
+                <br />
+                Where you get stuck is where to start next.
+              </p>
+              <Link to="guide">
+                How to study effectively <ArrowUpRight size={15} />
+              </Link>
+            </section>
           </div>
-          {state.mistakes
-            .slice(-3)
-            .reverse()
-            .map((m) => (
+        </div>
+        <section className="section-spaced">
+          <div className="section-head">
+            <div>
+              <span className="eyebrow">CONNECTED KNOWLEDGE</span>
+              <h2>From foundations to research</h2>
+              <Link to="map" className="map-entry-link">
+                <Compass size={14} /> Follow the concept map
+              </Link>
+            </div>
+            <Link to="study">
+              Full curriculum <ArrowRight size={15} />
+            </Link>
+          </div>
+          <div className="track-grid">
+            {["math", "mlcoding", "llm", "research"].map((cat) => (
               <Link
-                className="simple-row"
-                key={m.id}
-                to={"questions/" + m.questionId}
+                to={"study?category=" + cat}
+                className="track-card"
+                key={cat}
               >
-                <span>
-                  {questions.find((q) => q.id === m.questionId)?.title}
+                <span className={"track-icon cat-" + cat}>
+                  <Icon name={cat} size={23} />
                 </span>
-                <span className="muted">{m.principle}</span>
+                <h3>{categories[cat]}</h3>
+                <p>
+                  {
+                    {
+                      math: "From intuition to equations. The language behind the models.",
+                      mlcoding:
+                        "Turn theory into code, from numerical stability to debugging.",
+                      llm: "Connect attention, training, evaluation, and alignment.",
+                      research:
+                        "Sharper hypotheses. More convincing experiments.",
+                    }[cat]
+                  }
+                </p>
+                <span>
+                  {topics.filter((t) => t.category === cat).length} topics{" "}
+                  <ArrowUpRight size={16} />
+                </span>
               </Link>
             ))}
+          </div>
         </section>
-      )}
+        {state.mistakes.length > 0 && (
+          <section className="panel section-spaced">
+            <div className="section-head">
+              <h2>Learn from your mistakes</h2>
+              <Link to="review">
+                Mistake notebook <ArrowRight size={15} />
+              </Link>
+            </div>
+            <div className="tags">
+              {Object.entries(mistakeCounts)
+                .sort((a, b) => b[1] - a[1])
+                .slice(0, 4)
+                .map(([id, count]) => (
+                  <Link key={id} className="tag" to={"study/" + id}>
+                    {topics.find((t) => t.id === id)?.title} · {count} mistakes
+                  </Link>
+                ))}
+            </div>
+            {state.mistakes
+              .slice(-3)
+              .reverse()
+              .map((m) => (
+                <Link
+                  className="simple-row"
+                  key={m.id}
+                  to={"questions/" + m.questionId}
+                >
+                  <span>
+                    {questions.find((q) => q.id === m.questionId)?.title}
+                  </span>
+                  <span className="muted">{m.principle}</span>
+                </Link>
+              ))}
+          </section>
+        )}
+      </details>
     </>
   );
 }
