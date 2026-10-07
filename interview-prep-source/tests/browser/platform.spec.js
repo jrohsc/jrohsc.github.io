@@ -8,7 +8,7 @@ test("all primary pages render and curriculum filters and interactive diagrams w
   await page.goto(home);
   await expect(
     page.getByRole("heading", {
-      name: "A little practice. A deeper understanding.",
+      name: "See the whole picture. Find your next connection.",
     }),
   ).toBeVisible();
   for (const [route, title] of [
@@ -164,7 +164,7 @@ test("mobile fits without horizontal overflow and menu navigates", async ({
 }) => {
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto(home);
-  await expect(page.locator(".hero")).toBeVisible();
+  await expect(page.locator(".dashboard-atlas")).toBeVisible();
   expect(
     await page.evaluate(
       () => document.documentElement.scrollWidth <= innerWidth,
@@ -372,4 +372,71 @@ test("GPU precision lessons connect formats, systems and active recall", async (
   await page.goto(home + "#/map/floating-point");
   await expect(page.locator(".km-map-focus")).toBeVisible();
   await expect(page.locator(".km-root")).toContainText("Mixed");
+});
+
+test("dashboard map is primary, connects concepts and shows actual review state", async ({
+  page,
+}) => {
+  await page.goto(home);
+  await expect(page.locator(".atlas-domain")).toHaveCount(9);
+  await expect(page.locator(".atlas-main")).toBeVisible();
+  expect(
+    await page
+      .locator(".page-content")
+      .evaluate(
+        (el) =>
+          el
+            .querySelector(".dashboard-atlas")
+            .compareDocumentPosition(el.querySelector(".stats-grid")) &
+          Node.DOCUMENT_POSITION_FOLLOWING,
+      ),
+  ).toBeTruthy();
+  await page.getByLabel("Find a dashboard concept").fill("BF16");
+  await page.locator(".atlas-results .atlas-topic").first().click();
+  await expect(page.locator(".atlas-detail")).toContainText(
+    "Company relevance",
+  );
+  await expect(page.locator(".atlas-detail .atlas-status")).toContainText(
+    "Not assessed",
+  );
+  await expect(page.locator(".atlas-connections")).toContainText(
+    "Mixed Precision",
+  );
+  await page
+    .locator(".atlas-detail")
+    .getByRole("link", { name: "Open lesson" })
+    .click();
+  await expect(page).toHaveURL(/study\/floating-point/);
+  await page.evaluate(() => {
+    const s = JSON.parse(localStorage.getItem("research-practice:v1"));
+    s.reviews["orthogonal-projection"] = {
+      lastReviewed: Date.now() - 100000,
+      nextReview: Date.now() - 1,
+      reviewCount: 1,
+      mastery: 80,
+      interval: 1,
+      ease: 2.3,
+      history: [],
+    };
+    localStorage.setItem("research-practice:v1", JSON.stringify(s));
+  });
+  await page.goto(home);
+  await page.reload();
+  await expect(page.locator(".atlas-domain").first()).toContainText(
+    "need review",
+  );
+  await expect(page.locator(".atlas-topic.status-due").first()).toBeVisible();
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.locator(".atlas-topic.status-due").first().click();
+  await expect(page.locator(".atlas-detail")).toContainText("Review due");
+  expect(
+    await page.evaluate(
+      () => document.documentElement.scrollWidth <= innerWidth,
+    ),
+  ).toBe(true);
+  await page
+    .locator(".atlas-practice")
+    .getByRole("link", { name: "Start practice" })
+    .click();
+  await expect(page).toHaveURL(/practice/);
 });

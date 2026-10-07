@@ -53,3 +53,5 @@ The English interface uses continuous lesson sections and a sticky page outline 
 Every lesson includes structured `formulas`: LaTeX, a plain-English explanation, symbol definitions, and a numerical example. `MathText.jsx` supports inline and display math in lessons and question solutions, with local KaTeX fonts and accessible MathML. `Diagrams.jsx` includes interactive probability, optimization, attention, and floating-point explanations. Float comparisons separate exponent range from fraction precision and label hardware-dependent subnormal behavior. Strict content tests parse every equation and verify graph/evidence integrity.
 
 Existing local-storage records and user-authored notes retain their IDs and content. Legacy generated practice reasons are translated only when displayed.
+
+The dashboard opens on a nine-domain knowledge landscape. Concept status prioritizes overdue reviews, then unassessed, learning, and strong (at least 75% question mastery with no due reviews). Domain panels open the full concept list, and selecting a concept reveals connections, company relevance, and its lesson. Daily practice remains a compact side panel.

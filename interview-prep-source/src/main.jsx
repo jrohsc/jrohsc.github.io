@@ -63,6 +63,7 @@ import {
 import { Diagram } from "./Diagrams";
 import { RichText, FormulaGuide } from "./MathText";
 import { PageOutline } from "./PageOutline";
+import { DashboardMap } from "./DashboardMap";
 import { KnowledgeMap, ConceptConnections } from "./KnowledgeMap";
 import "./style.css";
 const C = createContext();
@@ -617,85 +618,57 @@ function Dashboard() {
     <>
       <PageHead
         eyebrow="YOUR RESEARCH JOURNEY"
-        title="A little practice. A deeper understanding."
-        description="Recall from memory, build it yourself, and explain it in your own words."
+        title="See the whole picture. Find your next connection."
+        description="Explore what you know, what needs review, and how the ideas connect."
         action={
           <Link to="settings" className="button secondary small">
             <Settings size={15} /> Study goals
           </Link>
         }
       />
-      <section className="dashboard-top">
-        <div className="hero">
-          <div>
-            <Badge tone="green">
-              <span className="status-dot" /> PERSONALIZED DAILY PLAN
-            </Badge>
-            <h2>
-              Turn what you know
-              <br />
-              into what you can explain.
-            </h2>
+      <DashboardMap
+        topics={topics}
+        questions={questions}
+        reviews={state.reviews}
+        renderCompanies={(topic) => <CompanyLabels topic={topic} compact />}
+        practice={
+          <section className="atlas-practice" aria-label="Today’s practice">
+            <span className="eyebrow">A SMALL NEXT STEP</span>
+            <h3>Today's practice</h3>
             <p>
-              A daily plan built around your role and review schedule.
-              <br />
-              Connect the mathematics to the implementation.
+              {state.settings.minutes} minutes · {plan.items.length} recommended
+              questions
             </p>
-            <div className="hero-actions">
-              <Link to="practice" className="button">
-                Start today's practice <ArrowRight size={17} />
-              </Link>
-              <span>
-                <Clock size={14} /> {state.settings.minutes} min ·{" "}
-                {plan.items.length} questions
-              </span>
-            </div>
-          </div>
-          <div className="hero-diagram" aria-hidden="true">
-            <div className="orbit o1" />
-            <div className="orbit o2" />
-            <div className="orbit o3" />
-            <div className="orbit-core">
-              ∇<small>understand</small>
-            </div>
-            <span className="orbit-label ol1">RECALL</span>
-            <span className="orbit-label ol2">IMPLEMENT</span>
-            <span className="orbit-label ol3">EXPLAIN</span>
-            <span className="orbit-point p1" />
-            <span className="orbit-point p2" />
-            <span className="orbit-point p3" />
-          </div>
-        </div>
-        <div className="focus-card">
-          <div className="section-label">
-            <Target size={16} /> MY INTERVIEW FOCUS
-            <Link to="settings">
-              <ArrowUpRight size={15} />
+            <Link className="atlas-review-link" to={due.length ? "review" : "study"}>
+              {due.length
+                ? `${due.length} reviews ready to revisit →`
+                : "No reviews due. Explore a new concept."}
             </Link>
-          </div>
-          <h3>
-            {roles.find((r) => r.id === state.settings.role)?.name ||
-              state.settings.role}
-          </h3>
-          <div className="target-companies">
-            {target.map((c) => (
-              <Link to={"companies/" + c.id} key={c.id}>
-                <span style={{ background: c.color + "15", color: c.color }}>
-                  {c.mark || c.short.slice(0, 1)}
-                </span>
-                {c.short}
-                <ArrowUpRight size={13} />
-              </Link>
-            ))}
-          </div>
-          <div className="focus-date">
-            <Calendar size={15} />
-            {state.settings.interviewDate
-              ? `${formatDate(state.settings.interviewDate + "T12:00:00")} interview · ${Math.max(0, Math.ceil((new Date(state.settings.interviewDate + "T12:00:00") - Date.now()) / DAY))} days left`
-              : "Set an interview date to pace your preparation"}
-          </div>
-        </div>
-      </section>
+            {plan.items.slice(0, 2).map((item) => {
+              const q = questions.find((q) => q.id === item.id);
+              return (
+                <Link
+                  className="atlas-task"
+                  key={q.id}
+                  to={"questions/" + q.id}
+                >
+                  <small>
+                    {item.minutes} min · {planReason(item.reason)}
+                  </small>
+                  {q.title}
+                </Link>
+              );
+            })}
+            <Link to="practice" className="button small">
+              Start practice <ArrowRight size={14} />
+            </Link>
+            <p className="atlas-target">
+              {roles.find((r) => r.id === state.settings.role)?.name} ·{" "}
+              {target.map((c) => c.short).join(" / ")}
+            </p>
+          </section>
+        }
+      />
       <div className="stats-grid">
         {[
           [
@@ -739,47 +712,6 @@ function Dashboard() {
         ))}
       </div>
       <div className="dashboard-grid">
-        <section className="panel daily-panel">
-          <div className="section-head">
-            <div>
-              <span className="eyebrow">A LITTLE, EVERY DAY</span>
-              <h2>Your practice path</h2>
-            </div>
-            <Link to="practice">
-              Full plan <ArrowRight size={15} />
-            </Link>
-          </div>
-          <div className="timeline">
-            {plan.items.slice(0, 5).map((item, i) => {
-              const q = questions.find((q) => q.id === item.id);
-              return (
-                <Link
-                  to={"questions/" + q.id}
-                  className="timeline-item"
-                  key={q.id}
-                >
-                  <span className={"step-icon cat-" + item.category}>
-                    <Icon name={item.category} />
-                  </span>
-                  <div>
-                    <small>
-                      {String(i + 1).padStart(2, "0")}{" "}
-                      <span className="dot-sep">/</span>{" "}
-                      {categories[item.category]}
-                    </small>
-                    <h3>{q.title}</h3>
-                    <p>{planReason(item.reason)}</p>
-                  </div>
-                  <span className="time-tag">{item.minutes} min</span>
-                  <ChevronRight size={16} />
-                </Link>
-              );
-            })}
-          </div>
-          <div className="panel-note">
-            <FlaskConical size={15} /> Recall → Derive → Implement → Explain
-          </div>
-        </section>
         <div className="right-stack">
           <section className="panel">
             <div className="section-head">
