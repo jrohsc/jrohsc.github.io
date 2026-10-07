@@ -5569,7 +5569,8 @@
       "Gating weights",
       "Expert capacity",
       "Load balancing",
-      "All-to-all communication"
+      "All-to-all communication",
+      "Mixture of experts (MoE)"
     ],
     "summary": "Separate total parameters from active per-token computation. Trace tokens through a router and experts, and reason about capacity, gradient flow, and distributed communication.",
     "intuition": "A token does not necessarily need every specialist network. A router selects a few experts and combines their outputs. The savings in arithmetic can be lost if routing overloads one expert or requires expensive data movement.",
@@ -5821,7 +5822,8 @@
       "Bellman expectation equation",
       "Temporal-difference learning",
       "Q-learning",
-      "Termination versus truncation"
+      "Termination versus truncation",
+      "Reinforcement learning (RL)"
     ],
     "summary": "Build a precise model of sequential decisions, derive the value recursion, and implement a small temporal-difference update. Distinguish the policy being evaluated from the policy being improved.",
     "intuition": "An action can have a small immediate reward but open a valuable future. A value function estimates that future, while a policy chooses actions. Learning is difficult because the policy changes which data it sees and because the consequences of an action may arrive much later.",
@@ -5947,7 +5949,8 @@
       "Alignment collapse",
       "Forward dynamic programming",
       "Repeated labels",
-      "Greedy versus sequence decoding"
+      "Greedy versus sequence decoding",
+      "Connectionist temporal classification (CTC)"
     ],
     "summary": "Train a frame-level sequence model from a transcript without frame-by-frame alignments. Understand how CTC sums valid alignments and why blank handling, repeated characters, and sequence lengths matter.",
     "intuition": "Many frame sequences can express the same transcript: a sound can span several frames and silence need not emit a label. CTC assigns probability to all paths that collapse to the transcript rather than demanding one known timing alignment.",
@@ -6064,7 +6067,8 @@
       "Path compression",
       "Connectivity invariants",
       "Amortized complexity",
-      "Duplicate edges"
+      "Duplicate edges",
+      "Disjoint-set union (DSU)"
     ],
     "summary": "Maintain an evolving partition when edges arrive incrementally. Derive the tree-height invariant, implement union by size with path compression, and explain why deletions require another approach.",
     "intuition": "A representative is a label for a whole connected component, not a graph center. Linking two representatives merges all members without updating each member immediately. A find operation can shorten the route to that label.",
@@ -6162,7 +6166,8 @@
       "Bellman recurrence",
       "0/1 knapsack",
       "Iteration order",
-      "Pseudo-polynomial time"
+      "Pseudo-polynomial time",
+      "Dynamic programming (DP)"
     ],
     "summary": "Design a state that summarizes the past, derive transitions by an exhaustive case split, and compress memory without changing the problem being solved.",
     "intuition": "A DP table is a collection of small, precisely defined questions. Memoization only helps after those questions preserve all information needed by future choices. The loop order determines which version of a state an update reads.",
@@ -6261,7 +6266,8 @@
       "Output shape",
       "Input gradient",
       "Kernel gradient",
-      "Finite-difference checks"
+      "Finite-difference checks",
+      "Conv2D"
     ],
     "summary": "Build a transparent single-channel 2D convolution reference, then derive its backward pass by following each output’s dependence on an input patch.",
     "intuition": "A shared kernel scores every local patch. Sharing means a kernel parameter receives gradient contributions from many positions. Overlap means an input pixel can receive gradients from several outputs, so backward must accumulate.",
@@ -6383,7 +6389,8 @@
       "Vector–Jacobian products",
       "Topological order",
       "Shared nodes",
-      "Gradient accumulation"
+      "Gradient accumulation",
+      "Automatic differentiation (autodiff)"
     ],
     "summary": "Implement scalar reverse-mode differentiation with a computation graph, local backward rules, and correct handling of a value reused along several paths.",
     "intuition": "Every operation stores a small promise: if I later receive a derivative with respect to my output, I can distribute derivatives to my inputs. Reverse topological order ensures all downstream contributions arrive before that promise is executed.",
@@ -6479,7 +6486,8 @@
       "Segment boundaries",
       "Activation memory",
       "Recompute cost",
-      "Randomness and side effects"
+      "Randomness and side effects",
+      "Gradient checkpointing"
     ],
     "summary": "Derive a simple memory model for segmented checkpointing, implement recomputation on a scalar network, and separate activation savings from parameters, gradients, and optimizer state.",
     "intuition": "Backward needs selected forward values, not necessarily every value stored for the whole step. Save a few boundary activations, then replay a segment when its gradients are needed. You buy memory with additional arithmetic and careful control of state.",
