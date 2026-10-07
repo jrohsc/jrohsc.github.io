@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 export function Diagram({ kind = "gradient" }) {
   const [v, setV] = useState(
-    kind === "bayes" ? 10 : kind === "gradient" ? 20 : 45,
+    kind === "bayes" || kind === "attention" ? 10 : kind === "gradient" ? 20 : 45,
   );
   const line = (x1, y1, x2, y2, color = "#b8c8bf", extra = {}) => (
     <line
