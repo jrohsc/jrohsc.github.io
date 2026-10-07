@@ -22,8 +22,8 @@ Open http://127.0.0.1:4187/interview-prep/. For hot-reload development, `npm run
 - `src/engine.js`: pure scheduling, time-aware mastery, weighted selection, import validation.
 - `src/Diagrams.jsx`: native interactive SVG explanations; no raster dependencies.
 - `src/style.css`: responsive desktop/mobile interface with reduced-motion support.
-- `../interview-prep/data/curriculum.json`: 53 knowledge nodes, including dedicated floating-point, mixed-precision, and GPU-performance lessons with prerequisite/related edges, explanations, math, code, diagrams, sources.
-- `../interview-prep/data/questions.json`: 120 original questions, many-to-many topic/company/role references, two hints, answers and concrete self-assessment rubrics. Company tags mean preparation relevance, never actual interview provenance.
+- `../interview-prep/data/curriculum.json`: 71 knowledge nodes, including dedicated floating-point, mixed-precision, and GPU-performance lessons with prerequisite/related edges, explanations, math, code, diagrams, sources.
+- `../interview-prep/data/questions.json`: 156 original questions, many-to-many topic/company/role references, two hints, answers and concrete self-assessment rubrics. Company tags mean preparation relevance, never actual interview provenance.
 - `../interview-prep/data/companies.json`: companies, normalized roles/dimensions, 50 role-specific profiles, 600 importance records. Numeric ratings are all `INFERRED`; official evidence supports narratives, not fabricated numeric frequency estimates. Unknown verification dates are null and displayed as unverified. The math aggregate drives selection; comparison shows subdimensions instead to avoid double counting.
 
 ## Extend the curriculum
@@ -57,3 +57,5 @@ Existing local-storage records and user-authored notes retain their IDs and cont
 The dashboard opens on a nine-domain knowledge landscape. Concept status prioritizes overdue reviews, then unassessed, learning, and strong (at least 75% question mastery with no due reviews). Domain panels open the full concept list, and selecting a concept reveals connections, company relevance, and its lesson. Daily practice remains a compact side panel.
 
 The default dashboard is a compact vector atlas: nine original SVG glyphs, curved conceptual connections, short labels, and on-demand detail panels. Additional progress resources stay in an expandable section. `src/theme.css` defines the shared slate/white reading palette, blue actions, domain hues, and semantic progress marks; review state also uses distinct shapes. Browser checks cover concise default content, keyboard disclosure, mobile fit, and representative text contrast.
+
+The second curriculum expansion adds two concepts in every category (18 lessons, 36 original questions). Each includes a concept-specific interactive mechanism diagram, worked numerical example, symbol glossary, standalone reference code, debugging prompt, and independent practice. Prerequisite acyclicity and diagram-content coverage are validated. The site revalidates its JSON data on load so newly published concepts appear without clearing learning records.

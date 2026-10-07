@@ -1,4 +1,12 @@
 import { test, expect } from "@playwright/test";
+import { readFileSync } from "node:fs";
+const curriculum = JSON.parse(
+  readFileSync(
+    new URL("../../../interview-prep/data/curriculum.json", import.meta.url),
+    "utf8",
+  ),
+);
+const mathCount = curriculum.filter((t) => t.category === "math").length;
 const home = "/interview-prep/";
 test("all primary pages render and curriculum filters and interactive diagrams work", async ({
   page,
@@ -27,7 +35,7 @@ test("all primary pages render and curriculum filters and interactive diagrams w
     ).toBeVisible();
   }
   await page.goto(home + "#/study?category=math");
-  await expect(page.locator(".topic-card")).toHaveCount(10);
+  await expect(page.locator(".topic-card")).toHaveCount(mathCount);
   await page.goto(home + "#/study/spectral");
   await page
     .getByRole("button", { name: "Visual explanation", exact: true })
@@ -456,7 +464,9 @@ test("visual atlas keeps the overview concise and details on demand", async ({
   await page.locator(".atlas-domain").first().focus();
   await page.keyboard.press("Enter");
   await expect(page.locator(".atlas-detail")).toBeVisible();
-  await expect(page.locator(".atlas-detail .atlas-topic")).toHaveCount(10);
+  await expect(page.locator(".atlas-detail .atlas-topic")).toHaveCount(
+    mathCount,
+  );
   await page.getByRole("button", { name: "Clear concept selection" }).click();
   await expect(page.locator(".atlas-detail")).toHaveCount(0);
   await page.setViewportSize({ width: 390, height: 844 });
@@ -510,4 +520,46 @@ test("visual theme separates domain colors and preserves readable text contrast"
   }
   await page.getByRole("button", { name: /Mathematics ·/ }).click();
   await expect(page.locator(".atlas-detail")).toBeVisible();
+});
+
+test("expanded concepts have navigable diagrams, math and recall practice", async ({
+  page,
+}) => {
+  const additions = curriculum.filter((t) => t.visualSteps?.length);
+  expect(additions.length).toBeGreaterThanOrEqual(18);
+  const errors = [];
+  page.on("pageerror", (e) => errors.push(e.message));
+  for (const t of additions) {
+    await page.goto(home + "#/study/" + t.id);
+    await expect(
+      page.getByRole("heading", { name: t.title, exact: true }),
+    ).toBeVisible();
+    await expect(page.locator(".mechanism-step")).toHaveCount(
+      t.visualSteps.length,
+    );
+    await expect(page.locator(".katex").first()).toBeAttached();
+    await expect(page.locator(".katex-error")).toHaveCount(0);
+  }
+  await page.getByRole("button", { name: "Next explanation step" }).click();
+  await expect(page.locator(".mechanism-step").nth(1)).toHaveAttribute(
+    "aria-pressed",
+    "true",
+  );
+  await expect(page.locator(".mechanism-explanation")).toContainText(
+    additions.at(-1).visualSteps[1].label,
+  );
+  await page.getByRole("link", { name: /Recall practice/ }).click();
+  await expect(page.locator(".question-detail")).toBeVisible();
+  await expect(page.locator(".solution")).toHaveCount(0);
+  await page.goto(home + "#/map/diffusion-models");
+  await expect(page.locator(".km-center")).toContainText("Diffusion");
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto(home + "#/study/ml-code-autograd");
+  await expect(page.locator(".mechanism")).toBeAttached();
+  expect(
+    await page.evaluate(
+      () => document.documentElement.scrollWidth <= innerWidth,
+    ),
+  ).toBe(true);
+  expect(errors).toEqual([]);
 });

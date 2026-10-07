@@ -61,6 +61,7 @@ import {
   DAY,
 } from "./engine";
 import { Diagram } from "./Diagrams";
+import { ConceptDiagram } from "./ConceptDiagram";
 import { RichText, FormulaGuide } from "./MathText";
 import { PageOutline } from "./PageOutline";
 import { DashboardMap } from "./DashboardMap";
@@ -1738,7 +1739,9 @@ function TopicPage({ id }) {
         </LessonSection>
       )}
       <LessonSection title="Visual explanation" eyebrow="SEE THE RELATIONSHIP">
-        {visual ? (
+        {t.visualSteps?.length ? (
+          <ConceptDiagram key={id} steps={t.visualSteps} title={t.title} />
+        ) : visual ? (
           <Diagram key={id} kind={visual} />
         ) : (
           <>
@@ -3634,6 +3637,7 @@ async function boot() {
       ["curriculum", "questions", "companies"].map(async (name) => {
         const r = await fetch(
           import.meta.env.BASE_URL + "data/" + name + ".json",
+          { cache: "no-cache" },
         );
         if (!r.ok) throw new Error("HTTP " + r.status);
         return r.json();

@@ -1,0 +1,143 @@
+.mechanism {
+  margin: 20px 0 0;
+  border: 1px solid #dce5f2;
+  background: linear-gradient(135deg, #fbfcff, #f3f7ff);
+  border-radius: 12px;
+  padding: 24px;
+}
+.mechanism-header {
+  display: flex;
+  justify-content: space-between;
+  color: #5d6c82;
+  font-size: 9px;
+  letter-spacing: 1.6px;
+  margin-bottom: 25px;
+}
+.mechanism-header small {
+  font-size: 10px;
+  letter-spacing: 0;
+}
+.mechanism-flow {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+.mechanism-step {
+  flex: 1;
+  min-width: 0;
+  min-height: 115px;
+  padding: 15px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  border: 1px solid #dce5f2;
+  background: #fff;
+  border-radius: 10px;
+  color: #435571;
+  font-size: 12px;
+  line-height: 1.5;
+  text-align: center;
+  transition:
+    background 0.15s,
+    border-color 0.15s;
+}
+.mechanism-number {
+  width: 26px;
+  height: 26px;
+  display: grid;
+  place-items: center;
+  font-size: 10px;
+  border-radius: 50%;
+  background: #f0f4fa;
+  color: #5d6c82;
+}
+.mechanism-step.active {
+  background: #edf3ff;
+  border-color: #7297e5;
+  color: #254fb8;
+}
+.mechanism-step.active .mechanism-number {
+  background: #315ed0;
+  color: #fff;
+}
+.mechanism-arrow {
+  color: #98add1;
+  flex: none;
+}
+.mechanism-explanation {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+  border-top: 1px solid #dce5f2;
+  padding-top: 22px;
+  margin-top: 26px;
+  min-height: 165px;
+}
+.mechanism-explanation > div:first-child {
+  min-width: 0;
+  flex: 1;
+}
+.mechanism-explanation h3 {
+  margin: 5px 0 8px;
+  font-size: 17px;
+}
+.mechanism-explanation p {
+  font-size: 13px;
+  line-height: 1.8;
+  margin: 0;
+  color: #526079;
+}
+.mechanism-controls {
+  display: flex;
+  gap: 6px;
+}
+.mechanism-controls button {
+  width: 30px;
+  height: 30px;
+  display: grid;
+  place-items: center;
+  border: 1px solid #d5deeb;
+  background: white;
+  border-radius: 7px;
+  color: #315ed0;
+}
+.mechanism-controls button:disabled {
+  opacity: 0.3;
+}
+@media (max-width: 800px) {
+  .mechanism {
+    padding: 17px;
+  }
+  .mechanism-flow {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+  .mechanism-arrow {
+    display: none;
+  }
+  .mechanism-step {
+    min-height: 90px;
+    flex-direction: row;
+    justify-content: flex-start;
+    text-align: left;
+    padding: 12px;
+  }
+  .mechanism-number {
+    flex: none;
+  }
+  .mechanism-explanation {
+    gap: 8px;
+  }
+  .mechanism-explanation h3 {
+    font-size: 15px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .mechanism-step {
+    transition: none;
+  }
+}

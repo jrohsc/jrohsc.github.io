@@ -86,6 +86,41 @@ const DOMAINS = [
 ];
 const PATHS = [
   {
+    id: "causal",
+    title: "From probability to causal evidence",
+    note: "Separate observing a pattern from estimating an intervention, then plan an informative experiment.",
+    ids: [
+      "probability",
+      "conditional-expectation",
+      "causal-inference",
+      "research-design",
+      "power-analysis",
+    ],
+  },
+  {
+    id: "generative",
+    title: "From representations to generative models",
+    note: "Connect learned similarity, denoising, and multimodal representations.",
+    ids: [
+      "neural-networks",
+      "contrastive-learning",
+      "diffusion-models",
+      "multimodal",
+    ],
+  },
+  {
+    id: "execution",
+    title: "From gradients to distributed execution",
+    note: "Follow a derivative through an autodiff engine, recomputation, and collective communication.",
+    ids: [
+      "backprop",
+      "ml-code-autograd",
+      "activation-checkpointing",
+      "distributed",
+      "collective-communication",
+    ],
+  },
+  {
     id: "precision",
     title: "From numeric formats to GPU performance",
     note: "Follow precision and range into stable training, memory budgets, and measured throughput.",

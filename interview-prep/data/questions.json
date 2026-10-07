@@ -8056,5 +8056,2496 @@
     ],
     "provenance": "ORIGINAL",
     "companyRelevance": "Practice for shared role competencies, not a claim that any listed company has asked this question. Consult company–role evidence for preparation priorities."
+  },
+  {
+    "id": "conditional-mean-optimality",
+    "title": "Prove the conditional mean minimizes MSE",
+    "question": "Let Y have a finite second moment. Among all square-integrable functions g(X), prove that E[Y|X] minimizes E[(Y−g(X))²]. Is independence of the residual and X required?",
+    "topics": [
+      "conditional-expectation",
+      "regression"
+    ],
+    "subtopics": [
+      "Prove the conditional mean minimizes MSE"
+    ],
+    "companies": [
+      "deepmind",
+      "openai",
+      "anthropic",
+      "meta",
+      "nvidia",
+      "microsoft",
+      "apple",
+      "amazon",
+      "xai",
+      "startups"
+    ],
+    "roles": [
+      "rs",
+      "re",
+      "mle",
+      "as",
+      "swe"
+    ],
+    "type": "reasoning",
+    "difficulty": 4,
+    "expectedTime": 12,
+    "importance": 4,
+    "hints": [
+      "Add and subtract m(X)=E[Y|X] inside the squared error.",
+      "Condition the cross term on X and use its zero conditional residual mean."
+    ],
+    "shortAnswer": "The error decomposes into average conditional variance plus the squared distance from g(X) to the conditional mean. The second term is nonnegative and vanishes when g=m almost surely. Residual independence is not required; zero conditional mean is enough.",
+    "intuition": "Once X is fixed, the conditional mean leaves no average directional error for any function of X to exploit.",
+    "derivation": "Let $m=\\mathbb E[Y\\mid X]$. Expand $(Y-g)^2=(Y-m)^2+(m-g)^2+2(Y-m)(m-g)$. Given X, the factor m−g is fixed and $\\mathbb E[Y-m\\mid X]=0$, so the cross term has expectation zero. Thus $\\mathbb E[(Y-g)^2]=\\mathbb E[\\operatorname{Var}(Y\\mid X)]+\\mathbb E[(m-g)^2]$. Equality with the minimum requires g=m almost surely.",
+    "implementation": "from statistics import mean\nrows = [(0,-1), (0,1), (1,1), (1,3)]\nmse = mean((y-2*x)**2 for x,y in rows)\nassert mse == 1",
+    "commonMistakes": [
+      "Assuming uncorrelated residuals are independent",
+      "Omitting the finite-second-moment requirement",
+      "Claiming the result applies unchanged to absolute loss"
+    ],
+    "followUps": [
+      "What predictor minimizes conditional absolute error?",
+      "Give a heteroskedastic example where residuals have conditional mean zero but are not independent of X."
+    ],
+    "prerequisites": [
+      "conditional-expectation"
+    ],
+    "sources": [
+      {
+        "title": "Concept reference · MIT OCW · Introduction to Probability, conditional expectation lectures",
+        "url": "https://ocw.mit.edu/courses/res-6-012-introduction-to-probability-spring-2018/resources/lecture-videos/",
+        "lastVerified": "2026-10-07",
+        "sourceType": "CONCEPT_REFERENCE_NOT_REPORTED_QUESTION",
+        "note": "Reference for the underlying concepts; the question and numerical example are original, not a reported company interview question."
+      }
+    ],
+    "rubric": [
+      "Correct error expansion",
+      "Condition cross term on X",
+      "State nonnegativity and almost-sure optimality",
+      "Avoid unnecessary independence"
+    ],
+    "provenance": "ORIGINAL",
+    "companyRelevance": "Practice for shared role competencies, not a claim that this company has asked this question. Consult the company–role profile's evidence and uncertainty for actual preparation priorities."
+  },
+  {
+    "id": "conditional-variance-accounting",
+    "title": "Calculate the value of additional information",
+    "question": "X is a fair binary variable and Y=2X+ε, with independent noise ε equally likely to be −1 or +1. Compare the MSE of the constant prediction 1, g(X)=X, and the conditional-mean prediction. Account for every term using total variance.",
+    "topics": [
+      "conditional-expectation",
+      "expectation"
+    ],
+    "subtopics": [
+      "Calculate the value of additional information"
+    ],
+    "companies": [
+      "deepmind",
+      "openai",
+      "anthropic",
+      "meta",
+      "nvidia",
+      "microsoft",
+      "apple",
+      "amazon",
+      "xai",
+      "startups"
+    ],
+    "roles": [
+      "rs",
+      "re",
+      "mle",
+      "as",
+      "swe"
+    ],
+    "type": "probability",
+    "difficulty": 3,
+    "expectedTime": 8,
+    "importance": 4,
+    "hints": [
+      "The conditional mean is 2X and conditional variance is 1.",
+      "For g(X)=X, the deviation from the conditional mean is X."
+    ],
+    "shortAnswer": "The constant predictor has MSE 2, g(X)=X has MSE 1.5, and the conditional mean 2X has MSE 1. Conditional noise contributes 1 in every case; the extra terms are 1, .5, and 0 respectively.",
+    "intuition": "Knowing X removes variation between group means, but cannot reveal the independent noise.",
+    "derivation": "$\\operatorname{Var}(2X)=4(.25)=1$ and $\\operatorname{Var}(\\varepsilon)=1$, giving total variance 2. For g(X)=X, $\\mathbb E[(2X-X)^2]=\\mathbb E[X]=.5$. Add the average conditional variance 1 to obtain 1.5.",
+    "implementation": "from statistics import mean\nrows = [(0,-1),(0,1),(1,1),(1,3)]\nerrors = [mean((y-f(x))**2 for x,y in rows)\n          for f in (lambda x:1, lambda x:x, lambda x:2*x)]\nassert errors == [2,1.5,1]",
+    "commonMistakes": [
+      "Using equal group weights without checking the distribution of X",
+      "Adding standard deviations instead of variances"
+    ],
+    "followUps": [
+      "What changes when P(X=1)=.2?",
+      "What if the noise mean depends on X?"
+    ],
+    "prerequisites": [
+      "conditional-expectation"
+    ],
+    "sources": [
+      {
+        "title": "Concept reference · MIT OCW · Introduction to Probability, conditional expectation lectures",
+        "url": "https://ocw.mit.edu/courses/res-6-012-introduction-to-probability-spring-2018/resources/lecture-videos/",
+        "lastVerified": "2026-10-07",
+        "sourceType": "CONCEPT_REFERENCE_NOT_REPORTED_QUESTION",
+        "note": "Reference for the underlying concepts; the question and numerical example are original, not a reported company interview question."
+      }
+    ],
+    "rubric": [
+      "Correct conditional mean and noise variance",
+      "Correct three MSE values",
+      "Explain information-limited residual error"
+    ],
+    "provenance": "ORIGINAL",
+    "companyRelevance": "Practice for shared role competencies, not a claim that this company has asked this question. Consult the company–role profile's evidence and uncertainty for actual preparation priorities."
+  },
+  {
+    "id": "hoeffding-model-selection",
+    "title": "A pointwise guarantee after model selection",
+    "question": "You evaluate 100 models fixed before data collection on n independent examples with binary correctness. Derive a sufficient n so every empirical accuracy is within .05 of its expectation with failure probability at most .05. Explain what changes if you adapt models after seeing the evaluation scores.",
+    "topics": [
+      "concentration-inequalities",
+      "evaluation"
+    ],
+    "subtopics": [
+      "A pointwise guarantee after model selection"
+    ],
+    "companies": [
+      "deepmind",
+      "openai",
+      "anthropic",
+      "meta",
+      "nvidia",
+      "microsoft",
+      "apple",
+      "amazon",
+      "xai",
+      "startups"
+    ],
+    "roles": [
+      "rs",
+      "re",
+      "mle",
+      "as",
+      "swe"
+    ],
+    "type": "derivation",
+    "difficulty": 4,
+    "expectedTime": 12,
+    "importance": 4,
+    "hints": [
+      "Apply a two-sided Hoeffding bound to each model.",
+      "Use a union bound; model errors do not need to be mutually independent."
+    ],
+    "shortAnswer": "A union bound gives failure probability at most 2K exp(−2nε²). With K=100, ε=.05, and δ=.05, n must be at least log(4000)/.005≈1658.81, hence 1659. Adaptive model construction is not covered by this direct fixed-candidate argument.",
+    "intuition": "The guarantee must protect the entire collection from which the winner is selected, not only the winner treated as if it were chosen in advance.",
+    "derivation": "For each j, $P(|\\hat a_j-a_j|\\ge\\epsilon)\\le2e^{-2n\\epsilon^2}$. Summing failure events gives $P(\\exists j:\\text{failure}_j)\\le2Ke^{-2n\\epsilon^2}$. Solve for $n\\ge\\log(2K/\\delta)/(2\\epsilon^2)$ and round upward. Independence is required across evaluation examples for each bound, not across models.",
+    "implementation": "from math import ceil, log\nn = ceil(log(2*100/.05)/(2*.05**2))\nassert n == 1659",
+    "commonMistakes": [
+      "Using the single-model count 738 after selecting among 100",
+      "Assuming the union bound requires independent model failures",
+      "Extending the fixed-candidate proof to arbitrary adaptive reuse"
+    ],
+    "followUps": [
+      "How does n scale when ε halves?",
+      "What if per-example loss is unbounded?"
+    ],
+    "prerequisites": [
+      "concentration-inequalities"
+    ],
+    "sources": [
+      {
+        "title": "Concept reference · Jeff M. Phillips · Chernoff–Hoeffding Inequality and Applications",
+        "url": "https://arxiv.org/abs/1209.6396",
+        "lastVerified": "2026-10-07",
+        "sourceType": "CONCEPT_REFERENCE_NOT_REPORTED_QUESTION",
+        "note": "Reference for the underlying concepts; the question and numerical example are original, not a reported company interview question."
+      }
+    ],
+    "rubric": [
+      "State boundedness and independent-example assumptions",
+      "Use union bound correctly",
+      "Compute 1659",
+      "Explain the adaptivity limitation"
+    ],
+    "provenance": "ORIGINAL",
+    "companyRelevance": "Practice for shared role competencies, not a claim that this company has asked this question. Consult the company–role profile's evidence and uncertainty for actual preparation priorities."
+  },
+  {
+    "id": "chebyshev-vs-hoeffding",
+    "title": "Choose a concentration inequality from the assumptions",
+    "question": "An estimator is the mean of 100 independent identically distributed observations with variance 4, but their range is unknown. Bound the probability that it differs from its expectation by at least 1. Can you substitute the usual [0,1] Hoeffding formula?",
+    "topics": [
+      "concentration-inequalities",
+      "statistics"
+    ],
+    "subtopics": [
+      "Choose a concentration inequality from the assumptions"
+    ],
+    "companies": [
+      "deepmind",
+      "openai",
+      "anthropic",
+      "meta",
+      "nvidia",
+      "microsoft",
+      "apple",
+      "amazon",
+      "xai",
+      "startups"
+    ],
+    "roles": [
+      "rs",
+      "re",
+      "mle",
+      "as",
+      "swe"
+    ],
+    "type": "reasoning",
+    "difficulty": 3,
+    "expectedTime": 8,
+    "importance": 4,
+    "hints": [
+      "First calculate the variance of the sample mean.",
+      "Check boundedness before using Hoeffding."
+    ],
+    "shortAnswer": "The mean has variance 4/100=.04, so Chebyshev bounds the deviation probability by .04. The [0,1] Hoeffding formula is not justified without the corresponding bounded-range assumption.",
+    "intuition": "You earn a stronger tail statement through stronger assumptions, not by choosing the formula with the smallest number.",
+    "derivation": "Independence gives $\\operatorname{Var}(\\bar X)=\\sigma^2/n=.04$. Apply Markov to $(\\bar X-\\mu)^2$ to get $P(|\\bar X-\\mu|\\ge1)\\le.04/1^2=.04$. Finite variance does not imply bounded support or sub-Gaussian tails.",
+    "implementation": "variance, n, threshold = 4., 100, 1.\nbound = min(1., variance/(n*threshold**2))\nassert bound == .04",
+    "commonMistakes": [
+      "Using the variance of one observation instead of the mean",
+      "Assuming a finite variance implies a Gaussian or bounded distribution"
+    ],
+    "followUps": [
+      "What breaks if observations are positively correlated?",
+      "If observations are bounded in [−2,2], how does their range enter Hoeffding?"
+    ],
+    "prerequisites": [
+      "concentration-inequalities"
+    ],
+    "sources": [
+      {
+        "title": "Concept reference · Jeff M. Phillips · Chernoff–Hoeffding Inequality and Applications",
+        "url": "https://arxiv.org/abs/1209.6396",
+        "lastVerified": "2026-10-07",
+        "sourceType": "CONCEPT_REFERENCE_NOT_REPORTED_QUESTION",
+        "note": "Reference for the underlying concepts; the question and numerical example are original, not a reported company interview question."
+      },
+      {
+        "title": "Concept reference · MIT OCW · Introduction to Probability, conditional expectation lectures",
+        "url": "https://ocw.mit.edu/courses/res-6-012-introduction-to-probability-spring-2018/resources/lecture-videos/",
+        "lastVerified": "2026-10-07",
+        "sourceType": "CONCEPT_REFERENCE_NOT_REPORTED_QUESTION",
+        "note": "Reference for the underlying concepts; the question and numerical example are original, not a reported company interview question."
+      }
+    ],
+    "rubric": [
+      "Correct sample-mean variance",
+      "Correct .04 bound",
+      "Explicitly reject unsupported boundedness"
+    ],
+    "provenance": "ORIGINAL",
+    "companyRelevance": "Practice for shared role competencies, not a claim that this company has asked this question. Consult the company–role profile's evidence and uncertainty for actual preparation priorities."
+  },
+  {
+    "id": "gp-one-observation",
+    "title": "Condition a GP on one noisy observation",
+    "question": "A zero-mean GP has training variance 1, test prior variance 1, and train-test covariance .5. You observe y=2 with independent noise variance .25. Compute the posterior test mean, latent variance, and variance of a new equally noisy observation.",
+    "topics": [
+      "gaussian-processes",
+      "conditional-expectation"
+    ],
+    "subtopics": [
+      "Condition a GP on one noisy observation"
+    ],
+    "companies": [
+      "deepmind",
+      "openai",
+      "anthropic",
+      "meta",
+      "nvidia",
+      "microsoft",
+      "apple",
+      "amazon",
+      "xai",
+      "startups"
+    ],
+    "roles": [
+      "rs",
+      "re",
+      "mle",
+      "as",
+      "swe"
+    ],
+    "type": "derivation",
+    "difficulty": 3,
+    "expectedTime": 10,
+    "importance": 4,
+    "hints": [
+      "The observation covariance is latent covariance plus noise.",
+      "Add new noise only after calculating the latent posterior variance."
+    ],
+    "shortAnswer": "The training observation variance is 1.25. Posterior mean is .8, latent variance is .8, and the variance of a new noisy observation is 1.05.",
+    "intuition": "The observation only partly informs the test point because their covariance is .5 and the observation itself is noisy.",
+    "derivation": "$\\mu_*=(.5/1.25)2=.8$. The explained variance is $.5^2/1.25=.2$, so $\\Sigma_*=1-.2=.8$. Independent new observation noise adds .25, giving 1.05.",
+    "implementation": "A, cross, y, prior, noise = 1.25, .5, 2., 1., .25\nmean = cross*y/A\nlatent = prior-cross**2/A\nobserved = latent+noise\nassert abs(mean-.8)<1e-12 and abs(observed-1.05)<1e-12",
+    "commonMistakes": [
+      "Adding noise to cross-covariance",
+      "Reporting latent variance as future-observation variance",
+      "Forcing interpolation despite nonzero noise"
+    ],
+    "followUps": [
+      "What happens at the training location?",
+      "What changes as observation noise tends to infinity?"
+    ],
+    "prerequisites": [
+      "gaussian-processes"
+    ],
+    "sources": [
+      {
+        "title": "Concept reference · Rasmussen & Williams · Gaussian Processes for Machine Learning, Chapter 2",
+        "url": "https://gaussianprocess.org/gpml/chapters/RW2.pdf",
+        "lastVerified": "2026-10-07",
+        "sourceType": "CONCEPT_REFERENCE_NOT_REPORTED_QUESTION",
+        "note": "Reference for the underlying concepts; the question and numerical example are original, not a reported company interview question."
+      }
+    ],
+    "rubric": [
+      "Build A=1.25",
+      "Compute mean and latent variance",
+      "Add independent future noise separately"
+    ],
+    "provenance": "ORIGINAL",
+    "companyRelevance": "Practice for shared role competencies, not a claim that this company has asked this question. Consult the company–role profile's evidence and uncertainty for actual preparation priorities."
+  },
+  {
+    "id": "gp-covariance-debug",
+    "title": "Debug an overconfident GP implementation",
+    "question": "A GP uses an explicit inverse of a nearly singular kernel matrix and reports small negative predictive variances. A developer clips all negatives to zero and publishes narrow uncertainty bands. Explain a safer debugging sequence.",
+    "topics": [
+      "gaussian-processes",
+      "spectral"
+    ],
+    "subtopics": [
+      "Debug an overconfident GP implementation"
+    ],
+    "companies": [
+      "deepmind",
+      "openai",
+      "anthropic",
+      "meta",
+      "nvidia",
+      "microsoft",
+      "apple",
+      "amazon",
+      "xai",
+      "startups"
+    ],
+    "roles": [
+      "rs",
+      "re",
+      "mle",
+      "as",
+      "swe"
+    ],
+    "type": "debugging",
+    "difficulty": 4,
+    "expectedTime": 12,
+    "importance": 4,
+    "hints": [
+      "Check the kernel and noise model before treating every failure as roundoff.",
+      "Compare a Cholesky solve against a small analytic example."
+    ],
+    "shortAnswer": "Validate PSD structure, symmetry, shapes, and observation-noise treatment; replace the inverse with Cholesky solves; use a documented small jitter for numerical stability. Tiny negative roundoff may be truncated only after scale-aware checks. Large negatives signal a bug or invalid covariance, and latent versus observation intervals must be distinguished.",
+    "intuition": "A covariance matrix encodes nonnegative uncertainty. Blind clipping can hide a wrong kernel or incorrectly assembled cross-covariance and turn a bug into artificial certainty.",
+    "derivation": "Compute $A=K+\\sigma_n^2I$ and factor $A=LL^T$. Let $V=L^{-1}K_*$; then $\\Sigma_*=K_{**}-V^TV$. Check symmetry and eigenvalues relative to scale, verify the one-observation case, and compare with a high-precision small solve. Jitter changes the linear system and should be reported rather than silently tuned to improve test scores.",
+    "implementation": "import numpy as np\nK = np.array([[1.,.999],[.999,1.]])\nL = np.linalg.cholesky(K + .01*np.eye(2))\nKstar = np.array([[.8],[.8]])\nV = np.linalg.solve(L,Kstar)\nvariance = 1.-float((V.T@V)[0,0])\nassert variance > 0",
+    "commonMistakes": [
+      "Clipping substantial negative values without diagnosis",
+      "Using numerical jitter as an unreported noise model",
+      "Selecting kernel settings on test data"
+    ],
+    "followUps": [
+      "What is the dense computational cost as training size grows?",
+      "Why can a valid posterior still be miscalibrated under kernel misspecification?"
+    ],
+    "prerequisites": [
+      "gaussian-processes"
+    ],
+    "sources": [
+      {
+        "title": "Concept reference · Rasmussen & Williams · Gaussian Processes for Machine Learning, Chapter 2",
+        "url": "https://gaussianprocess.org/gpml/chapters/RW2.pdf",
+        "lastVerified": "2026-10-07",
+        "sourceType": "CONCEPT_REFERENCE_NOT_REPORTED_QUESTION",
+        "note": "Reference for the underlying concepts; the question and numerical example are original, not a reported company interview question."
+      }
+    ],
+    "rubric": [
+      "Check model and matrix validity",
+      "Use solves instead of inverse",
+      "Distinguish tiny roundoff from substantive failure",
+      "Separate latent and noisy intervals"
+    ],
+    "provenance": "ORIGINAL",
+    "companyRelevance": "Practice for shared role competencies, not a claim that this company has asked this question. Consult the company–role profile's evidence and uncertainty for actual preparation priorities."
+  },
+  {
+    "id": "causal-confounding-reversal",
+    "title": "Explain a treatment-effect reversal",
+    "question": "Low-risk success rates are .90 untreated and .95 treated; high-risk rates are .40 and .50. Treated people are 80% high-risk, controls 20% high-risk. Compute the naive contrast and the standardized contrast for a 50/50 target population. State when the latter is causal.",
+    "topics": [
+      "causal-inference",
+      "conditional-expectation"
+    ],
+    "subtopics": [
+      "Explain a treatment-effect reversal"
+    ],
+    "companies": [
+      "deepmind",
+      "openai",
+      "anthropic",
+      "meta",
+      "nvidia",
+      "microsoft",
+      "apple",
+      "amazon",
+      "xai",
+      "startups"
+    ],
+    "roles": [
+      "rs",
+      "re",
+      "mle",
+      "as",
+      "swe"
+    ],
+    "type": "reasoning",
+    "difficulty": 4,
+    "expectedTime": 12,
+    "importance": 4,
+    "hints": [
+      "First use the different observed group mixtures.",
+      "Then use one common target mixture for both interventions."
+    ],
+    "shortAnswer": "Naive treated success is .59 and control success .80, giving −.21. Standardization gives treated .725 and control .65, hence +.075. A causal interpretation requires a well-defined intervention, consistency, conditional exchangeability given risk, and positivity in relevant strata.",
+    "intuition": "Observed groups differ in baseline risk. A within-stratum benefit can coexist with a worse raw treated-group average.",
+    "derivation": "Raw contrast is $.2(.95)+.8(.50)-[.8(.90)+.2(.40)]=-.21$. Under identification, $\\operatorname{ATE}=.5(.95-.90)+.5(.50-.40)=.075$. The weights must be the same on both potential-outcome means.",
+    "implementation": "naive = .2*.95+.8*.5-(.8*.9+.2*.4)\nadjusted = .5*(.95-.9)+.5*(.5-.4)\nassert abs(naive+.21)<1e-12 and abs(adjusted-.075)<1e-12",
+    "commonMistakes": [
+      "Declaring an arithmetic contradiction",
+      "Calling the adjusted contrast causal without assumptions",
+      "Using treated-group weights for one mean and control-group weights for the other"
+    ],
+    "followUps": [
+      "What if risk is measured after treatment?",
+      "How would the target contrast change for an 80% low-risk population?"
+    ],
+    "prerequisites": [
+      "causal-inference"
+    ],
+    "sources": [
+      {
+        "title": "Concept reference · Hernán & Robins · Causal Inference: What If",
+        "url": "https://miguelhernan.org/whatifbook",
+        "lastVerified": "2026-10-07",
+        "sourceType": "CONCEPT_REFERENCE_NOT_REPORTED_QUESTION",
+        "note": "Reference for the underlying concepts; the question and numerical example are original, not a reported company interview question."
+      }
+    ],
+    "rubric": [
+      "Correct −.21 and +.075 calculations",
+      "Explain composition confounding",
+      "State identification assumptions"
+    ],
+    "provenance": "ORIGINAL",
+    "companyRelevance": "Practice for shared role competencies, not a claim that this company has asked this question. Consult the company–role profile's evidence and uncertainty for actual preparation priorities."
+  },
+  {
+    "id": "causal-positivity-failure",
+    "title": "A perfect predictor without treatment overlap",
+    "question": "Every high-risk person in an observational dataset receives treatment. A flexible model predicts observed outcomes almost perfectly and imputes untreated high-risk outcomes. Can the population treatment effect be claimed as identified from these data? Explain what evidence or assumptions are missing.",
+    "topics": [
+      "causal-inference",
+      "ml-foundations"
+    ],
+    "subtopics": [
+      "A perfect predictor without treatment overlap"
+    ],
+    "companies": [
+      "deepmind",
+      "openai",
+      "anthropic",
+      "meta",
+      "nvidia",
+      "microsoft",
+      "apple",
+      "amazon",
+      "xai",
+      "startups"
+    ],
+    "roles": [
+      "rs",
+      "re",
+      "mle",
+      "as",
+      "swe"
+    ],
+    "type": "research",
+    "difficulty": 4,
+    "expectedTime": 10,
+    "importance": 4,
+    "hints": [
+      "Ask where the untreated high-risk outcomes come from.",
+      "Distinguish observed predictive fit from counterfactual support."
+    ],
+    "shortAnswer": "No, not nonparametrically under the usual adjustment argument for a population containing high-risk people. Positivity fails: there are no untreated high-risk outcomes. The model extrapolates an unobserved counterfactual; predictive accuracy on observed treatments does not validate that extrapolation.",
+    "intuition": "An outcome predictor can be excellent wherever data exist and arbitrary in the missing treatment-stratum combination.",
+    "derivation": "Adjustment needs $\\mathbb E[Y\\mid A=0,C=\\mathrm{high}]$, but $P(A=0\\mid C=\\mathrm{high})=0$. The conditional mean is unsupported by the observed distribution. Options include collecting data with overlap, changing the target population to an overlap region, or making explicit structural/extrapolation assumptions and sensitivity analyses.",
+    "implementation": "counts = {(\"low\",0):100,(\"low\",1):100,(\"high\",0):0,(\"high\",1):100}\nmissing = [key for key,n in counts.items() if n == 0]\nassert missing == [(\"high\",0)]",
+    "commonMistakes": [
+      "Treating test accuracy under observed assignments as counterfactual validation",
+      "Claiming inverse-propensity weighting fixes a zero propensity",
+      "Silently changing the target population"
+    ],
+    "followUps": [
+      "Why do near-zero propensities cause instability even without an exact zero?",
+      "What changes if the target population excludes high-risk people?"
+    ],
+    "prerequisites": [
+      "causal-inference"
+    ],
+    "sources": [
+      {
+        "title": "Concept reference · Hernán & Robins · Causal Inference: What If",
+        "url": "https://miguelhernan.org/whatifbook",
+        "lastVerified": "2026-10-07",
+        "sourceType": "CONCEPT_REFERENCE_NOT_REPORTED_QUESTION",
+        "note": "Reference for the underlying concepts; the question and numerical example are original, not a reported company interview question."
+      }
+    ],
+    "rubric": [
+      "Identify positivity failure",
+      "Name the unsupported mean",
+      "Separate extrapolation from identification",
+      "Offer transparent alternatives"
+    ],
+    "provenance": "ORIGINAL",
+    "companyRelevance": "Practice for shared role competencies, not a claim that this company has asked this question. Consult the company–role profile's evidence and uncertainty for actual preparation priorities."
+  },
+  {
+    "id": "power-independent-design",
+    "title": "Plan the size of an independent two-arm experiment",
+    "question": "Plan a two-sided test of independent group means with common standard deviation 2, meaningful difference 1, α=.05, and power .80. Estimate observations per arm. What happens if the meaningful effect halves?",
+    "topics": [
+      "power-analysis",
+      "experiments"
+    ],
+    "subtopics": [
+      "Plan the size of an independent two-arm experiment"
+    ],
+    "companies": [
+      "deepmind",
+      "openai",
+      "anthropic",
+      "meta",
+      "nvidia",
+      "microsoft",
+      "apple",
+      "amazon",
+      "xai",
+      "startups"
+    ],
+    "roles": [
+      "rs",
+      "re",
+      "mle",
+      "as",
+      "swe"
+    ],
+    "type": "estimation",
+    "difficulty": 3,
+    "expectedTime": 10,
+    "importance": 4,
+    "hints": [
+      "The standard error of the difference is σ√(2/n).",
+      "Use normal quantiles approximately 1.960 and .842, and remember n is per arm."
+    ],
+    "shortAnswer": "The normal approximation gives about 62.8 observations per arm, so round to 63, or 126 total. Halving the effect multiplies the unrounded count by four, yielding about 251.2 per arm and a rounded plan of 252 per arm.",
+    "intuition": "An effect must rise above both the significance threshold and the sampling fluctuation allowed by the desired power. Smaller effects require substantially more independent data.",
+    "derivation": "$n\\approx2\\sigma^2(z_{1-\\alpha/2}+z_{1-\\beta})^2/\\delta^2$. Substitution gives approximately $2(4)(2.802)^2=62.8$. Since δ is squared in the denominator, δ/2 requires 4n before rounding. Validate a design-specific model if assumptions are inappropriate.",
+    "implementation": "from statistics import NormalDist\nfrom math import ceil\nz = NormalDist().inv_cdf(.975)+NormalDist().inv_cdf(.8)\nassert ceil(2*4*z*z) == 63\nassert ceil(2*4*z*z/.5**2) == 252",
+    "commonMistakes": [
+      "Reporting 63 as total rather than per arm",
+      "Treating the approximation as exact for any metric",
+      "Selecting the meaningful effect after seeing the observed difference"
+    ],
+    "followUps": [
+      "What is the sample-size multiplier if σ also doubles?",
+      "How could a valid paired design reduce noise?"
+    ],
+    "prerequisites": [
+      "power-analysis"
+    ],
+    "sources": [
+      {
+        "title": "Concept reference · NIST/SEMATECH · Sample sizes required",
+        "url": "https://www.itl.nist.gov/div898/handbook/prc/section2/prc222.htm",
+        "lastVerified": "2026-10-07",
+        "sourceType": "CONCEPT_REFERENCE_NOT_REPORTED_QUESTION",
+        "note": "Reference for the underlying concepts; the question and numerical example are original, not a reported company interview question."
+      }
+    ],
+    "rubric": [
+      "Correct formula and assumptions",
+      "Correct per-arm and total counts",
+      "Correct fourfold effect-size scaling"
+    ],
+    "provenance": "ORIGINAL",
+    "companyRelevance": "Practice for shared role competencies, not a claim that this company has asked this question. Consult the company–role profile's evidence and uncertainty for actual preparation priorities."
+  },
+  {
+    "id": "power-cluster-design",
+    "title": "Repeated measurements do not equal independent users",
+    "question": "An experiment randomizes users, with 10 outcome measurements per user and intraclass correlation .2. Under the equal-cluster approximation, compute the design effect. Explain why a nonsignificant result does not by itself demonstrate that any meaningful effect is absent.",
+    "topics": [
+      "power-analysis",
+      "research-evaluation"
+    ],
+    "subtopics": [
+      "Repeated measurements do not equal independent users"
+    ],
+    "companies": [
+      "deepmind",
+      "openai",
+      "anthropic",
+      "meta",
+      "nvidia",
+      "microsoft",
+      "apple",
+      "amazon",
+      "xai",
+      "startups"
+    ],
+    "roles": [
+      "rs",
+      "re",
+      "mle",
+      "as",
+      "swe"
+    ],
+    "type": "experiment",
+    "difficulty": 4,
+    "expectedTime": 10,
+    "importance": 4,
+    "hints": [
+      "Use 1+(m−1)ρ for the simple design effect.",
+      "A wide confidence interval may contain both zero and practically important effects."
+    ],
+    "shortAnswer": "The design effect is 1+9·.2=2.8. Naively treating every record as independent understates variance. Nonsignificance only means the chosen test did not reject; demonstrating practical equivalence requires a suitable margin, design, and interval or equivalence test.",
+    "intuition": "Repeated records from one person share information. A study can look numerically large while having weak ability to detect effects at the randomized-user level.",
+    "derivation": "Under equal cluster sizes and common within-cluster correlation, variance inflation is $\\operatorname{DE}=1+(m-1)\\rho=2.8$. An illustrative effective record count is $N/2.8$, not N; unequal sizes and nonlinear metrics need fuller analysis. If the effect interval is wide, absence of significance is compatible with a substantial effect.",
+    "implementation": "m, rho, records = 10, .2, 10000\ndesign_effect = 1+(m-1)*rho\neffective = records/design_effect\nassert abs(design_effect-2.8)<1e-12\nprint(effective)",
+    "commonMistakes": [
+      "Confusing records with independent randomization units",
+      "Treating the simple design effect as exact for every clustered design",
+      "Calling p>.05 proof of equivalence"
+    ],
+    "followUps": [
+      "How does unequal cluster size complicate planning?",
+      "What interval would support ruling out a prespecified meaningful effect?"
+    ],
+    "prerequisites": [
+      "power-analysis"
+    ],
+    "sources": [
+      {
+        "title": "Concept reference · NIST/SEMATECH · Sample sizes required",
+        "url": "https://www.itl.nist.gov/div898/handbook/prc/section2/prc222.htm",
+        "lastVerified": "2026-10-07",
+        "sourceType": "CONCEPT_REFERENCE_NOT_REPORTED_QUESTION",
+        "note": "Reference for the underlying concepts; the question and numerical example are original, not a reported company interview question."
+      }
+    ],
+    "rubric": [
+      "Compute 2.8",
+      "Explain independent unit and variance inflation",
+      "Distinguish nonsignificance from equivalence"
+    ],
+    "provenance": "ORIGINAL",
+    "companyRelevance": "Practice for shared role competencies, not a claim that this company has asked this question. Consult the company–role profile's evidence and uncertainty for actual preparation priorities."
+  },
+  {
+    "id": "contamination-mixture-interpretation",
+    "title": "A benchmark score with exposed and clean items",
+    "question": "A hypothetical benchmark has 40 exposed items with accuracy .95 and 60 clean items with accuracy .65. Compute aggregate accuracy. Does the difference between exposed and clean scores identify the causal effect of contamination? Could aggregate accuracy alone reveal the contamination fraction?",
+    "topics": [
+      "data-contamination",
+      "causal-inference"
+    ],
+    "subtopics": [
+      "A benchmark score with exposed and clean items"
+    ],
+    "companies": [
+      "deepmind",
+      "openai",
+      "anthropic",
+      "meta",
+      "nvidia",
+      "microsoft",
+      "apple",
+      "amazon",
+      "xai",
+      "startups"
+    ],
+    "roles": [
+      "rs",
+      "re",
+      "mle",
+      "as",
+      "swe"
+    ],
+    "type": "critique",
+    "difficulty": 3,
+    "expectedTime": 9,
+    "importance": 4,
+    "hints": [
+      "Use a weighted average, not an unweighted average of group scores.",
+      "The groups may differ in difficulty as well as exposure."
+    ],
+    "shortAnswer": "Aggregate accuracy is .77. The 30-point exposed-clean difference is not automatically a causal exposure effect, because group composition may differ. A single aggregate score cannot identify unknown contamination rate and unknown subgroup scores.",
+    "intuition": "Mixture arithmetic describes a dataset, but does not establish why its groups differ or solve an underdetermined identification problem.",
+    "derivation": "$s_{\\mathrm{obs}}=.4(.95)+.6(.65)=.77$. The equation $s_{\\mathrm{obs}}=(1-c)s_{\\mathrm{clean}}+cs_{\\mathrm{exposed}}$ contains three unknown quantities when only the aggregate is observed. Attributing the subgroup difference to exposure requires a justified comparison or intervention, not just group labels.",
+    "implementation": "overall = .4*.95+.6*.65\nassert abs(overall-.77)<1e-12",
+    "commonMistakes": [
+      "Averaging .95 and .65 equally despite unequal group sizes",
+      "Subtracting an assumed contamination bonus without evidence",
+      "Equating subgroup difference with causal exposure effect"
+    ],
+    "followUps": [
+      "What additional evidence would let you audit exact train-test overlap?",
+      "How could you construct a fresh evaluation with comparable difficulty?"
+    ],
+    "prerequisites": [
+      "data-contamination"
+    ],
+    "sources": [
+      {
+        "title": "Concept reference · Lee et al. · Deduplicating Training Data Makes Language Models Better",
+        "url": "https://arxiv.org/abs/2107.06499",
+        "lastVerified": "2026-10-07",
+        "sourceType": "CONCEPT_REFERENCE_NOT_REPORTED_QUESTION",
+        "note": "Reference for the underlying concepts; the question and numerical example are original, not a reported company interview question."
+      },
+      {
+        "title": "Concept reference · Shi et al. · Detecting Pretraining Data from Large Language Models",
+        "url": "https://arxiv.org/abs/2310.16789",
+        "lastVerified": "2026-10-07",
+        "sourceType": "CONCEPT_REFERENCE_NOT_REPORTED_QUESTION",
+        "note": "Reference for the underlying concepts; the question and numerical example are original, not a reported company interview question."
+      },
+      {
+        "title": "Concept reference · Duan et al. · Do Membership Inference Attacks Work on Large Language Models?",
+        "url": "https://arxiv.org/abs/2402.07841",
+        "lastVerified": "2026-10-07",
+        "sourceType": "CONCEPT_REFERENCE_NOT_REPORTED_QUESTION",
+        "note": "Reference for the underlying concepts; the question and numerical example are original, not a reported company interview question."
+      }
+    ],
+    "rubric": [
+      "Compute .77",
+      "Explain underidentification",
+      "Distinguish association from causal effect"
+    ],
+    "provenance": "ORIGINAL",
+    "companyRelevance": "Practice for shared role competencies, not a claim that this company has asked this question. Consult the company–role profile's evidence and uncertainty for actual preparation priorities."
+  },
+  {
+    "id": "contamination-audit-plan",
+    "title": "Design a leakage audit for translated code problems",
+    "question": "Your code benchmark contains original statements, translations, renamed-variable variants, and solutions copied across repositories. Training data are only partly available. Propose an audit and split strategy, including what you can and cannot claim afterward.",
+    "topics": [
+      "data-contamination",
+      "research-design"
+    ],
+    "subtopics": [
+      "Design a leakage audit for translated code problems"
+    ],
+    "companies": [
+      "deepmind",
+      "openai",
+      "anthropic",
+      "meta",
+      "nvidia",
+      "microsoft",
+      "apple",
+      "amazon",
+      "xai",
+      "startups"
+    ],
+    "roles": [
+      "rs",
+      "re",
+      "mle",
+      "as",
+      "swe"
+    ],
+    "type": "research",
+    "difficulty": 4,
+    "expectedTime": 14,
+    "importance": 4,
+    "hints": [
+      "Choose a problem family, not a single string, as the held-out unit.",
+      "Distinguish direct corpus evidence from a probabilistic membership detector."
+    ],
+    "shortAnswer": "Create provenance and family groups, use declared normalization for exact matches, retrieve near-duplicate and cross-language candidates, and audit matches. Split entire connected families before training or selection. Use an untouched final set and report known overlap plus coverage limitations; incomplete training access prevents a blanket claim of no contamination.",
+    "intuition": "String identity is narrower than task identity. The same solution can leak through translations or templates even if every exact hash is unique.",
+    "derivation": "Exact overlap under a policy is $|\\mathcal E\\cap\\mathcal T|/|\\mathcal E|$. This excludes unknown corpora and semantic variants. Build a graph whose edges are validated same-family links, split connected components, and freeze the evaluation before inspecting model outcomes. Calibrate similarity or membership detectors on suitable controls; their scores are evidence with errors, not ground-truth exposure labels.",
+    "implementation": "import hashlib\ndef key(text):\n    return hashlib.sha256(\" \".join(text.split()).encode()).hexdigest()\nassert key(\"solve  x\") == key(\"solve x\")\nassert key(\"solve x\") != key(\"solve y\")\n# The last inequality illustrates why hashes alone miss problem families.",
+    "commonMistakes": [
+      "Deduplicating each split separately",
+      "Calling an unvalidated similarity threshold a semantic-equivalence oracle",
+      "Claiming no contamination despite inaccessible pretraining data",
+      "Choosing exclusions after examining which items the model missed"
+    ],
+    "followUps": [
+      "How can prompt tuning on a benchmark contaminate evaluation without training on its text?",
+      "What sensitivity analyses would you include in the report?"
+    ],
+    "prerequisites": [
+      "data-contamination"
+    ],
+    "sources": [
+      {
+        "title": "Concept reference · Lee et al. · Deduplicating Training Data Makes Language Models Better",
+        "url": "https://arxiv.org/abs/2107.06499",
+        "lastVerified": "2026-10-07",
+        "sourceType": "CONCEPT_REFERENCE_NOT_REPORTED_QUESTION",
+        "note": "Reference for the underlying concepts; the question and numerical example are original, not a reported company interview question."
+      },
+      {
+        "title": "Concept reference · Shi et al. · Detecting Pretraining Data from Large Language Models",
+        "url": "https://arxiv.org/abs/2310.16789",
+        "lastVerified": "2026-10-07",
+        "sourceType": "CONCEPT_REFERENCE_NOT_REPORTED_QUESTION",
+        "note": "Reference for the underlying concepts; the question and numerical example are original, not a reported company interview question."
+      },
+      {
+        "title": "Concept reference · Duan et al. · Do Membership Inference Attacks Work on Large Language Models?",
+        "url": "https://arxiv.org/abs/2402.07841",
+        "lastVerified": "2026-10-07",
+        "sourceType": "CONCEPT_REFERENCE_NOT_REPORTED_QUESTION",
+        "note": "Reference for the underlying concepts; the question and numerical example are original, not a reported company interview question."
+      }
+    ],
+    "rubric": [
+      "Define family-level split unit",
+      "Audit exact and semantic/provenance overlap",
+      "Preserve a final holdout",
+      "State limitations under partial corpus access",
+      "Avoid company interview claims"
+    ],
+    "provenance": "ORIGINAL",
+    "companyRelevance": "Practice for shared role competencies, not a claim that this company has asked this question. Consult the company–role profile's evidence and uncertainty for actual preparation priorities."
+  },
+  {
+    "id": "contrastive-numeric-gradient",
+    "title": "Compute a contrastive loss and its gradients",
+    "question": "An anchor has three candidate similarities $(1,0,0)$; the first candidate is positive and temperature is 1. Compute the positive probability, loss, and all three similarity gradients. Why do the gradients sum to zero?",
+    "topics": [
+      "contrastive-learning"
+    ],
+    "subtopics": [
+      "Compute a contrastive loss and its gradients"
+    ],
+    "companies": [
+      "deepmind",
+      "openai",
+      "anthropic",
+      "meta",
+      "nvidia",
+      "microsoft",
+      "apple",
+      "amazon",
+      "xai",
+      "startups"
+    ],
+    "roles": [
+      "rs",
+      "re",
+      "mle",
+      "as",
+      "swe"
+    ],
+    "type": "derivation",
+    "difficulty": 2,
+    "expectedTime": 8,
+    "importance": 4,
+    "hints": [
+      "Include the positive in the denominator.",
+      "Differentiate log-sum-exp before substituting the numbers."
+    ],
+    "shortAnswer": "The positive probability is $e/(e+2)\\approx0.5761$, loss is $\\log(e+2)-1\\approx0.5514$, and gradients are approximately $(-0.4239,0.2119,0.2119)$. A common similarity shift cannot change the softmax, so the loss has zero derivative along the all-ones direction.",
+    "intuition": "The loss compares relative scores: increasing every candidate equally cannot make the match easier to identify.",
+    "derivation": "$$p_j=\\frac{e^{s_j}}{\\sum_k e^{s_k}},\\qquad \\ell=-s_++\\log\\sum_k e^{s_k},\\qquad \\frac{\\partial\\ell}{\\partial s_j}=p_j-\\mathbf1[j=+].$$ Hence $\\sum_j\\partial\\ell/\\partial s_j=\\sum_jp_j-1=0$.",
+    "implementation": "",
+    "commonMistakes": [
+      "Excluding the positive from the denominator",
+      "Forgetting that temperature changes the probability distribution too"
+    ],
+    "followUps": [
+      "Recompute for temperature 0.5.",
+      "How does an unusually similar false negative affect the update?"
+    ],
+    "prerequisites": [
+      "information",
+      "ml-code-softmax",
+      "backprop"
+    ],
+    "sources": [
+      {
+        "title": "Concept reference · SimCLR · not a reported interview question",
+        "url": "https://arxiv.org/abs/2002.05709",
+        "sourceType": "CONCEPT_REFERENCE_NOT_REPORTED_QUESTION"
+      }
+    ],
+    "rubric": [
+      "Correct positive probability and loss",
+      "Correct gradient signs and values",
+      "Explain common-shift invariance"
+    ],
+    "provenance": "ORIGINAL",
+    "companyRelevance": "Practice for shared role competencies, not a claim that this company has asked this question. Consult the company–role profile's evidence and uncertainty for actual preparation priorities."
+  },
+  {
+    "id": "contrastive-pair-indexing",
+    "title": "Implement paired-view contrastive loss",
+    "question": "A batch is ordered as first views [0:N] followed by matching second views [N:2N]. Implement normalized, temperature-scaled contrastive loss. Explain the positive indices, self-mask, and one test that catches an ordering bug.",
+    "topics": [
+      "contrastive-learning"
+    ],
+    "subtopics": [
+      "Implement paired-view contrastive loss"
+    ],
+    "companies": [
+      "deepmind",
+      "openai",
+      "anthropic",
+      "meta",
+      "nvidia",
+      "microsoft",
+      "apple",
+      "amazon",
+      "xai",
+      "startups"
+    ],
+    "roles": [
+      "rs",
+      "re",
+      "mle",
+      "as",
+      "swe"
+    ],
+    "type": "implementation",
+    "difficulty": 3,
+    "expectedTime": 20,
+    "importance": 4,
+    "hints": [
+      "Write the mapping for N=2 by hand.",
+      "Mask the diagonal before calculating the denominator, not the paired view."
+    ],
+    "shortAnswer": "The positive index is (i+N) modulo 2N. Normalize each nonzero embedding, mask only self-comparisons, and use log-sum-exp over all remaining candidates. A four-vector test should have matching rows 0↔2 and 1↔3; confusing adjacent pairing with this layout changes the targets.",
+    "intuition": "Correct similarity arithmetic cannot rescue incorrectly constructed positive labels.",
+    "derivation": "$$j_+(i)=(i+N)\\bmod 2N,\\qquad \\ell_i=\\operatorname{LSE}_{j\\ne i}(s_{ij}/\\tau)-s_{i,j_+(i)}/\\tau.$$ Each anchor has one positive and $2N-2$ negatives.",
+    "implementation": "import numpy as np\ndef paired_contrastive_loss(z, temperature=0.2):\n    # Order: first views [0:N], matching second views [N:2N].\n    z = np.asarray(z, dtype=float)\n    if z.ndim != 2 or len(z) < 4 or len(z) % 2:\n        raise ValueError(\"an even batch with at least two pairs is required\")\n    if temperature <= 0:\n        raise ValueError(\"temperature must be positive\")\n    norms = np.linalg.norm(z, axis=1, keepdims=True)\n    if np.any(norms == 0):\n        raise ValueError(\"zero embeddings cannot be normalized\")\n    u = z / norms\n    logits = (u @ u.T) / temperature\n    np.fill_diagonal(logits, -np.inf)\n    m = logits.max(axis=1, keepdims=True)\n    log_denom = m[:, 0] + np.log(np.exp(logits-m).sum(axis=1))\n    n = len(z)//2\n    positive = (np.arange(2*n) + n) % (2*n)\n    return np.mean(log_denom - logits[np.arange(2*n), positive])",
+    "commonMistakes": [
+      "Assuming adjacent rows are the positive pairs for this layout",
+      "Allowing a zero embedding to divide by zero"
+    ],
+    "followUps": [
+      "What changes if examples are gathered across distributed workers?",
+      "How would you test that a permutation and its consistently permuted labels leave the loss unchanged?"
+    ],
+    "prerequisites": [
+      "information",
+      "ml-code-softmax",
+      "backprop"
+    ],
+    "sources": [
+      {
+        "title": "Concept reference · SimCLR · not a reported interview question",
+        "url": "https://arxiv.org/abs/2002.05709",
+        "sourceType": "CONCEPT_REFERENCE_NOT_REPORTED_QUESTION"
+      }
+    ],
+    "rubric": [
+      "Correct positive-index mapping",
+      "Stable denominator with diagonal excluded",
+      "Synthetic ordering test and zero-norm policy"
+    ],
+    "provenance": "ORIGINAL",
+    "companyRelevance": "Practice for shared role competencies, not a claim that this company has asked this question. Consult the company–role profile's evidence and uncertainty for actual preparation priorities."
+  },
+  {
+    "id": "diffusion-reconstruction-error",
+    "title": "Noise prediction and clean-sample error",
+    "question": "Let $x_0=2$, $\\bar\\alpha_t=0.25$, and injected noise $\\epsilon=1$. Find $x_t$. Reconstruct the clean value with predicted noise 1.1, and derive how noise-prediction error maps to clean-sample error.",
+    "topics": [
+      "diffusion-models"
+    ],
+    "subtopics": [
+      "Noise prediction and clean-sample error"
+    ],
+    "companies": [
+      "deepmind",
+      "openai",
+      "anthropic",
+      "meta",
+      "nvidia",
+      "microsoft",
+      "apple",
+      "amazon",
+      "xai",
+      "startups"
+    ],
+    "roles": [
+      "rs",
+      "re",
+      "mle",
+      "as",
+      "swe"
+    ],
+    "type": "derivation",
+    "difficulty": 2,
+    "expectedTime": 8,
+    "importance": 4,
+    "hints": [
+      "Use the square root of cumulative alpha, not cumulative alpha itself.",
+      "Subtract the exact reconstruction from the predicted reconstruction."
+    ],
+    "shortAnswer": "$x_t=1+\\sqrt{0.75}\\approx1.8660$. With predicted noise 1.1, $\\hat x_0\\approx1.8268$. The error is $-\\sqrt{(1-\\bar\\alpha_t)/\\bar\\alpha_t}\\,(\\hat\\epsilon-\\epsilon)$, approximately −0.1732 here.",
+    "intuition": "At high noise levels, recovering a small remaining signal requires division by a small signal coefficient, amplifying prediction error.",
+    "derivation": "$$\\hat x_0-x_0=\\frac{\\sqrt{\\bar\\alpha_t}x_0+\\sqrt{1-\\bar\\alpha_t}\\epsilon-\\sqrt{1-\\bar\\alpha_t}\\hat\\epsilon}{\\sqrt{\\bar\\alpha_t}}-x_0=-\\sqrt{\\frac{1-\\bar\\alpha_t}{\\bar\\alpha_t}}(\\hat\\epsilon-\\epsilon).$$",
+    "implementation": "",
+    "commonMistakes": [
+      "Dropping the negative sign",
+      "Using per-step alpha in place of cumulative alpha"
+    ],
+    "followUps": [
+      "How does the amplification change when cumulative alpha is 0.01?",
+      "Why can timestep weighting matter when comparing objectives?"
+    ],
+    "prerequisites": [
+      "distributions",
+      "expectation",
+      "backprop"
+    ],
+    "sources": [
+      {
+        "title": "Concept reference · Denoising Diffusion Probabilistic Models · not a reported interview question",
+        "url": "https://arxiv.org/abs/2006.11239",
+        "sourceType": "CONCEPT_REFERENCE_NOT_REPORTED_QUESTION"
+      }
+    ],
+    "rubric": [
+      "Correct noisy value",
+      "Correct reconstruction and error sign",
+      "Derive the amplification factor"
+    ],
+    "provenance": "ORIGINAL",
+    "companyRelevance": "Practice for shared role competencies, not a claim that this company has asked this question. Consult the company–role profile's evidence and uncertainty for actual preparation priorities."
+  },
+  {
+    "id": "diffusion-schedule-check",
+    "title": "Test a diffusion corruption implementation",
+    "question": "A noise-prediction model trains successfully, but the sampler reconstructs clean data using alpha_t rather than cumulative alpha_bar_t. Explain the bug and write a minimal test that isolates it without training a network.",
+    "topics": [
+      "diffusion-models"
+    ],
+    "subtopics": [
+      "Test a diffusion corruption implementation"
+    ],
+    "companies": [
+      "deepmind",
+      "openai",
+      "anthropic",
+      "meta",
+      "nvidia",
+      "microsoft",
+      "apple",
+      "amazon",
+      "xai",
+      "startups"
+    ],
+    "roles": [
+      "rs",
+      "re",
+      "mle",
+      "as",
+      "swe"
+    ],
+    "type": "debugging",
+    "difficulty": 3,
+    "expectedTime": 15,
+    "importance": 4,
+    "hints": [
+      "Use at least two timesteps so per-step and cumulative values differ.",
+      "Supply the exact injected noise instead of a model prediction."
+    ],
+    "shortAnswer": "Repeated forward corruption retains a product of signal fractions. Clean reconstruction must undo that cumulative factor. Generate a noisy sample using known injected noise, then reconstruct with that exact noise; the result should equal the clean sample up to roundoff. This tests algebra independently of network quality.",
+    "intuition": "A learned denoiser and the sampler must agree on how much signal remains at each timestep.",
+    "derivation": "$$\\bar\\alpha_t=\\prod_{s=1}^t(1-\\beta_s).$$ With $\\beta_1=0.1$ and $\\beta_2=0.2$, $\\bar\\alpha_2=0.72$, whereas $\\alpha_2=0.8$. These imply different signal and noise coefficients.",
+    "implementation": "import numpy as np\ndef noisy_sample(x0, alpha_bar, rng):\n    x0 = np.asarray(x0, dtype=float)\n    if not 0 < alpha_bar <= 1:\n        raise ValueError(\"alpha_bar must lie in (0, 1]\")\n    eps = rng.normal(size=x0.shape)\n    xt = np.sqrt(alpha_bar)*x0 + np.sqrt(1-alpha_bar)*eps\n    return xt, eps\ndef estimate_clean(xt, predicted_noise, alpha_bar):\n    if not 0 < alpha_bar <= 1:\n        raise ValueError(\"alpha_bar must lie in (0, 1]\")\n    return (xt-np.sqrt(1-alpha_bar)*predicted_noise)/np.sqrt(alpha_bar)\nrng = np.random.default_rng(0)\nx0 = np.array([1.0, -2.0])\nxt, eps = noisy_sample(x0, 0.25, rng)\nassert np.allclose(estimate_clean(xt, eps, 0.25), x0)",
+    "commonMistakes": [
+      "Blaming architecture before checking the schedule",
+      "Treating a clean reconstruction as a complete reverse sampler"
+    ],
+    "followUps": [
+      "What additional checks are needed for a reverse sampling step?",
+      "Why should a model receive a representation of time or noise level?"
+    ],
+    "prerequisites": [
+      "distributions",
+      "expectation",
+      "backprop"
+    ],
+    "sources": [
+      {
+        "title": "Concept reference · Denoising Diffusion Probabilistic Models · not a reported interview question",
+        "url": "https://arxiv.org/abs/2006.11239",
+        "sourceType": "CONCEPT_REFERENCE_NOT_REPORTED_QUESTION"
+      }
+    ],
+    "rubric": [
+      "Distinguish cumulative and per-step alpha",
+      "Exact-noise round-trip test",
+      "Separate sampler verification from model quality"
+    ],
+    "provenance": "ORIGINAL",
+    "companyRelevance": "Practice for shared role competencies, not a claim that this company has asked this question. Consult the company–role profile's evidence and uncertainty for actual preparation priorities."
+  },
+  {
+    "id": "moe-capacity-overflow",
+    "title": "Expert capacity and wasted slots",
+    "question": "An MoE layer has 4 experts, 8 tokens, top-1 routing, and capacity factor 1. Routed counts are (5,1,1,1). Calculate capacity and overflow under a fixed-capacity drop policy. If each expert has 10 million parameters, compare total expert parameters with active expert parameters per token.",
+    "topics": [
+      "mixture-of-experts"
+    ],
+    "subtopics": [
+      "Expert capacity and wasted slots"
+    ],
+    "companies": [
+      "deepmind",
+      "openai",
+      "anthropic",
+      "meta",
+      "nvidia",
+      "microsoft",
+      "apple",
+      "amazon",
+      "xai",
+      "startups"
+    ],
+    "roles": [
+      "rs",
+      "re",
+      "mle",
+      "as",
+      "swe"
+    ],
+    "type": "estimation",
+    "difficulty": 2,
+    "expectedTime": 8,
+    "importance": 4,
+    "hints": [
+      "Capacity is local to an expert, not a global token pool.",
+      "Count stored experts separately from selected experts."
+    ],
+    "shortAnswer": "Capacity is 2 assignments per expert. Expert 1 has three excess assignments, so three token branches are dropped even though other experts have spare slots. Total expert parameters are 40 million; a token selects 10 million expert parameters, excluding shared layers and router.",
+    "intuition": "Unused capacity elsewhere does not help unless the algorithm explicitly reroutes or changes its dispatch policy.",
+    "derivation": "$$C=\\left\\lceil\\frac{ckT}{E}\\right\\rceil=\\left\\lceil\\frac{1\\cdot1\\cdot8}{4}\\right\\rceil=2,\\qquad \\text{overflow}=\\sum_e\\max(0,n_e-C)=3.$$",
+    "implementation": "",
+    "commonMistakes": [
+      "Reporting zero overflow because total capacity equals token count",
+      "Claiming inactive expert weights need no memory"
+    ],
+    "followUps": [
+      "What would a capacity factor of 2 change?",
+      "How does top-2 routing alter the assignment count?"
+    ],
+    "prerequisites": [
+      "transformers",
+      "ml-code-softmax",
+      "distributed"
+    ],
+    "sources": [
+      {
+        "title": "Concept reference · Switch Transformers · not a reported interview question",
+        "url": "https://arxiv.org/abs/2101.03961",
+        "sourceType": "CONCEPT_REFERENCE_NOT_REPORTED_QUESTION"
+      }
+    ],
+    "rubric": [
+      "Capacity 2 and overflow 3",
+      "40M total versus 10M active",
+      "Explain stranded capacity and policy dependence"
+    ],
+    "provenance": "ORIGINAL",
+    "companyRelevance": "Practice for shared role competencies, not a claim that this company has asked this question. Consult the company–role profile's evidence and uncertainty for actual preparation priorities."
+  },
+  {
+    "id": "moe-router-gradient",
+    "title": "Why a top-1 router receives no gradient",
+    "question": "A router applies softmax, selects the top expert, and renormalizes its selected gate over the singleton set. Experts learn, but the router gets no gradient from the task loss. Explain why, propose a deliberate alternative, and describe what to log.",
+    "topics": [
+      "mixture-of-experts"
+    ],
+    "subtopics": [
+      "Why a top-1 router receives no gradient"
+    ],
+    "companies": [
+      "deepmind",
+      "openai",
+      "anthropic",
+      "meta",
+      "nvidia",
+      "microsoft",
+      "apple",
+      "amazon",
+      "xai",
+      "startups"
+    ],
+    "roles": [
+      "rs",
+      "re",
+      "mle",
+      "as",
+      "swe"
+    ],
+    "type": "debugging",
+    "difficulty": 4,
+    "expectedTime": 15,
+    "importance": 4,
+    "hints": [
+      "Differentiate the normalized gate after substituting k=1.",
+      "Do not assume autograd differentiates an argmax index."
+    ],
+    "shortAnswer": "The selected normalized gate is p/p=1. Away from top-1 selection boundaries, its derivative is zero, and the hard index does not provide an ordinary differentiable path. One alternative is to retain the selected unnormalized soft probability and add an explicit balancing objective. Log gate probabilities, assignment counts, overflow, and router gradient norms.",
+    "intuition": "Discrete selection and continuous gate weighting are different mechanisms. Changing the normalization can remove the continuous learning signal entirely.",
+    "derivation": "$$\\tilde p_e=\\frac{p_e}{\\sum_{j\\in\\{e\\}}p_j}=1,\\qquad \\frac{\\partial\\tilde p_e}{\\partial r_j}=0.$$ An unnormalized selected gate $p_e$ still has softmax derivatives within regions where the selected index stays fixed.",
+    "implementation": "import numpy as np\ndef route_topk(logits, k, capacity):\n    # Educational routing plan: normalized selected gates, explicit overflow mask.\n    logits = np.asarray(logits, float)\n    tokens, experts = logits.shape\n    if not 1 <= k <= experts or capacity < 0:\n        raise ValueError(\"invalid k or capacity\")\n    ids = np.argsort(-logits, axis=1, kind=\"stable\")[:, :k]\n    selected = np.take_along_axis(logits, ids, axis=1)\n    weights = np.exp(selected-selected.max(axis=1, keepdims=True))\n    weights /= weights.sum(axis=1, keepdims=True)\n    counts = np.zeros(experts, dtype=int)\n    accepted = np.zeros((tokens, k), dtype=bool)\n    for t in range(tokens):\n        for slot, e in enumerate(ids[t]):\n            accepted[t, slot] = counts[e] < capacity\n            counts[e] += 1\n    # Rejected branches contribute zero; weights are NOT renormalized afterward.\n    return ids, weights*accepted, accepted, counts",
+    "commonMistakes": [
+      "Claiming a balancing term is identical to task-loss feedback",
+      "Silently changing gate normalization while comparing implementations"
+    ],
+    "followUps": [
+      "How does top-2 normalized routing differ?",
+      "Why can balanced token counts still yield poor expert specialization?"
+    ],
+    "prerequisites": [
+      "transformers",
+      "ml-code-softmax",
+      "distributed"
+    ],
+    "sources": [
+      {
+        "title": "Concept reference · Switch Transformers · not a reported interview question",
+        "url": "https://arxiv.org/abs/2101.03961",
+        "sourceType": "CONCEPT_REFERENCE_NOT_REPORTED_QUESTION"
+      }
+    ],
+    "rubric": [
+      "Singleton normalization argument",
+      "Hard-selection differentiation limitation",
+      "Explicit alternative and diagnostics"
+    ],
+    "provenance": "ORIGINAL",
+    "companyRelevance": "Practice for shared role competencies, not a claim that this company has asked this question. Consult the company–role profile's evidence and uncertainty for actual preparation priorities."
+  },
+  {
+    "id": "long-context-budget-scaling",
+    "title": "Scale context length under a memory budget",
+    "question": "A decoder has 32 layers, one sequence, 4096 cached tokens, 8 KV heads, head dimension 128, and 2-byte KV values. Compute cache size. What changes at 8192 tokens for cache storage and dense prefill attention interactions?",
+    "topics": [
+      "long-context"
+    ],
+    "subtopics": [
+      "Scale context length under a memory budget"
+    ],
+    "companies": [
+      "deepmind",
+      "openai",
+      "anthropic",
+      "meta",
+      "nvidia",
+      "microsoft",
+      "apple",
+      "amazon",
+      "xai",
+      "startups"
+    ],
+    "roles": [
+      "rs",
+      "re",
+      "mle",
+      "as",
+      "swe"
+    ],
+    "type": "estimation",
+    "difficulty": 2,
+    "expectedTime": 10,
+    "importance": 4,
+    "hints": [
+      "Include both K and V.",
+      "Separate KV-head count from query-head count."
+    ],
+    "shortAnswer": "The cache is 536,870,912 bytes, or 0.5 GiB. Doubling context makes it 1 GiB. Dense attention interactions per head grow from 4096² to 8192², a factor of four. This does not imply every component of end-to-end runtime quadruples.",
+    "intuition": "Cache storage records one vector pair per token; dense prefill compares many pairs of token positions.",
+    "derivation": "$$M=2LBTH_{\\mathrm{kv}}d_hb=2(32)(1)(4096)(8)(128)(2)=536{,}870{,}912.$$ $$\\frac{8192^2}{4096^2}=4.$$",
+    "implementation": "import math\nimport numpy as np\ndef rotate_pair(x, position, theta):\n    angle = position * theta\n    c, s = math.cos(angle), math.sin(angle)\n    return np.array([c*x[0]-s*x[1], s*x[0]+c*x[1]])\ndef kv_bytes(layers, batch, length, kv_heads, head_dim, bytes_per_element):\n    return 2*layers*batch*length*kv_heads*head_dim*bytes_per_element\nq, k = np.array([1., 2.]), np.array([3., -1.])\nm, n, theta = 2, 7, 0.3\nlhs = rotate_pair(q, m, theta) @ rotate_pair(k, n, theta)\nrhs = q @ rotate_pair(k, n-m, theta)\nassert np.allclose(lhs, rhs)\nassert kv_bytes(32, 1, 4096, 8, 128, 2) == 536870912",
+    "commonMistakes": [
+      "Using T² for KV-cache memory",
+      "Claiming an exact IO-efficient attention kernel removes quadratic arithmetic"
+    ],
+    "followUps": [
+      "What happens to cache size with batch 4 and context 16384?",
+      "Which costs may dominate short-sequence inference instead?"
+    ],
+    "prerequisites": [
+      "attention",
+      "transformers",
+      "serving"
+    ],
+    "sources": [
+      {
+        "title": "Concept reference · RoFormer · not a reported interview question",
+        "url": "https://arxiv.org/abs/2104.09864",
+        "sourceType": "CONCEPT_REFERENCE_NOT_REPORTED_QUESTION"
+      },
+      {
+        "title": "Concept reference · FlashAttention · not a reported interview question",
+        "url": "https://arxiv.org/abs/2205.14135",
+        "sourceType": "CONCEPT_REFERENCE_NOT_REPORTED_QUESTION"
+      },
+      {
+        "title": "Concept reference · Lost in the Middle · not a reported interview question",
+        "url": "https://arxiv.org/abs/2307.03172",
+        "sourceType": "CONCEPT_REFERENCE_NOT_REPORTED_QUESTION"
+      }
+    ],
+    "rubric": [
+      "Correct byte and GiB values",
+      "Linear cache scaling",
+      "Quadratic attention component with runtime caveat"
+    ],
+    "provenance": "ORIGINAL",
+    "companyRelevance": "Practice for shared role competencies, not a claim that this company has asked this question. Consult the company–role profile's evidence and uncertainty for actual preparation priorities."
+  },
+  {
+    "id": "long-context-position-eval",
+    "title": "Does the model use evidence in the middle?",
+    "question": "A 128k-context model passes a test with one fact near the start of each document. Design a more informative evaluation that distinguishes position sensitivity, memorization, and multi-evidence reasoning.",
+    "topics": [
+      "long-context"
+    ],
+    "subtopics": [
+      "Does the model use evidence in the middle?"
+    ],
+    "companies": [
+      "deepmind",
+      "openai",
+      "anthropic",
+      "meta",
+      "nvidia",
+      "microsoft",
+      "apple",
+      "amazon",
+      "xai",
+      "startups"
+    ],
+    "roles": [
+      "rs",
+      "re",
+      "mle",
+      "as",
+      "swe"
+    ],
+    "type": "experiment",
+    "difficulty": 4,
+    "expectedTime": 15,
+    "importance": 4,
+    "hints": [
+      "Move the same evidence without changing its content.",
+      "Create questions where outside knowledge alone gives the wrong answer."
+    ],
+    "shortAnswer": "Sweep evidence positions and input lengths while holding question and distractor construction controlled. Use synthetic or counterfactual facts whose correct answer changes with the supplied evidence. Add tasks requiring several separated facts, oracle short-context evidence, and no-evidence cases. Report quality, TTFT, and memory separately.",
+    "intuition": "Being able to accept a document is different from finding a fact, and finding individual facts is different from combining them.",
+    "derivation": "Construct a position × length × evidence-count grid. Compare the same instance across positions, then compare supplied counterfactual evidence against an unchanged question. A paired design reduces content differences as a confound.",
+    "implementation": "",
+    "commonMistakes": [
+      "Evaluating only beginning and ending positions",
+      "Treating one needle result as proof of general long-context reasoning"
+    ],
+    "followUps": [
+      "How would you verify position IDs and cache offsets before drawing capability conclusions?",
+      "What retrieval baseline should be included at matched budgets?"
+    ],
+    "prerequisites": [
+      "attention",
+      "transformers",
+      "serving"
+    ],
+    "sources": [
+      {
+        "title": "Concept reference · RoFormer · not a reported interview question",
+        "url": "https://arxiv.org/abs/2104.09864",
+        "sourceType": "CONCEPT_REFERENCE_NOT_REPORTED_QUESTION"
+      },
+      {
+        "title": "Concept reference · FlashAttention · not a reported interview question",
+        "url": "https://arxiv.org/abs/2205.14135",
+        "sourceType": "CONCEPT_REFERENCE_NOT_REPORTED_QUESTION"
+      },
+      {
+        "title": "Concept reference · Lost in the Middle · not a reported interview question",
+        "url": "https://arxiv.org/abs/2307.03172",
+        "sourceType": "CONCEPT_REFERENCE_NOT_REPORTED_QUESTION"
+      }
+    ],
+    "rubric": [
+      "Controlled position/length sweeps",
+      "Counterfactual or memorization controls",
+      "Separate retrieval, synthesis, and systems metrics"
+    ],
+    "provenance": "ORIGINAL",
+    "companyRelevance": "Practice for shared role competencies, not a claim that this company has asked this question. Consult the company–role profile's evidence and uncertainty for actual preparation priorities."
+  },
+  {
+    "id": "rl-self-loop-value",
+    "title": "Solve a Bellman equation by hand",
+    "question": "A single nonterminal state always returns to itself and pays reward 2 on every transition. Discount is 0.5. Calculate its infinite-horizon value in two ways. Why is the undiscounted answer not finite?",
+    "topics": [
+      "reinforcement-learning"
+    ],
+    "subtopics": [
+      "Solve a Bellman equation by hand"
+    ],
+    "companies": [
+      "deepmind",
+      "openai",
+      "anthropic",
+      "meta",
+      "nvidia",
+      "microsoft",
+      "apple",
+      "amazon",
+      "xai",
+      "startups"
+    ],
+    "roles": [
+      "rs",
+      "re",
+      "mle",
+      "as",
+      "swe"
+    ],
+    "type": "derivation",
+    "difficulty": 2,
+    "expectedTime": 7,
+    "importance": 4,
+    "hints": [
+      "The next-state value is the same unknown V.",
+      "Use the sum of a convergent geometric series."
+    ],
+    "shortAnswer": "The Bellman equation gives V=2+0.5V, hence V=4. The geometric return is 2+1+0.5+…=4. With discount 1, endlessly receiving reward 2 produces an unbounded return, so there is no finite discounted-style value solution.",
+    "intuition": "The same future repeats after each reward. Discounting reduces the contribution of rewards further into the future.",
+    "derivation": "$$V=2+0.5V\\Rightarrow V=4,\\qquad \\sum_{k=0}^{\\infty}2(0.5)^k=\\frac{2}{1-0.5}=4.$$",
+    "implementation": "",
+    "commonMistakes": [
+      "Returning only the immediate reward 2",
+      "Applying the geometric-series formula at discount 1"
+    ],
+    "followUps": [
+      "How does the answer change if termination occurs after three rewards?",
+      "What if each transition terminates independently with probability 0.5?"
+    ],
+    "prerequisites": [
+      "probability",
+      "expectation",
+      "optimization"
+    ],
+    "sources": [
+      {
+        "title": "Concept reference · Spinning Up: Key Concepts in RL · not a reported interview question",
+        "url": "https://spinningup.openai.com/en/latest/spinningup/rl_intro.html",
+        "sourceType": "CONCEPT_REFERENCE_NOT_REPORTED_QUESTION"
+      },
+      {
+        "title": "Concept reference · Sutton & Barto: Reinforcement Learning · not a reported interview question",
+        "url": "http://incompleteideas.net/book/the-book-2nd.html",
+        "sourceType": "CONCEPT_REFERENCE_NOT_REPORTED_QUESTION"
+      }
+    ],
+    "rubric": [
+      "Bellman solution 4",
+      "Geometric-return solution 4",
+      "Explain divergence at discount 1"
+    ],
+    "provenance": "ORIGINAL",
+    "companyRelevance": "Practice for shared role competencies, not a claim that this company has asked this question. Consult the company–role profile's evidence and uncertainty for actual preparation priorities."
+  },
+  {
+    "id": "rl-terminal-bootstrap",
+    "title": "Termination is not always truncation",
+    "question": "Current Q(s,a)=2, reward=1, next-state max Q=4, discount=0.9, and learning rate=0.5. Compute updates for true termination and ordinary continuation. If a continuing task is cut off only by a collector's time limit, which case applies?",
+    "topics": [
+      "reinforcement-learning"
+    ],
+    "subtopics": [
+      "Termination is not always truncation"
+    ],
+    "companies": [
+      "deepmind",
+      "openai",
+      "anthropic",
+      "meta",
+      "nvidia",
+      "microsoft",
+      "apple",
+      "amazon",
+      "xai",
+      "startups"
+    ],
+    "roles": [
+      "rs",
+      "re",
+      "mle",
+      "as",
+      "swe"
+    ],
+    "type": "debugging",
+    "difficulty": 3,
+    "expectedTime": 15,
+    "importance": 4,
+    "hints": [
+      "The terminal flag multiplies only the future-value term.",
+      "Check whether the next observation is from the old episode or an automatic reset."
+    ],
+    "shortAnswer": "For termination the target is 1, giving updated Q=1.5. For continuation the target is 4.6, giving Q=3.3. A pure collection time limit for a continuing task generally retains bootstrapping from the final actual observation; it must not bootstrap from a reset observation.",
+    "intuition": "A task ending means there is no future return. Stopping observation is not the same as the task ending.",
+    "derivation": "$$Q_{\\mathrm{new}}=2+0.5\\left[1+0.9(1-d)4-2\\right].$$ Set $d=1$ for true termination, and $d=0$ for continuation.",
+    "implementation": "import numpy as np\ndef q_update(Q, state, action, reward, next_state, terminated,\n             lr=0.1, gamma=0.9):\n    if not 0 <= gamma < 1 or not 0 < lr <= 1:\n        raise ValueError(\"invalid discount or learning rate\")\n    # Time-limit truncation alone must not set terminated=True.\n    bootstrap = 0.0 if terminated else np.max(Q[next_state])\n    target = reward + gamma*bootstrap\n    td_error = target-Q[state, action]\n    Q[state, action] += lr*td_error\n    return td_error\nQ = np.zeros((3, 2))\nQ[1] = [4., 2.]\ndelta = q_update(Q, 0, 0, 1., 1, False, lr=0.5)\nassert np.isclose(delta, 4.6)\nassert np.isclose(Q[0, 0], 2.3)\nq_update(Q, 2, 0, 2., 1, True, lr=1.0)\nassert np.isclose(Q[2, 0], 2.0)",
+    "commonMistakes": [
+      "Combining terminated and truncated into a universal no-bootstrap flag",
+      "Assuming all finite-horizon tasks have the same state representation as continuing tasks"
+    ],
+    "followUps": [
+      "If a 200-step horizon defines the task, what should the state include?",
+      "How would you test the environment wrapper's final-observation behavior?"
+    ],
+    "prerequisites": [
+      "probability",
+      "expectation",
+      "optimization"
+    ],
+    "sources": [
+      {
+        "title": "Concept reference · Spinning Up: Key Concepts in RL · not a reported interview question",
+        "url": "https://spinningup.openai.com/en/latest/spinningup/rl_intro.html",
+        "sourceType": "CONCEPT_REFERENCE_NOT_REPORTED_QUESTION"
+      },
+      {
+        "title": "Concept reference · Sutton & Barto: Reinforcement Learning · not a reported interview question",
+        "url": "http://incompleteideas.net/book/the-book-2nd.html",
+        "sourceType": "CONCEPT_REFERENCE_NOT_REPORTED_QUESTION"
+      }
+    ],
+    "rubric": [
+      "Both numerical updates",
+      "Correct collection-boundary semantics",
+      "Final-observation and finite-horizon caveats"
+    ],
+    "provenance": "ORIGINAL",
+    "companyRelevance": "Practice for shared role competencies, not a claim that this company has asked this question. Consult the company–role profile's evidence and uncertainty for actual preparation priorities."
+  },
+  {
+    "id": "ctc-enumerate-alignments",
+    "title": "Enumerate a tiny CTC likelihood",
+    "question": "There are two frames and an alphabet {blank,a}. Each frame assigns probability 0.4 to blank and 0.6 to a. Find the CTC probability of transcript a and of the empty transcript. Can transcript aa occur?",
+    "topics": [
+      "speech-ctc"
+    ],
+    "subtopics": [
+      "Enumerate a tiny CTC likelihood"
+    ],
+    "companies": [
+      "deepmind",
+      "openai",
+      "anthropic",
+      "meta",
+      "nvidia",
+      "microsoft",
+      "apple",
+      "amazon",
+      "xai",
+      "startups"
+    ],
+    "roles": [
+      "rs",
+      "re",
+      "mle",
+      "as",
+      "swe"
+    ],
+    "type": "probability",
+    "difficulty": 2,
+    "expectedTime": 10,
+    "importance": 4,
+    "hints": [
+      "Enumerate all four length-two paths.",
+      "Merge consecutive repeated symbols before removing blanks."
+    ],
+    "shortAnswer": "Transcript a has paths (a,a), (a,blank), and (blank,a), totaling 0.84. The empty transcript is (blank,blank), with probability 0.16. Transcript aa is impossible in two frames; two adjacent a labels need an intervening blank to survive collapse as two labels.",
+    "intuition": "Different timings can produce the same transcript, so add path probabilities rather than taking only the best path.",
+    "derivation": "$$P(a)=0.6^2+0.6(0.4)+0.4(0.6)=0.84,\\qquad P(\\emptyset)=0.4^2=0.16.$$ Repeated target aa needs at least 3 frames.",
+    "implementation": "",
+    "commonMistakes": [
+      "Counting (a,a) as transcript aa",
+      "Using the maximum path probability 0.36 instead of the sum"
+    ],
+    "followUps": [
+      "What is P(aa) with three identical frames?",
+      "Give a case where greedy path decoding differs from best transcript decoding."
+    ],
+    "prerequisites": [
+      "probability",
+      "algorithms",
+      "cnn-rnn"
+    ],
+    "sources": [
+      {
+        "title": "Concept reference · Graves et al.: Connectionist Temporal Classification · not a reported interview question",
+        "url": "https://www.cs.toronto.edu/~graves/icml_2006.pdf",
+        "sourceType": "CONCEPT_REFERENCE_NOT_REPORTED_QUESTION"
+      },
+      {
+        "title": "Concept reference · PyTorch CTCLoss · not a reported interview question",
+        "url": "https://docs.pytorch.org/docs/stable/generated/torch.nn.CTCLoss.html",
+        "sourceType": "CONCEPT_REFERENCE_NOT_REPORTED_QUESTION"
+      }
+    ],
+    "rubric": [
+      "All valid paths",
+      "0.84 and 0.16",
+      "Repeated-label feasibility"
+    ],
+    "provenance": "ORIGINAL",
+    "companyRelevance": "Practice for shared role competencies, not a claim that this company has asked this question. Consult the company–role profile's evidence and uncertainty for actual preparation priorities."
+  },
+  {
+    "id": "ctc-forward-repeats",
+    "title": "Implement the CTC forward recurrence",
+    "question": "Implement log-space CTC likelihood for one target transcript. Explain the allowed state transitions and why skipping over a blank is forbidden between repeated target labels. Include impossible-length and empty-target tests.",
+    "topics": [
+      "speech-ctc"
+    ],
+    "subtopics": [
+      "Implement the CTC forward recurrence"
+    ],
+    "companies": [
+      "deepmind",
+      "openai",
+      "anthropic",
+      "meta",
+      "nvidia",
+      "microsoft",
+      "apple",
+      "amazon",
+      "xai",
+      "startups"
+    ],
+    "roles": [
+      "rs",
+      "re",
+      "mle",
+      "as",
+      "swe"
+    ],
+    "type": "implementation",
+    "difficulty": 4,
+    "expectedTime": 25,
+    "importance": 4,
+    "hints": [
+      "The target 'aa' needs a blank state between its two labels.",
+      "Initialize only the first blank and first label at the first frame."
+    ],
+    "shortAnswer": "Insert blanks between labels and track forward log probabilities. Each state may stay or advance by one; an advance by two is allowed only into a nonblank label different from the label two positions earlier. End by summing the final label and blank states. Empty targets require all-blank paths; impossible targets have log probability −∞.",
+    "intuition": "A dynamic program merges prefixes that have the same alignment state instead of enumerating every path.",
+    "derivation": "$$A_t(s)=p_t(z_s)\\left[A_{t-1}(s)+A_{t-1}(s-1)+\\mathbf1_{\\mathrm{skip}}A_{t-1}(s-2)\\right].$$ In log space, replace the predecessor sum with log-sum-exp. The minimum length is $U+\\sum_{u=2}^U\\mathbf1[y_u=y_{u-1}]$.",
+    "implementation": "import numpy as np\ndef ctc_log_probability(log_probs, labels, blank=0):\n    # Small reference implementation; log_probs has shape [time, classes].\n    lp = np.asarray(log_probs, dtype=float)\n    labels = list(labels)\n    if lp.ndim != 2 or blank in labels:\n        raise ValueError(\"invalid emissions or blank in target\")\n    T, classes = lp.shape\n    if not 0 <= blank < classes or any(y < 0 or y >= classes for y in labels):\n        raise ValueError(\"invalid label index\")\n    if T == 0:\n        return 0.0 if not labels else -np.inf\n    z = [blank]\n    for y in labels:\n        z.extend([y, blank])\n    prev = np.full(len(z), -np.inf)\n    prev[0] = lp[0, blank]\n    if labels:\n        prev[1] = lp[0, z[1]]\n    for t in range(1, T):\n        cur = np.full(len(z), -np.inf)\n        for s, label in enumerate(z):\n            incoming = [prev[s]]\n            if s >= 1:\n                incoming.append(prev[s-1])\n            if s >= 2 and label != blank and label != z[s-2]:\n                incoming.append(prev[s-2])\n            cur[s] = np.logaddexp.reduce(incoming) + lp[t, label]\n        prev = cur\n    return prev[0] if not labels else np.logaddexp(prev[-1], prev[-2])\nlp = np.log(np.array([[0.4, 0.6], [0.4, 0.6]]))\nassert np.isclose(np.exp(ctc_log_probability(lp, [1])), 0.84)\nassert np.isneginf(ctc_log_probability(lp, [1, 1]))",
+    "commonMistakes": [
+      "Allowing every two-state skip",
+      "Returning one final state instead of summing the valid final states",
+      "Hiding infeasible examples with zero loss without investigating lengths"
+    ],
+    "followUps": [
+      "What is the time and memory complexity?",
+      "How can a prefix beam search aggregate paths into transcript hypotheses?"
+    ],
+    "prerequisites": [
+      "probability",
+      "algorithms",
+      "cnn-rnn"
+    ],
+    "sources": [
+      {
+        "title": "Concept reference · Graves et al.: Connectionist Temporal Classification · not a reported interview question",
+        "url": "https://www.cs.toronto.edu/~graves/icml_2006.pdf",
+        "sourceType": "CONCEPT_REFERENCE_NOT_REPORTED_QUESTION"
+      },
+      {
+        "title": "Concept reference · PyTorch CTCLoss · not a reported interview question",
+        "url": "https://docs.pytorch.org/docs/stable/generated/torch.nn.CTCLoss.html",
+        "sourceType": "CONCEPT_REFERENCE_NOT_REPORTED_QUESTION"
+      }
+    ],
+    "rubric": [
+      "Correct recurrence and repeat restriction",
+      "Log-space initialization and termination",
+      "Empty and impossible target tests"
+    ],
+    "provenance": "ORIGINAL",
+    "companyRelevance": "Practice for shared role competencies, not a claim that this company has asked this question. Consult the company–role profile's evidence and uncertainty for actual preparation priorities."
+  },
+  {
+    "id": "union-find-cycle-count",
+    "title": "Count components without double-counting edges",
+    "question": "Five vertices receive edges (0,1), (1,2), (2,0), (3,4), (4,4). Report component counts after each edge and implement a union operation whose return value identifies successful merges.",
+    "topics": [
+      "union-find"
+    ],
+    "subtopics": [
+      "Union by size",
+      "Path compression",
+      "Connectivity invariants"
+    ],
+    "companies": [],
+    "roles": [
+      "rs",
+      "re",
+      "mle",
+      "as",
+      "swe"
+    ],
+    "type": "coding",
+    "difficulty": 3,
+    "expectedTime": 12,
+    "importance": 4,
+    "hints": [
+      "Compare representatives, not raw endpoint labels.",
+      "A self-loop and a redundant cycle edge should not change the partition."
+    ],
+    "shortAnswer": "The counts are 4,3,3,2,2. Return false when roots match; otherwise attach the smaller root and decrement once.",
+    "intuition": "Connectivity is a partition; a repeated edge supplies no new connection.",
+    "detailedExplanation": "A successful union connects two disjoint vertex sets, so exactly one component disappears. The triangle’s third edge and the self-loop leave every equivalence class unchanged. Test both root sizes and the global count.",
+    "derivation": "$$c_{t+1}=c_t-\\mathbf{1}\\{\\operatorname{find}(u)\\ne\\operatorname{find}(v)\\}$$",
+    "implementation": "class DSU:\n    def __init__(self, n):\n        if n < 0:\n            raise ValueError('n must be nonnegative')\n        self.parent = list(range(n))\n        self.size = [1] * n\n        self.components = n\n    def find(self, x):\n        if not 0 <= x < len(self.parent):\n            raise IndexError(x)\n        while x != self.parent[x]:\n            self.parent[x] = self.parent[self.parent[x]]\n            x = self.parent[x]\n        return x\n    def union(self, a, b):\n        a, b = self.find(a), self.find(b)\n        if a == b:\n            return False\n        if self.size[a] < self.size[b]:\n            a, b = b, a\n        self.parent[b] = a\n        self.size[a] += self.size[b]\n        self.components -= 1\n        return True\n\nu = DSU(5)\nassert u.union(0, 1) and u.union(1, 2)\nassert not u.union(2, 0)\nassert u.components == 3\nassert u.size[u.find(2)] == 3\nassert u.find(0) != u.find(4)",
+    "commonMistakes": [
+      "Updating size at a non-root",
+      "Decrementing the component count for an already-connected pair",
+      "Treating directed reachability as undirected connectivity"
+    ],
+    "followUps": [
+      "How would the answer change for directed reachability?"
+    ],
+    "prerequisites": [
+      "trees-graphs"
+    ],
+    "sources": [
+      {
+        "title": "Princeton Algorithms — union–find reference implementation",
+        "url": "https://raw.githubusercontent.com/kevin-wayne/algs4/master/src/main/java/edu/princeton/cs/algs4/UF.java",
+        "sourceType": "CONCEPT_REFERENCE_NOT_REPORTED_QUESTION",
+        "note": "Primary reference for concepts; lessons, examples, code, and questions are original. No company interview claim."
+      }
+    ],
+    "rubric": [
+      "Correct counts including the self-loop",
+      "Compare roots before modifying sizes",
+      "Use size weighting and test redundant unions"
+    ],
+    "provenance": "ORIGINAL",
+    "companyRelevance": "Original practice for shared technical competencies; no company-specific interview attribution."
+  },
+  {
+    "id": "union-find-height-proof",
+    "title": "Explain what union by size actually guarantees",
+    "question": "Prove that union by size without path compression has logarithmic tree height. Does adding compression mean every individual operation has worst-case constant time?",
+    "topics": [
+      "union-find"
+    ],
+    "subtopics": [
+      "Union by size",
+      "Path compression",
+      "Connectivity invariants"
+    ],
+    "companies": [],
+    "roles": [
+      "rs",
+      "re",
+      "mle",
+      "as",
+      "swe"
+    ],
+    "type": "reasoning",
+    "difficulty": 4,
+    "expectedTime": 9,
+    "importance": 4,
+    "hints": [
+      "Follow a fixed vertex only when its depth increases.",
+      "What happens to its component size at that moment?"
+    ],
+    "shortAnswer": "Each depth increase at least doubles component size, so depth is at most floor(log2 n). Compression with weighting gives an amortized inverse-Ackermann bound, not worst-case constant time per call.",
+    "intuition": "A vertex can be placed under a larger component only a limited number of times.",
+    "detailedExplanation": "When the component containing a vertex is attached underneath another root, the destination has at least the same size. After h attachments the size is at least 2^h and cannot exceed n. Path compression shortens routes but does not justify replacing a sequence guarantee with a per-call constant bound.",
+    "derivation": "$$2^h\\le n\\implies h\\le\\lfloor\\log_2 n\\rfloor$$",
+    "implementation": "",
+    "commonMistakes": [
+      "Updating size at a non-root",
+      "Decrementing the component count for an already-connected pair",
+      "Treating directed reachability as undirected connectivity"
+    ],
+    "followUps": [
+      "Why is size meaningful only at roots?"
+    ],
+    "prerequisites": [
+      "trees-graphs"
+    ],
+    "sources": [
+      {
+        "title": "Princeton Algorithms — union–find reference implementation",
+        "url": "https://raw.githubusercontent.com/kevin-wayne/algs4/master/src/main/java/edu/princeton/cs/algs4/UF.java",
+        "sourceType": "CONCEPT_REFERENCE_NOT_REPORTED_QUESTION",
+        "note": "Primary reference for concepts; lessons, examples, code, and questions are original. No company interview claim."
+      }
+    ],
+    "rubric": [
+      "State the doubling invariant",
+      "Explain why compression preserves connectivity",
+      "Distinguish amortized and worst-case bounds"
+    ],
+    "provenance": "ORIGINAL",
+    "companyRelevance": "Original practice for shared technical competencies; no company-specific interview attribution."
+  },
+  {
+    "id": "dynamic-programming-loop-order",
+    "title": "Find the knapsack loop-order bug",
+    "question": "A 0/1 knapsack implementation updates capacities from low to high. On one item of weight 2 and value 3 with capacity 4, it returns 6. Explain and repair the bug, then give the time and space complexity.",
+    "topics": [
+      "dynamic-programming"
+    ],
+    "subtopics": [
+      "State sufficiency",
+      "Bellman recurrence",
+      "0/1 knapsack"
+    ],
+    "companies": [],
+    "roles": [
+      "rs",
+      "re",
+      "mle",
+      "as",
+      "swe"
+    ],
+    "type": "debugging",
+    "difficulty": 3,
+    "expectedTime": 10,
+    "importance": 4,
+    "hints": [
+      "Which version of dp[2] is read while computing dp[4]?",
+      "The item may be selected at most once."
+    ],
+    "shortAnswer": "Ascending updates reuse the current item. Traverse capacities downward; the correct answer is 3. Complexity is O(nC) time and O(C) space.",
+    "intuition": "The compressed array mixes old and new rows, so traversal order enforces the state definition.",
+    "detailedExplanation": "At c=2 the value becomes 3. At c=4 the new dp[2] is already from the current item row, producing 6. Descending order reads only entries from the preceding row. Capacity-based complexity is pseudo-polynomial.",
+    "derivation": "$$D_i(c)=\\max(D_{i-1}(c),v_i+D_{i-1}(c-w_i))$$",
+    "implementation": "def knapsack(items, capacity):\n    # Positive integer weights; selecting nothing is allowed.\n    if capacity < 0 or any(w <= 0 for w, _ in items):\n        raise ValueError('invalid capacity or weight')\n    best = [0] * (capacity + 1)\n    for weight, value in items:\n        for c in range(capacity, weight - 1, -1):\n            best[c] = max(best[c], best[c - weight] + value)\n    return best[capacity]\n\nassert knapsack([(2, 3), (3, 4), (4, 5)], 5) == 7\nassert knapsack([(2, 3)], 4) == 3  # not 6: one copy only\nassert knapsack([], 9) == 0\nassert knapsack([(1, -5)], 3) == 0",
+    "commonMistakes": [
+      "Using a state that omits a future-relevant constraint",
+      "Compressing memory before proving the dependency order",
+      "Initializing exact-fill states to zero instead of marking them unreachable"
+    ],
+    "followUps": [
+      "How should unreachable exact-fill states be initialized?"
+    ],
+    "prerequisites": [
+      "arrays",
+      "algorithms"
+    ],
+    "sources": [
+      {
+        "title": "MIT 6.006 — dynamic programming: states, recursion, and DAGs",
+        "url": "https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/resources/lecture-15-dynamic-programming-part-1-srtbot-fib-dags-bowling/",
+        "sourceType": "CONCEPT_REFERENCE_NOT_REPORTED_QUESTION",
+        "note": "Primary reference for concepts; lessons, examples, code, and questions are original. No company interview claim."
+      }
+    ],
+    "rubric": [
+      "Show the incorrect reuse explicitly",
+      "Repair with descending iteration",
+      "Explain pseudo-polynomial complexity"
+    ],
+    "provenance": "ORIGINAL",
+    "companyRelevance": "Original practice for shared technical competencies; no company-specific interview attribution."
+  },
+  {
+    "id": "dynamic-programming-state-sufficiency",
+    "title": "When a budget DP loses necessary information",
+    "question": "You select experiments under a cost budget. Experiment B yields value only if experiment A is selected. Explain why a DP storing only the best value at each budget can discard necessary information. Give a concrete counterexample and a corrected state.",
+    "topics": [
+      "dynamic-programming"
+    ],
+    "subtopics": [
+      "State sufficiency",
+      "Bellman recurrence",
+      "0/1 knapsack"
+    ],
+    "companies": [],
+    "roles": [
+      "rs",
+      "re",
+      "mle",
+      "as",
+      "swe"
+    ],
+    "type": "reasoning",
+    "difficulty": 4,
+    "expectedTime": 12,
+    "importance": 4,
+    "hints": [
+      "Construct equal-cost histories that differ on whether A was chosen.",
+      "The best current value need not allow the best future choice."
+    ],
+    "shortAnswer": "With budget 2, let A cost 1/value 0, C cost 1/value 5, and B cost 1/value 100 only after A. A capacity-only maximum keeps C at budget 1 and can discard A. Track whether A was selected.",
+    "intuition": "Two histories are interchangeable only if they permit the same future decisions and rewards.",
+    "detailedExplanation": "A naive item-prefix DP that merges histories at equal used budget cannot tell whether B is enabled. Add a Boolean prerequisite flag to the state; absent A, B is infeasible. For many dependencies the necessary state may grow exponentially or require a different formulation.",
+    "derivation": "$$D_i(c,a),\\quad a\\in\\{0,1\\}$$",
+    "implementation": "",
+    "commonMistakes": [
+      "Using a state that omits a future-relevant constraint",
+      "Compressing memory before proving the dependency order",
+      "Initializing exact-fill states to zero instead of marking them unreachable"
+    ],
+    "followUps": [
+      "When can dependencies instead be absorbed by grouping items?"
+    ],
+    "prerequisites": [
+      "arrays",
+      "algorithms"
+    ],
+    "sources": [
+      {
+        "title": "MIT 6.006 — dynamic programming: states, recursion, and DAGs",
+        "url": "https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/resources/lecture-15-dynamic-programming-part-1-srtbot-fib-dags-bowling/",
+        "sourceType": "CONCEPT_REFERENCE_NOT_REPORTED_QUESTION",
+        "note": "Primary reference for concepts; lessons, examples, code, and questions are original. No company interview claim."
+      }
+    ],
+    "rubric": [
+      "Give a valid counterexample",
+      "Identify the lost prerequisite flag",
+      "State how transitions respect the flag"
+    ],
+    "provenance": "ORIGINAL",
+    "companyRelevance": "Original practice for shared technical competencies; no company-specific interview attribution."
+  },
+  {
+    "id": "ml-code-convolution-overlap",
+    "title": "Derive the shared-kernel and overlapping-input gradients",
+    "question": "For x=[[1,2,3],[4,5,6],[7,8,9]], k=[[1,0],[0,-1]], valid unit-stride cross-correlation, and upstream g=[[1,2],[3,4]], compute the kernel gradient and the center input gradient.",
+    "topics": [
+      "ml-code-convolution"
+    ],
+    "subtopics": [
+      "Cross-correlation",
+      "Output shape",
+      "Input gradient"
+    ],
+    "companies": [],
+    "roles": [
+      "rs",
+      "re",
+      "mle",
+      "as",
+      "swe"
+    ],
+    "type": "derivation",
+    "difficulty": 4,
+    "expectedTime": 12,
+    "importance": 4,
+    "hints": [
+      "A shared weight receives one contribution from every output.",
+      "The center input participates in four patches, but two kernel entries are zero."
+    ],
+    "shortAnswer": "The kernel gradient is [[37,47],[67,77]]. The center input derivative is 4−1=3.",
+    "intuition": "The same forward dependency can be used to route gradients backward without guessing a flip convention.",
+    "detailedExplanation": "For dk[0,0], sum 1×1+2×2+3×4+4×5=37. The other kernel entries follow shifted patches. The center pixel is paired with k[1,1]=−1 in the top-left output and k[0,0]=1 in the bottom-right, giving −1+4. Contributions through zero coefficients vanish.",
+    "derivation": "$$\\frac{\\partial L}{\\partial k_{ab}}=\\sum_{ij}g_{ij}x_{i+a,j+b}$$",
+    "implementation": "def correlate(x, k):\n    h, w = len(x), len(x[0])\n    kh, kw = len(k), len(k[0])\n    if kh > h or kw > w:\n        raise ValueError('kernel must fit')\n    return [[sum(x[i+a][j+b]*k[a][b]\n                 for a in range(kh) for b in range(kw))\n             for j in range(w-kw+1)] for i in range(h-kh+1)]\n\ndef backward(x, k, g):\n    dx = [[0.0]*len(x[0]) for _ in x]\n    dk = [[0.0]*len(k[0]) for _ in k]\n    for i in range(len(g)):\n        for j in range(len(g[0])):\n            for a in range(len(k)):\n                for b in range(len(k[0])):\n                    dx[i+a][j+b] += g[i][j]*k[a][b]\n                    dk[a][b] += g[i][j]*x[i+a][j+b]\n    return dx, dk\n\nx = [[1.,2.,3.],[4.,5.,6.],[7.,8.,9.]]\nk = [[1.,0.],[0.,-1.]]\ng = [[1.,2.],[3.,4.]]\nassert correlate(x, k) == [[-4.,-4.],[-4.,-4.]]\ndx, dk = backward(x, k, g)\ndef loss():\n    y = correlate(x,k)\n    return sum(y[i][j]*g[i][j] for i in range(2) for j in range(2))\nfor array, grad in [(x,dx),(k,dk)]:\n    for i,row in enumerate(array):\n        for j,old in enumerate(row):\n            eps = 1e-5\n            array[i][j] = old + eps; hi = loss()\n            array[i][j] = old - eps; lo = loss()\n            array[i][j] = old\n            assert abs((hi-lo)/(2*eps)-grad[i][j]) < 1e-7",
+    "commonMistakes": [
+      "Flipping the kernel in forward while comparing against cross-correlation",
+      "Overwriting instead of adding overlapping input gradients",
+      "Dropping the floor or dilation term in the output shape"
+    ],
+    "followUps": [
+      "How would padding affect the input-gradient buffer?"
+    ],
+    "prerequisites": [
+      "cnn-rnn",
+      "backprop"
+    ],
+    "sources": [
+      {
+        "title": "PyTorch Conv2d — correlation convention and output geometry",
+        "url": "https://docs.pytorch.org/docs/2.14/generated/torch.nn.Conv2d.html",
+        "sourceType": "CONCEPT_REFERENCE_NOT_REPORTED_QUESTION",
+        "note": "Primary reference for concepts; lessons, examples, code, and questions are original. No company interview claim."
+      }
+    ],
+    "rubric": [
+      "Correct 2×2 kernel gradient",
+      "Accumulate all overlapping input contributions",
+      "Specify cross-correlation convention"
+    ],
+    "provenance": "ORIGINAL",
+    "companyRelevance": "Original practice for shared technical competencies; no company-specific interview attribution."
+  },
+  {
+    "id": "ml-code-convolution-geometry",
+    "title": "Account for dilation before optimizing a convolution",
+    "question": "A 9×9 input uses a 3×3 kernel, padding 1 on all sides, stride 2, and dilation 2. What is the output shape? Explain the effective kernel size and propose a gradient-check test for an implementation.",
+    "topics": [
+      "ml-code-convolution"
+    ],
+    "subtopics": [
+      "Cross-correlation",
+      "Output shape",
+      "Input gradient"
+    ],
+    "companies": [],
+    "roles": [
+      "rs",
+      "re",
+      "mle",
+      "as",
+      "swe"
+    ],
+    "type": "implementation",
+    "difficulty": 3,
+    "expectedTime": 10,
+    "importance": 4,
+    "hints": [
+      "Dilation changes the kernel span, not the number of learned coefficients.",
+      "Count legal starting positions in the padded input."
+    ],
+    "shortAnswer": "The effective kernel is 5×5 and the output is 4×4. Check a scalar weighted sum of outputs with nonuniform upstream weights using central differences for both input and kernel entries.",
+    "intuition": "Spacing the three sampled positions by two covers five input coordinates.",
+    "detailedExplanation": "Padded height is 11. Kernel starts are 0,2,4,6; the final effective span ends at position 10. Numerical checking should use float64, moderate-valued inputs, a small central-difference step, and absolute plus relative tolerances. Include borders and overlapping positions.",
+    "derivation": "$$H_{out}=\\lfloor(9+2-2(3-1)-1)/2\\rfloor+1=4$$",
+    "implementation": "",
+    "commonMistakes": [
+      "Flipping the kernel in forward while comparing against cross-correlation",
+      "Overwriting instead of adding overlapping input gradients",
+      "Dropping the floor or dilation term in the output shape"
+    ],
+    "followUps": [
+      "Why can a correct forward pass still hide a broken backward pass?"
+    ],
+    "prerequisites": [
+      "cnn-rnn",
+      "backprop"
+    ],
+    "sources": [
+      {
+        "title": "PyTorch Conv2d — correlation convention and output geometry",
+        "url": "https://docs.pytorch.org/docs/2.14/generated/torch.nn.Conv2d.html",
+        "sourceType": "CONCEPT_REFERENCE_NOT_REPORTED_QUESTION",
+        "note": "Primary reference for concepts; lessons, examples, code, and questions are original. No company interview claim."
+      }
+    ],
+    "rubric": [
+      "Compute effective span 5",
+      "Compute 4×4 output",
+      "Test both input and kernel gradients with nonuniform upstream weights"
+    ],
+    "provenance": "ORIGINAL",
+    "companyRelevance": "Original practice for shared technical competencies; no company-specific interview attribution."
+  },
+  {
+    "id": "ml-code-autograd-shared-graph",
+    "title": "Differentiate a reused intermediate exactly once",
+    "question": "Build a scalar reverse-mode graph for a=x*x and L=a+a*x at x=2. Show every adjoint update and explain why traversal deduplication must not remove duplicate operands.",
+    "topics": [
+      "ml-code-autograd"
+    ],
+    "subtopics": [
+      "Computation DAG",
+      "Vector–Jacobian products",
+      "Topological order"
+    ],
+    "companies": [],
+    "roles": [
+      "rs",
+      "re",
+      "mle",
+      "as",
+      "swe"
+    ],
+    "type": "implementation",
+    "difficulty": 4,
+    "expectedTime": 15,
+    "importance": 4,
+    "hints": [
+      "a receives gradients from both the addition and the product.",
+      "x occurs twice inside a=x*x."
+    ],
+    "shortAnswer": "L=12 and dL/dx=16. The adjoint of a becomes 3; x receives 4 directly and 6 from each occurrence inside a.",
+    "intuition": "One node may be visited once while still representing multiple uses of the same input.",
+    "detailedExplanation": "Process the loss, then a*x, then a. The direct product path contributes a=4 to x. Its other path adds x=2 to the existing adjoint of a=1. The square contributes 2×3 twice. Deduplicate nodes for topological traversal, but preserve operand multiplicity in backward rules.",
+    "derivation": "$$\\frac{d}{dx}(x^2+x^3)=2x+3x^2=16\\quad(x=2)$$",
+    "implementation": "class Value:\n    def __init__(self, data, parents=()):\n        self.data = float(data); self.grad = 0.0\n        self.parents = parents; self._backward = lambda: None\n    def __add__(self, other):\n        other = other if isinstance(other, Value) else Value(other)\n        out = Value(self.data + other.data, (self, other))\n        def rule():\n            self.grad += out.grad\n            other.grad += out.grad\n        out._backward = rule\n        return out\n    def __mul__(self, other):\n        other = other if isinstance(other, Value) else Value(other)\n        out = Value(self.data * other.data, (self, other))\n        left, right = self.data, other.data  # save forward values\n        def rule():\n            self.grad += right * out.grad\n            other.grad += left * out.grad\n        out._backward = rule\n        return out\n    def backward(self):\n        order, seen = [], set()\n        def visit(node):\n            if node in seen: return\n            seen.add(node)\n            for parent in node.parents: visit(parent)\n            order.append(node)\n        visit(self)\n        for node in order: node.grad = 0.0\n        self.grad = 1.0\n        for node in reversed(order): node._backward()\n\nx = Value(2)\na = x*x\nloss = a + a*x\nloss.backward()\nassert loss.data == 12 and x.grad == 16\nloss.backward()  # this engine resets adjoints deliberately\nassert x.grad == 16\nf = lambda z: z*z + z*z*z\neps = 1e-5\nassert abs((f(2+eps)-f(2-eps))/(2*eps)-x.grad) < 1e-7",
+    "commonMistakes": [
+      "Using assignment for gradients of a shared input",
+      "Deduplicating operands inside a multiplication rule",
+      "Traversing backward in forward order"
+    ],
+    "followUps": [
+      "What changes for a tensor operation with broadcasting?"
+    ],
+    "prerequisites": [
+      "backprop",
+      "trees-graphs"
+    ],
+    "sources": [
+      {
+        "title": "PyTorch — autograd mechanics",
+        "url": "https://docs.pytorch.org/docs/2.14/notes/autograd.html",
+        "sourceType": "CONCEPT_REFERENCE_NOT_REPORTED_QUESTION",
+        "note": "Primary reference for concepts; lessons, examples, code, and questions are original. No company interview claim."
+      }
+    ],
+    "rubric": [
+      "Accumulate a.grad before processing a",
+      "Preserve both square operands",
+      "Explain topological traversal and gradient reset policy"
+    ],
+    "provenance": "ORIGINAL",
+    "companyRelevance": "Original practice for shared technical competencies; no company-specific interview attribution."
+  },
+  {
+    "id": "ml-code-autograd-detach",
+    "title": "A correct forward value can have the wrong gradient",
+    "question": "A scalar model computes a=x*x and L=stop_gradient(a)*x. At x=2, compare its forward value and derivative with L=x*x*x. Why would finite differences of a freshly recomputed numeric function disagree with the detached graph gradient?",
+    "topics": [
+      "ml-code-autograd"
+    ],
+    "subtopics": [
+      "Computation DAG",
+      "Vector–Jacobian products",
+      "Topological order"
+    ],
+    "companies": [],
+    "roles": [
+      "rs",
+      "re",
+      "mle",
+      "as",
+      "swe"
+    ],
+    "type": "debugging",
+    "difficulty": 4,
+    "expectedTime": 10,
+    "importance": 4,
+    "hints": [
+      "Detach treats a as a constant only for differentiation.",
+      "Finite differences rebuild a after changing x."
+    ],
+    "shortAnswer": "Both forward values are 8. The detached graph derivative is a=4; the ordinary cubic derivative is 3x²=12. Fresh finite differences include the path intentionally removed by stop_gradient.",
+    "intuition": "Gradient flow is defined by the computation graph, not only by algebraic equality of forward values.",
+    "detailedExplanation": "The detached intermediate is held fixed during the graph’s local derivative, while a newly evaluated forward function changes it with x. A finite-difference check that freezes a at its original value returns 4; a check that recomputes x² returns 12. Decide which objective or surrogate gradient is intended.",
+    "derivation": "$$\\partial_x\\big(\\operatorname{stopgrad}(x^2)x\\big)=\\operatorname{stopgrad}(x^2)$$",
+    "implementation": "",
+    "commonMistakes": [
+      "Using assignment for gradients of a shared input",
+      "Deduplicating operands inside a multiplication rule",
+      "Traversing backward in forward order"
+    ],
+    "followUps": [
+      "When are intentionally stopped gradients useful in teacher–student methods?"
+    ],
+    "prerequisites": [
+      "backprop",
+      "trees-graphs"
+    ],
+    "sources": [
+      {
+        "title": "PyTorch — autograd mechanics",
+        "url": "https://docs.pytorch.org/docs/2.14/notes/autograd.html",
+        "sourceType": "CONCEPT_REFERENCE_NOT_REPORTED_QUESTION",
+        "note": "Primary reference for concepts; lessons, examples, code, and questions are original. No company interview claim."
+      }
+    ],
+    "rubric": [
+      "Separate forward value from derivative",
+      "Compute 4 versus 12",
+      "Explain what is held fixed during numerical validation"
+    ],
+    "provenance": "ORIGINAL",
+    "companyRelevance": "Original practice for shared technical competencies; no company-specific interview attribution."
+  },
+  {
+    "id": "activation-checkpointing-memory-budget",
+    "title": "Estimate what checkpointing can actually save",
+    "question": "A uniform 64-layer chain retains one 16 MiB activation per layer. Use a segmented checkpoint estimate to choose segment length. If other training state occupies 12 GiB, estimate total memory before and after, excluding workspaces and endpoints.",
+    "topics": [
+      "activation-checkpointing"
+    ],
+    "subtopics": [
+      "Rematerialization",
+      "Segment boundaries",
+      "Activation memory"
+    ],
+    "companies": [],
+    "roles": [
+      "rs",
+      "re",
+      "mle",
+      "as",
+      "swe"
+    ],
+    "type": "estimation",
+    "difficulty": 3,
+    "expectedTime": 10,
+    "importance": 4,
+    "hints": [
+      "Balance the number of saved boundaries against the number of replayed local activations.",
+      "Do not apply the activation reduction factor to optimizer state."
+    ],
+    "shortAnswer": "Choose about 8 layers per segment. Activation memory falls from about 1 GiB to 0.25 GiB; total modeled memory changes from 13 to 12.25 GiB.",
+    "intuition": "Checkpointing reduces the portion of memory occupied by retained forward intermediates.",
+    "detailedExplanation": "The simplified activation model is 16 MiB×(64/s+s). Its minimum occurs at s=8, yielding 16 units. Parameters, gradients, optimizer states, and workspaces must be counted separately, so the total reduction is modest when persistent state dominates.",
+    "derivation": "$$\\frac{d}{ds}(64/s+s)=1-64/s^2=0$$",
+    "implementation": "from math import tanh\n\ndef checkpoint_chain(x, weights, segment):\n    if segment < 1: raise ValueError('segment must be positive')\n    saved = {0: x}; y = x\n    for i,w in enumerate(weights, 1):\n        y = tanh(w*y)\n        if i % segment == 0 or i == len(weights): saved[i] = y\n    edges = sorted(saved)\n    dw = [0.0]*len(weights); upstream = 1.0\n    for block in range(len(edges)-1, 0, -1):\n        start, end = edges[block-1], edges[block]\n        local = [saved[start]]\n        for i in range(start,end):\n            local.append(tanh(weights[i]*local[-1]))\n        for i in range(end-1,start-1,-1):\n            offset = i-start\n            dz = upstream*(1-local[offset+1]**2)\n            dw[i] = dz*local[offset]\n            upstream = dz*weights[i]\n    return y, upstream, dw\n\nweights = [0.9,1.1,0.8,1.2,0.7]\ny, dx, dw = checkpoint_chain(0.4, weights, 2)\ndef forward(x, ws):\n    for w in ws: x = tanh(w*x)\n    return x\neps = 1e-5\nassert abs(dx-(forward(.4+eps,weights)-forward(.4-eps,weights))/(2*eps)) < 1e-8\nfor i,w in enumerate(weights):\n    weights[i]=w+eps; hi=forward(.4,weights)\n    weights[i]=w-eps; lo=forward(.4,weights)\n    weights[i]=w\n    assert abs(dw[i]-(hi-lo)/(2*eps)) < 1e-8\nassert checkpoint_chain(.4, weights, 1) == checkpoint_chain(.4, weights, 2)",
+    "commonMistakes": [
+      "Confusing activation checkpointing with saving a training checkpoint to disk",
+      "Predicting total GPU memory from activation units alone",
+      "Replaying a different dropout mask"
+    ],
+    "followUps": [
+      "How can nonuniform layer sizes shift the optimum?"
+    ],
+    "prerequisites": [
+      "ml-code-training",
+      "gpu",
+      "backprop"
+    ],
+    "sources": [
+      {
+        "title": "PyTorch — activation checkpointing behavior and RNG caveats",
+        "url": "https://docs.pytorch.org/docs/2.14/checkpoint.html",
+        "sourceType": "CONCEPT_REFERENCE_NOT_REPORTED_QUESTION",
+        "note": "Primary reference for concepts; lessons, examples, code, and questions are original. No company interview claim."
+      }
+    ],
+    "rubric": [
+      "Derive s≈8",
+      "Convert activation units correctly",
+      "Separate total memory from activation memory"
+    ],
+    "provenance": "ORIGINAL",
+    "companyRelevance": "Original practice for shared technical competencies; no company-specific interview attribution."
+  },
+  {
+    "id": "activation-checkpointing-replay-state",
+    "title": "Checkpointing changes gradients despite identical forward loss",
+    "question": "You wrap a block containing dropout and a mutable running counter in activation checkpointing. The first forward loss matches the uncheckpointed run, but gradients differ and the counter advances twice. Diagnose and design a validation experiment.",
+    "topics": [
+      "activation-checkpointing"
+    ],
+    "subtopics": [
+      "Rematerialization",
+      "Segment boundaries",
+      "Activation memory"
+    ],
+    "companies": [],
+    "roles": [
+      "rs",
+      "re",
+      "mle",
+      "as",
+      "swe"
+    ],
+    "type": "debugging",
+    "difficulty": 4,
+    "expectedTime": 12,
+    "importance": 4,
+    "hints": [
+      "Backward replays the block.",
+      "Matching tensor shapes is weaker than matching the values needed by backward."
+    ],
+    "shortAnswer": "Replay can use different randomness or mutate state twice. Preserve required RNG state and remove or guard side effects; compare parameter gradients under fixed inputs, weights, seeds, and precision.",
+    "intuition": "A replay must reconstruct the original computation, not merely produce tensors with the same shapes.",
+    "detailedExplanation": "First replace the block with a deterministic, side-effect-free version and compare gradients. Reintroduce dropout with preserved RNG behavior and verify masks or outputs where practical. Keep counters and running-state updates outside the replayed region or explicitly make replay side-effect-safe. Only after equivalence checks should memory and timing be compared.",
+    "derivation": "$$\\nabla_\\theta L_{\\mathrm{replay}}\\approx\\nabla_\\theta L_{\\mathrm{baseline}}$$",
+    "implementation": "",
+    "commonMistakes": [
+      "Confusing activation checkpointing with saving a training checkpoint to disk",
+      "Predicting total GPU memory from activation units alone",
+      "Replaying a different dropout mask"
+    ],
+    "followUps": [
+      "Why is saving a model checkpoint to disk a different operation?"
+    ],
+    "prerequisites": [
+      "ml-code-training",
+      "gpu",
+      "backprop"
+    ],
+    "sources": [
+      {
+        "title": "PyTorch — activation checkpointing behavior and RNG caveats",
+        "url": "https://docs.pytorch.org/docs/2.14/checkpoint.html",
+        "sourceType": "CONCEPT_REFERENCE_NOT_REPORTED_QUESTION",
+        "note": "Primary reference for concepts; lessons, examples, code, and questions are original. No company interview claim."
+      }
+    ],
+    "rubric": [
+      "Identify randomness and mutation separately",
+      "Design a controlled gradient comparison",
+      "Separate correctness validation from performance measurement"
+    ],
+    "provenance": "ORIGINAL",
+    "companyRelevance": "Original practice for shared technical competencies; no company-specific interview attribution."
+  },
+  {
+    "id": "collective-communication-weighted-gradients",
+    "title": "Correct gradients when ranks have unequal sample counts",
+    "question": "Rank 0 processes three examples with local mean gradient 2. Rank 1 processes one example with local mean gradient 10. What global mean gradient should be applied? Explain how sum all-reduce should be scaled and how the answer changes if both counts are equal.",
+    "topics": [
+      "collective-communication"
+    ],
+    "subtopics": [
+      "All-reduce",
+      "Reduce-scatter",
+      "All-gather"
+    ],
+    "companies": [],
+    "roles": [
+      "rs",
+      "re",
+      "mle",
+      "as",
+      "swe"
+    ],
+    "type": "derivation",
+    "difficulty": 3,
+    "expectedTime": 8,
+    "importance": 4,
+    "hints": [
+      "Recover local gradient sums from local means.",
+      "The target objective averages examples, not ranks."
+    ],
+    "shortAnswer": "The correct sample-weighted mean is 4. Reduce local sums n_r*g_r and divide by the global count; with equal counts, averaging rank means is correct.",
+    "intuition": "Every example contributes equal weight to the global objective even when data are partitioned unevenly.",
+    "detailedExplanation": "The local sums are 6 and 10, so the combined sum is 16 over four examples. An unweighted average of means gives 6 and overweights the smaller shard. In language-model training, use valid-token counts when the loss is a token mean, rather than merely sequence counts.",
+    "derivation": "$$g=(3\\cdot2+1\\cdot10)/(3+1)=4$$",
+    "implementation": "def reduce_scatter_then_gather(rank_vectors):\n    # Single-process semantic reference, not a network implementation.\n    p = len(rank_vectors)\n    if p == 0: raise ValueError('no ranks')\n    n = len(rank_vectors[0])\n    if n % p or any(len(v) != n for v in rank_vectors):\n        raise ValueError('equal vectors divisible into equal shards required')\n    width = n//p\n    shards = [[sum(v[j] for v in rank_vectors)\n               for j in range(r*width,(r+1)*width)] for r in range(p)]\n    gathered = [x for shard in shards for x in shard]\n    return shards, [gathered[:] for _ in range(p)]\n\ndef weighted_gradient(means, counts):\n    if len(means) != len(counts) or not means or sum(counts) <= 0:\n        raise ValueError('invalid inputs')\n    if any(n < 0 for n in counts): raise ValueError('negative count')\n    if any(len(g) != len(means[0]) for g in means): raise ValueError('shape mismatch')\n    return [sum(n*g[j] for g,n in zip(means,counts))/sum(counts)\n            for j in range(len(means[0]))]\n\nshards, replicas = reduce_scatter_then_gather([[1,2,3,4],[10,20,30,40]])\nassert shards == [[11,22],[33,44]]\nassert replicas == [[11,22,33,44],[11,22,33,44]]\nassert weighted_gradient([[2.],[10.]],[3,1]) == [4.]\n# Reordering ranks changes shard ownership, not the complete sum.\nassert reduce_scatter_then_gather([[10,20,30,40],[1,2,3,4]])[1] == replicas",
+    "commonMistakes": [
+      "Confusing all-gather with summing vectors",
+      "Assuming summed gradients are automatically averaged",
+      "Averaging unequal-sized batch means equally"
+    ],
+    "followUps": [
+      "What happens if one rank has zero valid tokens?"
+    ],
+    "prerequisites": [
+      "distributed"
+    ],
+    "sources": [
+      {
+        "title": "NVIDIA NCCL — collective operation semantics",
+        "url": "https://docs.nvidia.com/deeplearning/nccl/user-guide/docs/usage/collectives.html",
+        "sourceType": "CONCEPT_REFERENCE_NOT_REPORTED_QUESTION",
+        "note": "Primary reference for concepts; lessons, examples, code, and questions are original. No company interview claim."
+      }
+    ],
+    "rubric": [
+      "Compute 4 instead of 6",
+      "Derive normalization from the objective",
+      "Discuss valid-token versus sequence weighting"
+    ],
+    "provenance": "ORIGINAL",
+    "companyRelevance": "Original practice for shared technical competencies; no company-specific interview attribution."
+  },
+  {
+    "id": "collective-communication-ring-cost",
+    "title": "Separate all-reduce semantics from its network cost",
+    "question": "Four ranks each hold a 120 MB vector. Under an idealized ring with 30 GB/s effective bandwidth and 5 microseconds per round, estimate all-reduce time in decimal units. Explain why reduce-scatter followed by all-gather has the correct output.",
+    "topics": [
+      "collective-communication"
+    ],
+    "subtopics": [
+      "All-reduce",
+      "Reduce-scatter",
+      "All-gather"
+    ],
+    "companies": [],
+    "roles": [
+      "rs",
+      "re",
+      "mle",
+      "as",
+      "swe"
+    ],
+    "type": "system",
+    "difficulty": 4,
+    "expectedTime": 12,
+    "importance": 4,
+    "hints": [
+      "There are two phases, each with p−1 rounds.",
+      "Each round sends a shard of size N/p per rank."
+    ],
+    "shortAnswer": "The estimate is 6.03 ms: 180 MB transmitted per rank gives 6 ms, plus six round latencies gives 0.03 ms. Reduce-scatter sums corresponding entries into shards; all-gather replicates those reduced shards.",
+    "intuition": "The collective’s result is a replicated sum; the ring is one way to move and combine its pieces.",
+    "detailedExplanation": "With p=4 the per-rank payload is 2×3×120/4=180 MB. Divide by 30,000 MB/s to obtain 0.006 s, and add 30 microseconds. The estimate omits topology, contention, launch overhead, and overlap. All-gather alone concatenates original vectors and does not perform the sum.",
+    "derivation": "$$T\\approx2(p-1)\\alpha+\\frac{2(p-1)N}{pB}=6.03\\ \\mathrm{ms}$$",
+    "implementation": "",
+    "commonMistakes": [
+      "Confusing all-gather with summing vectors",
+      "Assuming summed gradients are automatically averaged",
+      "Averaging unequal-sized batch means equally"
+    ],
+    "followUps": [
+      "Why might a tree algorithm outperform a ring for small messages?"
+    ],
+    "prerequisites": [
+      "distributed"
+    ],
+    "sources": [
+      {
+        "title": "NVIDIA NCCL — collective operation semantics",
+        "url": "https://docs.nvidia.com/deeplearning/nccl/user-guide/docs/usage/collectives.html",
+        "sourceType": "CONCEPT_REFERENCE_NOT_REPORTED_QUESTION",
+        "note": "Primary reference for concepts; lessons, examples, code, and questions are original. No company interview claim."
+      }
+    ],
+    "rubric": [
+      "Use per-rank payload 180 MB",
+      "Keep decimal units consistent",
+      "Distinguish semantic equivalence from measured performance"
+    ],
+    "provenance": "ORIGINAL",
+    "companyRelevance": "Original practice for shared technical competencies; no company-specific interview attribution."
   }
 ]

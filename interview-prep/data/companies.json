@@ -373,7 +373,9 @@
         "probability",
         "statistics",
         "linear-algebra",
-        "optimization"
+        "optimization",
+        "conditional-expectation",
+        "concentration-inequalities"
       ]
     },
     {
@@ -381,7 +383,9 @@
       "title": "Probability · Statistics",
       "topicIds": [
         "probability",
-        "statistics"
+        "statistics",
+        "conditional-expectation",
+        "concentration-inequalities"
       ]
     },
     {
@@ -404,7 +408,9 @@
       "topicIds": [
         "ml-foundations",
         "regression",
-        "evaluation"
+        "evaluation",
+        "gaussian-processes",
+        "causal-inference"
       ]
     },
     {
@@ -413,7 +419,9 @@
       "topicIds": [
         "neural-networks",
         "backprop",
-        "attention"
+        "attention",
+        "contrastive-learning",
+        "diffusion-models"
       ]
     },
     {
@@ -422,7 +430,9 @@
       "topicIds": [
         "transformers",
         "llm-training",
-        "preference"
+        "preference",
+        "mixture-of-experts",
+        "long-context"
       ]
     },
     {
@@ -431,7 +441,9 @@
       "topicIds": [
         "arrays",
         "trees-graphs",
-        "algorithms"
+        "algorithms",
+        "union-find",
+        "dynamic-programming"
       ]
     },
     {
@@ -440,7 +452,9 @@
       "topicIds": [
         "ml-code-softmax",
         "ml-code-attention",
-        "ml-code-training"
+        "ml-code-training",
+        "ml-code-convolution",
+        "ml-code-autograd"
       ]
     },
     {
@@ -452,7 +466,9 @@
         "serving",
         "floating-point",
         "mixed-precision",
-        "gpu-performance"
+        "gpu-performance",
+        "activation-checkpointing",
+        "collective-communication"
       ]
     },
     {
@@ -461,7 +477,9 @@
       "topicIds": [
         "research-design",
         "research-evaluation",
-        "paper-critique"
+        "paper-critique",
+        "power-analysis",
+        "data-contamination"
       ]
     },
     {

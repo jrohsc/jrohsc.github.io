@@ -488,7 +488,10 @@
     ],
     "related": [
       "experiments",
-      "optimization"
+      "optimization",
+      "conditional-expectation",
+      "concentration-inequalities",
+      "gaussian-processes"
     ],
     "followUps": [
       "Which regularizer corresponds to a Laplace prior?",
@@ -727,7 +730,10 @@
     ],
     "related": [
       "training",
-      "ml-code-optimizers"
+      "ml-code-optimizers",
+      "gaussian-processes",
+      "diffusion-models",
+      "mixture-of-experts"
     ],
     "followUps": [
       "Why does Adam need bias correction?",
@@ -931,7 +937,9 @@
     ],
     "related": [
       "evaluation",
-      "regression"
+      "regression",
+      "concentration-inequalities",
+      "causal-inference"
     ],
     "followUps": [
       "Does collecting more data also solve underfitting?",
@@ -1021,7 +1029,9 @@
       "calculus"
     ],
     "related": [
-      "ml-code-linear"
+      "ml-code-linear",
+      "conditional-expectation",
+      "gaussian-processes"
     ],
     "followUps": [
       "Is the solution unique when there are more features than samples?",
@@ -1252,7 +1262,8 @@
       "ml-foundations"
     ],
     "related": [
-      "ml-code-clustering"
+      "ml-code-clustering",
+      "union-find"
     ],
     "followUps": [
       "How does K-means differ from a Gaussian mixture model?",
@@ -1323,7 +1334,11 @@
     ],
     "related": [
       "experiments",
-      "llm-evaluation"
+      "llm-evaluation",
+      "concentration-inequalities",
+      "causal-inference",
+      "contrastive-learning",
+      "speech-ctc"
     ],
     "followUps": [
       "What happens to precision when positive prevalence changes from 1% to 10%?",
@@ -2103,7 +2118,8 @@
     ],
     "related": [
       "llm-evaluation",
-      "safety-rl"
+      "safety-rl",
+      "reinforcement-learning"
     ],
     "followUps": [
       "How does changing β affect reference regularization and gradients?",
@@ -2193,7 +2209,8 @@
       "transformers"
     ],
     "related": [
-      "ml-code-decoding"
+      "ml-code-decoding",
+      "speech-ctc"
     ],
     "followUps": [
       "Does the order matter when applying top-k and top-p together?",
@@ -2261,7 +2278,8 @@
     ],
     "related": [
       "llm-evaluation",
-      "serving"
+      "serving",
+      "long-context"
     ],
     "followUps": [
       "What would you investigate when retrieval recall is high but answer accuracy is low?",
@@ -2420,7 +2438,9 @@
     ],
     "related": [
       "research-evaluation",
-      "safety-rl"
+      "safety-rl",
+      "data-contamination",
+      "long-context"
     ],
     "followUps": [
       "What should be measured after a benchmark saturates?",
@@ -2548,7 +2568,8 @@
     ],
     "related": [
       "algorithms",
-      "backprop"
+      "backprop",
+      "dynamic-programming"
     ],
     "followUps": [
       "How do you find a longest path in a DAG?",
@@ -2614,7 +2635,8 @@
       "arrays"
     ],
     "related": [
-      "ml-code-decoding"
+      "ml-code-decoding",
+      "union-find"
     ],
     "followUps": [
       "When would you choose sorting versus a heap for top-k?",
@@ -2972,7 +2994,8 @@
       "training"
     ],
     "related": [
-      "ml-code-softmax"
+      "ml-code-softmax",
+      "ml-code-autograd"
     ],
     "followUps": [
       "What happens on a constant input without epsilon?",
@@ -3178,7 +3201,8 @@
     ],
     "related": [
       "distributed",
-      "training"
+      "training",
+      "collective-communication"
     ],
     "followUps": [
       "With BatchNorm, is accumulation equivalent to a large batch?",
@@ -3255,7 +3279,8 @@
       "serving",
       "floating-point",
       "mixed-precision",
-      "gpu-performance"
+      "gpu-performance",
+      "collective-communication"
     ],
     "followUps": [
       "What is the time-memory trade-off of activation checkpointing?",
@@ -3343,7 +3368,8 @@
     "related": [
       "serving",
       "mixed-precision",
-      "gpu-performance"
+      "gpu-performance",
+      "activation-checkpointing"
     ],
     "followUps": [
       "Why is tensor parallelism disadvantaged on a slow interconnect?",
@@ -3416,7 +3442,8 @@
       "distributed",
       "adaptation",
       "floating-point",
-      "gpu-performance"
+      "gpu-performance",
+      "mixture-of-experts"
     ],
     "followUps": [
       "If context doubles, how do KV memory and prefill computation change?",
@@ -3485,7 +3512,12 @@
     ],
     "related": [
       "research-evaluation",
-      "paper-critique"
+      "paper-critique",
+      "gaussian-processes",
+      "causal-inference",
+      "power-analysis",
+      "data-contamination",
+      "dynamic-programming"
     ],
     "followUps": [
       "What comparisons are needed if a new method uses three times as much compute?",
@@ -3550,7 +3582,10 @@
     ],
     "related": [
       "research-design",
-      "llm-evaluation"
+      "llm-evaluation",
+      "power-analysis",
+      "data-contamination",
+      "reinforcement-learning"
     ],
     "followUps": [
       "Are three seeds sufficient? What would guide that decision?",
@@ -3687,7 +3722,10 @@
       "evaluation"
     ],
     "related": [
-      "multimodal"
+      "multimodal",
+      "contrastive-learning",
+      "diffusion-models",
+      "ml-code-convolution"
     ],
     "followUps": [
       "When can horizontal flipping be unsafe in medical images?",
@@ -3761,7 +3799,8 @@
     ],
     "related": [
       "tokenization",
-      "multimodal"
+      "multimodal",
+      "speech-ctc"
     ],
     "followUps": [
       "How do the conditional-independence assumptions of CTC and encoder-decoder models differ?",
@@ -3832,7 +3871,9 @@
       "vision"
     ],
     "related": [
-      "llm-evaluation"
+      "llm-evaluation",
+      "contrastive-learning",
+      "diffusion-models"
     ],
     "followUps": [
       "How does a larger batch affect contrastive learning?",
@@ -3906,7 +3947,8 @@
     ],
     "related": [
       "llm-evaluation",
-      "research-design"
+      "research-design",
+      "reinforcement-learning"
     ],
     "followUps": [
       "How do on-policy and off-policy learning differ?",
@@ -4298,7 +4340,9 @@
       "mixed-precision",
       "distributed",
       "serving",
-      "ml-code-attention"
+      "ml-code-attention",
+      "mixture-of-experts",
+      "long-context"
     ],
     "followUps": [
       "Why can a batch-size-one linear layer be bandwidth-bound while the same layer at a large batch is compute-bound?",
@@ -4407,6 +4451,2241 @@
           }
         ],
         "example": "If f=.6 and s=4, total speedup is 1/(.4+.15)≈1.818. Even infinite acceleration of that part cannot exceed 1/.4=2.5."
+      }
+    ]
+  },
+  {
+    "id": "conditional-expectation",
+    "title": "Conditional Expectation as the Best Prediction",
+    "category": "math",
+    "subtopics": [
+      "Conditional expectation as a random variable",
+      "Tower property",
+      "Orthogonality of residuals",
+      "Minimum mean squared error",
+      "Law of total variance",
+      "Rao–Blackwellization"
+    ],
+    "summary": "Go beyond averaging a subgroup: view conditional expectation as a random variable determined by available information, prove its optimality for squared-error prediction, and use conditioning to reduce estimator variance.",
+    "intuition": "Before seeing X, the prediction E[Y|X] can take different values, so it is itself random. After observing X=x, it becomes the number E[Y|X=x]. You are allowed to use X but not the unobserved noise in Y. The conditional mean is the best possible squared-error prediction using exactly that information; a more complicated function of X cannot improve its population MSE. This is an information limit, not a claim that a fitted model has already learned the true conditional mean.",
+    "math": "m(X)=E[Y|X]; E[(Y-g(X))²]=E[Var(Y|X)]+E[(m(X)-g(X))²]; E[E[Y|X]]=E[Y].",
+    "derivation": "1. Assume Y has a finite second moment and let $m(X)=\\mathbb E[Y\\mid X]$. It is a function of the observed information X, while $g(X)$ is any competing square-integrable predictor using that same information.\n2. Write the prediction error as $Y-g(X)=[Y-m(X)]+[m(X)-g(X)]$. The first term is unpredictable residual noise relative to X; the second is the predictor’s deviation from the conditional mean.\n3. Square the sum. Besides the two squared terms, the expansion has cross term $2(Y-m(X))(m(X)-g(X))$.\n4. Condition the cross term on X. Its second factor is fixed given X, and $\\mathbb E[Y-m(X)\\mid X]=0$, so the conditional expectation of the cross term vanishes. Averaging again also gives zero unconditionally.\n5. Therefore $$\\mathbb E[(Y-g(X))^2]=\\mathbb E[\\operatorname{Var}(Y\\mid X)]+\\mathbb E[(m(X)-g(X))^2].$$ The first term does not depend on g, and the second is nonnegative. The optimum is $g(X)=m(X)$ almost surely.\n6. More generally, the residual is orthogonal to every suitable function h(X): $\\mathbb E[(Y-m(X))h(X)]=0$. This is the probabilistic analogue of a least-squares residual being orthogonal to the feature space.\n7. Taking expectations of the conditional mean gives the tower property $\\mathbb E[m(X)]=\\mathbb E[Y]$. Choosing the constant predictor $g(X)=\\mathbb E[Y]$ in the decomposition yields the law of total variance.\n8. If T is an estimator and Z is information on which we can condition, replacing T with $\\mathbb E[T\\mid Z]$ preserves its expectation and cannot increase variance. To use this as an implementable estimator, the conditional expectation must be computable from observations without unknown parameters; the classical Rao–Blackwell setting uses a sufficient statistic.",
+    "application": "Derive the population target of squared-error regression, distinguish reducible model error from conditional noise, design variance-reduced Monte Carlo estimators, and diagnose whether residuals retain predictable structure. In finite data, estimate conditional patterns on held-out observations rather than assuming training residual orthogonality implies generalization.",
+    "mistakes": [
+      "Treating E[Y|X] as a fixed number before X is observed",
+      "Assuming E[Y|X]=E[Y] without an independence or mean-independence condition",
+      "Claiming a residual uncorrelated with X is independent of X",
+      "Using the squared-loss optimum for absolute-error loss, whose optimum is a conditional median",
+      "Conditioning on unobserved information in an allegedly deployable predictor"
+    ],
+    "interview": "Conditional expectation is the best squared-error prediction measurable from the available information. The proof expands the error around the conditional mean; the cross term disappears because the residual has conditional mean zero. This also yields total variance and explains variance reduction by conditional averaging.",
+    "code": "from collections import defaultdict\nfrom statistics import mean\n# Population toy distribution represented by four equally likely outcomes.\nrows = [(0, -1.0), (0, 1.0), (1, 1.0), (1, 3.0)]\ngroups = defaultdict(list)\nfor x, y in rows:\n    groups[x].append(y)\nm = {x: mean(ys) for x, ys in groups.items()}\nbest_mse = mean((y - m[x])**2 for x, y in rows)\nconstant = mean(y for x, y in rows)\nconstant_mse = mean((y - constant)**2 for x, y in rows)\nassert m == {0: 0.0, 1: 2.0}\nassert best_mse == 1.0 and constant_mse == 2.0\nprint(m, best_mse, constant_mse)",
+    "prerequisites": [
+      "probability",
+      "expectation"
+    ],
+    "related": [
+      "regression",
+      "statistics",
+      "causal-inference",
+      "gaussian-processes"
+    ],
+    "followUps": [
+      "Why is conditional expectation optimal under squared loss but not necessarily under absolute loss?",
+      "Give an example of a zero-mean residual that is uncorrelated with X but not independent of X.",
+      "What additional requirement makes Rao–Blackwellization computable as an estimator rather than just a probability identity?"
+    ],
+    "sources": [
+      {
+        "title": "MIT OCW · Introduction to Probability, conditional expectation lectures",
+        "url": "https://ocw.mit.edu/courses/res-6-012-introduction-to-probability-spring-2018/resources/lecture-videos/",
+        "lastVerified": "2026-10-07",
+        "sourceType": "PRIMARY_REFERENCE"
+      }
+    ],
+    "visual": null,
+    "visualSteps": [
+      {
+        "label": "Observe X",
+        "detail": "Limit the predictor to information available at inference."
+      },
+      {
+        "label": "Predict m(X)",
+        "detail": "Assign each observed group its population conditional mean."
+      },
+      {
+        "label": "Split error",
+        "detail": "Separate unpredictable residual from deviation of the predictor."
+      },
+      {
+        "label": "Cancel cross term",
+        "detail": "The residual averages to zero within every X group."
+      },
+      {
+        "label": "Minimize MSE",
+        "detail": "Only the squared deviation term can be reduced by a better predictor."
+      }
+    ],
+    "workedExample": "Let X be a fair binary variable and let $Y=2X+\\varepsilon$, where independent noise ε is −1 or +1 with equal probability. Then $m(0)=0$, $m(1)=2$, and $\\operatorname{Var}(Y\\mid X)=1$. The unconditional mean is 1. Predicting m(X) has MSE 1, while always predicting 1 has MSE 2: one unit of noise variance plus one unit of variance in the group means. For a biased predictor $g(X)=2X+.5$, the decomposition gives $1+.5^2=1.25$. Knowing X helps, but no function of X can predict the independent ε.",
+    "independentPrompts": [
+      "Derive the zero cross-term identity without saying that the residual is independent of X.",
+      "In the worked example, calculate the MSE of g(X)=X and verify the error decomposition.",
+      "Explain what changes if the noise variance is 1 for X=0 and 9 for X=1, while its conditional mean remains zero."
+    ],
+    "debugging": {
+      "prompt": "A researcher claims that training residuals summing to zero proves the model learned E[Y|X] and no further prediction improvement is possible.",
+      "answer": "A regression intercept can force the global training residual mean to zero even when strong conditional structure remains. The required property is zero conditional residual mean for the population, not one aggregate training moment. Inspect held-out residuals by feature slices or fit a held-out residual predictor; account for multiple exploratory checks before claiming the conditional mean has been learned."
+    },
+    "formulas": [
+      {
+        "latex": "m(X)=\\mathbb E[Y\\mid X],\\qquad \\mathbb E[m(X)]=\\mathbb E[Y]",
+        "explanation": "First average Y within each observed X group, then average those group means using their population probabilities. The result is the unconditional mean; giving equal weight to unequal groups would generally be wrong.",
+        "symbols": [
+          {
+            "symbol": "X",
+            "meaning": "Available information"
+          },
+          {
+            "symbol": "Y",
+            "meaning": "Target variable"
+          },
+          {
+            "symbol": "m(X)",
+            "meaning": "Conditional-mean prediction"
+          }
+        ],
+        "example": "Groups with probabilities .25 and .75 and means 2 and 6 give E[Y]=.25·2+.75·6=5."
+      },
+      {
+        "latex": "\\mathbb E[(Y-g(X))^2]=\\mathbb E[\\operatorname{Var}(Y\\mid X)]+\\mathbb E[(m(X)-g(X))^2]",
+        "explanation": "Squared prediction error splits into unavoidable conditional noise and the error from missing the conditional mean. This requires finite second moments and predictors using X; it is not an assertion about a particular fitted model.",
+        "symbols": [
+          {
+            "symbol": "g(X)",
+            "meaning": "Any competing predictor based on X"
+          },
+          {
+            "symbol": "m(X)",
+            "meaning": "True conditional mean"
+          },
+          {
+            "symbol": "\\operatorname{Var}(Y\\mid X)",
+            "meaning": "Residual variance at each X"
+          }
+        ],
+        "example": "Conditional noise variance 1 plus a constant prediction bias .5 gives MSE 1+.25=1.25."
+      },
+      {
+        "latex": "\\operatorname{Var}(Y)=\\mathbb E[\\operatorname{Var}(Y\\mid X)]+\\operatorname{Var}(\\mathbb E[Y\\mid X])",
+        "explanation": "Total variation is the average within-group variation plus variation between group means. The weighting follows the distribution of X.",
+        "symbols": [
+          {
+            "symbol": "\\operatorname{Var}",
+            "meaning": "Variance"
+          },
+          {
+            "symbol": "\\mathbb E",
+            "meaning": "Probability-weighted average"
+          }
+        ],
+        "example": "For Y=2X+ε with fair binary X and independent ±1 noise, the two terms are 1 and 1, giving variance 2."
+      }
+    ]
+  },
+  {
+    "id": "concentration-inequalities",
+    "title": "Finite-Sample Guarantees: Markov, Chebyshev & Hoeffding",
+    "category": "math",
+    "subtopics": [
+      "Markov inequality",
+      "Chebyshev inequality",
+      "Hoeffding inequality",
+      "Moment-generating functions",
+      "Chernoff method",
+      "Finite-sample confidence bounds",
+      "Union bound",
+      "Uniform convergence"
+    ],
+    "summary": "Turn assumptions about nonnegativity, variance, or bounded independent samples into explicit tail guarantees. Contrast finite-sample bounds with asymptotic approximations and account for selecting among many models.",
+    "intuition": "A concentration bound limits how often a random estimate can be far from its expectation. Stronger assumptions can give a stronger bound: Markov uses nonnegativity, Chebyshev uses finite variance, and Hoeffding uses independence plus bounded observations. A bound is an upper limit, often conservative, not the exact probability of a bad outcome. A guarantee for a preselected model does not automatically remain valid after searching many models on the same sample.",
+    "math": "P(Z>=a)<=E[Z]/a; P(|X-mu|>=t)<=sigma²/t²; P(|mean(X)-mu|>=epsilon)<=2 exp(-2n epsilon²) for independent [0,1] samples; uniform bound <=2K exp(-2n epsilon²).",
+    "derivation": "1. For a nonnegative Z and a>0, split its expectation across the event Z≥a. On that event, Z is at least a, so $\\mathbb E[Z]\\ge aP(Z\\ge a)$. Rearranging gives Markov’s inequality.\n2. Apply Markov to $Z=(X-\\mu)^2$. If X has finite variance σ², obtain $P(|X-\\mu|\\ge t)\\le\\sigma^2/t^2$. This is Chebyshev’s inequality and requires no Gaussian assumption.\n3. For independent variables $X_i\\in[0,1]$, apply Markov to the positive exponential of their centered sum: $$P\\!\\left(\\sum_i(X_i-\\mathbb E X_i)\\ge n\\epsilon\\right)\\le e^{-\\lambda n\\epsilon}\\mathbb E e^{\\lambda\\sum_i(X_i-\\mathbb E X_i)}.$$ Here λ is any positive number we may optimize.\n4. Independence factors the expectation into a product. Hoeffding’s lemma bounds each centered variable’s moment-generating function by $e^{\\lambda^2/8}$ for a range of width 1. Thus the upper tail is at most $\\exp(-\\lambda n\\epsilon+n\\lambda^2/8)$.\n5. Differentiate the exponent with respect to λ and set it to zero. The optimizer is $\\lambda=4\\epsilon$, giving the upper-tail bound $e^{-2n\\epsilon^2}$. Apply the same argument to the negative tail and add the two probabilities.\n6. To make the two-sided bound at most δ, solve $2e^{-2n\\epsilon^2}\\le\\delta$, yielding $n\\ge\\log(2/\\delta)/(2\\epsilon^2)$. Round up to an integer. This is a sufficient bound, not necessarily the smallest workable sample size.\n7. For K fixed candidate models with bounded per-example loss, a union bound gives failure probability at most $2K e^{-2n\\epsilon^2}$. No independence between models is required, but the candidate set must be fixed independently of the evaluation sample for this direct argument.\n8. Correlated samples, adaptive reuse of the holdout, unbounded losses, and distribution shifts require a different argument. Replacing actual assumptions with a large n does not make the stated inequality applicable.",
+    "application": "Plan conservative evaluation sample sizes, explain generalization guarantees for finite hypothesis classes, distinguish concentration from the CLT, and identify why repeated evaluation or clustered data invalidates a naive iid calculation. Use the bound to reason about scale, then compare with task-specific power and uncertainty analyses.",
+    "mistakes": [
+      "Interpreting a bound larger than 1 as a valid probability estimate rather than clipping the trivial upper limit to 1",
+      "Using Hoeffding for arbitrary unbounded loss without checking assumptions",
+      "Treating dependent frames or repeated user records as independent samples",
+      "Using a single-model guarantee after adaptively selecting the best of many models",
+      "Confusing a sufficient sample count with a necessary minimum"
+    ],
+    "interview": "I would choose a bound from the available assumptions. Hoeffding gives an exponential finite-sample bound for independent bounded observations. I would state the target error and failure probability, then account for model selection with an appropriate uniform bound rather than silently reusing a pointwise guarantee.",
+    "code": "from math import exp, log, ceil\n\ndef hoeffding_bound(n, epsilon, candidates=1):\n    if n <= 0 or epsilon <= 0 or candidates < 1:\n        raise ValueError(\"positive n/epsilon and at least one candidate required\")\n    return min(1.0, 2 * candidates * exp(-2*n*epsilon**2))\n\ndef required_samples(epsilon, delta, candidates=1):\n    if epsilon <= 0 or not 0 < delta < 1 or candidates < 1:\n        raise ValueError(\"invalid precision, failure probability, or candidate count\")\n    return ceil(log(2*candidates/delta)/(2*epsilon**2))\n\nprint(required_samples(.05, .05))  # 738\nprint(required_samples(.05, .05, 100))  # 1659\nassert hoeffding_bound(738, .05) <= .05",
+    "prerequisites": [
+      "probability",
+      "expectation"
+    ],
+    "related": [
+      "statistics",
+      "evaluation",
+      "power-analysis",
+      "ml-foundations"
+    ],
+    "followUps": [
+      "What changes for variables in [a,b] rather than [0,1]?",
+      "Why does the union bound not require candidate-model errors to be independent?",
+      "When can a CLT-based interval be tighter, and what guarantee has changed?"
+    ],
+    "sources": [
+      {
+        "title": "Jeff M. Phillips · Chernoff–Hoeffding Inequality and Applications",
+        "url": "https://arxiv.org/abs/1209.6396",
+        "lastVerified": "2026-10-07",
+        "sourceType": "PRIMARY_REFERENCE"
+      }
+    ],
+    "visual": null,
+    "visualSteps": [
+      {
+        "label": "State assumptions",
+        "detail": "Identify independence, bounded range, and the target expectation."
+      },
+      {
+        "label": "Exponentiate the error",
+        "detail": "Turn a tail event into a nonnegative random variable for Markov."
+      },
+      {
+        "label": "Optimize the bound",
+        "detail": "Choose the exponential parameter to tighten the upper limit."
+      },
+      {
+        "label": "Budget failure",
+        "detail": "Solve for sample size at the desired error and δ."
+      },
+      {
+        "label": "Account for selection",
+        "detail": "Include all prespecified candidates or use a method for adaptivity."
+      }
+    ],
+    "workedExample": "For independent binary correctness indicators, require the empirical accuracy to be within ε=.05 of its mean with failure probability at most δ=.05. Hoeffding gives $n\\ge\\log(40)/.005\\approx737.776$, so n=738 suffices. If selecting among K=100 candidates fixed before seeing the evaluation sample, require $n\\ge\\log(4000)/.005\\approx1658.810$, so n=1659 suffices for all candidates simultaneously. These are conservative distribution-free sufficient counts, not power-analysis estimates or proofs that fewer examples cannot work.",
+    "independentPrompts": [
+      "Derive Chebyshev by choosing the nonnegative variable to which Markov is applied.",
+      "Calculate how the Hoeffding sufficient sample count changes when ε is halved while δ and K stay fixed.",
+      "Explain why 1,000 adjacent video frames do not automatically provide 1,000 independent observations for this bound."
+    ],
+    "debugging": {
+      "prompt": "An engineer reports a 95% Hoeffding guarantee using n=738 and ε=.05 after choosing the highest-scoring model out of 100 on the same test set.",
+      "answer": "The single-model failure probability does not account for selection. If the 100 candidates were fixed independently of that set, a union-bound guarantee replaces 2 with 2K and requires 1659 samples for the same ε and δ. If the candidate models themselves were adapted after repeated feedback, this simple fixed-class calculation may not apply; use an untouched final holdout or a method explicitly designed for adaptive evaluation."
+    },
+    "formulas": [
+      {
+        "latex": "P(Z\\ge a)\\le\\frac{\\mathbb E[Z]}a,\\qquad P(|X-\\mu|\\ge t)\\le\\frac{\\sigma^2}{t^2}",
+        "explanation": "Markov bounds a nonnegative variable’s tail using its mean. Applying it to squared centered deviations gives Chebyshev for any variable with finite variance. Neither statement assumes a normal distribution.",
+        "symbols": [
+          {
+            "symbol": "Z",
+            "meaning": "Nonnegative random variable"
+          },
+          {
+            "symbol": "a,t",
+            "meaning": "Positive thresholds"
+          },
+          {
+            "symbol": "\\mu,\\sigma^2",
+            "meaning": "Mean and variance of X"
+          }
+        ],
+        "example": "If σ²=4, Chebyshev says the chance of a deviation of at least 6 is no more than 4/36=1/9."
+      },
+      {
+        "latex": "P(|\\bar X-\\mu|\\ge\\epsilon)\\le2e^{-2n\\epsilon^2},\\qquad X_i\\in[0,1]",
+        "explanation": "Independent bounded observations make their sample average concentrate exponentially. Here μ is the mean of the individual expectations; identical distributions are not required for this bound.",
+        "symbols": [
+          {
+            "symbol": "n",
+            "meaning": "Number of independent observations"
+          },
+          {
+            "symbol": "\\bar X",
+            "meaning": "Sample average"
+          },
+          {
+            "symbol": "\\mu",
+            "meaning": "Expected sample average"
+          },
+          {
+            "symbol": "\\epsilon",
+            "meaning": "Allowed absolute deviation"
+          }
+        ],
+        "example": "At n=1000 and ε=.05, the bound is 2e⁻⁵≈.01348."
+      },
+      {
+        "latex": "n\\ge\\frac{\\log(2K/\\delta)}{2\\epsilon^2}",
+        "explanation": "This sufficient sample count controls every one of K fixed candidates at once via a union bound. It assumes their bounded losses are evaluated on independent examples and candidates are fixed before examining that evaluation sample.",
+        "symbols": [
+          {
+            "symbol": "K",
+            "meaning": "Number of fixed candidate models"
+          },
+          {
+            "symbol": "\\delta",
+            "meaning": "Maximum probability that any bound fails"
+          },
+          {
+            "symbol": "\\epsilon",
+            "meaning": "Accuracy tolerance"
+          }
+        ],
+        "example": "For K=100, δ=.05, and ε=.05, round 1658.810 upward to 1659 examples."
+      }
+    ]
+  },
+  {
+    "id": "gaussian-processes",
+    "title": "Gaussian Processes: Kernels & Predictive Uncertainty",
+    "category": "ml",
+    "subtopics": [
+      "Gaussian process priors",
+      "Positive-semidefinite kernels",
+      "Gaussian conditioning",
+      "Posterior mean and covariance",
+      "Observation noise versus latent uncertainty",
+      "Cholesky solves",
+      "Kernel hyperparameters",
+      "Exact GP complexity"
+    ],
+    "summary": "Derive a predictive distribution by conditioning a joint Gaussian over function values. Connect kernel similarity to information transfer, keep observation noise separate from latent uncertainty, and implement inference with linear solves.",
+    "intuition": "A Gaussian process puts a distribution over functions by requiring every finite collection of function values to have a joint Gaussian distribution. The kernel says which inputs should move together. Observing one point influences nearby or otherwise strongly correlated points, while uncertainty remains where the kernel says little information is shared. A narrow posterior is justified only relative to the chosen kernel, noise model, and fitted hyperparameters; it is not an unconditional guarantee of calibration.",
+    "math": "A=K(X,X)+sigma_n²I; posterior mean=K_*^T A^-1 y; posterior covariance=K_**-K_*^T A^-1 K_*; RBF k(x,xprime)=sigma_f² exp(-||x-xprime||²/(2ell²)).",
+    "derivation": "1. Assume a zero-mean latent function prior $f\\sim\\mathcal{GP}(0,k)$ and independent Gaussian observation noise $y_i=f(x_i)+\\varepsilon_i$, with variance $\\sigma_n^2$. A nonzero prior mean can be subtracted and restored.\n2. Evaluate the kernel on n training inputs to form $K=K(X,X)$, on training versus test inputs to form $K_*=K(X,X_*)$, and on test inputs to form $K_{**}=K(X_*,X_*)$. A valid covariance kernel produces PSD Gram matrices.\n3. Because noise is independent of the latent function, $A=\\operatorname{Cov}(y)=K+\\sigma_n^2I$, while $\\operatorname{Cov}(y,f_*)=K_*$. This defines the joint Gaussian of observations and test function values.\n4. Consider residual $r=f_*-K_*^TA^{-1}y$. Its covariance with y is $K_*^T-K_*^TA^{-1}A=0$. For jointly Gaussian quantities, zero cross-covariance implies independence.\n5. Thus conditioning on y shifts the mean but does not change the residual distribution: $$\\mu_*=K_*^TA^{-1}y,\\qquad \\Sigma_*=K_{**}-K_*^TA^{-1}K_*.$$ This is the Gaussian conditioning formula derived by removing the correlated component.\n6. To predict a new noisy observation rather than the latent function, add its independent observation-noise variance to the posterior diagonal. Repeated noisy measurements can reduce uncertainty about f but cannot remove fresh observation noise.\n7. Factor $A=LL^T$ with Cholesky. Solve for α using two triangular solves and calculate $V=L^{-1}K_*$. Then the covariance is $K_{**}-V^TV$. Do not explicitly form an inverse. A small numerical jitter may stabilize a nearly singular matrix but is conceptually different from observation noise.\n8. Exact dense training factorization costs roughly $O(n^3)$ time and $O(n^2)$ storage. Kernel length scale and noise hyperparameters change both fit and uncertainty; optimizing them on the test set invalidates evaluation. Approximate GP methods trade computation against approximation error.",
+    "application": "Use GPs for small-data regression, surrogate modeling, Bayesian optimization, and uncertainty-aware experimental design. Check kernel assumptions, input scaling, noise estimates, and held-out calibration. They are particularly useful when collecting another observation is expensive and predictive uncertainty informs the next experiment.",
+    "mistakes": [
+      "Treating any similarity function as a valid PSD kernel",
+      "Confusing latent posterior variance with variance of a future noisy observation",
+      "Explicitly inverting the kernel matrix",
+      "Clipping all negative variances without investigating a kernel or numerical bug",
+      "Assuming posterior intervals remain calibrated under a misspecified kernel or distribution shift"
+    ],
+    "interview": "A GP defines correlated Gaussian function values through a kernel. I would add observation noise to the training covariance and condition the joint Gaussian to obtain a posterior mean and covariance. Implementation uses Cholesky solves, and I would distinguish latent uncertainty from fresh observation noise and mention cubic exact-inference cost.",
+    "code": "import numpy as np\n\ndef gp_posterior(K, K_star, K_test, y, noise_var, jitter=1e-10):\n    n = len(y)\n    A = K + (noise_var + jitter) * np.eye(n)\n    L = np.linalg.cholesky(A)\n    alpha = np.linalg.solve(L.T, np.linalg.solve(L, y))\n    V = np.linalg.solve(L, K_star)\n    mean = K_star.T @ alpha\n    cov = K_test - V.T @ V\n    return mean, (cov + cov.T) / 2\n\nmean, cov = gp_posterior(np.array([[1.]]), np.array([[.5]]),\n                         np.array([[1.]]), np.array([2.]), .25)\nassert np.allclose(mean, [.8])\nassert np.allclose(cov, [[.8]])\nprint(mean, cov)  # latent prediction; add .25 for new observation variance",
+    "prerequisites": [
+      "spectral",
+      "distributions",
+      "conditional-expectation"
+    ],
+    "related": [
+      "regression",
+      "statistics",
+      "research-design",
+      "optimization",
+      "conditional-expectation"
+    ],
+    "followUps": [
+      "Why must the kernel be positive semidefinite?",
+      "What happens to the posterior at a training point as observation noise approaches zero?",
+      "How would you distinguish a bad length scale from underestimated observation noise?"
+    ],
+    "sources": [
+      {
+        "title": "Rasmussen & Williams · Gaussian Processes for Machine Learning, Chapter 2",
+        "url": "https://gaussianprocess.org/gpml/chapters/RW2.pdf",
+        "lastVerified": "2026-10-07",
+        "sourceType": "PRIMARY_REFERENCE"
+      }
+    ],
+    "visual": null,
+    "visualSteps": [
+      {
+        "label": "Choose a kernel",
+        "detail": "Specify which inputs have correlated function values."
+      },
+      {
+        "label": "Build covariance",
+        "detail": "Add observation noise only to the observed training values."
+      },
+      {
+        "label": "Condition on data",
+        "detail": "Transfer information through cross-covariance."
+      },
+      {
+        "label": "Separate uncertainty",
+        "detail": "Latent variance and future observation noise are different."
+      },
+      {
+        "label": "Check predictions",
+        "detail": "Inspect held-out residuals and interval coverage."
+      }
+    ],
+    "workedExample": "Use one observation y=2, prior variance k(x,x)=1, and noise variance .25. At a test point with prior variance 1 and cross-covariance .5, $A=1.25$. The posterior mean is $.5\\times2/1.25=.8$, and latent variance is $1-.5^2/1.25=.8$. A new observation with the same noise variance has predictive variance .8+.25=1.05. At the training location, cross-covariance is 1 instead: mean=1.6 and latent variance=.2. The mean does not interpolate the noisy target exactly because the model allows measurement error.",
+    "independentPrompts": [
+      "Derive the posterior by constructing a Gaussian residual uncorrelated with the observations.",
+      "Repeat the one-point calculation with noise variance 1 and cross-covariance .5. Calculate latent and observation variances.",
+      "Explain why a tiny diagonal jitter is not a substitute for a scientifically justified noise model."
+    ],
+    "debugging": {
+      "prompt": "A GP reports nearly zero predictive intervals at noisy training points and claims future observations there are almost certain. Its code returns only K_test−V.T@V.",
+      "answer": "That matrix is the posterior covariance of the latent function. Predicting a fresh noisy observation requires adding the observation-noise variance to its diagonal. Also verify that the training covariance included noise in the first place. Compare both quantities against a one-point analytic example; do not conflate numerical jitter with measured noise."
+    },
+    "formulas": [
+      {
+        "latex": "k(x,x^\\prime)=\\sigma_f^2\\exp\\!\\left(-\\frac{\\|x-x^\\prime\\|_2^2}{2\\ell^2}\\right)",
+        "explanation": "The RBF kernel gives high covariance to nearby inputs and lower covariance to distant inputs. Its amplitude sets prior function variance; its length scale controls how quickly correlation decays. This imposes a smoothness assumption rather than learning every possible pattern without restrictions.",
+        "symbols": [
+          {
+            "symbol": "\\sigma_f^2",
+            "meaning": "Prior function variance"
+          },
+          {
+            "symbol": "\\ell",
+            "meaning": "Positive length scale"
+          },
+          {
+            "symbol": "x,x^\\prime",
+            "meaning": "Two inputs"
+          }
+        ],
+        "example": "With σ_f²=1 and distance ℓ√(2 log 2), covariance is exp(−log 2)=.5."
+      },
+      {
+        "latex": "A=K+\\sigma_n^2I,\\quad \\mu_*=K_*^TA^{-1}y,\\quad \\Sigma_*=K_{**}-K_*^TA^{-1}K_*",
+        "explanation": "Conditioning transfers the observed targets according to their covariance with test inputs and subtracts the uncertainty explained by those observations. The inverse denotes a mathematical operation; implement it with solves.",
+        "symbols": [
+          {
+            "symbol": "K",
+            "meaning": "Training latent covariance"
+          },
+          {
+            "symbol": "K_*",
+            "meaning": "Training-to-test cross-covariance"
+          },
+          {
+            "symbol": "K_{**}",
+            "meaning": "Test prior covariance"
+          },
+          {
+            "symbol": "\\sigma_n^2",
+            "meaning": "Independent observation-noise variance"
+          },
+          {
+            "symbol": "y",
+            "meaning": "Observed targets"
+          }
+        ],
+        "example": "With K=1, K_*=.5, K_**=1, y=2, noise=.25, the posterior mean and latent variance are both .8."
+      },
+      {
+        "latex": "\\operatorname{Cov}(y_*\\mid y)=\\Sigma_*+\\sigma_n^2I",
+        "explanation": "A future noisy observation includes both uncertainty about the underlying function and independent new noise. Their covariance contributions add.",
+        "symbols": [
+          {
+            "symbol": "y_*",
+            "meaning": "Future observed target"
+          },
+          {
+            "symbol": "\\Sigma_*",
+            "meaning": "Latent posterior covariance"
+          },
+          {
+            "symbol": "\\sigma_n^2",
+            "meaning": "Future noise variance in this homoscedastic model"
+          }
+        ],
+        "example": "Latent variance .8 plus observation-noise variance .25 gives predictive variance 1.05."
+      }
+    ]
+  },
+  {
+    "id": "causal-inference",
+    "title": "Causal Effects, Confounding & Adjustment",
+    "category": "ml",
+    "subtopics": [
+      "Potential outcomes",
+      "Average treatment effect",
+      "Consistency",
+      "Conditional exchangeability",
+      "Positivity",
+      "Backdoor adjustment",
+      "Confounders versus mediators and colliders",
+      "Simpson’s paradox"
+    ],
+    "summary": "Distinguish predicting outcomes under observed choices from estimating what an intervention would change. Derive an adjustment formula under explicit identification assumptions and show how confounding can reverse a naive comparison.",
+    "intuition": "A high-performing predictor can recognize who tends to receive a treatment without learning what the treatment causes. For each person, the causal question compares two potential outcomes, but only one is observed. Identification assumptions connect that missing comparison to observable groups. More covariates are not automatically better: controlling for a mediator can remove part of the effect, and controlling for a collider can introduce a spurious association.",
+    "math": "ATE=E[Y(1)-Y(0)]; E[Y(a)]=sum_c E[Y|A=a,C=c]P(C=c), under consistency, conditional exchangeability and positivity.",
+    "derivation": "1. Define a well-specified binary intervention A and potential outcomes Y(1), Y(0). The target average treatment effect is $\\mathbb E[Y(1)-Y(0)]$ in a stated population. Timing and treatment versions matter to whether these quantities are meaningful.\n2. Consistency connects the observed outcome to the potential outcome under the treatment actually received: $Y=Y(A)$. This also requires that relevant interference and treatment-version issues be addressed by the study definition.\n3. Let C be an appropriate set of pretreatment covariates. Conditional exchangeability assumes $Y(a)\\perp A\\mid C$: within a covariate stratum, treatment assignment carries no additional information about the potential outcome. Observational data alone generally cannot prove this assumption.\n4. Positivity requires $P(A=a\\mid C=c)>0$ for every stratum with positive target-population probability. Without examples of an intervention in a relevant stratum, the data cannot directly identify its mean outcome there.\n5. Start with total expectation: $\\mathbb E[Y(a)]=\\sum_c\\mathbb E[Y(a)\\mid C=c]P(C=c)$. Exchangeability lets us condition additionally on A=a inside the mean.\n6. By consistency, replace Y(a) with observed Y among those with A=a. Thus $$\\mathbb E[Y(a)]=\\sum_c\\mathbb E[Y\\mid A=a,C=c]P(C=c).$$ Subtract the a=0 result from the a=1 result using the same target weights.\n7. The raw difference instead weights treatment strata by P(C|A=1) and control strata by P(C|A=0). If these populations differ in baseline risk, their difference mixes the intervention effect with composition effects.\n8. A causal graph and domain knowledge guide which C to adjust for. Check overlap and sensitivity to plausible unmeasured confounding; good predictive fit does not establish identification. Randomization can justify exchangeability by design, though missing outcomes, nonadherence, and interference still require care.",
+    "application": "Evaluate policy or product interventions, reason about selection bias in datasets, distinguish feature importance from causal effects, and design fair comparisons. In ML experiments, compare a method at matched resource settings before claiming the architecture itself caused an improvement; explicitly define the intervention and estimand.",
+    "mistakes": [
+      "Equating an accurate outcome predictor with an identified treatment effect",
+      "Adjusting for every available variable, including colliders or post-treatment mediators",
+      "Ignoring lack of treatment overlap",
+      "Using different target-population weights for the two potential-outcome means",
+      "Claiming conditional exchangeability was proved by a balance table"
+    ],
+    "interview": "I would define the intervention, target population, and potential-outcome contrast first. Observational adjustment needs consistency, exchangeability given a defensible pretreatment set, and positivity. Then I would standardize both treatment groups to the same population and report sensitivity to assumptions rather than treating correlation as causation.",
+    "code": "# Two pretreatment risk strata: low and high.\nmean_y0 = [.90, .40]\nmean_y1 = [.95, .50]\ntarget_weights = [.50, .50]\ntreated_mix = [.20, .80]\ncontrol_mix = [.80, .20]\nstandardized_ate = sum(w*(m1-m0) for w,m1,m0 in\n                       zip(target_weights, mean_y1, mean_y0))\nnaive = sum(w*m for w,m in zip(treated_mix, mean_y1)) -         sum(w*m for w,m in zip(control_mix, mean_y0))\nassert abs(standardized_ate-.075) < 1e-12\nassert abs(naive-(-.21)) < 1e-12\nprint(standardized_ate, naive)\n# A causal interpretation still requires the identification assumptions.",
+    "prerequisites": [
+      "probability",
+      "conditional-expectation",
+      "experiments"
+    ],
+    "related": [
+      "evaluation",
+      "research-design",
+      "ml-foundations",
+      "conditional-expectation"
+    ],
+    "followUps": [
+      "Why can controlling for a collider induce association?",
+      "How does an average treatment effect differ from an effect among the treated?",
+      "What can you conclude when a clinically important covariate stratum contains no untreated examples?"
+    ],
+    "sources": [
+      {
+        "title": "Hernán & Robins · Causal Inference: What If",
+        "url": "https://miguelhernan.org/whatifbook",
+        "lastVerified": "2026-10-07",
+        "sourceType": "PRIMARY_REFERENCE"
+      }
+    ],
+    "visual": null,
+    "visualSteps": [
+      {
+        "label": "Define intervention",
+        "detail": "Specify A=0 versus A=1 and the target population."
+      },
+      {
+        "label": "Identify common causes",
+        "detail": "Choose pretreatment C from knowledge of the data-generating process."
+      },
+      {
+        "label": "Compare within C",
+        "detail": "Estimate outcomes for both interventions where overlap exists."
+      },
+      {
+        "label": "Use common weights",
+        "detail": "Standardize each intervention to the same population."
+      },
+      {
+        "label": "Audit assumptions",
+        "detail": "Inspect overlap and sensitivity to unmeasured confounding."
+      }
+    ],
+    "workedExample": "There are low-risk and high-risk strata. Without treatment, success probabilities are .90 and .40; with treatment they are .95 and .50. The treatment improves success in both strata. But 80% of treated people are high-risk, while only 20% of controls are high-risk. Observed treated success is $.2(.95)+.8(.50)=.59$; observed control success is $.8(.90)+.2(.40)=.80$. The naive contrast is −.21. Standardizing to a 50/50 population instead gives $.5(.95-.90)+.5(.50-.40)=.075$, a 7.5-percentage-point benefit, under the identification assumptions. The reversal comes from different population mixtures, not an arithmetic contradiction.",
+    "independentPrompts": [
+      "State consistency, exchangeability, and positivity in plain language without claiming they are automatically testable.",
+      "Recalculate the standardized effect for a target population that is 80% low-risk and 20% high-risk.",
+      "Explain why adjusting for a variable caused by treatment can change the estimand from a total effect."
+    ],
+    "debugging": {
+      "prompt": "An observational treatment model achieves excellent held-out outcome accuracy. Its estimated effect reverses after adding a variable measured after treatment. The analyst calls the new estimate more causal because the model uses more information.",
+      "answer": "Predictive accuracy does not validate a causal adjustment set. A post-treatment variable may mediate the effect or act as a collider, so conditioning on it can change the target contrast or introduce bias. Establish the temporal ordering and graph, specify whether the target is a total or direct effect, and reconsider identification before interpreting either estimate."
+    },
+    "formulas": [
+      {
+        "latex": "\\operatorname{ATE}=\\mathbb E[Y(1)-Y(0)]",
+        "explanation": "The average treatment effect compares outcomes under two interventions for the same target population. It is not generally the observed difference between the people who happened to receive each treatment.",
+        "symbols": [
+          {
+            "symbol": "Y(1),Y(0)",
+            "meaning": "Potential outcomes under treatment and control"
+          },
+          {
+            "symbol": "\\mathbb E",
+            "meaning": "Average over the target population"
+          }
+        ],
+        "example": "A 50/50 mixture of strata with effects .05 and .10 has ATE=.075."
+      },
+      {
+        "latex": "\\mathbb E[Y(a)]=\\sum_c\\mathbb E[Y\\mid A=a,C=c]P(C=c)",
+        "explanation": "Under consistency, conditional exchangeability, and positivity, estimate each stratum’s outcome under an intervention and combine them using common target-population weights.",
+        "symbols": [
+          {
+            "symbol": "A",
+            "meaning": "Observed treatment"
+          },
+          {
+            "symbol": "a",
+            "meaning": "Intervention value, 0 or 1"
+          },
+          {
+            "symbol": "C",
+            "meaning": "Appropriate pretreatment adjustment variables"
+          },
+          {
+            "symbol": "P(C=c)",
+            "meaning": "Target population’s stratum weight"
+          }
+        ],
+        "example": "For treated means .95 and .50 and equal target weights, the standardized treated mean is .725; the corresponding control mean is .65."
+      },
+      {
+        "latex": "Y(a)\\perp A\\mid C,\\qquad P(A=a\\mid C=c)>0",
+        "explanation": "Exchangeability rules out residual confounding after conditioning on C; positivity requires observations under each intervention in relevant strata. Neither good predictive accuracy nor a large dataset automatically supplies these conditions.",
+        "symbols": [
+          {
+            "symbol": "Y(a)\\perp A\\mid C",
+            "meaning": "Potential outcomes independent of assignment within strata"
+          },
+          {
+            "symbol": "P(A=a\\mid C=c)",
+            "meaning": "Probability of receiving the intervention in a stratum"
+          }
+        ],
+        "example": "If every high-risk patient is treated, the untreated high-risk mean cannot be learned directly from that dataset; extrapolating a regression is an additional modeling assumption."
+      }
+    ]
+  },
+  {
+    "id": "power-analysis",
+    "title": "Power Analysis & Minimum Detectable Effects",
+    "category": "research",
+    "subtopics": [
+      "Statistical power",
+      "Type I and Type II errors",
+      "Minimum detectable effect",
+      "Sample-size planning",
+      "Paired versus independent designs",
+      "Cluster design effects",
+      "Sequential monitoring",
+      "Effect-size uncertainty"
+    ],
+    "summary": "Choose an experiment size from a scientifically meaningful effect and an explicit noise model. Distinguish power from significance, exploit pairing when justified, and understand why more measurements may not mean more independent information.",
+    "intuition": "Power asks how often a planned test would detect a specified real effect across repeated experiments. It is a design property conditional on an assumed effect, not the probability that a positive result is true. Small effects hide more easily in noise, so detecting half the effect typically requires about four times the independent observations. Choosing an effect after inspecting the result turns planning into a circular exercise.",
+    "math": "SE(diff)=sigma sqrt(2/n); n_per_arm≈2sigma²(z_(1-alpha/2)+z_(1-beta))²/delta²; paired SE=sigma_D/sqrt(n); cluster DE≈1+(m-1)rho.",
+    "derivation": "1. Specify a primary metric, independent experimental unit, meaningful effect δ, Type I error α, desired power 1−β, and a fixed analysis plan. Separate relative percent changes from absolute percentage-point changes.\n2. For a planning model with two independent equal-sized groups, assume a common known or planning-estimated standard deviation σ. With n observations per arm, the estimated mean difference has variance $2\\sigma^2/n$.\n3. Under a normal approximation, the standardized statistic has variance 1 and mean shift $\\lambda=\\delta/(\\sigma\\sqrt{2/n})$ under the chosen alternative. A two-sided test rejects beyond $\\pm z_{1-\\alpha/2}$.\n4. Its approximate power is $1-\\Phi(z_{1-\\alpha/2}-\\lambda)+\\Phi(-z_{1-\\alpha/2}-\\lambda)$. For a positive target effect, ignoring the usually small opposite tail gives the design condition $\\lambda\\approx z_{1-\\alpha/2}+z_{1-\\beta}$.\n5. Solve for n to obtain $$n\\approx\\frac{2\\sigma^2(z_{1-\\alpha/2}+z_{1-\\beta})^2}{\\delta^2}.$$ Round upward per arm, then use an exact or simulation-based method if sample sizes are small, outcomes are nonnormal, variances differ, or the metric is nonlinear.\n6. In a paired design, form within-pair differences D and use $\\operatorname{SE}(\\bar D)=\\sigma_D/\\sqrt n$. Positive within-pair correlation can lower σ_D, but the pairing must be meaningful; it is not created by arbitrarily aligning independent records.\n7. Clustered records carry less information than independent ones. A simple equal-size exchangeable-cluster approximation gives design effect $1+(m-1)\\rho$, where m is records per cluster and ρ the intraclass correlation. Use cluster-level planning when the design is more complex.\n8. Report assumptions and a sensitivity analysis over plausible effects and variances. Repeatedly checking and stopping at the first significant result changes error rates unless the design includes a valid sequential procedure. A nonsignificant underpowered study does not establish equivalence.",
+    "application": "Plan seed budgets, user-level A/B tests, paired benchmark comparisons, and ablation runs. Estimate variability from a pilot or prior evidence without choosing an optimistic variance solely to fit a budget. For many-model experiments, coordinate multiplicity, selection, and stopping rules before data collection.",
+    "mistakes": [
+      "Interpreting 80% power as an 80% probability that a significant result is true",
+      "Using observed post-hoc power instead of reporting the effect interval",
+      "Counting repeated measurements as independent experimental units",
+      "Calling nonsignificance evidence of no meaningful effect",
+      "Reusing a fixed-horizon threshold after arbitrary peeking"
+    ],
+    "interview": "I would choose the smallest practically meaningful effect first and estimate noise at the actual randomization unit. The independent two-arm normal approximation scales sample size with variance divided by effect squared. I would improve precision through valid pairing or design, and explicitly handle clustering, multiple comparisons, and sequential stopping.",
+    "code": "from math import ceil, sqrt\nfrom statistics import NormalDist\nnormal = NormalDist()\n\ndef per_arm_size(delta, sigma, alpha=.05, power=.80):\n    if delta <= 0 or sigma <= 0 or not 0 < alpha < 1 or not .5 < power < 1:\n        raise ValueError(\"invalid planning parameters\")\n    zcrit = normal.inv_cdf(1-alpha/2)\n    zpower = normal.inv_cdf(power)\n    return ceil(2*sigma**2*(zcrit+zpower)**2/delta**2)\n\ndef approximate_power(n, delta, sigma, alpha=.05):\n    zcrit = normal.inv_cdf(1-alpha/2)\n    shift = delta/(sigma*sqrt(2/n))\n    return 1-normal.cdf(zcrit-shift)+normal.cdf(-zcrit-shift)\n\nn = per_arm_size(delta=1, sigma=2)\nassert n == 63\nprint(n, approximate_power(n, 1, 2))",
+    "prerequisites": [
+      "statistics",
+      "experiments"
+    ],
+    "related": [
+      "research-evaluation",
+      "concentration-inequalities",
+      "research-design",
+      "data-contamination"
+    ],
+    "followUps": [
+      "How does positive correlation in a valid paired comparison affect required sample size?",
+      "Why is a confidence interval usually more informative than post-hoc observed power?",
+      "What changes when the primary metric is a ratio or F1 rather than a mean?"
+    ],
+    "sources": [
+      {
+        "title": "NIST/SEMATECH · Sample sizes required",
+        "url": "https://www.itl.nist.gov/div898/handbook/prc/section2/prc222.htm",
+        "lastVerified": "2026-10-07",
+        "sourceType": "PRIMARY_REFERENCE"
+      }
+    ],
+    "visual": null,
+    "visualSteps": [
+      {
+        "label": "Choose a meaningful effect",
+        "detail": "Define δ before inspecting the experiment outcome."
+      },
+      {
+        "label": "Measure the right noise",
+        "detail": "Use variance at the independent or paired unit."
+      },
+      {
+        "label": "Set error budgets",
+        "detail": "Specify α and desired detection power."
+      },
+      {
+        "label": "Solve and stress-test",
+        "detail": "Calculate sample size across plausible assumptions."
+      },
+      {
+        "label": "Freeze the analysis",
+        "detail": "Prespecify multiplicity and stopping rules."
+      }
+    ],
+    "workedExample": "Plan a two-sided comparison of independent means with α=.05, desired power .80, common σ=2, and target mean difference δ=1. The normal quantiles are approximately 1.960 and .842. The formula gives $n\\approx2(2^2)(1.960+.842)^2/1^2\\approx62.8$, so plan 63 observations per arm, 126 total. Plugging n=63 into the two-tail normal power expression gives about .802. Halving the target effect to .5 multiplies the unrounded requirement by 4, about 251.2 per arm, so round up to 252. These counts assume independent outcomes and the planning variance; they are not universal counts for accuracy or clustered users.",
+    "independentPrompts": [
+      "Explain α, β, power, and the minimum detectable effect using repeated hypothetical experiments.",
+      "Calculate the approximate sample-size multiplier if σ doubles while the target effect is halved.",
+      "A dataset has 10 measurements per user with intraclass correlation .2. Calculate the simple design effect and explain why this is only an approximation."
+    ],
+    "debugging": {
+      "prompt": "A team planned 80% power using 10,000 independent events, but treatment was randomized by user and each user produces many correlated events. Their standard error is unexpectedly tiny.",
+      "answer": "The planning and analysis units are inconsistent. Event count exaggerates independent information when outcomes cluster within users. Re-estimate variance at the randomization unit or use an appropriate clustered model and revise sample-size planning. In a simple equal-size model, the factor 1+(m−1)ρ illustrates inflation, but unequal cluster sizes, user weights, and the actual metric need a design-specific calculation."
+    },
+    "formulas": [
+      {
+        "latex": "n_{\\mathrm{per\\ arm}}\\approx\\frac{2\\sigma^2(z_{1-\\alpha/2}+z_{1-\\beta})^2}{\\delta^2}",
+        "explanation": "This normal-approximation planning formula assumes two independent equal-sized groups with a common variance. It is a sufficient practical planning approximation, not an exact universal guarantee; n is per group, not the total.",
+        "symbols": [
+          {
+            "symbol": "\\sigma",
+            "meaning": "Common outcome standard deviation"
+          },
+          {
+            "symbol": "\\delta",
+            "meaning": "Target difference in means"
+          },
+          {
+            "symbol": "\\alpha",
+            "meaning": "Two-sided Type I error rate"
+          },
+          {
+            "symbol": "1-\\beta",
+            "meaning": "Desired power"
+          },
+          {
+            "symbol": "z_q",
+            "meaning": "q quantile of a standard normal"
+          }
+        ],
+        "example": "At σ=2, δ=1, α=.05, and power=.8, n≈62.8, so use 63 per group."
+      },
+      {
+        "latex": "\\operatorname{SE}_{\\mathrm{ind}}=\\sigma\\sqrt{\\frac2n},\\qquad \\operatorname{SE}_{\\mathrm{paired}}=\\frac{\\sigma_D}{\\sqrt n}",
+        "explanation": "Independent arms add two mean variances. A paired design instead analyzes the within-pair difference, whose variance can be smaller when paired outcomes move together.",
+        "symbols": [
+          {
+            "symbol": "\\sigma_D",
+            "meaning": "Standard deviation of paired differences"
+          },
+          {
+            "symbol": "n",
+            "meaning": "Per-arm observations or number of pairs, respectively"
+          }
+        ],
+        "example": "With σ=2 and n=100, independent SE≈.2828. If valid paired differences have σ_D=1, paired SE=.1."
+      },
+      {
+        "latex": "\\operatorname{DE}\\approx1+(m-1)\\rho",
+        "explanation": "For equally sized clusters with a common within-cluster correlation, this approximates variance inflation relative to independent observations. It illustrates why repeated records add less information than new independent units.",
+        "symbols": [
+          {
+            "symbol": "m",
+            "meaning": "Observations per cluster"
+          },
+          {
+            "symbol": "\\rho",
+            "meaning": "Intraclass correlation"
+          },
+          {
+            "symbol": "\\operatorname{DE}",
+            "meaning": "Design effect"
+          }
+        ],
+        "example": "For m=10 and ρ=.2, the design effect is 2.8; 10,000 such records carry roughly the variance information of 10,000/2.8 independent records under this simplified model."
+      }
+    ]
+  },
+  {
+    "id": "data-contamination",
+    "title": "Data Contamination & Trustworthy Evaluation",
+    "category": "research",
+    "subtopics": [
+      "Train-test overlap",
+      "Exact and near-duplicate detection",
+      "Group-aware splits",
+      "Benchmark exposure",
+      "Adaptive test reuse",
+      "Dataset provenance",
+      "Membership-inference limitations",
+      "Fresh holdout design"
+    ],
+    "summary": "Audit how evaluation information could reach training or model selection. Separate literal overlap, semantic exposure, and adaptive benchmark reuse, and design an evaluation protocol whose uncertainty claims remain interpretable.",
+    "intuition": "A benchmark is meant to stand in for unseen problems. If the training process has seen the same problem, a paraphrase, its solution, or repeated feedback about that benchmark, a high score can reflect exposure rather than transferable skill. Exact matching provides strong evidence of a particular kind of overlap, but zero exact matches does not prove an uncontaminated evaluation. Conversely, a model assigning high likelihood to text is not proof that it trained on that text.",
+    "math": "Overlap=|E ∩ T|/|E|; Jaccard(A,B)=|A∩B|/|A∪B|; observed score=(1-c)·clean score+c·exposed score for a specified mixture.",
+    "derivation": "1. Define the intended generalization unit: a document, patient, code repository, problem family, or future time period. This determines what must remain separate across training, tuning, and evaluation.\n2. Build provenance records for data versions, source groups, timestamps, preprocessing, and model-selection access. Contamination is a path of information flow, not just one duplicate-text test.\n3. Normalize only transformations that preserve the intended identity, then hash for exact matches. Keep raw data and the normalization policy because aggressive normalization can create false equivalences. Hash matches should lead to inspectable source records.\n4. For candidate near-duplicates, compare text shingles or embeddings and manually audit representative matches. Jaccard similarity of shingle sets is $|A\\cap B|/|A\\cup B|$. A threshold is an engineering choice whose false-positive and false-negative rates must be checked on the relevant domain.\n5. Group connected duplicate families before splitting. Deduplicating each split separately can leave one copy of the same family in train and test. Code repositories, patients, and templated tasks may require grouping even without high lexical overlap.\n6. A toy evaluation mixture with exposed fraction c satisfies $s_{\\mathrm{obs}}=(1-c)s_{\\mathrm{clean}}+cs_{\\mathrm{exposed}}$ when these subgroup scores and weights are well defined. This arithmetic illustrates distortion; unknown membership and unknown subgroup effects do not provide an automatic decontamination correction.\n7. Closed training corpora make direct overlap audits incomplete. Membership-inference or likelihood-based detectors provide model-dependent evidence, not definitive membership labels; distribution and temporal shifts can confound their evaluation. Report uncertainty and detection coverage.\n8. Freeze a final holdout after tuning decisions, restrict its access, and evaluate fresh or temporally separated tasks when appropriate. Report overlap policies and sensitivity results alongside benchmark scores. A temporal split also changes the target distribution and does not by itself rule out copied or paraphrased content.",
+    "application": "Audit pretrained-model evaluations, construct leakage-resistant code and document splits, investigate surprising benchmark gains, and record what a contamination detector can actually establish. Pair exact-match evidence with group provenance and fresh held-out evaluation rather than interpreting a single similarity threshold as a clean bill of health.",
+    "mistakes": [
+      "Treating zero exact hash collisions as proof that no contamination exists",
+      "Deduplicating within each split but not across splits",
+      "Using a likelihood-based membership detector as ground truth",
+      "Removing only poorly performing contaminated items after seeing scores",
+      "Ignoring repeated benchmark feedback during prompt or hyperparameter tuning"
+    ],
+    "interview": "I would define the independence unit and map every route from evaluation into training or selection. Then I would audit exact overlap, near-duplicates, groups, and temporal provenance, documenting detector limitations. I would reserve an untouched final evaluation and report how performance changes under defensible exclusion policies.",
+    "code": "import hashlib\nimport unicodedata\n\ndef canonical(text):\n    # Minimal declared policy: Unicode normalization and whitespace collapse.\n    return \" \".join(unicodedata.normalize(\"NFKC\", text).split())\n\ndef fingerprint(text):\n    return hashlib.sha256(canonical(text).encode(\"utf-8\")).hexdigest()\n\ntrain = [\"A triangle has three sides.\", \"The sky is blue.\"]\nevaluation = [\"A  triangle has three sides.\\n\", \"A square has four sides.\"]\ntrain_ids = {fingerprint(text) for text in train}\noverlap = [i for i, text in enumerate(evaluation)\n           if fingerprint(text) in train_ids]\nassert overlap == [0]\nprint(\"exact-overlap fraction:\", len(overlap)/len(evaluation))\n# This deliberately does not claim to detect paraphrases or training membership.",
+    "prerequisites": [
+      "ml-foundations",
+      "evaluation"
+    ],
+    "related": [
+      "llm-evaluation",
+      "research-evaluation",
+      "research-design",
+      "power-analysis"
+    ],
+    "followUps": [
+      "How can adaptive benchmark reuse leak information without any example appearing in training text?",
+      "What ground truth and controls are needed to evaluate a membership-inference detector?",
+      "Why might a time-based split change both contamination risk and task difficulty?"
+    ],
+    "sources": [
+      {
+        "title": "Lee et al. · Deduplicating Training Data Makes Language Models Better",
+        "url": "https://arxiv.org/abs/2107.06499",
+        "lastVerified": "2026-10-07",
+        "sourceType": "PRIMARY_REFERENCE"
+      },
+      {
+        "title": "Shi et al. · Detecting Pretraining Data from Large Language Models",
+        "url": "https://arxiv.org/abs/2310.16789",
+        "lastVerified": "2026-10-07",
+        "sourceType": "PRIMARY_REFERENCE"
+      },
+      {
+        "title": "Duan et al. · Do Membership Inference Attacks Work on Large Language Models?",
+        "url": "https://arxiv.org/abs/2402.07841",
+        "lastVerified": "2026-10-07",
+        "sourceType": "PRIMARY_REFERENCE"
+      }
+    ],
+    "visual": null,
+    "visualSteps": [
+      {
+        "label": "Define the held-out unit",
+        "detail": "Decide which examples belong to the same family or source."
+      },
+      {
+        "label": "Trace exposure paths",
+        "detail": "Record training, tuning, prompt selection, and benchmark access."
+      },
+      {
+        "label": "Audit overlap",
+        "detail": "Inspect exact matches and calibrated near-duplicate candidates."
+      },
+      {
+        "label": "Split by groups",
+        "detail": "Keep related examples together before assigning splits."
+      },
+      {
+        "label": "Validate afresh",
+        "detail": "Use an untouched evaluation and report uncertainty in the audit."
+      }
+    ],
+    "workedExample": "A hypothetical test set has 40 exposed items and 60 genuinely clean items. Suppose accuracy is .95 on the exposed group and .65 on the clean group. Overall accuracy is $.4(.95)+.6(.65)=.77$, twelve percentage points above the clean-group result. This does not prove that exposure caused the full difference: exposed items may also differ in difficulty. If membership is unknown, the 77% score alone cannot identify either the clean score or contamination rate. A credible audit needs item provenance and a justified comparison, not subtraction of a guessed contamination bonus.",
+    "independentPrompts": [
+      "Explain why hashing detects a narrower failure mode than a complete contamination audit.",
+      "For 20% exposed items scoring .9 and 80% clean items scoring .7, calculate the mixture score and explain what cannot be inferred causally from it.",
+      "Design a split for code problems with multiple translations and solutions derived from the same original statement."
+    ],
+    "debugging": {
+      "prompt": "A benchmark audit reports zero duplicates because train and test were deduplicated separately. A later review finds identical problem templates with changed variable names in both splits.",
+      "answer": "Within-split deduplication does not prevent cross-split exposure, and exact hashing misses templated near-duplicates. Build a combined family/group index using provenance and suitable similarity checks, assign whole families to splits, and inspect false matches. Re-evaluate on a frozen set defined before looking at model outcomes; document that incomplete access to pretraining data still limits the claim."
+    },
+    "formulas": [
+      {
+        "latex": "r_{\\mathrm{overlap}}=\\frac{|\\mathcal E\\cap\\mathcal T|}{|\\mathcal E|}",
+        "explanation": "This measures overlap under a declared identity rule, such as canonical-text hashes. It is not an estimate of every possible route of semantic exposure or adaptive evaluation leakage.",
+        "symbols": [
+          {
+            "symbol": "\\mathcal E",
+            "meaning": "Evaluation identities"
+          },
+          {
+            "symbol": "\\mathcal T",
+            "meaning": "Training identities"
+          },
+          {
+            "symbol": "|\\cdot|",
+            "meaning": "Number of identities in a set"
+          }
+        ],
+        "example": "If 5 of 100 unique evaluation hashes occur in the known training corpus, measured exact-overlap rate is 5% under that normalization policy."
+      },
+      {
+        "latex": "J(A,B)=\\frac{|A\\cap B|}{|A\\cup B|}",
+        "explanation": "Jaccard similarity compares sets of features, such as text shingles. It can retrieve near-duplicate candidates but does not determine whether two examples are semantically equivalent or causally contaminated.",
+        "symbols": [
+          {
+            "symbol": "A,B",
+            "meaning": "Sets of shingles or other discrete features"
+          }
+        ],
+        "example": "For A={a,b,c} and B={b,c,d}, the intersection has 2 elements and union 4, giving J=.5."
+      },
+      {
+        "latex": "s_{\\mathrm{obs}}=(1-c)s_{\\mathrm{clean}}+cs_{\\mathrm{exposed}}",
+        "explanation": "A score over two known groups is their weighted average. Without trustworthy membership and subgroup estimates, this equation has multiple unknowns and cannot recover uncontaminated performance from one observed number.",
+        "symbols": [
+          {
+            "symbol": "c",
+            "meaning": "Fraction assigned to the exposed group"
+          },
+          {
+            "symbol": "s_{\\mathrm{clean}},s_{\\mathrm{exposed}}",
+            "meaning": "Group scores"
+          },
+          {
+            "symbol": "s_{\\mathrm{obs}}",
+            "meaning": "Overall mixture score"
+          }
+        ],
+        "example": "With c=.4, clean score .65, and exposed score .95, the overall score is .77."
+      }
+    ]
+  },
+  {
+    "id": "contrastive-learning",
+    "title": "Contrastive Learning & Representation Geometry",
+    "category": "dl",
+    "subtopics": [
+      "Positive and negative pairs",
+      "InfoNCE / NT-Xent",
+      "Temperature",
+      "Projection heads",
+      "False negatives",
+      "Representation evaluation"
+    ],
+    "summary": "Learn embeddings by identifying matching views among alternatives. Connect the classification-style loss to its gradients, the geometry of normalized representations, and the assumptions hidden in data augmentation.",
+    "intuition": "Treat one augmented view as a query and ask which candidate came from the same example. Pulling the match closer is only half the task: the denominator also compares it with competing views. What counts as a matching view defines what information the representation is encouraged to retain.",
+    "math": "$$\\ell_i=-\\log\\frac{\\exp(s_{i+}/\\tau)}{\\sum_{j\\ne i}\\exp(s_{ij}/\\tau)},\\qquad s_{ij}=\\frac{z_i^\\top z_j}{\\|z_i\\|_2\\|z_j\\|_2}.$$",
+    "derivation": "1. Encode two independently augmented views of each of $N$ examples. A batch contains $2N$ embeddings; each anchor has one paired positive and $2N-2$ other candidates. Exclude the anchor itself, but keep its positive in the denominator.\n2. Normalize embeddings and define similarity $s_{ij}=u_i^\\top u_j$. Divide similarities by a positive temperature $\\tau$ to obtain logits.\n3. This is a categorical classification problem: identify the positive among candidates. Expanding negative log probability gives $\\ell_i=-s_{i+}/\\tau+\\log\\sum_{j\\ne i}\\exp(s_{ij}/\\tau)$.\n4. Differentiate with respect to a similarity: $\\partial\\ell_i/\\partial s_{ij}=(p_{ij}-\\mathbf1[j=+])/\\tau$. A high-scoring negative receives a larger repulsive contribution. The positive receives an attractive contribution unless its predicted probability is already 1.\n5. If $u=z/\\|z\\|_2$, normalization has Jacobian $(I-uu^\\top)/\\|z\\|_2$ for nonzero $z$. This projects gradient onto directions tangent to the unit sphere; normalized similarity is not increased merely by scaling the vector.\n6. Decreasing temperature changes both the probability distribution and the explicit gradient scale. It emphasizes hard competitors but may amplify noisy or false-negative comparisons.\n7. Low training loss does not prove useful semantic features. If an augmentation removes the task label or if many negatives are actually equivalent, the training task can conflict with the desired representation. Evaluate frozen features, transfer, and augmentation ablations.",
+    "application": "Use this framework for image representations, paired image–text retrieval, and matching embeddings. A learned projection head may absorb invariances useful for the contrastive objective; evaluate whether downstream tasks should use encoder features or projected features rather than assuming they are interchangeable.",
+    "mistakes": [
+      "Leaving the anchor's self-similarity in the denominator",
+      "Assuming all different examples are semantically negative",
+      "Treating temperature only as a gradient multiplier",
+      "Using label-changing augmentations without checking the downstream task"
+    ],
+    "interview": "A contrastive loss classifies the matching view among alternatives. Its gradient increases relative positive similarity and decreases competing similarities. The difficult design questions are what constitutes a positive, how negatives are sampled, and whether the induced invariances preserve the downstream information.",
+    "code": "import numpy as np\ndef paired_contrastive_loss(z, temperature=0.2):\n    # Order: first views [0:N], matching second views [N:2N].\n    z = np.asarray(z, dtype=float)\n    if z.ndim != 2 or len(z) < 4 or len(z) % 2:\n        raise ValueError(\"an even batch with at least two pairs is required\")\n    if temperature <= 0:\n        raise ValueError(\"temperature must be positive\")\n    norms = np.linalg.norm(z, axis=1, keepdims=True)\n    if np.any(norms == 0):\n        raise ValueError(\"zero embeddings cannot be normalized\")\n    u = z / norms\n    logits = (u @ u.T) / temperature\n    np.fill_diagonal(logits, -np.inf)\n    m = logits.max(axis=1, keepdims=True)\n    log_denom = m[:, 0] + np.log(np.exp(logits-m).sum(axis=1))\n    n = len(z)//2\n    positive = (np.arange(2*n) + n) % (2*n)\n    return np.mean(log_denom - logits[np.arange(2*n), positive])",
+    "prerequisites": [
+      "information",
+      "ml-code-softmax",
+      "backprop"
+    ],
+    "related": [
+      "multimodal",
+      "vision",
+      "evaluation"
+    ],
+    "followUps": [
+      "Why might encoder features transfer better than projection-head outputs?",
+      "How can false negatives change the gradient for a semantically correct neighbor?"
+    ],
+    "sources": [
+      {
+        "title": "Concept reference · SimCLR · not a reported interview question",
+        "url": "https://arxiv.org/abs/2002.05709",
+        "sourceType": "CONCEPT_REFERENCE_NOT_REPORTED_QUESTION"
+      }
+    ],
+    "visual": null,
+    "visualSteps": [
+      {
+        "label": "Two views",
+        "detail": "Augment the same example twice while preserving relevant meaning."
+      },
+      {
+        "label": "Encode + normalize",
+        "detail": "Map both views to unit vectors."
+      },
+      {
+        "label": "Compare candidates",
+        "detail": "Exclude self; score the paired positive and other views."
+      },
+      {
+        "label": "Retrieve the match",
+        "detail": "Cross entropy increases the positive's relative probability."
+      }
+    ],
+    "workedExample": "Suppose an anchor has positive similarity 1 and two negative similarities 0, with $\\tau=1$. The positive probability is $e/(e+2)\\approx0.5761$ and loss is $\\log(e+2)-1\\approx0.5514$. The positive-similarity gradient is $0.5761-1=-0.4239$; each negative gradient is $1/(e+2)\\approx0.2119$. The three gradients sum to zero because adding a common constant to all candidate similarities leaves their probabilities unchanged.",
+    "independentPrompts": [
+      "Recompute the worked example at temperature 0.5 and explain both changes in the gradient.",
+      "For a batch of 16 original examples and two views each, count positives and negatives per anchor.",
+      "Design an augmentation ablation that detects whether color invariance harms a color-sensitive downstream task."
+    ],
+    "debugging": {
+      "prompt": "Contrastive loss is unexpectedly low, but embeddings collapse and retrieval fails. The implementation includes every diagonal self-similarity as a positive candidate.",
+      "answer": "Verify that the target index points to the other view, not the anchor, and mask the diagonal before log-sum-exp. Check the exact view ordering with a four-vector synthetic example. Track embedding variance and off-diagonal similarities; also inspect augmentations and negative construction rather than assuming every collapse has the same cause."
+    },
+    "formulas": [
+      {
+        "latex": "\\ell_i=-\\frac{s_{i+}}{\\tau}+\\log\\sum_{j\\ne i}e^{s_{ij}/\\tau}",
+        "explanation": "Turn matching into a classification problem. The positive appears in the denominator along with the negatives; only the anchor itself is excluded.",
+        "symbols": [
+          {
+            "symbol": "s_{ij}",
+            "meaning": "Similarity between anchor i and candidate j"
+          },
+          {
+            "symbol": "+",
+            "meaning": "Index of the matching positive view"
+          },
+          {
+            "symbol": "\\tau",
+            "meaning": "Positive temperature controlling sharpness"
+          }
+        ],
+        "example": "With candidate similarities $(1,0,0)$ and $\\tau=1$, loss is $\\log(e+2)-1\\approx0.5514$."
+      },
+      {
+        "latex": "\\frac{\\partial\\ell_i}{\\partial s_{ij}}=\\frac{p_{ij}-\\mathbf1[j=+]}{\\tau}",
+        "explanation": "The positive's gradient is negative and competing gradients are positive, so gradient descent improves the relative match.",
+        "symbols": [
+          {
+            "symbol": "p_{ij}",
+            "meaning": "Softmax probability assigned to candidate j"
+          },
+          {
+            "symbol": "\\mathbf1[j=+]",
+            "meaning": "1 for the positive, otherwise 0"
+          }
+        ],
+        "example": "For positive probability 0.8 at temperature 0.5, the positive-similarity gradient is (0.8−1)/0.5=−0.4."
+      }
+    ]
+  },
+  {
+    "id": "diffusion-models",
+    "title": "Diffusion Models: Noise, Denoising & Sampling",
+    "category": "dl",
+    "subtopics": [
+      "Forward Gaussian process",
+      "Noise schedules",
+      "Noise prediction",
+      "Clean-sample estimation",
+      "Reverse sampling",
+      "Signal-to-noise ratio"
+    ],
+    "summary": "Derive the directly sampled noisy input, understand what a noise-prediction network learns, and separate a training objective from a reverse-time sampling algorithm.",
+    "intuition": "We know how to gradually corrupt data with Gaussian noise. Training provides a noisy observation and its noise level, then asks a network to estimate the corruption. Generation starts from noise and uses a sequence of learned denoising steps; predicting a clean sample once is not automatically the same as sampling the reverse process.",
+    "math": "$$x_t=\\sqrt{\\bar\\alpha_t}x_0+\\sqrt{1-\\bar\\alpha_t}\\epsilon,\\qquad \\epsilon\\sim\\mathcal N(0,I),\\qquad \\bar\\alpha_t=\\prod_{s=1}^t(1-\\beta_s).$$",
+    "derivation": "1. Choose variances $0<\\beta_t<1$ and write $\\alpha_t=1-\\beta_t$. The forward transition is $x_t=\\sqrt{\\alpha_t}x_{t-1}+\\sqrt{\\beta_t}\\epsilon_t$ with independent standard Gaussian noise.\n2. Substituting earlier steps gives a coefficient $\\sqrt{\\prod_{s=1}^t\\alpha_s}$ on the original data. Independent Gaussian noise terms add in variance.\n3. If accumulated noise variance at step $t-1$ is $1-\\bar\\alpha_{t-1}$, the next variance is $\\alpha_t(1-\\bar\\alpha_{t-1})+\\beta_t=1-\\bar\\alpha_t$. This proves the closed-form noisy sample and avoids simulating all earlier steps during training.\n4. Sample a time $t$ and noise $\\epsilon$, create $x_t$, and minimize $\\|\\epsilon-\\epsilon_\\theta(x_t,t)\\|^2$. Under squared error, the population optimum is the conditional mean $\\mathbb E[\\epsilon\\mid x_t,t]$, not recovery of every sample's exact hidden noise.\n5. Rearranging the forward equation yields $\\hat x_0=(x_t-\\sqrt{1-\\bar\\alpha_t}\\epsilon_\\theta)/\\sqrt{\\bar\\alpha_t}$. When $\\bar\\alpha_t$ is tiny, a small noise-prediction error can imply a large clean-sample error.\n6. A DDPM reverse mean can be parameterized as $\\mu_\\theta=\\alpha_t^{-1/2}(x_t-\\beta_t\\epsilon_\\theta/\\sqrt{1-\\bar\\alpha_t})$. A sampling step also needs a variance choice and noise for nonfinal steps. Do not substitute the clean-sample estimate for the entire reverse transition.\n7. The common unweighted noise-MSE objective is a useful training objective, not literally every term and weighting in a full variational bound. State the parameterization and timestep weighting when comparing objectives.",
+    "application": "Apply these ideas to image, audio, and latent-space generation. Debug data scaling, noise schedules, timestep conditioning, and reverse-step indexing before attributing poor samples solely to architecture. Assess quality, diversity, and sampling cost together.",
+    "mistakes": [
+      "Using alpha_t where cumulative alpha-bar_t is required",
+      "Forgetting timestep conditioning",
+      "Assuming the predicted noise equals the exact hidden draw for every example",
+      "Injecting reverse-process noise into a final step that should be deterministic"
+    ],
+    "interview": "A diffusion model learns denoising across known noise levels. The forward process has a closed-form Gaussian marginal, making training efficient. Reverse generation uses a learned mean plus a specified variance schedule; the loss parameterization and sampler are separate design choices.",
+    "code": "import numpy as np\ndef noisy_sample(x0, alpha_bar, rng):\n    x0 = np.asarray(x0, dtype=float)\n    if not 0 < alpha_bar <= 1:\n        raise ValueError(\"alpha_bar must lie in (0, 1]\")\n    eps = rng.normal(size=x0.shape)\n    xt = np.sqrt(alpha_bar)*x0 + np.sqrt(1-alpha_bar)*eps\n    return xt, eps\ndef estimate_clean(xt, predicted_noise, alpha_bar):\n    if not 0 < alpha_bar <= 1:\n        raise ValueError(\"alpha_bar must lie in (0, 1]\")\n    return (xt-np.sqrt(1-alpha_bar)*predicted_noise)/np.sqrt(alpha_bar)\nrng = np.random.default_rng(0)\nx0 = np.array([1.0, -2.0])\nxt, eps = noisy_sample(x0, 0.25, rng)\nassert np.allclose(estimate_clean(xt, eps, 0.25), x0)",
+    "prerequisites": [
+      "distributions",
+      "expectation",
+      "backprop"
+    ],
+    "related": [
+      "vision",
+      "multimodal",
+      "optimization"
+    ],
+    "followUps": [
+      "Why does the choice of timestep weighting change which noise levels dominate training?",
+      "How do deterministic and stochastic samplers differ even with the same trained model?"
+    ],
+    "sources": [
+      {
+        "title": "Concept reference · Denoising Diffusion Probabilistic Models · not a reported interview question",
+        "url": "https://arxiv.org/abs/2006.11239",
+        "sourceType": "CONCEPT_REFERENCE_NOT_REPORTED_QUESTION"
+      }
+    ],
+    "visual": null,
+    "visualSteps": [
+      {
+        "label": "Clean sample",
+        "detail": "Begin with a data example on a known scale."
+      },
+      {
+        "label": "Known corruption",
+        "detail": "Mix signal and sampled Gaussian noise using cumulative alpha."
+      },
+      {
+        "label": "Predict noise",
+        "detail": "Condition the network on both the noisy sample and time."
+      },
+      {
+        "label": "Reverse steps",
+        "detail": "Use the chosen mean and variance to move toward data."
+      }
+    ],
+    "workedExample": "Let $x_0=2$, $\\bar\\alpha_t=0.25$, and the sampled noise be $\\epsilon=1$. Then $x_t=0.5(2)+\\sqrt{0.75}(1)\\approx1.8660$. A perfect noise prediction gives $\\hat x_0=(1.8660-0.8660)/0.5=2$. If the prediction is 1.1 instead, $\\hat x_0\\approx1.8268$, so a noise error of 0.1 creates a clean-value error of about −0.1732. The amplification factor is $\\sqrt{(1-\\bar\\alpha_t)/\\bar\\alpha_t}=\\sqrt3$.",
+    "independentPrompts": [
+      "For beta values 0.1 and 0.2, compute cumulative alpha and total noise variance after two steps.",
+      "Derive the relationship between noise-prediction error and clean-sample error.",
+      "Explain why low training MSE is insufficient to validate the sampling implementation."
+    ],
+    "debugging": {
+      "prompt": "Training MSE decreases, but generated samples remain noisy. The sampler uses the per-step alpha in every clean-sample reconstruction.",
+      "answer": "The clean-sample equation needs cumulative alpha-bar, not the current alpha. Validate forward corruption and clean reconstruction with known synthetic noise; exact injected noise should recover x0 up to floating-point error. Then check reverse indexing, final-step noise, data normalization, and agreement between training and sampling schedules."
+    },
+    "formulas": [
+      {
+        "latex": "q(x_t\\mid x_0)=\\mathcal N(\\sqrt{\\bar\\alpha_t}x_0,(1-\\bar\\alpha_t)I)",
+        "explanation": "At a chosen time, the original signal is attenuated and independent Gaussian noise fills the remaining variance.",
+        "symbols": [
+          {
+            "symbol": "x_0",
+            "meaning": "Clean data sample"
+          },
+          {
+            "symbol": "x_t",
+            "meaning": "Noisy sample at time t"
+          },
+          {
+            "symbol": "\\bar\\alpha_t",
+            "meaning": "Product of the retained signal fractions through time t"
+          },
+          {
+            "symbol": "I",
+            "meaning": "Identity covariance"
+          }
+        ],
+        "example": "For beta1=0.1 and beta2=0.2, cumulative alpha is 0.9×0.8=0.72 and noise variance is 0.28."
+      },
+      {
+        "latex": "\\hat x_0=\\frac{x_t-\\sqrt{1-\\bar\\alpha_t}\\epsilon_\\theta(x_t,t)}{\\sqrt{\\bar\\alpha_t}}",
+        "explanation": "Subtract predicted corruption and undo the signal scaling. This estimate is an ingredient of sampling, not a complete sampler.",
+        "symbols": [
+          {
+            "symbol": "\\epsilon_\\theta",
+            "meaning": "Learned noise predictor"
+          },
+          {
+            "symbol": "\\hat x_0",
+            "meaning": "Estimated clean sample"
+          }
+        ],
+        "example": "With cumulative alpha 0.25, noisy value 1.8660, and predicted noise 1, the clean estimate is approximately 2."
+      }
+    ]
+  },
+  {
+    "id": "mixture-of-experts",
+    "title": "Mixture of Experts: Routing, Capacity & Balance",
+    "category": "llm",
+    "subtopics": [
+      "Sparse expert activation",
+      "Top-k routing",
+      "Gating weights",
+      "Expert capacity",
+      "Load balancing",
+      "All-to-all communication"
+    ],
+    "summary": "Separate total parameters from active per-token computation. Trace tokens through a router and experts, and reason about capacity, gradient flow, and distributed communication.",
+    "intuition": "A token does not necessarily need every specialist network. A router selects a few experts and combines their outputs. The savings in arithmetic can be lost if routing overloads one expert or requires expensive data movement.",
+    "math": "$$y(x)=\\sum_{e\\in S_k(x)}\\tilde p_e(x)E_e(x),\\qquad \\tilde p_e=\\frac{p_e}{\\sum_{j\\in S_k}p_j}.$$",
+    "derivation": "1. Replace a dense feed-forward block with $E$ expert networks and a router. Router logits $r(x)$ produce probabilities $p=\\operatorname{softmax}(r(x))$.\n2. Select the top $k$ experts. The displayed mixture normalizes probabilities over the selected set, then forms a weighted sum. Other implementations keep unnormalized selected gate values; these conventions are not interchangeable.\n3. If each expert has $P$ parameters, expert storage is roughly $EP$, while selected expert computation per token is roughly $k$ times one expert's work. Shared layers and the router are additional. Every expert can still require storage even if only a few are active for a given token.\n4. With $T$ tokens, top-k routing creates $kT$ assignments. Average assignment count per expert is $kT/E$. A capacity factor $c$ gives a planning capacity $C=\\lceil ckT/E\\rceil$. Actual maxima can exceed this average-based allowance.\n5. Count routed assignments and specify an overflow policy: drop, reroute, queue, or use a dropless implementation. Dropping a branch must have a defined interaction with the residual path and mixture normalization.\n6. For top-1 Switch-style balancing, let $f_e$ be the observed fraction of tokens sent to expert e and $P_e$ the average soft router probability. An auxiliary term proportional to $E\\sum_e f_eP_e$ encourages alignment with balanced usage; the discrete counts are not ordinary differentiable routing decisions.\n7. A subtle edge case: if top-1 gates are renormalized over the singleton set, their weight becomes 1. The task loss has no continuous gradient through that weight to the router. Router learning then needs another path or objective. Keeping the selected soft gate value changes this behavior.\n8. In expert parallelism, tokens are dispatched to devices and results returned. Account for all-to-all bandwidth, padding, small per-expert batches, and load imbalance when judging end-to-end efficiency.",
+    "application": "Use sparse experts when increasing model capacity while controlling per-token arithmetic is valuable. Compare quality at matched active FLOPs, total memory, batch/sequence shape, and network topology. Active parameter count alone is not a latency prediction.",
+    "mistakes": [
+      "Equating active parameters with total stored parameters",
+      "Ignoring expert overload and dropped tokens",
+      "Assuming hard top-k selection is differentiable everywhere",
+      "Renormalizing top-1 gates without considering router gradients"
+    ],
+    "interview": "MoE trades sparse computation for routing complexity. A small set of experts processes each token, but all expert weights still exist. The central engineering questions are load balance, capacity and overflow policy, communication, and whether the router receives a useful learning signal.",
+    "code": "import numpy as np\ndef route_topk(logits, k, capacity):\n    # Educational routing plan: normalized selected gates, explicit overflow mask.\n    logits = np.asarray(logits, float)\n    tokens, experts = logits.shape\n    if not 1 <= k <= experts or capacity < 0:\n        raise ValueError(\"invalid k or capacity\")\n    ids = np.argsort(-logits, axis=1, kind=\"stable\")[:, :k]\n    selected = np.take_along_axis(logits, ids, axis=1)\n    weights = np.exp(selected-selected.max(axis=1, keepdims=True))\n    weights /= weights.sum(axis=1, keepdims=True)\n    counts = np.zeros(experts, dtype=int)\n    accepted = np.zeros((tokens, k), dtype=bool)\n    for t in range(tokens):\n        for slot, e in enumerate(ids[t]):\n            accepted[t, slot] = counts[e] < capacity\n            counts[e] += 1\n    # Rejected branches contribute zero; weights are NOT renormalized afterward.\n    return ids, weights*accepted, accepted, counts",
+    "prerequisites": [
+      "transformers",
+      "ml-code-softmax",
+      "distributed"
+    ],
+    "related": [
+      "gpu-performance",
+      "serving",
+      "optimization"
+    ],
+    "followUps": [
+      "When is a dropless implementation preferable to a fixed-capacity kernel?",
+      "How can routing imbalance change as the deployment distribution shifts?"
+    ],
+    "sources": [
+      {
+        "title": "Concept reference · Switch Transformers · not a reported interview question",
+        "url": "https://arxiv.org/abs/2101.03961",
+        "sourceType": "CONCEPT_REFERENCE_NOT_REPORTED_QUESTION"
+      }
+    ],
+    "visual": null,
+    "visualSteps": [
+      {
+        "label": "Router scores",
+        "detail": "Each token receives one score per expert."
+      },
+      {
+        "label": "Sparse selection",
+        "detail": "Top-k experts and gate weights define the active branches."
+      },
+      {
+        "label": "Dispatch + capacity",
+        "detail": "Move tokens to experts; inspect overflow and imbalance."
+      },
+      {
+        "label": "Combine outputs",
+        "detail": "Return and weight expert results, then continue the block."
+      }
+    ],
+    "workedExample": "Let $E=4$, $T=8$, $k=1$, and capacity factor $c=1$. Each expert gets capacity $C=\\lceil8/4\\rceil=2$. If assignments are $(5,1,1,1)$, three tokens exceed expert 1's capacity even though the other experts have unused slots. With $P=10$ million parameters per expert, total expert parameters are 40 million, while each token activates one 10-million-parameter expert, excluding shared layers and router. For top-2 gates $(0.6,0.3,0.1)$, selected normalized weights are $(2/3,1/3)$.",
+    "independentPrompts": [
+      "For E=8, T=64, k=2, and capacity factor 1.25, compute capacity per expert.",
+      "Explain why equal FLOPs do not guarantee equal latency for dense and MoE models.",
+      "Compare router gradients under normalized top-1 and unnormalized top-1 gates."
+    ],
+    "debugging": {
+      "prompt": "The expert weights learn, but the router receives no task-loss gradient. Top-1 probabilities are renormalized after selection.",
+      "answer": "A singleton normalized weight is p/p=1, whose derivative is zero away from routing boundaries; hard argmax does not supply the missing smooth gradient. Inspect gate conventions and auxiliary objectives. If the intended design uses the selected unnormalized soft probability, implement that explicitly. Separately log token counts, routing entropy, and overflow to diagnose collapse."
+    },
+    "formulas": [
+      {
+        "latex": "C=\\left\\lceil\\frac{ckT}{E}\\right\\rceil,\\qquad P_{\\mathrm{total}}\\approx EP,\\qquad P_{\\mathrm{active}}\\approx kP",
+        "explanation": "Capacity allocates assignment slots, total expert parameters determine storage, and active expert parameters describe only the chosen expert branches.",
+        "symbols": [
+          {
+            "symbol": "E",
+            "meaning": "Number of experts"
+          },
+          {
+            "symbol": "T",
+            "meaning": "Tokens in the routing batch"
+          },
+          {
+            "symbol": "k",
+            "meaning": "Experts selected per token"
+          },
+          {
+            "symbol": "c",
+            "meaning": "Capacity factor"
+          },
+          {
+            "symbol": "P",
+            "meaning": "Parameters per expert"
+          }
+        ],
+        "example": "For E=8, T=64, k=2, c=1.25, capacity is ceil(20)=20 assignments per expert."
+      },
+      {
+        "latex": "L_{\\mathrm{balance}}=\\lambda E\\sum_{e=1}^E f_eP_e",
+        "explanation": "A top-1 balancing auxiliary loss combines observed assignment fractions with differentiable mean routing probabilities. This is one design, not a universal MoE objective.",
+        "symbols": [
+          {
+            "symbol": "f_e",
+            "meaning": "Fraction of tokens assigned to expert e"
+          },
+          {
+            "symbol": "P_e",
+            "meaning": "Average soft routing probability for expert e"
+          },
+          {
+            "symbol": "\\lambda",
+            "meaning": "Balancing-loss weight"
+          }
+        ],
+        "example": "With four experts and both fractions uniform at 1/4, the unweighted term EΣf_eP_e equals 1."
+      }
+    ]
+  },
+  {
+    "id": "long-context",
+    "title": "Long Context: Position, Memory & Evidence Use",
+    "category": "llm",
+    "subtopics": [
+      "Context length versus usable context",
+      "Rotary positions",
+      "Quadratic prefill cost",
+      "Linear KV storage",
+      "Position extrapolation",
+      "Evidence-position evaluation"
+    ],
+    "summary": "Distinguish accepting a long input, computing attention efficiently, and using distant evidence correctly. Connect position encoding, prefill complexity, cache growth, and controlled evaluation.",
+    "intuition": "A larger desk lets you spread out more pages, but does not guarantee that you find and combine the right facts. Long-context engineering must preserve positional behavior, fit memory budgets, and demonstrate evidence use rather than merely successful execution.",
+    "math": "$$M_{\\mathrm{KV}}=2LBTH_{\\mathrm{kv}}d_hb,\\qquad C_{\\mathrm{dense\\ attention}}\\propto T^2d.$$",
+    "derivation": "1. During prefill, each query attends to many key positions. Dense attention uses a score matrix with $T^2$ entries per head and quadratic attention arithmetic. Doubling T multiplies this component by about four; it does not necessarily quadruple the entire model's runtime.\n2. During cached decoding, old keys and values are reused. Per layer, each token contributes $H_{\\mathrm{kv}}d_h$ key elements and the same number of value elements. Multiplying by layers, batch, length and element size gives the KV-memory formula.\n3. Efficient exact-attention kernels can avoid materializing the full score matrix and reduce memory traffic. That does not turn the underlying dense attention arithmetic into linear complexity.\n4. Rotary position embedding rotates coordinate pairs. In a two-dimensional block, $(R(m\\theta)q)^\\top R(n\\theta)k=q^\\top R((n-m)\\theta)k$. Thus relative displacement enters the attention dot product through a rotation.\n5. This algebraic relative-position property does not guarantee extrapolation beyond training lengths. At unseen displacements the model can encounter phase patterns and evidence configurations it did not learn to use.\n6. Extending context can involve positional rescaling, long-sequence training, architectural sparsity, or retrieval. Specify which mechanism changed and compare quality and cost at matched budgets.\n7. Evaluate multiple lengths, evidence positions, distractor counts, and tasks requiring one versus several pieces of evidence. Include counterfactual evidence that changes the answer, oracle retrieval, and contamination controls.\n8. Separate successful allocation, exact retrieval, evidence synthesis, and refusal when evidence is missing. Measure TTFT and memory alongside answer quality rather than collapsing all results into one long-context score.",
+    "application": "Use this analysis for document QA, code repositories, long conversations, and large-context serving. It helps distinguish a position-encoding bug from a retrieval failure or a memory bottleneck.",
+    "mistakes": [
+      "Treating the advertised maximum input length as a capability guarantee",
+      "Claiming FlashAttention makes dense attention linear-time",
+      "Using query-head count instead of KV-head count in GQA cache estimates",
+      "Evaluating evidence only near the beginning or end"
+    ],
+    "interview": "Long context has three separate requirements: represent positions sensibly, compute within latency and memory constraints, and demonstrate use of distant evidence. KV memory grows linearly with length, while dense prefill attention arithmetic grows quadratically. Retrieval and synthesis should be evaluated separately.",
+    "code": "import math\nimport numpy as np\ndef rotate_pair(x, position, theta):\n    angle = position * theta\n    c, s = math.cos(angle), math.sin(angle)\n    return np.array([c*x[0]-s*x[1], s*x[0]+c*x[1]])\ndef kv_bytes(layers, batch, length, kv_heads, head_dim, bytes_per_element):\n    return 2*layers*batch*length*kv_heads*head_dim*bytes_per_element\nq, k = np.array([1., 2.]), np.array([3., -1.])\nm, n, theta = 2, 7, 0.3\nlhs = rotate_pair(q, m, theta) @ rotate_pair(k, n, theta)\nrhs = q @ rotate_pair(k, n-m, theta)\nassert np.allclose(lhs, rhs)\nassert kv_bytes(32, 1, 4096, 8, 128, 2) == 536870912",
+    "prerequisites": [
+      "attention",
+      "transformers",
+      "serving"
+    ],
+    "related": [
+      "llm-evaluation",
+      "rag-agents",
+      "gpu-performance",
+      "activation-checkpointing"
+    ],
+    "followUps": [
+      "How would sliding-window attention change memory, compute, and reachable evidence?",
+      "What does a repeated single-needle test fail to establish?"
+    ],
+    "sources": [
+      {
+        "title": "Concept reference · RoFormer · not a reported interview question",
+        "url": "https://arxiv.org/abs/2104.09864",
+        "sourceType": "CONCEPT_REFERENCE_NOT_REPORTED_QUESTION"
+      },
+      {
+        "title": "Concept reference · FlashAttention · not a reported interview question",
+        "url": "https://arxiv.org/abs/2205.14135",
+        "sourceType": "CONCEPT_REFERENCE_NOT_REPORTED_QUESTION"
+      },
+      {
+        "title": "Concept reference · Lost in the Middle · not a reported interview question",
+        "url": "https://arxiv.org/abs/2307.03172",
+        "sourceType": "CONCEPT_REFERENCE_NOT_REPORTED_QUESTION"
+      }
+    ],
+    "visual": null,
+    "visualSteps": [
+      {
+        "label": "Place evidence",
+        "detail": "Vary where the relevant facts occur, not just document length."
+      },
+      {
+        "label": "Encode positions",
+        "detail": "Apply position-dependent transformations to attention features."
+      },
+      {
+        "label": "Budget computation",
+        "detail": "Track prefill work and growing key/value storage separately."
+      },
+      {
+        "label": "Verify use",
+        "detail": "Change the evidence and test whether the answer changes correctly."
+      }
+    ],
+    "workedExample": "For $L=32$, $B=1$, $T=4096$, $H_{\\mathrm{kv}}=8$, $d_h=128$, and 2-byte values, cache size is $2(32)(1)(4096)(8)(128)(2)=536{,}870{,}912$ bytes, or 0.5 GiB. At 8192 tokens it is 1 GiB. Meanwhile the number of dense attention score entries per head grows from $4096^2=16{,}777{,}216$ to $8192^2=67{,}108{,}864$, a factor of four. An implementation that avoids storing those entries can still perform their underlying interactions.",
+    "independentPrompts": [
+      "Compute cache size for the worked model at batch 4 and context 16384.",
+      "Derive the rotary identity using R(a)ᵀR(b)=R(b−a).",
+      "Design a position-by-length evaluation in which a correct answer cannot come from memorization alone."
+    ],
+    "debugging": {
+      "prompt": "A model works when evidence is at the start but fails when the same evidence is in the middle. Increasing GPU memory does not help.",
+      "answer": "Memory capacity and evidence utilization are distinct. Fix content and distractors while sweeping evidence position and sequence length. Check position IDs, padding offsets, cache offsets, truncation, and masks. Compare against oracle short-context evidence and counterfactual facts. If implementation checks pass, investigate training distribution and positional adaptation rather than assuming the failure is an allocation issue."
+    },
+    "formulas": [
+      {
+        "latex": "M_{\\mathrm{KV}}=2LBTH_{\\mathrm{kv}}d_hb",
+        "explanation": "Count key and value elements stored for every token and layer, then multiply by bytes per element.",
+        "symbols": [
+          {
+            "symbol": "L,B,T",
+            "meaning": "Layers, batch size, and cached sequence length"
+          },
+          {
+            "symbol": "H_{\\mathrm{kv}}",
+            "meaning": "Number of key/value heads, which can differ from query heads"
+          },
+          {
+            "symbol": "d_h,b",
+            "meaning": "Head dimension and bytes per element"
+          }
+        ],
+        "example": "The worked configuration at 4096 tokens requires 0.5 GiB of KV cache, excluding weights and workspaces."
+      },
+      {
+        "latex": "(R(m\\theta)q)^\\top R(n\\theta)k=q^\\top R((n-m)\\theta)k",
+        "explanation": "Rotations turn absolute positions into a relative displacement inside a dot product. This identity is algebraic; extrapolation quality remains an empirical question.",
+        "symbols": [
+          {
+            "symbol": "R(a)",
+            "meaning": "Two-dimensional rotation by angle a"
+          },
+          {
+            "symbol": "m,n",
+            "meaning": "Query and key positions"
+          },
+          {
+            "symbol": "\\theta",
+            "meaning": "Angular frequency for the coordinate pair"
+          }
+        ],
+        "example": "For $q=k=(1,0)$, relative angle $\\pi/2$ gives dot product 0, while relative angle 0 gives 1."
+      }
+    ]
+  },
+  {
+    "id": "reinforcement-learning",
+    "title": "Reinforcement Learning: Returns, Bellman Equations & TD",
+    "category": "domain",
+    "subtopics": [
+      "Markov decision processes",
+      "Policies and returns",
+      "Value functions",
+      "Bellman expectation equation",
+      "Temporal-difference learning",
+      "Q-learning",
+      "Termination versus truncation"
+    ],
+    "summary": "Build a precise model of sequential decisions, derive the value recursion, and implement a small temporal-difference update. Distinguish the policy being evaluated from the policy being improved.",
+    "intuition": "An action can have a small immediate reward but open a valuable future. A value function estimates that future, while a policy chooses actions. Learning is difficult because the policy changes which data it sees and because the consequences of an action may arrive much later.",
+    "math": "$$G_t=\\sum_{k=0}^{\\infty}\\gamma^kR_{t+k+1},\\qquad V^\\pi(s)=\\mathbb E_\\pi[G_t\\mid S_t=s].$$",
+    "derivation": "1. In an MDP, the distribution of the next state and reward depends on the current state and action. A partial observation need not be a Markov state; history or memory may be required.\n2. Split the discounted return into the first reward and the rest: $G_t=R_{t+1}+\\gamma G_{t+1}$. Taking conditional expectations under a fixed policy gives $V^\\pi(s)=\\sum_a\\pi(a\\mid s)\\mathbb E[R_{t+1}+\\gamma V^\\pi(S_{t+1})\\mid s,a]$.\n3. For a finite MDP and fixed policy, write $V=r_\\pi+\\gamma P_\\pi V$. When $\\gamma<1$, $V=(I-\\gamma P_\\pi)^{-1}r_\\pi$, though iterative methods avoid explicitly inverting a large matrix.\n4. The Bellman expectation operator contracts sup-norm differences by at most $\\gamma$, since a probability-weighted average cannot exceed the maximum difference. This gives a unique fixed point for discounted tabular policy evaluation.\n5. A sample transition replaces the expectation with a noisy target. TD(0) uses $\\delta=r+\\gamma V(s')-V(s)$ and $V(s)\\leftarrow V(s)+\\eta\\delta$. At a true terminal state, omit the future-value term.\n6. Q-learning instead targets $r+\\gamma\\max_{a'}Q(s',a')$. The behavior policy can explore while the update targets a greedy policy, making it off-policy. SARSA uses the actually selected next action and is on-policy.\n7. An externally imposed time limit is not automatically a terminal state of the underlying task. If the task continues, bootstrap from the final observation at truncation; if a finite horizon defines the task, include remaining time in the state and use appropriate terminal semantics.\n8. Tabular convergence guarantees require assumptions such as sufficient visitation and suitable step sizes. They do not automatically transfer to nonlinear function approximation, changing data distributions, or arbitrary replay schemes.",
+    "application": "These ideas support control, recommendation with delayed outcomes, and policy optimization in modern AI. Before choosing an algorithm, define reward timing, episode boundaries, available state, exploration, and the evaluation distribution.",
+    "mistakes": [
+      "Optimizing immediate reward while claiming to optimize return",
+      "Treating a partial observation as a guaranteed Markov state",
+      "Bootstrapping through a true terminal state",
+      "Zeroing the bootstrap for every time-limit truncation",
+      "Applying tabular guarantees unchanged to deep networks"
+    ],
+    "interview": "RL optimizes expected return under a policy that influences the future data distribution. Bellman equations express a long-horizon value as one reward plus discounted future value. TD learns from sampled transitions; Q-learning evaluates a greedy target even when behavior explores.",
+    "code": "import numpy as np\ndef q_update(Q, state, action, reward, next_state, terminated,\n             lr=0.1, gamma=0.9):\n    if not 0 <= gamma < 1 or not 0 < lr <= 1:\n        raise ValueError(\"invalid discount or learning rate\")\n    # Time-limit truncation alone must not set terminated=True.\n    bootstrap = 0.0 if terminated else np.max(Q[next_state])\n    target = reward + gamma*bootstrap\n    td_error = target-Q[state, action]\n    Q[state, action] += lr*td_error\n    return td_error\nQ = np.zeros((3, 2))\nQ[1] = [4., 2.]\ndelta = q_update(Q, 0, 0, 1., 1, False, lr=0.5)\nassert np.isclose(delta, 4.6)\nassert np.isclose(Q[0, 0], 2.3)\nq_update(Q, 2, 0, 2., 1, True, lr=1.0)\nassert np.isclose(Q[2, 0], 2.0)",
+    "prerequisites": [
+      "probability",
+      "expectation",
+      "optimization"
+    ],
+    "related": [
+      "safety-rl",
+      "preference",
+      "research-evaluation"
+    ],
+    "followUps": [
+      "What changes when reward is sparse and exploration rarely reaches useful states?",
+      "Why can a policy-gradient baseline reduce variance without changing the expected gradient?"
+    ],
+    "sources": [
+      {
+        "title": "Concept reference · Spinning Up: Key Concepts in RL · not a reported interview question",
+        "url": "https://spinningup.openai.com/en/latest/spinningup/rl_intro.html",
+        "sourceType": "CONCEPT_REFERENCE_NOT_REPORTED_QUESTION"
+      },
+      {
+        "title": "Concept reference · Sutton & Barto: Reinforcement Learning · not a reported interview question",
+        "url": "http://incompleteideas.net/book/the-book-2nd.html",
+        "sourceType": "CONCEPT_REFERENCE_NOT_REPORTED_QUESTION"
+      }
+    ],
+    "visual": null,
+    "visualSteps": [
+      {
+        "label": "Observe state",
+        "detail": "Identify the information available before acting."
+      },
+      {
+        "label": "Choose action",
+        "detail": "The behavior policy balances exploration and reward seeking."
+      },
+      {
+        "label": "Receive transition",
+        "detail": "Observe the next state, reward, and terminal status."
+      },
+      {
+        "label": "Build TD target",
+        "detail": "Combine reward with a valid future-value estimate."
+      },
+      {
+        "label": "Update value or policy",
+        "detail": "Use prediction error to improve later decisions."
+      }
+    ],
+    "workedExample": "A transition gives reward 1, discount $\\gamma=0.9$, and next-state value 4. The nonterminal TD target is $1+0.9(4)=4.6$. If the current estimate is 2 and learning rate is 0.5, the new estimate is $2+0.5(4.6-2)=3.3$. If the same transition truly ends the task, its target is only 1 and the new estimate is 1.5. Separately, a trajectory with rewards $(1,2,3)$ has return $1+0.9(2)+0.9^2(3)=5.23$.",
+    "independentPrompts": [
+      "For a single state that returns to itself with reward 2 and discount 0.5, solve its Bellman equation.",
+      "Explain the distinction between SARSA and Q-learning using one exploratory next action.",
+      "Design a test that catches accidental bootstrapping after a terminal transition."
+    ],
+    "debugging": {
+      "prompt": "Episodes stop after 200 steps for data collection. The implementation zeros the TD bootstrap whenever either terminated or truncated is true, and values near the limit collapse.",
+      "answer": "Determine whether the limit is part of the task or merely a collection boundary. For a continuing task cut short externally, use the last actual observation and retain the bootstrap; do not use an auto-reset observation as the next state. For a true finite-horizon task, include time-to-go and handle its terminal boundary explicitly. Unit-test true terminal, ordinary continuation, and truncation separately."
+    },
+    "formulas": [
+      {
+        "latex": "V^\\pi(s)=\\sum_a\\pi(a\\mid s)\\mathbb E[R_{t+1}+\\gamma V^\\pi(S_{t+1})\\mid s,a]",
+        "explanation": "Average over the policy's action choice and the environment's next transition. The value is not just the reward from the next action.",
+        "symbols": [
+          {
+            "symbol": "\\pi(a\\mid s)",
+            "meaning": "Probability of action a under the policy in state s"
+          },
+          {
+            "symbol": "\\gamma",
+            "meaning": "Discount factor in [0,1) for this discounted setting"
+          },
+          {
+            "symbol": "V^\\pi",
+            "meaning": "Expected discounted return under policy pi"
+          }
+        ],
+        "example": "One self-transitioning state with reward 2 and gamma=0.5 satisfies V=2+0.5V, so V=4."
+      },
+      {
+        "latex": "Q(s,a)\\leftarrow Q(s,a)+\\eta\\left[r+\\gamma(1-d)\\max_{a'}Q(s',a')-Q(s,a)\\right]",
+        "explanation": "Q-learning moves its estimate toward a sampled greedy target. The indicator d marks a true terminal transition.",
+        "symbols": [
+          {
+            "symbol": "d",
+            "meaning": "1 for true termination, 0 otherwise"
+          },
+          {
+            "symbol": "\\eta",
+            "meaning": "Learning rate"
+          },
+          {
+            "symbol": "s',a'",
+            "meaning": "Next state and a candidate next action"
+          }
+        ],
+        "example": "With Q=2, reward=1, next maximum=4, gamma=0.9, d=0 and eta=0.5, the updated Q is 3.3."
+      }
+    ]
+  },
+  {
+    "id": "speech-ctc",
+    "title": "Speech Alignment with Connectionist Temporal Classification",
+    "category": "domain",
+    "subtopics": [
+      "Unaligned sequence labels",
+      "Blank symbol",
+      "Alignment collapse",
+      "Forward dynamic programming",
+      "Repeated labels",
+      "Greedy versus sequence decoding"
+    ],
+    "summary": "Train a frame-level sequence model from a transcript without frame-by-frame alignments. Understand how CTC sums valid alignments and why blank handling, repeated characters, and sequence lengths matter.",
+    "intuition": "Many frame sequences can express the same transcript: a sound can span several frames and silence need not emit a label. CTC assigns probability to all paths that collapse to the transcript rather than demanding one known timing alignment.",
+    "math": "$$P(y\\mid x)=\\sum_{\\pi:B(\\pi)=y}\\prod_{t=1}^T p_t(\\pi_t\\mid x),\\qquad L=-\\log P(y\\mid x).$$",
+    "derivation": "1. At each of T encoder frames, predict probabilities over labels plus a special blank. The encoder may use temporal context; the CTC path probability still factorizes over output frames conditional on the input.\n2. Define collapse B by merging consecutive identical symbols first, then removing blanks. The path (a,a,blank,a) becomes aa, not a. A blank can separate two occurrences of the same label.\n3. Sum probabilities of every path that collapses to the target. Maximizing only one alignment changes the objective and discards uncertainty about timing.\n4. For target labels $(y_1,\\ldots,y_U)$, insert blanks to form $z=(blank,y_1,blank,\\ldots,y_U,blank)$. Let $A_t(s)$ be the total path probability reaching extended position s at frame t.\n5. A path can stay at s or advance from s−1. It can skip from s−2 only if z_s is not blank and differs from z_{s-2}; otherwise it would merge distinct required repetitions.\n6. Multiply the sum of allowed predecessor probabilities by $p_t(z_s)$. Initialize only the first blank and first label at frame 1; finish by summing the last label and last blank states.\n7. The dynamic program costs $O(TU)$ instead of enumerating exponentially many paths. Use log probabilities and log-sum-exp for realistic sequence lengths.\n8. A target with U labels and R adjacent repeated-label pairs requires at least U+R frames. Greedy frame argmax followed by collapse need not maximize transcript probability, because multiple lower-probability paths may combine into a stronger transcript.",
+    "application": "Use CTC for speech recognition or handwriting when inputs are longer than output labels and alignments are monotonic. Check the encoder's subsampled frame lengths and blank convention. Attention-based and transducer objectives make different dependency assumptions.",
+    "mistakes": [
+      "Removing blanks before merging repeats",
+      "Treating blank as a literal space in the transcript",
+      "Passing probabilities where a loss API expects log probabilities",
+      "Ignoring repeated-label minimum lengths",
+      "Assuming the most likely path gives the most likely transcript"
+    ],
+    "interview": "CTC marginalizes over monotonic frame-to-label alignments. A blank and a collapse rule represent repeated frames and timing gaps. A forward dynamic program sums valid paths, including special restrictions for repeated labels; greedy path decoding is only an approximation to transcript-level decoding.",
+    "code": "import numpy as np\ndef ctc_log_probability(log_probs, labels, blank=0):\n    # Small reference implementation; log_probs has shape [time, classes].\n    lp = np.asarray(log_probs, dtype=float)\n    labels = list(labels)\n    if lp.ndim != 2 or blank in labels:\n        raise ValueError(\"invalid emissions or blank in target\")\n    T, classes = lp.shape\n    if not 0 <= blank < classes or any(y < 0 or y >= classes for y in labels):\n        raise ValueError(\"invalid label index\")\n    if T == 0:\n        return 0.0 if not labels else -np.inf\n    z = [blank]\n    for y in labels:\n        z.extend([y, blank])\n    prev = np.full(len(z), -np.inf)\n    prev[0] = lp[0, blank]\n    if labels:\n        prev[1] = lp[0, z[1]]\n    for t in range(1, T):\n        cur = np.full(len(z), -np.inf)\n        for s, label in enumerate(z):\n            incoming = [prev[s]]\n            if s >= 1:\n                incoming.append(prev[s-1])\n            if s >= 2 and label != blank and label != z[s-2]:\n                incoming.append(prev[s-2])\n            cur[s] = np.logaddexp.reduce(incoming) + lp[t, label]\n        prev = cur\n    return prev[0] if not labels else np.logaddexp(prev[-1], prev[-2])\nlp = np.log(np.array([[0.4, 0.6], [0.4, 0.6]]))\nassert np.isclose(np.exp(ctc_log_probability(lp, [1])), 0.84)\nassert np.isneginf(ctc_log_probability(lp, [1, 1]))",
+    "prerequisites": [
+      "probability",
+      "algorithms",
+      "cnn-rnn"
+    ],
+    "related": [
+      "nlp-speech",
+      "decoding",
+      "evaluation"
+    ],
+    "followUps": [
+      "How does encoder time subsampling affect the feasibility of repeated-label targets?",
+      "Why can beam search over collapsed prefixes outperform frame-wise greedy decoding?"
+    ],
+    "sources": [
+      {
+        "title": "Concept reference · Graves et al.: Connectionist Temporal Classification · not a reported interview question",
+        "url": "https://www.cs.toronto.edu/~graves/icml_2006.pdf",
+        "sourceType": "CONCEPT_REFERENCE_NOT_REPORTED_QUESTION"
+      },
+      {
+        "title": "Concept reference · PyTorch CTCLoss · not a reported interview question",
+        "url": "https://docs.pytorch.org/docs/stable/generated/torch.nn.CTCLoss.html",
+        "sourceType": "CONCEPT_REFERENCE_NOT_REPORTED_QUESTION"
+      }
+    ],
+    "visual": null,
+    "visualSteps": [
+      {
+        "label": "Frame emissions",
+        "detail": "Predict a label distribution plus blank at each encoder frame."
+      },
+      {
+        "label": "Many alignments",
+        "detail": "Different repetitions and blank placements can represent one transcript."
+      },
+      {
+        "label": "Forward sum",
+        "detail": "Dynamic programming adds all valid alignment probabilities."
+      },
+      {
+        "label": "Collapse + decode",
+        "detail": "Merge adjacent repeats, remove blanks, and compare transcripts."
+      }
+    ],
+    "workedExample": "Use two frames, label a, and blank. At each frame let $p(a)=0.6$ and $p(blank)=0.4$. Target a has paths (a,a), (a,blank), and (blank,a), totaling $0.36+0.24+0.24=0.84$. The empty transcript has probability $0.16$, so these exhaust the outcomes. Target aa is impossible in two frames because a blank must separate the two a labels. With three identical frames, its only path is (a,blank,a), with probability $0.6(0.4)(0.6)=0.144$.",
+    "independentPrompts": [
+      "Collapse the path (blank,a,a,blank,a,b,b,blank).",
+      "For target 'book', count labels and adjacent repeated pairs, then find the minimum encoder-frame count.",
+      "Enumerate all paths for a two-frame alphabet and verify the forward program against brute force."
+    ],
+    "debugging": {
+      "prompt": "CTC loss becomes infinite only for transcripts containing repeated letters after aggressive encoder subsampling.",
+      "answer": "Check input lengths after subsampling, not before it. A target needs at least its label count plus the number of adjacent repeated-label pairs. For 'aa', two frames are insufficient; at least three are needed. Also check blank IDs, target padding, and log-probability normalization. Silencing infinite losses with zero_infinity may prevent NaNs but does not make infeasible training examples informative."
+    },
+    "formulas": [
+      {
+        "latex": "A_t(s)=p_t(z_s)\\left[A_{t-1}(s)+A_{t-1}(s-1)+\\mathbf1_{\\mathrm{skip}}A_{t-1}(s-2)\\right]",
+        "explanation": "Add allowed predecessor paths, then emit the symbol for the current extended-target position. Omit out-of-range predecessors.",
+        "symbols": [
+          {
+            "symbol": "z_s",
+            "meaning": "Symbol at position s in the target with inserted blanks"
+          },
+          {
+            "symbol": "A_t(s)",
+            "meaning": "Total probability of valid paths ending at extended position s at time t"
+          },
+          {
+            "symbol": "\\mathbf1_{\\mathrm{skip}}",
+            "meaning": "1 only when z_s is nonblank and differs from z_(s−2)"
+          }
+        ],
+        "example": "For repeated target aa, the skip from the first a to the second a is forbidden; the intervening blank must be visited."
+      },
+      {
+        "latex": "T_{\\min}=U+\\sum_{u=2}^U\\mathbf1[y_u=y_{u-1}]",
+        "explanation": "Every label needs a frame, and each adjacent repeated pair needs an extra blank frame to remain distinct after collapse.",
+        "symbols": [
+          {
+            "symbol": "U",
+            "meaning": "Target label count"
+          },
+          {
+            "symbol": "T_{min}",
+            "meaning": "Minimum number of encoder output frames"
+          }
+        ],
+        "example": "The target 'book' has four labels and one adjacent repeat ('oo'), so it requires at least five frames."
+      }
+    ]
+  },
+  {
+    "id": "union-find",
+    "title": "Disjoint Sets: Connectivity Without Repeated Traversal",
+    "category": "dsa",
+    "subtopics": [
+      "Union by size",
+      "Path compression",
+      "Connectivity invariants",
+      "Amortized complexity",
+      "Duplicate edges"
+    ],
+    "summary": "Maintain an evolving partition when edges arrive incrementally. Derive the tree-height invariant, implement union by size with path compression, and explain why deletions require another approach.",
+    "intuition": "A representative is a label for a whole connected component, not a graph center. Linking two representatives merges all members without updating each member immediately. A find operation can shorten the route to that label.",
+    "math": "$$h\\leq\\lfloor\\log_2 n\\rfloor,\\qquad T(m,n)=O\\!\\left(n+m\\alpha(n)\\right)$$",
+    "derivation": "Initially every vertex is its own root. A successful union changes exactly one root pointer, preserving a forest and merging exactly two components. Attach the smaller tree under the larger: whenever a vertex gains an ancestor, its component size at least doubles. After h such changes, its component contains at least $2^h$ vertices, so $h\\leq\\log_2 n$ before path compression. Compression redirects visited pointers toward the root without changing membership. Combined heuristics give amortized inverse-Ackermann operation cost; this is a sequence bound, not a claim that every find is worst-case constant. Component size is authoritative only at roots.",
+    "application": "Use connectivity for Kruskal’s minimum spanning tree algorithm, incremental grouping, or joining equivalent records. In ML data preparation, transitive duplicate links can define split groups, but the linking criterion itself needs validation: one false edge can merge otherwise separate groups. DSU does not store a path explaining connectivity.",
+    "mistakes": [
+      "Updating size at a non-root",
+      "Decrementing the component count for an already-connected pair",
+      "Treating directed reachability as undirected connectivity",
+      "Claiming ordinary DSU supports edge deletion"
+    ],
+    "interview": "I maintain a forest whose roots represent components. Union by size prevents deep trees; path compression accelerates repeated finds. I distinguish amortized cost from a single-operation bound and return whether a union actually merged components.",
+    "code": "class DSU:\n    def __init__(self, n):\n        if n < 0:\n            raise ValueError('n must be nonnegative')\n        self.parent = list(range(n))\n        self.size = [1] * n\n        self.components = n\n    def find(self, x):\n        if not 0 <= x < len(self.parent):\n            raise IndexError(x)\n        while x != self.parent[x]:\n            self.parent[x] = self.parent[self.parent[x]]\n            x = self.parent[x]\n        return x\n    def union(self, a, b):\n        a, b = self.find(a), self.find(b)\n        if a == b:\n            return False\n        if self.size[a] < self.size[b]:\n            a, b = b, a\n        self.parent[b] = a\n        self.size[a] += self.size[b]\n        self.components -= 1\n        return True\n\nu = DSU(5)\nassert u.union(0, 1) and u.union(1, 2)\nassert not u.union(2, 0)\nassert u.components == 3\nassert u.size[u.find(2)] == 3\nassert u.find(0) != u.find(4)",
+    "prerequisites": [
+      "trees-graphs"
+    ],
+    "related": [
+      "algorithms",
+      "clustering"
+    ],
+    "followUps": [
+      "How would rollback DSU change the compression strategy?",
+      "Why can a directed graph require strongly connected components instead?"
+    ],
+    "sources": [
+      {
+        "title": "Princeton Algorithms — union–find reference implementation",
+        "url": "https://raw.githubusercontent.com/kevin-wayne/algs4/master/src/main/java/edu/princeton/cs/algs4/UF.java",
+        "sourceType": "CONCEPT_REFERENCE_NOT_REPORTED_QUESTION",
+        "note": "Primary reference for concepts; lessons, examples, code, and questions are original. No company interview claim."
+      }
+    ],
+    "visual": null,
+    "formulas": [
+      {
+        "latex": "h\\leq\\lfloor\\log_2 n\\rfloor,\\qquad T(m,n)=O\\!\\left(n+m\\alpha(n)\\right)",
+        "explanation": "Size weighting bounds height before compression; both heuristics yield an amortized sequence bound including initialization.",
+        "symbols": [
+          {
+            "symbol": "n",
+            "meaning": "Number of elements"
+          },
+          {
+            "symbol": "m",
+            "meaning": "Number of operations after initialization"
+          },
+          {
+            "symbol": "h",
+            "meaning": "Tree height without compression"
+          },
+          {
+            "symbol": "\\alpha",
+            "meaning": "Inverse Ackermann function"
+          }
+        ],
+        "example": "Starting with eight singleton sets, a vertex can acquire at most three ancestors under union by size before compression."
+      }
+    ],
+    "workedExample": "With vertices 0 through 4, process edges (0,1), (1,2), (2,0), and (3,4). The component counts are 4, 3, 3, and 2. The third edge closes a cycle; both endpoints already resolve to the same root. The final sizes are 3 and 2 regardless of which root labels survive. Removing edge (1,2) later cannot be handled by merely cutting a parent pointer because DSU parent links are not the original graph edges.",
+    "independentPrompts": [
+      "Trace parent and root-size arrays for unions (0,1), (2,3), (1,3), then find(3).",
+      "Prove the doubling argument without using an amortized-complexity theorem.",
+      "Construct an example where a noisy duplicate edge merges two train/test groups."
+    ],
+    "debugging": {
+      "prompt": "A program returns the right connectivity answers but its component counter becomes negative after repeated edges.",
+      "answer": "Find both roots first and return immediately if they match. Decrement the counter only for a successful merge. Test self-loops, repeated edges, and a triangle; connectivity and component count must both remain correct."
+    },
+    "visualSteps": [
+      {
+        "label": "Singletons",
+        "detail": "Each element starts as its own representative."
+      },
+      {
+        "label": "Find roots",
+        "detail": "Follow parent pointers; shorten paths safely."
+      },
+      {
+        "label": "Merge smaller",
+        "detail": "Attach the smaller root to the larger root."
+      },
+      {
+        "label": "Query partition",
+        "detail": "Equal roots mean the same connected component."
+      }
+    ]
+  },
+  {
+    "id": "dynamic-programming",
+    "title": "Dynamic Programming: State Design and Safe Memory Compression",
+    "category": "dsa",
+    "subtopics": [
+      "State sufficiency",
+      "Bellman recurrence",
+      "0/1 knapsack",
+      "Iteration order",
+      "Pseudo-polynomial time"
+    ],
+    "summary": "Design a state that summarizes the past, derive transitions by an exhaustive case split, and compress memory without changing the problem being solved.",
+    "intuition": "A DP table is a collection of small, precisely defined questions. Memoization only helps after those questions preserve all information needed by future choices. The loop order determines which version of a state an update reads.",
+    "math": "$$D_i(c)=\\max\\left(D_{i-1}(c),\\ v_i+D_{i-1}(c-w_i)\\right)\\quad(c\\geq w_i)$$",
+    "derivation": "For 0/1 knapsack, define $D_i(c)$ as the best value using only the first i items with total weight at most c. Partition feasible solutions by whether item i is absent or present. The absent case gives $D_{i-1}(c)$; the present case reserves its weight and adds its value to $D_{i-1}(c-w_i)$. These cases are exhaustive and disjoint, proving the recurrence by induction from $D_0(c)=0$. Compressing to one array is safe only if capacities are visited in descending order: the lower-capacity entry still belongs to the previous item row. Ascending updates may reuse the same item, silently solving an unbounded variant. Complexity is $O(nC)$, pseudo-polynomial in numeric capacity C rather than its bit length.",
+    "application": "Budgeted model or experiment selection can resemble knapsack when each option has independent additive value and a fixed resource cost. Real experiments can interact; then that state is insufficient. Distinguish solving an abstract optimization exactly from assuming the abstraction matches the research problem.",
+    "mistakes": [
+      "Using a state that omits a future-relevant constraint",
+      "Compressing memory before proving the dependency order",
+      "Initializing exact-fill states to zero instead of marking them unreachable",
+      "Calling O(nC) polynomial in the encoded input size"
+    ],
+    "interview": "I define the state in a complete sentence, split an optimal solution into cases, identify base cases and evaluation order, and only then optimize memory. For 0/1 knapsack, descending capacity updates prevent an item from being selected twice.",
+    "code": "def knapsack(items, capacity):\n    # Positive integer weights; selecting nothing is allowed.\n    if capacity < 0 or any(w <= 0 for w, _ in items):\n        raise ValueError('invalid capacity or weight')\n    best = [0] * (capacity + 1)\n    for weight, value in items:\n        for c in range(capacity, weight - 1, -1):\n            best[c] = max(best[c], best[c - weight] + value)\n    return best[capacity]\n\nassert knapsack([(2, 3), (3, 4), (4, 5)], 5) == 7\nassert knapsack([(2, 3)], 4) == 3  # not 6: one copy only\nassert knapsack([], 9) == 0\nassert knapsack([(1, -5)], 3) == 0",
+    "prerequisites": [
+      "arrays",
+      "algorithms"
+    ],
+    "related": [
+      "trees-graphs",
+      "research-design"
+    ],
+    "followUps": [
+      "How would you recover the selected items?",
+      "When is a value-indexed DP better than a capacity-indexed one?"
+    ],
+    "sources": [
+      {
+        "title": "MIT 6.006 — dynamic programming: states, recursion, and DAGs",
+        "url": "https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/resources/lecture-15-dynamic-programming-part-1-srtbot-fib-dags-bowling/",
+        "sourceType": "CONCEPT_REFERENCE_NOT_REPORTED_QUESTION",
+        "note": "Primary reference for concepts; lessons, examples, code, and questions are original. No company interview claim."
+      }
+    ],
+    "visual": null,
+    "formulas": [
+      {
+        "latex": "D_i(c)=\\max\\left(D_{i-1}(c),\\ v_i+D_{i-1}(c-w_i)\\right)\\quad(c\\geq w_i)",
+        "explanation": "Choose between omitting the item and taking it exactly once. If it does not fit, copy the previous row.",
+        "symbols": [
+          {
+            "symbol": "i",
+            "meaning": "Number of available items"
+          },
+          {
+            "symbol": "c",
+            "meaning": "Maximum permitted weight"
+          },
+          {
+            "symbol": "w_i,v_i",
+            "meaning": "Weight and value of item i"
+          },
+          {
+            "symbol": "D_i(c)",
+            "meaning": "Best attainable value under those constraints"
+          }
+        ],
+        "example": "For items (2,3) and (3,4), capacity 5 permits value 7; capacity 4 permits value 4."
+      }
+    ],
+    "workedExample": "For items (weight,value)=(2,3),(3,4),(4,5) and capacity 5, the first row is [0,0,3,3,3,3]. The second becomes [0,0,3,4,4,7]. The last becomes [0,0,3,4,5,7]. The answer 7 selects the first two items. On the first item alone, an ascending update changes dp[2] to 3 and later uses that new entry for dp[4]=6. The same item has been consumed twice, exposing exactly why iteration order is part of the algorithm.",
+    "independentPrompts": [
+      "Derive a recurrence for exactly filling capacity when unreachable states are possible.",
+      "Explain why keeping only the best value for a fixed capacity fails if item choices impose dependencies.",
+      "Implement full-table reconstruction before attempting a compressed reconstruction strategy."
+    ],
+    "debugging": {
+      "prompt": "A one-array solver returns 6 for one item of weight 2, value 3, capacity 4.",
+      "answer": "The capacity loop runs upward, so dp[4] reads dp[2] after it already used this item. Iterate capacities downward for 0/1 selection. Keep the single-item capacity-four case as a regression check."
+    },
+    "visualSteps": [
+      {
+        "label": "Define state",
+        "detail": "Best value from an item prefix and a capacity."
+      },
+      {
+        "label": "Split choices",
+        "detail": "Omit the item or reserve space for it."
+      },
+      {
+        "label": "Respect order",
+        "detail": "Read only states from the previous item row."
+      },
+      {
+        "label": "Compress safely",
+        "detail": "Traverse capacity downward to preserve that invariant."
+      }
+    ]
+  },
+  {
+    "id": "ml-code-convolution",
+    "title": "Implement Convolution: Indexing, Overlap, and Gradients",
+    "category": "mlcoding",
+    "subtopics": [
+      "Cross-correlation",
+      "Output shape",
+      "Input gradient",
+      "Kernel gradient",
+      "Finite-difference checks"
+    ],
+    "summary": "Build a transparent single-channel 2D convolution reference, then derive its backward pass by following each output’s dependence on an input patch.",
+    "intuition": "A shared kernel scores every local patch. Sharing means a kernel parameter receives gradient contributions from many positions. Overlap means an input pixel can receive gradients from several outputs, so backward must accumulate.",
+    "math": "$$H_{\\mathrm{out}}=\\left\\lfloor\\frac{H+2p-d(K-1)-1}{s}\\right\\rfloor+1$$\n\n$$\\frac{\\partial L}{\\partial k_{ab}}=\\sum_{ij}g_{ij}x_{i+a,j+b}$$",
+    "derivation": "For valid unit-stride cross-correlation, $y_{ij}=\\sum_{a,b}k_{ab}x_{i+a,j+b}$. Holding all other entries fixed gives $\\partial y_{ij}/\\partial k_{ab}=x_{i+a,j+b}$. With upstream gradient $g_{ij}$, sum over output locations to obtain $\\partial L/\\partial k_{ab}=\\sum_{ij}g_{ij}x_{i+a,j+b}$. Each input derivative is accumulated at the same indexed location used in forward: $dx_{i+a,j+b}\\mathrel{+}=g_{ij}k_{ab}$. This avoids memorizing a kernel-flip rule divorced from indexing. With padding p, stride s, and dilation d, the last legal kernel start must fit its effective span $d(K-1)+1$, yielding the floor-based shape formula. The code intentionally implements only valid, unit-stride, single-channel correlation; batch/channel sums and padding extend these same dependencies.",
+    "application": "A slow loop implementation acts as a correctness oracle for vectorized or accelerator kernels. Compare forward outputs and gradients before optimizing. Practical deep-learning Conv2d uses cross-correlation; a mathematical convolution flips the kernel, so name the convention explicitly.",
+    "mistakes": [
+      "Flipping the kernel in forward while comparing against cross-correlation",
+      "Overwriting instead of adding overlapping input gradients",
+      "Dropping the floor or dilation term in the output shape",
+      "Assuming a transposed convolution is the inverse of a convolution"
+    ],
+    "interview": "I first fix the indexing convention and output shape, then accumulate each output gradient into the input patch and shared kernel. I check both gradients numerically using a scalar loss with nonuniform upstream weights.",
+    "code": "def correlate(x, k):\n    h, w = len(x), len(x[0])\n    kh, kw = len(k), len(k[0])\n    if kh > h or kw > w:\n        raise ValueError('kernel must fit')\n    return [[sum(x[i+a][j+b]*k[a][b]\n                 for a in range(kh) for b in range(kw))\n             for j in range(w-kw+1)] for i in range(h-kh+1)]\n\ndef backward(x, k, g):\n    dx = [[0.0]*len(x[0]) for _ in x]\n    dk = [[0.0]*len(k[0]) for _ in k]\n    for i in range(len(g)):\n        for j in range(len(g[0])):\n            for a in range(len(k)):\n                for b in range(len(k[0])):\n                    dx[i+a][j+b] += g[i][j]*k[a][b]\n                    dk[a][b] += g[i][j]*x[i+a][j+b]\n    return dx, dk\n\nx = [[1.,2.,3.],[4.,5.,6.],[7.,8.,9.]]\nk = [[1.,0.],[0.,-1.]]\ng = [[1.,2.],[3.,4.]]\nassert correlate(x, k) == [[-4.,-4.],[-4.,-4.]]\ndx, dk = backward(x, k, g)\ndef loss():\n    y = correlate(x,k)\n    return sum(y[i][j]*g[i][j] for i in range(2) for j in range(2))\nfor array, grad in [(x,dx),(k,dk)]:\n    for i,row in enumerate(array):\n        for j,old in enumerate(row):\n            eps = 1e-5\n            array[i][j] = old + eps; hi = loss()\n            array[i][j] = old - eps; lo = loss()\n            array[i][j] = old\n            assert abs((hi-lo)/(2*eps)-grad[i][j]) < 1e-7",
+    "prerequisites": [
+      "cnn-rnn",
+      "backprop"
+    ],
+    "related": [
+      "vision",
+      "ml-code-autograd"
+    ],
+    "followUps": [
+      "How do grouped convolutions change channel connectivity?",
+      "Why does im2col increase temporary memory?"
+    ],
+    "sources": [
+      {
+        "title": "PyTorch Conv2d — correlation convention and output geometry",
+        "url": "https://docs.pytorch.org/docs/2.14/generated/torch.nn.Conv2d.html",
+        "sourceType": "CONCEPT_REFERENCE_NOT_REPORTED_QUESTION",
+        "note": "Primary reference for concepts; lessons, examples, code, and questions are original. No company interview claim."
+      }
+    ],
+    "visual": null,
+    "formulas": [
+      {
+        "latex": "H_{\\mathrm{out}}=\\left\\lfloor\\frac{H+2p-d(K-1)-1}{s}\\right\\rfloor+1",
+        "explanation": "Count legal kernel starts after accounting for padding and the effective dilated kernel span.",
+        "symbols": [
+          {
+            "symbol": "H",
+            "meaning": "Input height"
+          },
+          {
+            "symbol": "K",
+            "meaning": "Kernel height"
+          },
+          {
+            "symbol": "p",
+            "meaning": "Symmetric padding"
+          },
+          {
+            "symbol": "d",
+            "meaning": "Dilation"
+          },
+          {
+            "symbol": "s",
+            "meaning": "Stride"
+          }
+        ],
+        "example": "With H=9, K=3, p=1, d=2, s=2, the output height is floor(6/2)+1=4."
+      },
+      {
+        "latex": "\\frac{\\partial L}{\\partial k_{ab}}=\\sum_{ij}g_{ij}x_{i+a,j+b}",
+        "explanation": "The shared kernel receives one contribution from every output location.",
+        "symbols": [
+          {
+            "symbol": "g_{ij}",
+            "meaning": "Derivative of the scalar loss with respect to output y_ij"
+          },
+          {
+            "symbol": "k_{ab}",
+            "meaning": "Kernel entry"
+          },
+          {
+            "symbol": "x",
+            "meaning": "Input image"
+          }
+        ],
+        "example": "With the 3×3 image 1 through 9 and g=[[1,2],[3,4]], the upper-left kernel derivative is 1+4+12+20=37."
+      }
+    ],
+    "workedExample": "For input rows [1,2,3], [4,5,6], [7,8,9] and kernel [[1,0],[0,-1]], each output equals -4. With upstream weights [[1,2],[3,4]], the kernel gradient is [[37,47],[67,77]]. The center input gradient receives +4 from the bottom-right output and -1 from the top-left output, totaling 3. A backward implementation that assigns instead of adds may keep only one contribution while still producing plausible border gradients.",
+    "independentPrompts": [
+      "Compute the bottom-right input derivative in the worked example.",
+      "Extend forward indexing to stride 2, then derive backward from exactly those indices.",
+      "Explain why output padding in a transposed convolution resolves shape ambiguity rather than adding information."
+    ],
+    "debugging": {
+      "prompt": "Forward outputs agree with a library, but central-pixel gradients fail while corner-pixel gradients pass.",
+      "answer": "Inspect overlapping writes in backward. Each output patch contributes to shared input positions, so dx updates must use +=. Check with nonuniform upstream gradients and finite differences on every input and kernel entry."
+    },
+    "visualSteps": [
+      {
+        "label": "Slide a patch",
+        "detail": "Choose the legal input window for one output."
+      },
+      {
+        "label": "Apply shared weights",
+        "detail": "Multiply corresponding entries and sum."
+      },
+      {
+        "label": "Route upstream gradient",
+        "detail": "Send each output contribution through the same indices."
+      },
+      {
+        "label": "Accumulate overlap",
+        "detail": "Add contributions at shared pixels and kernel entries."
+      }
+    ]
+  },
+  {
+    "id": "ml-code-autograd",
+    "title": "Build a Tiny Reverse-Mode Autograd Engine",
+    "category": "mlcoding",
+    "subtopics": [
+      "Computation DAG",
+      "Vector–Jacobian products",
+      "Topological order",
+      "Shared nodes",
+      "Gradient accumulation"
+    ],
+    "summary": "Implement scalar reverse-mode differentiation with a computation graph, local backward rules, and correct handling of a value reused along several paths.",
+    "intuition": "Every operation stores a small promise: if I later receive a derivative with respect to my output, I can distribute derivatives to my inputs. Reverse topological order ensures all downstream contributions arrive before that promise is executed.",
+    "math": "$$\\bar u=\\sum_{v:\\,u\\to v}\\bar v\\frac{\\partial v}{\\partial u}$$",
+    "derivation": "For an operation $v=f(u_1,\\ldots,u_k)$ and adjoint $\\bar v=\\partial L/\\partial v$, the chain rule sends $\\bar v\\,\\partial v/\\partial u_j$ to each input. A reused input receives a sum over every outgoing use, including two positions in the same operation. Topological traversal should visit a node once, but the local rule must preserve operand multiplicity. For $a=x x$ and $L=a+a x$, the derivative reaching a is $1+x$, and x also receives the direct contribution a. Therefore $dL/dx=2x(1+x)+x^2=2x+3x^2$. At x=2 it is 16. A depth-first postorder followed in reverse computes this exactly. The educational engine resets all reachable adjoints on each backward call; this intentionally differs from PyTorch leaf-gradient accumulation across backward calls.",
+    "application": "Reverse mode efficiently differentiates one scalar loss with respect to many parameters without constructing a dense Jacobian. The same graph reasoning explains detached tensors, repeated backward calls, and why in-place changes to saved forward values can invalidate gradients.",
+    "mistakes": [
+      "Using assignment for gradients of a shared input",
+      "Deduplicating operands inside a multiplication rule",
+      "Traversing backward in forward order",
+      "Assuming this scalar engine supports broadcasting or higher-order derivatives"
+    ],
+    "interview": "I record local derivative rules during forward execution, topologically order the graph, seed the scalar loss with one, and accumulate adjoints in reverse order. Shared nodes are traversed once but receive contributions from every use.",
+    "code": "class Value:\n    def __init__(self, data, parents=()):\n        self.data = float(data); self.grad = 0.0\n        self.parents = parents; self._backward = lambda: None\n    def __add__(self, other):\n        other = other if isinstance(other, Value) else Value(other)\n        out = Value(self.data + other.data, (self, other))\n        def rule():\n            self.grad += out.grad\n            other.grad += out.grad\n        out._backward = rule\n        return out\n    def __mul__(self, other):\n        other = other if isinstance(other, Value) else Value(other)\n        out = Value(self.data * other.data, (self, other))\n        left, right = self.data, other.data  # save forward values\n        def rule():\n            self.grad += right * out.grad\n            other.grad += left * out.grad\n        out._backward = rule\n        return out\n    def backward(self):\n        order, seen = [], set()\n        def visit(node):\n            if node in seen: return\n            seen.add(node)\n            for parent in node.parents: visit(parent)\n            order.append(node)\n        visit(self)\n        for node in order: node.grad = 0.0\n        self.grad = 1.0\n        for node in reversed(order): node._backward()\n\nx = Value(2)\na = x*x\nloss = a + a*x\nloss.backward()\nassert loss.data == 12 and x.grad == 16\nloss.backward()  # this engine resets adjoints deliberately\nassert x.grad == 16\nf = lambda z: z*z + z*z*z\neps = 1e-5\nassert abs((f(2+eps)-f(2-eps))/(2*eps)-x.grad) < 1e-7",
+    "prerequisites": [
+      "backprop",
+      "trees-graphs"
+    ],
+    "related": [
+      "ml-code-network",
+      "activation-checkpointing",
+      "ml-code-convolution"
+    ],
+    "followUps": [
+      "How would broadcasting require reducing an adjoint back to its original shape?",
+      "What must change to support second derivatives?"
+    ],
+    "sources": [
+      {
+        "title": "PyTorch — autograd mechanics",
+        "url": "https://docs.pytorch.org/docs/2.14/notes/autograd.html",
+        "sourceType": "CONCEPT_REFERENCE_NOT_REPORTED_QUESTION",
+        "note": "Primary reference for concepts; lessons, examples, code, and questions are original. No company interview claim."
+      }
+    ],
+    "visual": null,
+    "formulas": [
+      {
+        "latex": "\\bar u=\\sum_{v:\\,u\\to v}\\bar v\\frac{\\partial v}{\\partial u}",
+        "explanation": "Adjoints add over all downstream uses; vector-valued operations implement the corresponding vector–Jacobian product.",
+        "symbols": [
+          {
+            "symbol": "\\bar u",
+            "meaning": "Derivative of the scalar loss with respect to u"
+          },
+          {
+            "symbol": "v",
+            "meaning": "A downstream operation using u"
+          },
+          {
+            "symbol": "\\partial v/\\partial u",
+            "meaning": "Local derivative at the saved forward values"
+          }
+        ],
+        "example": "For a=x² and L=a+ax at x=2, the a path contributes 12 and the direct ax path contributes 4, giving 16."
+      }
+    ],
+    "workedExample": "Trace x=2, a=x*x=4, b=a*x=8, and L=a+b=12. Seed L.grad=1. Addition gives a.grad=1 and b.grad=1. Multiplication b adds x=2 to a.grad, so a.grad becomes 3; it adds a=4 to x.grad. Finally a=x*x adds 2×3 twice to x.grad. The result is 4+6+6=16. Visiting a twice would propagate its total gradient twice; storing its two identical operands as a set inside the local rule would instead miss one contribution.",
+    "independentPrompts": [
+      "Compute gradients for L=(x+x)*(x+x), distinguishing shared versus separately constructed additions.",
+      "Add a tanh operation and compare its local derivative with a central difference.",
+      "Explain why detach preserves a numeric forward value while removing a gradient path."
+    ],
+    "debugging": {
+      "prompt": "Your engine reports d(x*x)/dx=x instead of 2x.",
+      "answer": "The backward rule deduplicated identical operands or assigned the second contribution over the first. Keep both operand contributions and use +=. Deduplicate nodes only for graph traversal, not for local derivative multiplicity."
+    },
+    "visualSteps": [
+      {
+        "label": "Record operations",
+        "detail": "Store each output and its local derivative rule."
+      },
+      {
+        "label": "Order the DAG",
+        "detail": "Visit dependencies before their consumers."
+      },
+      {
+        "label": "Seed the loss",
+        "detail": "Initialize the scalar output adjoint to one."
+      },
+      {
+        "label": "Accumulate backward",
+        "detail": "Reverse the order and add every path’s contribution."
+      }
+    ]
+  },
+  {
+    "id": "activation-checkpointing",
+    "title": "Activation Checkpointing: Recompute Instead of Retain",
+    "category": "systems",
+    "subtopics": [
+      "Rematerialization",
+      "Segment boundaries",
+      "Activation memory",
+      "Recompute cost",
+      "Randomness and side effects"
+    ],
+    "summary": "Derive a simple memory model for segmented checkpointing, implement recomputation on a scalar network, and separate activation savings from parameters, gradients, and optimizer state.",
+    "intuition": "Backward needs selected forward values, not necessarily every value stored for the whole step. Save a few boundary activations, then replay a segment when its gradients are needed. You buy memory with additional arithmetic and careful control of state.",
+    "math": "$$M_{\\mathrm{act}}(s)\\approx A\\left(\\frac{L}{s}+s\\right),\\qquad s^*\\approx\\sqrt L$$",
+    "derivation": "Consider L equal-sized sequential layers and checkpoint every s layers. Retain roughly L/s boundary activations. During backward, replay one segment and retain its s local activations temporarily. Ignoring endpoints and workspaces, peak saved activation units are $L/s+s$. Differentiating this continuous estimate gives $1-L/s^2=0$, so $s\\approx\\sqrt L$ minimizes the model. This is an intuition under uniform layers, not an exact optimizer for transformer memory. Replay preserves gradients only if it reconstructs the same needed values: random masks, mutation, and side effects matter. Parameters and optimizer states still exist; recomputation cannot remove their memory. The reference chain uses deterministic tanh layers and recomputes every segment once, adding one extra forward traversal while avoiding persistent storage of all intermediates.",
+    "application": "Checkpoint large activation-heavy blocks when memory, rather than parameter storage, limits batch size or context. Profile actual peak allocated memory and step time. Compare the same batch, seed, precision, and model before attributing a throughput change to checkpointing alone.",
+    "mistakes": [
+      "Confusing activation checkpointing with saving a training checkpoint to disk",
+      "Predicting total GPU memory from activation units alone",
+      "Replaying a different dropout mask",
+      "Allowing stateful counters or running statistics to update twice"
+    ],
+    "interview": "I retain segment inputs and reconstruct local intermediates during backward. This trades extra forward work for lower activation memory. I verify gradient equivalence and check RNG and side effects; the savings depend on the model’s actual memory breakdown.",
+    "code": "from math import tanh\n\ndef checkpoint_chain(x, weights, segment):\n    if segment < 1: raise ValueError('segment must be positive')\n    saved = {0: x}; y = x\n    for i,w in enumerate(weights, 1):\n        y = tanh(w*y)\n        if i % segment == 0 or i == len(weights): saved[i] = y\n    edges = sorted(saved)\n    dw = [0.0]*len(weights); upstream = 1.0\n    for block in range(len(edges)-1, 0, -1):\n        start, end = edges[block-1], edges[block]\n        local = [saved[start]]\n        for i in range(start,end):\n            local.append(tanh(weights[i]*local[-1]))\n        for i in range(end-1,start-1,-1):\n            offset = i-start\n            dz = upstream*(1-local[offset+1]**2)\n            dw[i] = dz*local[offset]\n            upstream = dz*weights[i]\n    return y, upstream, dw\n\nweights = [0.9,1.1,0.8,1.2,0.7]\ny, dx, dw = checkpoint_chain(0.4, weights, 2)\ndef forward(x, ws):\n    for w in ws: x = tanh(w*x)\n    return x\neps = 1e-5\nassert abs(dx-(forward(.4+eps,weights)-forward(.4-eps,weights))/(2*eps)) < 1e-8\nfor i,w in enumerate(weights):\n    weights[i]=w+eps; hi=forward(.4,weights)\n    weights[i]=w-eps; lo=forward(.4,weights)\n    weights[i]=w\n    assert abs(dw[i]-(hi-lo)/(2*eps)) < 1e-8\nassert checkpoint_chain(.4, weights, 1) == checkpoint_chain(.4, weights, 2)",
+    "prerequisites": [
+      "ml-code-training",
+      "gpu",
+      "backprop"
+    ],
+    "related": [
+      "distributed",
+      "ml-code-autograd",
+      "long-context"
+    ],
+    "followUps": [
+      "Why can a memory-saving configuration reduce throughput at a fixed batch size?",
+      "When can selective checkpointing beat uniform segmentation?"
+    ],
+    "sources": [
+      {
+        "title": "PyTorch — activation checkpointing behavior and RNG caveats",
+        "url": "https://docs.pytorch.org/docs/2.14/checkpoint.html",
+        "sourceType": "CONCEPT_REFERENCE_NOT_REPORTED_QUESTION",
+        "note": "Primary reference for concepts; lessons, examples, code, and questions are original. No company interview claim."
+      }
+    ],
+    "visual": null,
+    "formulas": [
+      {
+        "latex": "M_{\\mathrm{act}}(s)\\approx A\\left(\\frac{L}{s}+s\\right),\\qquad s^*\\approx\\sqrt L",
+        "explanation": "A simplified sequential model balances retained boundaries against one replayed segment. It excludes parameter and optimizer memory.",
+        "symbols": [
+          {
+            "symbol": "L",
+            "meaning": "Number of equal-sized layers"
+          },
+          {
+            "symbol": "s",
+            "meaning": "Layers per segment"
+          },
+          {
+            "symbol": "A",
+            "meaning": "Bytes per representative activation"
+          },
+          {
+            "symbol": "M_{\\mathrm{act}}",
+            "meaning": "Approximate peak activation storage"
+          }
+        ],
+        "example": "For L=64 and A=16 MiB, s=8 gives roughly 16 activation units or 256 MiB, versus roughly 1 GiB for 64 retained units."
+      }
+    ],
+    "workedExample": "Under the uniform 64-layer model, checkpointing every 8 layers retains roughly 8 boundaries and at most 8 replay intermediates. If parameters, gradients, and optimizer state already occupy 12 GiB, reducing activation storage from about 1 GiB to 0.25 GiB changes total modeled memory from 13 to 12.25 GiB, not by a factor of four. The reference implementation handles a final short segment: five weights with segment size two produces boundaries 0,2,4,5 and still matches finite differences.",
+    "independentPrompts": [
+      "Minimize L/s+s for L=144 and compare s=6,12,24.",
+      "Design an equivalence test for a checkpointed block containing dropout.",
+      "List persistent states that a replayed function could accidentally modify."
+    ],
+    "debugging": {
+      "prompt": "Loss values match on forward, but checkpointed gradients change when a block includes randomness or updates a counter.",
+      "answer": "Replay may follow a different computation. Preserve the necessary RNG state and avoid mutable side effects inside the replayed region. Compare gradients under identical seeds with a deterministic baseline before measuring memory. Matching shapes alone does not establish numeric equivalence."
+    },
+    "visualSteps": [
+      {
+        "label": "Keep boundaries",
+        "detail": "Save selected inputs rather than all intermediates."
+      },
+      {
+        "label": "Replay a segment",
+        "detail": "Recreate its forward values when backward arrives."
+      },
+      {
+        "label": "Differentiate locally",
+        "detail": "Use those temporary values for gradients."
+      },
+      {
+        "label": "Release and continue",
+        "detail": "Discard locals and move to the preceding segment."
+      }
+    ]
+  },
+  {
+    "id": "collective-communication",
+    "title": "Collective Communication: What Moves, Who Receives It",
+    "category": "systems",
+    "subtopics": [
+      "All-reduce",
+      "Reduce-scatter",
+      "All-gather",
+      "Ring cost model",
+      "Unequal local batches"
+    ],
+    "summary": "Distinguish collective semantics from transport algorithms, calculate a ring all-reduce estimate, and derive correct gradient weighting when ranks process different sample counts.",
+    "intuition": "First ask what each rank must know after the operation. All-reduce replicates a reduction everywhere; reduce-scatter gives each rank one reduced shard; all-gather reconstructs the full set of shards. These describe outputs, not a mandatory network topology.",
+    "math": "$$T_{\\mathrm{ring}}\\approx2(p-1)\\alpha+\\frac{2(p-1)}{p}\\frac{N}{B}$$\n\n$$g=\\frac{\\sum_r n_r g_r}{\\sum_r n_r}$$",
+    "derivation": "Partition an N-byte vector evenly across p ranks. An idealized ring reduce-scatter uses p−1 rounds, each sending N/p bytes per rank; all-gather uses another p−1 rounds. With latency alpha per round and bandwidth B, the model is $2(p-1)\\alpha+2(p-1)N/(pB)$. It ignores overlap, topology bottlenecks, and software effects; small messages can be latency dominated even when bandwidth is high. For training, if rank r averages over n_r examples, its local mean gradient g_r must be weighted by n_r before summation and divided by total examples. Averaging rank means equally is correct only when those counts match, or when equal weighting of ranks is the intended objective. Every participant must execute compatible collectives in a consistent order.",
+    "application": "Data-parallel training uses gradient reduction, while sharded optimizers can retain reduce-scattered shards instead of immediately reconstructing full gradients. Tensor parallelism and expert routing need different communication patterns. Estimate bytes and synchronization latency before changing bucket size, then confirm with a trace.",
+    "mistakes": [
+      "Confusing all-gather with summing vectors",
+      "Assuming summed gradients are automatically averaged",
+      "Averaging unequal-sized batch means equally",
+      "Skipping a collective on one rank after a conditional branch",
+      "Treating the ring model as a measured latency prediction"
+    ],
+    "interview": "I specify input and output ownership before choosing a collective. Reduce-scatter plus all-gather can implement all-reduce. I estimate payload and synchronization cost separately, and derive gradient normalization from the sample counts rather than assuming equal batches.",
+    "code": "def reduce_scatter_then_gather(rank_vectors):\n    # Single-process semantic reference, not a network implementation.\n    p = len(rank_vectors)\n    if p == 0: raise ValueError('no ranks')\n    n = len(rank_vectors[0])\n    if n % p or any(len(v) != n for v in rank_vectors):\n        raise ValueError('equal vectors divisible into equal shards required')\n    width = n//p\n    shards = [[sum(v[j] for v in rank_vectors)\n               for j in range(r*width,(r+1)*width)] for r in range(p)]\n    gathered = [x for shard in shards for x in shard]\n    return shards, [gathered[:] for _ in range(p)]\n\ndef weighted_gradient(means, counts):\n    if len(means) != len(counts) or not means or sum(counts) <= 0:\n        raise ValueError('invalid inputs')\n    if any(n < 0 for n in counts): raise ValueError('negative count')\n    if any(len(g) != len(means[0]) for g in means): raise ValueError('shape mismatch')\n    return [sum(n*g[j] for g,n in zip(means,counts))/sum(counts)\n            for j in range(len(means[0]))]\n\nshards, replicas = reduce_scatter_then_gather([[1,2,3,4],[10,20,30,40]])\nassert shards == [[11,22],[33,44]]\nassert replicas == [[11,22,33,44],[11,22,33,44]]\nassert weighted_gradient([[2.],[10.]],[3,1]) == [4.]\n# Reordering ranks changes shard ownership, not the complete sum.\nassert reduce_scatter_then_gather([[10,20,30,40],[1,2,3,4]])[1] == replicas",
+    "prerequisites": [
+      "distributed"
+    ],
+    "related": [
+      "gpu",
+      "ml-code-training"
+    ],
+    "followUps": [
+      "When does reducing bucket size improve overlap but increase overhead?",
+      "Why does asynchronous launch not guarantee that computation and communication overlap?"
+    ],
+    "sources": [
+      {
+        "title": "NVIDIA NCCL — collective operation semantics",
+        "url": "https://docs.nvidia.com/deeplearning/nccl/user-guide/docs/usage/collectives.html",
+        "sourceType": "CONCEPT_REFERENCE_NOT_REPORTED_QUESTION",
+        "note": "Primary reference for concepts; lessons, examples, code, and questions are original. No company interview claim."
+      }
+    ],
+    "visual": null,
+    "formulas": [
+      {
+        "latex": "T_{\\mathrm{ring}}\\approx2(p-1)\\alpha+\\frac{2(p-1)}{p}\\frac{N}{B}",
+        "explanation": "A simple ring model adds per-round latency to bytes transmitted per rank divided by bandwidth.",
+        "symbols": [
+          {
+            "symbol": "p",
+            "meaning": "Number of ranks"
+          },
+          {
+            "symbol": "\\alpha",
+            "meaning": "Latency per communication round"
+          },
+          {
+            "symbol": "N",
+            "meaning": "Bytes in a complete vector on one rank"
+          },
+          {
+            "symbol": "B",
+            "meaning": "Effective bytes per second for the modeled link"
+          }
+        ],
+        "example": "For p=4, N=120 MB, B=30 GB/s, and alpha=5 microseconds (decimal units), payload time is 6 ms and latency adds 0.03 ms."
+      },
+      {
+        "latex": "g=\\frac{\\sum_r n_r g_r}{\\sum_r n_r}",
+        "explanation": "Recover the global per-example mean gradient from local means with potentially unequal counts.",
+        "symbols": [
+          {
+            "symbol": "n_r",
+            "meaning": "Number of examples on rank r"
+          },
+          {
+            "symbol": "g_r",
+            "meaning": "Mean gradient over those examples"
+          },
+          {
+            "symbol": "g",
+            "meaning": "Global sample-weighted mean"
+          }
+        ],
+        "example": "Three examples with mean gradient 2 and one example with gradient 10 give (3×2+10)/4=4, not 6."
+      }
+    ],
+    "workedExample": "Rank 0 holds [1,2,3,4] and rank 1 holds [10,20,30,40]. Sum reduce-scatter can leave [11,22] on rank 0 and [33,44] on rank 1. All-gather then returns [11,22,33,44] to both. All-gathering the original inputs instead produces eight entries and performs no addition. Separately, if local batches have sizes 3 and 1 with mean gradients 2 and 10, averaging rank means gives 6 while the per-example objective requires 4. A communication primitive cannot infer this normalization for you.",
+    "independentPrompts": [
+      "Calculate the ring estimate for p=8, N=64 MB, B=16 GB/s, alpha=4 microseconds.",
+      "Explain why an all-reduce can hang if one rank exits early after detecting NaNs.",
+      "Derive global loss scaling for unequal token counts instead of unequal sequence counts."
+    ],
+    "debugging": {
+      "prompt": "Training diverges only when the final minibatch is uneven across ranks, although collective outputs appear correct.",
+      "answer": "Check whether local mean losses were averaged equally despite different sample or valid-token counts. Weight by those counts before reduction and normalize by their global sum. Ensure all ranks still participate in the same collective order, including ranks with zero valid examples."
+    },
+    "visualSteps": [
+      {
+        "label": "Local vectors",
+        "detail": "Each rank starts with its own gradient contribution."
+      },
+      {
+        "label": "Reduce and shard",
+        "detail": "Sum matching entries and distribute reduced chunks."
+      },
+      {
+        "label": "Gather if needed",
+        "detail": "Replicate complete reduced data only when consumers need it."
+      },
+      {
+        "label": "Normalize objective",
+        "detail": "Scale according to actual sample or token counts."
       }
     ]
   }

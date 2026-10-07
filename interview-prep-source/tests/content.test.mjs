@@ -114,3 +114,49 @@ test("company mentions are source-backed and scoped independently of ratings", (
     );
   }
 });
+
+test("expanded concepts include worked practice and meaningful mechanism diagrams", () => {
+  const expanded = topics.filter((t) => t.visualSteps);
+  assert.ok(expanded.length >= 18);
+  for (const t of expanded) {
+    assert.ok(t.visualSteps.length >= 3 && t.visualSteps.length <= 5, t.id);
+    for (const step of t.visualSteps)
+      assert.ok(step.label && step.detail, t.id);
+    assert.ok(
+      t.workedExample && t.debugging?.prompt && t.debugging?.answer,
+      t.id,
+    );
+    assert.ok(t.independentPrompts.length >= 2 && t.sources.length >= 1, t.id);
+    assert.ok(qs.filter((q) => q.topics.includes(t.id)).length >= 2, t.id);
+  }
+  for (const category of [
+    "math",
+    "ml",
+    "dl",
+    "llm",
+    "dsa",
+    "mlcoding",
+    "systems",
+    "research",
+    "domain",
+  ])
+    assert.ok(
+      expanded.filter((t) => t.category === category).length >= 2,
+      category,
+    );
+});
+
+test("prerequisites form a learnable directed acyclic graph", () => {
+  const index = new Map(topics.map((t) => [t.id, t])),
+    done = new Set(),
+    visiting = new Set();
+  const visit = (id) => {
+    assert.ok(!visiting.has(id), `Circular prerequisite: ${id}`);
+    if (done.has(id)) return;
+    visiting.add(id);
+    for (const prerequisite of index.get(id).prerequisites) visit(prerequisite);
+    visiting.delete(id);
+    done.add(id);
+  };
+  for (const topic of topics) visit(topic.id);
+});
