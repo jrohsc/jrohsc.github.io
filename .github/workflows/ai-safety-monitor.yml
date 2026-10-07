@@ -3,9 +3,6 @@ on:
   push:
     branches: [master]
     paths-ignore:
-      - 'h1b-monitoring/feed.json'
-      - 'h1b-monitoring/update_feed.py'
-      - '.github/workflows/h1b-monitoring-feed.yml'
       - 'ai-jobs/data.json'
       - 'ai-jobs/manifest.json'
   workflow_dispatch:
