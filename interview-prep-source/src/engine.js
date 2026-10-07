@@ -1,28 +1,28 @@
 export const DAY = 86400000;
 export const categories = {
-  math: "수학 기초",
-  ml: "머신러닝",
-  dl: "딥러닝",
+  math: "Mathematical foundations",
+  ml: "Machine learning",
+  dl: "Deep learning",
   llm: "LLM · Modern AI",
-  dsa: "알고리즘 · DSA",
-  mlcoding: "ML 구현",
-  systems: "ML 시스템",
-  research: "연구 역량",
-  domain: "선택 도메인",
+  dsa: "Algorithms / DSA",
+  mlcoding: "ML implementation",
+  systems: "ML systems",
+  research: "Research skills",
+  domain: "Domain tracks",
 };
 export const typeNames = {
-  conceptual: "개념 설명",
-  derivation: "수식 유도",
-  probability: "확률",
-  reasoning: "증명 · 추론",
-  coding: "알고리즘 코딩",
-  implementation: "ML 구현",
-  debugging: "디버깅",
-  research: "연구 설계",
-  system: "시스템 설계",
-  critique: "논문 비평",
-  estimation: "자원 추정",
-  experiment: "실험 추론",
+  conceptual: "Conceptual",
+  derivation: "Derivation",
+  probability: "Probability",
+  reasoning: "Proof / reasoning",
+  coding: "Algorithms coding",
+  implementation: "ML implementation",
+  debugging: "Debugging",
+  research: "Research design",
+  system: "System design",
+  critique: "Paper critique",
+  estimation: "Estimation",
+  experiment: "Experimental reasoning",
 };
 export const defaultState = () => ({
   version: 1,
@@ -188,12 +188,12 @@ export function rankQuestions(
         score,
         category,
         reason: due
-          ? "복습 예정일 도래"
+          ? "Review is due"
           : weakness
-            ? "선택한 취약 영역"
+            ? "Selected weak area"
             : !r
-              ? "아직 평가하지 않은 개념"
-              : "직무 중요도 · 숙련도 반영",
+              ? "Not assessed yet"
+              : "Role priority and mastery",
       };
     })
     .sort((a, b) => b.score - a.score || a.q.id.localeCompare(b.q.id));
@@ -254,7 +254,7 @@ export function validateImport(
     !x.reviews ||
     Array.isArray(x.reviews)
   )
-    throw new Error("지원하지 않는 백업 형식입니다.");
+    throw new Error("Unsupported backup format.");
   const s = x.settings;
   if (
     !roleIds.includes(s.role) ||
@@ -269,7 +269,7 @@ export function validateImport(
     typeof s.interviewDate !== "string" ||
     (s.interviewDate && !/^\d{4}-\d{2}-\d{2}$/.test(s.interviewDate))
   )
-    throw new Error("설정 데이터가 올바르지 않습니다.");
+    throw new Error("Invalid settings data.");
   for (const [id, r] of Object.entries(x.reviews)) {
     if (
       !questionIds.includes(id) ||
@@ -294,7 +294,7 @@ export function validateImport(
           !["again", "hard", "good", "easy"].includes(h.rating),
       )
     )
-      throw new Error("복습 데이터가 올바르지 않습니다.");
+      throw new Error("Invalid review data.");
   }
   if (
     x.bookmarks.some((id) => !questionIds.includes(id)) ||
@@ -316,7 +316,7 @@ export function validateImport(
         !["again", "hard", "good", "easy"].includes(h.rating),
     )
   )
-    throw new Error("학습 기록이 올바르지 않습니다.");
+    throw new Error("Invalid study history.");
   const drafts =
     x.drafts && typeof x.drafts === "object" && !Array.isArray(x.drafts)
       ? Object.fromEntries(
@@ -362,7 +362,7 @@ export function validateImport(
       ) ||
       (m.completed && !Number.isFinite(m.completedAt))
     )
-      throw new Error("모의면접 기록이 올바르지 않습니다.");
+      throw new Error("Invalid mock interview data.");
     mock = m;
   }
   if (x.plan) {
@@ -384,7 +384,7 @@ export function validateImport(
       p.remaining < 0 ||
       p.items.reduce((a, i) => a + i.minutes, 0) > p.budget
     )
-      throw new Error("연습 계획이 올바르지 않습니다.");
+      throw new Error("Invalid practice plan.");
     plan = p;
   }
   return {

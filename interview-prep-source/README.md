@@ -1,6 +1,6 @@
 # Research Practice · AI / ML Interview Prep
 
-한국어 중심의 연결형 AI·ML 면접 학습 플랫폼. 배포 URL: https://jrohsc.github.io/interview-prep/
+A connected AI/ML interview preparation platform in English. Deployment URL: https://jrohsc.github.io/interview-prep/
 
 ## Development and verification
 
@@ -22,13 +22,13 @@ Open http://127.0.0.1:4187/interview-prep/. For hot-reload development, `npm run
 - `src/engine.js`: pure scheduling, time-aware mastery, weighted selection, import validation.
 - `src/Diagrams.jsx`: native interactive SVG explanations; no raster dependencies.
 - `src/style.css`: responsive desktop/mobile interface with reduced-motion support.
-- `../interview-prep/data/curriculum.json`: 50 knowledge nodes and 270 subtopics (12 core topics include multi-step derivations, numerical worked examples, 36 independent prompts and 12 debugging cases) with prerequisite/related edges, explanations, math, code, diagrams, sources.
-- `../interview-prep/data/questions.json`: 114 original questions, many-to-many topic/company/role references, two hints, answers and concrete self-assessment rubrics. Company tags mean preparation relevance, never actual interview provenance.
+- `../interview-prep/data/curriculum.json`: 53 knowledge nodes, including dedicated floating-point, mixed-precision, and GPU-performance lessons with prerequisite/related edges, explanations, math, code, diagrams, sources.
+- `../interview-prep/data/questions.json`: 120 original questions, many-to-many topic/company/role references, two hints, answers and concrete self-assessment rubrics. Company tags mean preparation relevance, never actual interview provenance.
 - `../interview-prep/data/companies.json`: companies, normalized roles/dimensions, 50 role-specific profiles, 600 importance records. Numeric ratings are all `INFERRED`; official evidence supports narratives, not fabricated numeric frequency estimates. Unknown verification dates are null and displayed as unverified. The math aggregate drives selection; comparison shows subdimensions instead to avoid double counting.
 
 ## Extend the curriculum
 
-Add a stable unique topic ID and complete its content fields. Connect prerequisite/related IDs. Add questions that reference it, with stable IDs and 1–5 difficulty/importance, positive expectedTime, two hints and at least three rubric checkpoints. Add sources at the factual claim level. New companies need a profile for every supported role. Evidence values are `OFFICIAL`, `CANDIDATE REPORTED`, or `INFERRED`; never upgrade an inference merely because its background source is official. Run `npm test` to detect broken edges and invalid metadata. Content strings render as text, not executable HTML.
+Add a stable unique topic ID and complete its content fields. Connect prerequisite/related IDs. Add questions that reference it, with stable IDs and 1–5 difficulty/importance, positive expectedTime, two hints and at least three rubric checkpoints. Add sources at the factual claim level. New companies need a profile for every supported role. Evidence values are `OFFICIAL`, `CANDIDATE REPORTED`, or `INFERRED`; never upgrade an inference merely because its background source is official. Run `npm test` to detect broken edges and invalid metadata. Content strings render as text; explicit math delimiters are rendered by KaTeX with trust disabled.
 
 ## Learning and persistence
 
@@ -45,3 +45,11 @@ Use Progress → Backup before clearing site data or changing browsers. Import v
 - Browser coverage also verifies timeout, valid restoration, corrupt-data preservation and keyboard access.
 
 Company/role profiles are preparation guidance; teams and interview processes vary. Open each company page's source and confidence details before relying on the comparison.
+
+## Connected reading experience
+
+The English interface uses continuous lesson sections and a sticky page outline (horizontal on small screens). Knowledge Map displays nine domains, prerequisite and dependent concepts, related edges, an exploration trail, and guided routes. Company badges distinguish exact official-source mentions from inferred role relevance; each mention retains source scope, link, verification date, and applicable roles.
+
+Every lesson includes structured `formulas`: LaTeX, a plain-English explanation, symbol definitions, and a numerical example. `MathText.jsx` supports inline and display math in lessons and question solutions, with local KaTeX fonts and accessible MathML. `Diagrams.jsx` includes interactive probability, optimization, attention, and floating-point explanations. Float comparisons separate exponent range from fraction precision and label hardware-dependent subnormal behavior. Strict content tests parse every equation and verify graph/evidence integrity.
+
+Existing local-storage records and user-authored notes retain their IDs and content. Legacy generated practice reasons are translated only when displayed.

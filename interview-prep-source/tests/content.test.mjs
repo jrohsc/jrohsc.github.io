@@ -64,3 +64,53 @@ test("source links use HTTP(S), with no executable pseudo-URLs", () => {
   for (const d of data.dimensions)
     for (const id of d.topicIds) assert.ok(topics.some((t) => t.id === id));
 });
+
+test("every lesson explains its equations and all LaTeX renders strictly", async () => {
+  const { default: katex } = await import("katex");
+  const render = (value) =>
+    katex.renderToString(value, {
+      throwOnError: true,
+      trust: false,
+      strict: "error",
+    });
+  for (const t of topics) {
+    assert.ok(t.formulas?.length, t.id);
+    for (const f of t.formulas) {
+      render(f.latex);
+      assert.ok(f.explanation && f.example && f.symbols.length);
+      for (const s of f.symbols) {
+        render(s.symbol);
+        assert.ok(s.meaning);
+      }
+    }
+  }
+  const walk = (value) => {
+    if (typeof value === "string") {
+      assert.ok(!/[가-힣]/.test(value));
+      for (const m of value.matchAll(
+        /\$\$([\s\S]+?)\$\$|\$(?!\$)([^$\n]+?)\$/g,
+      ))
+        render(m[1] || m[2]);
+    } else if (value && typeof value === "object")
+      Object.values(value).forEach(walk);
+  };
+  walk(topics);
+  walk(qs);
+  walk(data);
+});
+test("company mentions are source-backed and scoped independently of ratings", () => {
+  assert.ok(data.topicMentions.length > 0);
+  for (const m of data.topicMentions) {
+    assert.ok(topics.some((t) => t.id === m.topicId));
+    assert.ok(data.companies.some((c) => c.id === m.companyId));
+    assert.equal(m.evidence, "OFFICIAL");
+    assert.ok(
+      ["ROLE_DESCRIPTION", "INTERVIEW_GUIDE", "RESEARCH_PUBLICATION"].includes(
+        m.scope,
+      ),
+    );
+    assert.ok(
+      /^https:\/\//.test(m.url) && m.sourceTitle && m.summary && m.lastVerified,
+    );
+  }
+});
