@@ -1,5 +1,6 @@
 // Curated from public professional sources; hiring evidence is separate from fit.
-export const reviewedAt = '2026-10-06';
+export const reviewedAt = '2026-10-07';
+const rechecked = new Set(['ozlem-kalinli', 'koki-nagano', 'jonathan-petit', 'deepak-chandran', 'desh-raj', 'sangho-lee', 'umar-iqbal', 'marco-pavone']);
 export const profile = 'https://jrohsc.github.io/';
 export const papers = {
   duplex: { label: 'DuplexJail · preprint', url: 'https://arxiv.org/abs/2609.09420' },
@@ -47,14 +48,14 @@ export const contacts = [
   {
     id: 'jonathan-petit', name: 'Jonathan Petit', first: 'Jonathan', company: 'Qualcomm', team: 'AI security research · existing collaborator',
     approach: 'warm', fit: 'core', location: '미국 · 팀 배치 문의', tags: ['Audio security', 'Authorization', 'Existing collaborator'],
-    hiring: { kind: 'pool', label: '2027 통합 공고 · 팀 TO 미확인', note: '공식 ML/AI 공고는 BS/MS/PhD 통합 Engineering 채용입니다. 전용 PhD research 자리나 Jonathan 팀 배치를 보장하지 않습니다. 졸업 예정일 Nov 2027 이후 조건을 확인하세요.', url: 'https://careers.qualcomm.com/careers/job/446720740525' },
+    hiring: { kind: 'pool', label: '2027 미국 PhD 관심 등록 · 팀 TO 미확인', note: '10/7 재확인: 미국 Summer 2027 PhD 관심 등록 양식이 열려 있습니다. AI research·secure AI·audio/speech가 관심 분야에 포함됩니다. 고용 지원서가 아니며 개별 공고 지원은 별도입니다. 인턴 종료 후 최소 한 학기 재학 조건이 있습니다. 기존 ML/AI 공고는 BS/MS/PhD 통합 Engineering 채용으로, Jonathan 팀 배치를 보장하지 않습니다.', url: 'https://careers.qualcomm.com/events/candidate/registration?plannedEventId=Jn9gMpk5A', linkLabel: 'PhD 관심 등록' },
     why: 'CodecAttack 공동저자 관계가 있어 연구 맥락을 새로 설명할 필요가 적습니다. AI 보안 연구팀에서 프로젝트 연속성을 논의할 수 있습니다.',
     advice: '기존 대화 스레드로 바로 물으세요. CodecAttack 이후 하고 싶은 연구와 2027 호스팅 가능성을 짧게 제시하고, 없으면 적합한 팀 연결을 부탁하세요.',
     links: { linkedin: 'https://www.linkedin.com/in/jonathan-petit-03193813' },
     alternative: { name: 'Jean-Philippe Monteuuis · CodecAttack coauthor', url: 'https://www.linkedin.com/in/jeanphilippemonteuuis' },
-    sources: [source('CodecAttack · 공동연구 근거', papers.codec.url), source('현재 연구·소속 · Jonathan 프로필', 'https://www.linkedin.com/in/jonathan-petit-03193813'), source('공식 ML/AI Summer 2027 · 통합 채용', 'https://careers.qualcomm.com/careers/job/446720740525', 'hiring'), source('공식 Security Summer 2027 · 통합 채용', 'https://careers.qualcomm.com/careers/job/446720740636', 'hiring')],
+    sources: [source('공식 Summer 2027 미국 PhD 관심 등록 · 지원서와 별개', 'https://careers.qualcomm.com/events/candidate/registration?plannedEventId=Jn9gMpk5A', 'hiring'), source('CodecAttack · 공동연구 근거', papers.codec.url), source('현재 연구·소속 · Jonathan 프로필', 'https://www.linkedin.com/in/jonathan-petit-03193813'), source('공식 ML/AI Summer 2027 · 통합 채용', 'https://careers.qualcomm.com/careers/job/446720740525', 'hiring'), source('공식 Security Summer 2027 · 통합 채용', 'https://careers.qualcomm.com/careers/job/446720740636', 'hiring')],
     papers: ['codec', 'duplex'], subject: 'Summer 2027 research internship — continuing our audio security work',
-    email: `Hi Jonathan,\n\nI’m planning for summer 2027 and wanted to ask whether your team might be able to host me as a PhD research intern. I’d be excited to build on our CodecAttack collaboration.\n\nFollowing my Dolby internship on full-duplex speech safety, I’m now investigating how revised speaker or authorization evidence should invalidate pending voice-agent tool actions. This could be an interesting extension from audio-model robustness to the security of interactive systems.\n\nDo you see a potential project and hosting opportunity with your team? If another Qualcomm team would be a better fit, I’d appreciate your advice on whom to contact. I also saw the 2027 ML/AI internship intake and would welcome guidance on the right application route.${signature}`,
+    email: `Hi Jonathan,\n\nI’m planning for summer 2027 and wanted to ask whether your team might be able to host me as a PhD research intern. I’d be excited to build on our CodecAttack collaboration.\n\nFollowing my Dolby internship on full-duplex speech safety, I’m now investigating how revised speaker or authorization evidence should invalidate pending voice-agent tool actions. This could be an interesting extension from audio-model robustness to the security of interactive systems.\n\nDo you see a potential project and hosting opportunity with your team? If another Qualcomm team would be a better fit, I’d appreciate your advice on whom to contact. I also found Qualcomm’s Summer 2027 US PhD interest form. Would you recommend that route alongside a specific internship application?${signature}`,
     dm: 'Hi Jonathan — I’m planning for summer 2027 and wondered whether your team could potentially host me as a PhD research intern, building on CodecAttack. I’m now exploring authorization for pending tool actions in full-duplex voice agents after my Dolby internship. Would this be worth discussing as a possible project, or is there another Qualcomm team you’d suggest?',
   },
   {
@@ -177,7 +178,7 @@ export const contacts = [
     email: `Hi Marco,\n\nI saw your announcement for ASPIRE’s 2027 PhD research internships. I’m a CS PhD candidate at UMass Amherst with Amir Houmansadr, researching multimodal and interactive-agent security. My work includes COLM and USENIX Security papers and a recent Dolby internship on full-duplex speech models.\n\nI’m currently studying how agents should invalidate pending actions when their supporting authorization evidence changes. I’m interested in exploring how related questions about evidence, intervention, and action execution could inform closed-loop agent safety. My existing experience is in speech and web agents rather than autonomous vehicles or robotics.\n\nCould this perspective be relevant to any ASPIRE internship projects under JR2024171? I’d appreciate your guidance on fit.${signature}`,
     dm: 'Hi Marco — I saw ASPIRE’s 2027 PhD internship announcement (JR2024171). I’m a UMass Amherst PhD candidate studying interactive-agent safety, currently focusing on invalidating pending actions when authorization evidence changes. My background is speech/web agents rather than robotics. Could this perspective be relevant to any ASPIRE projects? https://jrohsc.github.io/',
   },
-].map(c => ({ ...c, verifiedAt: reviewedAt }));
+].map(c => ({ ...c, verifiedAt: rechecked.has(c.id) ? reviewedAt : '2026-10-06' }));
 
 export function defaultDraft(contact, mode) {
   if (mode === 'dm') return { subject: '', body: contact.dm };
