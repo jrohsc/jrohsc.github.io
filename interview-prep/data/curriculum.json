@@ -1,0 +1,2298 @@
+[
+  {
+    "id": "linear-algebra",
+    "title": "벡터, 행렬과 선형 변환",
+    "category": "math",
+    "subtopics": [
+      "Vectors",
+      "Matrices",
+      "Matrix multiplication",
+      "Dot products",
+      "Norms",
+      "Projections",
+      "Rank",
+      "Null space"
+    ],
+    "summary": "행렬을 숫자 표가 아니라 공간을 변환하는 연산자로 이해합니다. 입력·출력 차원, 정보 손실, 직교성을 함께 설명합니다.",
+    "intuition": "내적은 한 벡터가 다른 방향을 얼마나 향하는지 나타냅니다. 투영은 벡터에서 표현 가능한 성분만 남기며, 영공간의 성분은 변환 뒤 사라집니다.",
+    "math": "y=Ax; ⟨x,y⟩=xᵀy; ‖x‖₂=√(xᵀx); proj_u(x)=u(uᵀx)/(uᵀu); rank(A)+nullity(A)=n.",
+    "derivation": "‖x−αu‖₂²를 α로 미분하면 −2uᵀx+2αuᵀu=0입니다. 따라서 최적 α는 uᵀx/(uᵀu)이고 잔차는 u와 직교합니다.",
+    "application": "선형층의 shape 검증, 임베딩 유사도, 선형 회귀의 잔차, 저랭크 표현에 쓰입니다. 코사인 유사도는 크기를 제거한 내적입니다.",
+    "mistakes": [
+      "행렬곱을 원소별 곱과 혼동",
+      "AB와 BA가 항상 같다고 가정",
+      "역행렬이 존재한다고 가정"
+    ],
+    "interview": "행렬 A는 입력을 열벡터들의 선형결합으로 보냅니다. 랭크는 독립적인 출력 방향 수이고, 영공간은 잃어버리는 입력 방향입니다.",
+    "code": "import numpy as np\nu = np.array([1., 2.])\nx = np.array([3., 1.])\np = u * (u @ x) / (u @ u)\nassert np.allclose(u @ (x-p), 0)",
+    "prerequisites": [],
+    "related": [
+      "spectral",
+      "regression"
+    ],
+    "followUps": [
+      "특징 열이 선형 종속이면 회귀 해는 어떻게 되나요?",
+      "L1과 L2 단위 구의 모양은 왜 다르나요?"
+    ],
+    "sources": [
+      {
+        "title": "Deep Learning · Goodfellow, Bengio & Courville",
+        "url": "https://www.deeplearningbook.org/"
+      }
+    ],
+    "visual": null
+  },
+  {
+    "id": "spectral",
+    "title": "고유값, SVD, 공분산과 PCA",
+    "category": "math",
+    "subtopics": [
+      "Eigenvalues/eigenvectors",
+      "Eigendecomposition",
+      "SVD",
+      "PSD matrices",
+      "Covariance matrices",
+      "PCA"
+    ],
+    "summary": "공분산의 주요 방향과 행렬의 저랭크 근사를 연결합니다. 대칭 고유분해와 일반 행렬 SVD의 적용 조건을 구분합니다.",
+    "intuition": "PCA는 데이터 구름의 그림자가 가장 넓게 퍼지는 방향을 찾습니다. 다음 방향은 앞 방향에 직교하면서 남은 분산을 최대화합니다.",
+    "math": "Σ=XcᵀXc/(n−1); Σv=λv; Xc=USVᵀ; λᵢ=sᵢ²/(n−1); z=XcV_k.",
+    "derivation": "1. 데이터 X∈R^(n×d)에서 각 열의 train 평균 μ를 빼 Xc=X−1μᵀ로 중심화합니다. PCA는 이 중심화된 데이터의 변동을 설명합니다.\n2. 단위 방향 v에 투영한 좌표는 z=Xc v입니다. 표본 분산은 zᵀz/(n−1)=vᵀΣv이며 Σ=XcᵀXc/(n−1)입니다.\n3. v를 무제한 키워 분산을 키우지 못하도록 vᵀv=1을 둡니다. 목적은 max_v vᵀΣv subject to vᵀv=1입니다.\n4. 라그랑지안 L=vᵀΣv−λ(vᵀv−1)을 미분하면 2Σv−2λv=0, 즉 Σv=λv입니다. Σ가 대칭이므로 직교 고유벡터 기저를 가집니다.\n5. vᵀΣv=λ이므로 가장 큰 고유값에 해당하는 벡터가 최대 분산 방향입니다. 다음 성분은 앞 성분과 직교한다는 제약 아래 남은 가장 큰 고유값 방향입니다.\n6. Xc=USVᵀ를 대입하면 Σ=V(S²/(n−1))Vᵀ입니다. 따라서 PCA 방향은 오른쪽 singular vector, 분산은 sᵢ²/(n−1)입니다. 공분산을 명시적으로 만들지 않고 SVD로 구할 수 있습니다.\n7. k개 성분 좌표는 Z=Xc V_k, 재구성은 X̂=ZV_kᵀ+μ입니다. 직교 분해 때문에 제곱 재구성 오차는 버린 singular value 제곱합 Σ_{i>k}sᵢ²입니다.\n8. 성분의 부호는 임의이며 반복 고유값에서는 해당 부분공간 안의 기저도 유일하지 않습니다. 평가에서는 벡터 원소 동일성보다 투영행렬·재구성·설명 분산을 비교합니다.",
+    "application": "차원 축소, 공선성 진단, 압축, 잡음 제거에 사용합니다. 작은 고유값은 관측 데이터에서 변화가 적은 방향이지 반드시 쓸모없는 특징은 아닙니다.",
+    "mistakes": [
+      "중심화를 생략",
+      "PCA가 라벨 예측력을 최대화한다고 주장",
+      "정사각 행렬만 SVD 가능하다고 생각"
+    ],
+    "interview": "PCA는 직교 투영 아래 분산을 최대화하며 같은 조건에서 제곱 재구성 오차를 최소화합니다. 단위가 다른 특징은 표준화 여부를 먼저 결정합니다.",
+    "code": "Xc = X - X.mean(axis=0)\nU, s, Vt = np.linalg.svd(Xc, full_matrices=False)\nZ = Xc @ Vt[:k].T\nX_hat = Z @ Vt[:k] + X.mean(axis=0)",
+    "prerequisites": [
+      "linear-algebra"
+    ],
+    "related": [
+      "ml-code-clustering",
+      "clustering"
+    ],
+    "followUps": [
+      "공분산이 PSD인 이유를 증명하세요.",
+      "고유값이 반복되면 주성분 방향은 유일한가요?"
+    ],
+    "sources": [
+      {
+        "title": "Deep Learning · Goodfellow, Bengio & Courville",
+        "url": "https://www.deeplearningbook.org/"
+      }
+    ],
+    "visual": "pca",
+    "workedExample": "세 점 X=[(-2,0),(0,0),(2,0)]은 이미 중심화되어 있습니다. Σ=XᵀX/(3−1)=diag(4,0)입니다. 첫 고유벡터 v₁=(1,0), 고유값 λ₁=4이고 첫 singular value는 √8입니다. 1차원 좌표 Z=[-2,0,2]이며 복원하면 원래 점과 같아 재구성 오차는 0입니다. 반대로 y축에 투영하면 좌표가 모두 0이고 총 제곱 재구성 오차는 4+0+4=8입니다. 첫 성분 설명 분산 비율은 4/(4+0)=100%입니다.",
+    "independentPrompts": [
+      "단위 길이 제약이 없으면 PCA 최대 분산 문제가 왜 무한대로 발산하는지 말하세요.",
+      "중심화된 데이터의 singular value가 6,3,1이고 n=11일 때 각 분산과 첫 두 성분의 설명 분산 비율을 구하세요.",
+      "두 최대 고유값이 같을 때 서로 다른 PCA 구현이 다른 방향을 반환해도 동일한 해일 수 있음을 설명하세요."
+    ],
+    "debugging": {
+      "prompt": "훈련에서는 X−train_mean으로 PCA를 구했지만 추론 코드에서는 X_test−X_test.mean(0)을 사용합니다. 분류 점수가 batch 구성에 따라 변합니다.",
+      "answer": "추론 시 좌표 원점을 test batch마다 바꾸어 모델이 학습한 좌표계와 달라졌습니다. PCA 객체에 train_mean과 train_components를 저장하고 transform은 항상 (X_test−train_mean)@components.T로 계산합니다. 한 test example을 단독으로 넣었을 때와 여러 example에 섞었을 때 좌표가 같은지 검사합니다."
+    }
+  },
+  {
+    "id": "probability",
+    "title": "조건부 확률과 베이즈 추론",
+    "category": "math",
+    "subtopics": [
+      "Random variables",
+      "Conditional probability",
+      "Bayes rule",
+      "Independence"
+    ],
+    "summary": "사건과 확률변수를 구분하고, 관측 뒤 믿음을 갱신하는 방법을 학습합니다. 조건부 독립은 별도의 가정입니다.",
+    "intuition": "조건부 확률은 관측된 사건 내부로 표본 공간을 좁힙니다. 드문 사건을 탐지할 때 높은 민감도만으로 양성 결과를 신뢰할 수 없는 이유가 기저율입니다.",
+    "math": "P(A|B)=P(A∩B)/P(B); P(H|E)=P(E|H)P(H)/Σ_h P(E|h)P(h).",
+    "derivation": "1. 가설 H와 관측 E를 정의하고 P(E)>0인지 확인합니다. 조건부 확률은 P(H|E)=P(H∩E)/P(E)입니다.\n2. 결합확률을 반대 순서로 분해하면 P(H∩E)=P(E|H)P(H)입니다. 같은 사건을 다른 순서로 계산한 것이며 인과 방향을 가정하지 않습니다.\n3. 두 식을 결합하면 P(H|E)=P(E|H)P(H)/P(E)를 얻습니다. likelihood P(E|H)와 posterior P(H|E)를 구분합니다.\n4. H와 ¬H가 전체 공간을 나누므로 P(E)=P(E|H)P(H)+P(E|¬H)P(¬H)입니다. 가설이 여러 개이면 서로 배타적이고 완전한 가설 집합에 대해 합산합니다.\n5. posterior odds는 prior odds × likelihood ratio입니다: P(H|E)/P(¬H|E)=[P(H)/P(¬H)]×[P(E|H)/P(E|¬H)]. 증거의 강도와 기저율 효과를 분리해 설명할 수 있습니다.\n6. 관측 E₁,E₂를 연속 반영할 때 두 likelihood를 무조건 곱하지 않습니다. 일반식은 P(E₁,E₂|H)=P(E₁|H)P(E₂|E₁,H)이며 조건부 독립일 때만 P(E₁|H)P(E₂|H)로 단순화됩니다.\n7. 확률의 합이 1인지, 더 강한 증거가 odds를 올바른 방향으로 바꾸는지, 극단적인 prior에서 결과가 타당한지 확인합니다.",
+    "application": "분류 사후확률, 스팸 탐지, 진단 오류, 선택 편향을 해석합니다. 실제 분포의 클래스 비율이 바뀌면 사후확률도 달라집니다.",
+    "mistakes": [
+      "P(A",
+      "B)와 P(B",
+      "A)를 뒤바꿈",
+      "주변 독립이 조건부 독립을 의미한다고 가정",
+      "기저율을 무시"
+    ],
+    "interview": "베이즈 법칙은 사전확률에 관측의 우도를 곱하고 정규화합니다. 모델의 likelihood와 hypothesis의 posterior는 다른 객체입니다.",
+    "code": "prior, sensitivity, false_positive = 0.01, 0.99, 0.05\nposterior = prior*sensitivity / (prior*sensitivity + (1-prior)*false_positive)",
+    "prerequisites": [],
+    "related": [
+      "distributions",
+      "statistics"
+    ],
+    "followUps": [
+      "유병률 1%에서 양성 예측도를 계산하세요.",
+      "독립인 두 사건이 조건부로 의존할 수 있나요?"
+    ],
+    "sources": [
+      {
+        "title": "Deep Learning · Goodfellow, Bengio & Courville",
+        "url": "https://www.deeplearningbook.org/"
+      }
+    ],
+    "visual": "bayes",
+    "workedExample": "검사 대상 10,000명 중 질환 유병률이 1%, 민감도 99%, 위양성률 5%라고 가정합니다. 환자 100명 중 양성은 99명입니다. 비환자 9,900명 중 양성은 495명입니다. 따라서 전체 양성 594명 중 환자는 99명이고 P(환자|양성)=99/594=1/6≈16.67%입니다. 민감도 99%를 posterior 99%로 읽으면 틀립니다. odds로 검산하면 prior odds=1/99, likelihood ratio=.99/.05=19.8, posterior odds=.2이므로 posterior=.2/1.2=1/6입니다.",
+    "independentPrompts": [
+      "노트를 닫고 결합확률의 두 분해만으로 Bayes 법칙을 유도하세요.",
+      "민감도 90%, 특이도 90%, 유병률 10%일 때 양성 예측도를 구하세요. 정답을 보기 전 1,000명 빈도표를 만드세요.",
+      "동일한 양성 결과가 두 번 나왔습니다. posterior를 다시 계산하려면 검사 오류 사이에 어떤 독립 가정이 필요한지 설명하세요."
+    ],
+    "debugging": {
+      "prompt": "진단 코드가 posterior = sensitivity를 반환합니다. 유병률 1%인데 양성 결과의 환자 확률을 99%라고 출력합니다. 무엇을 고쳐야 하나요?",
+      "answer": "코드가 P(양성|환자)를 P(환자|양성)로 뒤집었습니다. numerator=prior*sensitivity, denominator=numerator+(1-prior)*false_positive_rate로 정규화해야 합니다. specificity를 받는 API라면 false_positive_rate=1-specificity인지 확인합니다. 위 예시 기대값 1/6을 테스트로 고정합니다."
+    }
+  },
+  {
+    "id": "expectation",
+    "title": "기댓값, 분산과 몬테카를로",
+    "category": "math",
+    "subtopics": [
+      "Expectation",
+      "Variance",
+      "Covariance",
+      "Conditional expectation",
+      "LLN",
+      "CLT",
+      "Sampling",
+      "Monte Carlo"
+    ],
+    "summary": "표본 평균이 무엇을 추정하고 오차가 어떻게 줄어드는지 설명합니다. 대수의 법칙과 중심극한정리를 구분합니다.",
+    "intuition": "기댓값은 확률로 가중한 평균입니다. 몬테카를로는 계산하기 어려운 적분을 표본의 평균으로 바꾸지만, 표본 간 상관이 있으면 정보량이 줄어듭니다.",
+    "math": "E[X]=∫xp(x)dx; Var(X)=E[X²]−E[X]²; Var(X)=E[Var(X|Y)]+Var(E[X|Y]); SE(x̄)=σ/√n.",
+    "derivation": "독립 표본의 합은 공분산 항이 0이므로 Var(n⁻¹ΣXᵢ)=σ²/n입니다. 적절한 iid·유한 분산 조건에서 √n(x̄−μ)/σ가 표준정규분포로 수렴합니다.",
+    "application": "미니배치 gradient 분산, 평가 지표의 오차막대, 샘플 수 설계, 정책 가치 추정에 연결됩니다.",
+    "mistakes": [
+      "CLT가 원자료를 정규분포로 만든다고 설명",
+      "기댓값의 선형성에 독립이 필요하다고 가정",
+      "상관 표본을 iid로 처리"
+    ],
+    "interview": "LLN은 표본 평균의 일관성을, CLT는 평균 오차의 점근 분포를 다룹니다. 오차를 절반으로 줄이려면 보통 표본이 네 배 필요합니다.",
+    "code": "rng = np.random.default_rng(42)\nx = rng.normal(size=10000)\nestimate = np.mean(x*x)\nse = np.std(x*x, ddof=1) / np.sqrt(len(x))",
+    "prerequisites": [
+      "probability"
+    ],
+    "related": [
+      "experiments",
+      "research-evaluation"
+    ],
+    "followUps": [
+      "조건부 기댓값의 tower property를 설명하세요.",
+      "중요도 샘플링의 분산은 언제 커지나요?"
+    ],
+    "sources": [
+      {
+        "title": "Deep Learning · Goodfellow, Bengio & Courville",
+        "url": "https://www.deeplearningbook.org/"
+      }
+    ],
+    "visual": null
+  },
+  {
+    "id": "distributions",
+    "title": "주요 확률분포",
+    "category": "math",
+    "subtopics": [
+      "Bernoulli",
+      "Binomial",
+      "Gaussian",
+      "Categorical",
+      "Multinomial"
+    ],
+    "summary": "데이터 생성 과정에 맞춰 분포를 선택하고 likelihood와 손실을 연결합니다.",
+    "intuition": "베르누이는 한 번의 이진 시행, 이항은 독립 시행의 성공 수입니다. 범주형은 한 번의 다중 선택이고 다항은 반복 선택의 개수입니다.",
+    "math": "Bernoulli: p(y)=pʸ(1−p)¹⁻ʸ; Binomial: C(n,k)pᵏ(1−p)ⁿ⁻ᵏ; Gaussian: N(μ,Σ).",
+    "derivation": "독립 베르누이 시행에서 특정 성공·실패 순서의 확률을 곱하고 성공 위치 선택 수 C(n,k)를 곱하면 이항 확률을 얻습니다. Gaussian 음의 로그우도는 고정 분산에서 제곱 오차에 비례합니다.",
+    "application": "이진 교차엔트로피, softmax 분류, 회귀 잡음 가정, 생성모델 잠재분포를 설명합니다.",
+    "mistakes": [
+      "이항의 독립·동일 성공확률 조건 누락",
+      "분산과 표준편차 혼동",
+      "확률밀도 값을 사건 확률로 해석"
+    ],
+    "interview": "손실함수는 종종 관측분포 가정을 담습니다. Gaussian 회귀는 제곱 오차, Bernoulli 분류는 binary cross entropy와 연결됩니다.",
+    "code": "y = rng.binomial(n=1, p=.3, size=1000)\ncounts = rng.multinomial(100, [.2, .3, .5])",
+    "prerequisites": [
+      "probability"
+    ],
+    "related": [
+      "regression",
+      "classification"
+    ],
+    "followUps": [
+      "독립 Gaussian의 합은 어떤 분포인가요?",
+      "과산포가 있으면 이항 가정이 왜 깨지나요?"
+    ],
+    "sources": [
+      {
+        "title": "Deep Learning · Goodfellow, Bengio & Courville",
+        "url": "https://www.deeplearningbook.org/"
+      }
+    ],
+    "visual": null
+  },
+  {
+    "id": "statistics",
+    "title": "추정: MLE, MAP와 불확실성",
+    "category": "math",
+    "subtopics": [
+      "MLE",
+      "MAP",
+      "Bayesian estimation",
+      "Confidence intervals",
+      "Bootstrap"
+    ],
+    "summary": "점추정과 불확실성 추정을 함께 배웁니다. 빈도주의 신뢰구간과 베이지안 credible interval의 해석을 분리합니다.",
+    "intuition": "MLE는 관측을 가장 잘 설명하는 매개변수를, MAP는 사전 선호까지 반영한 최빈점을 구합니다. 완전 베이지안 추론은 하나의 점 대신 분포를 유지합니다.",
+    "math": "θ_MLE=argmax Σlog p(xᵢ|θ); θ_MAP=argmax [Σlog p(xᵢ|θ)+log p(θ)].",
+    "derivation": "Bayes 법칙에서 θ와 무관한 p(D)를 제거하면 MAP 목적함수가 됩니다. Gaussian 사전의 음의 로그는 θ²에 비례하므로 L2 정규화와 연결됩니다.",
+    "application": "작은 데이터에서 정규화, 평균 성능의 신뢰구간, 비선형 지표의 bootstrap에 사용합니다. 재표집 단위는 독립 단위와 맞춰야 합니다.",
+    "mistakes": [
+      "95% 신뢰구간에 고정된 모수가 95% 확률로 있다고 해석",
+      "MAP를 posterior mean과 동일시",
+      "환자별 반복 기록을 독립 재표집"
+    ],
+    "interview": "MLE는 likelihood 최적화, MAP는 prior를 포함한 posterior 최빈점입니다. 추정치만큼 가정과 오차 범위를 명확하게 전달하겠습니다.",
+    "code": "boots = [rng.choice(x, len(x), replace=True).mean() for _ in range(2000)]\nlo, hi = np.quantile(boots, [.025, .975])",
+    "prerequisites": [
+      "probability",
+      "expectation",
+      "distributions"
+    ],
+    "related": [
+      "experiments",
+      "optimization"
+    ],
+    "followUps": [
+      "라플라스 prior는 어떤 정규화와 연결되나요?",
+      "bootstrap이 실패하기 쉬운 상황은 무엇인가요?"
+    ],
+    "sources": [
+      {
+        "title": "Stanford CS229 · Course materials",
+        "url": "https://cs229.stanford.edu/"
+      },
+      {
+        "title": "An Introduction to the Bootstrap · Efron & Tibshirani",
+        "url": "https://doi.org/10.1201/9780429246593"
+      }
+    ],
+    "visual": null
+  },
+  {
+    "id": "experiments",
+    "title": "가설 검정과 A/B 테스트",
+    "category": "math",
+    "subtopics": [
+      "Hypothesis testing",
+      "p-values",
+      "Statistical significance",
+      "Correlation vs causation",
+      "A/B testing"
+    ],
+    "summary": "관찰 차이를 효과 크기, 불확실성, 실험 설계로 해석합니다. 통계적 유의성과 실용적 중요성은 따로 판단합니다.",
+    "intuition": "p-value는 귀무가설이 맞다는 가정 아래 관측만큼 극단적인 통계량이 나올 확률입니다. 효과가 진짜일 확률이 아닙니다.",
+    "math": "Δ=mean(B)−mean(A); SE(Δ)=√(s_A²/n_A+s_B²/n_B); z=Δ/SE(Δ).",
+    "derivation": "독립 두 집단 평균 차이의 분산은 각 평균 분산의 합입니다. paired 비교라면 개별 차이를 만들고 그 차이의 분산을 사용해 공유 난이도를 제거합니다.",
+    "application": "무작위 배정, 사전 지표 정의, 검정력·최소 탐지 효과 설정, 다중 비교 보정과 순차 관측 계획을 포함합니다.",
+    "mistakes": [
+      "p-value를 귀무가설 확률로 해석",
+      "유의하지 않음을 효과 없음으로 단정",
+      "매일 유의해질 때까지 반복 검정"
+    ],
+    "interview": "먼저 독립 단위와 무작위 배정을 확인하고 효과 크기와 신뢰구간을 보고하겠습니다. 실험 후 지표를 고르면 선택 편향이 생깁니다.",
+    "code": "d = scores_new - scores_old\ndelta = d.mean()\nse = d.std(ddof=1) / np.sqrt(len(d))",
+    "prerequisites": [
+      "statistics"
+    ],
+    "related": [
+      "research-design",
+      "evaluation"
+    ],
+    "followUps": [
+      "표본 수를 네 배 늘리면 CI 폭은 어떻게 되나요?",
+      "사용자 단위 randomization에서 이벤트 단위 검정이 위험한 이유는?"
+    ],
+    "sources": [
+      {
+        "title": "Deep Learning · Goodfellow, Bengio & Courville",
+        "url": "https://www.deeplearningbook.org/"
+      }
+    ],
+    "visual": null
+  },
+  {
+    "id": "calculus",
+    "title": "미분, Jacobian과 행렬 미분",
+    "category": "math",
+    "subtopics": [
+      "Derivatives",
+      "Partial derivatives",
+      "Gradients",
+      "Jacobians",
+      "Hessians",
+      "Chain rule",
+      "Taylor approximation",
+      "Matrix derivatives"
+    ],
+    "summary": "스칼라·벡터 함수의 미분 형태와 차원을 확인하고, 국소 선형 근사에서 backpropagation으로 연결합니다.",
+    "intuition": "gradient는 각 입력 방향으로 얼마나 빨리 값이 변하는지 모읍니다. Hessian은 그 기울기가 어떻게 변하는지 나타내 곡률을 설명합니다.",
+    "math": "f(x+δ)≈f(x)+∇fᵀδ+½δᵀHδ; ∇_x‖Ax−b‖²=2Aᵀ(Ax−b).",
+    "derivation": "r=Ax−b, df=2rᵀdr=2rᵀA dx입니다. df=(∇f)ᵀdx의 형태와 비교하면 gradient가 2Aᵀr임을 얻습니다. 벡터 chain rule은 Jacobian의 곱입니다.",
+    "application": "손실 gradient 유도, 수치 gradient 검증, 곡률 기반 학습률 선택, Jacobian-vector product에 사용합니다.",
+    "mistakes": [
+      "gradient와 Jacobian의 shape 미확인",
+      "ReLU의 0에서 미분 가능하다고 주장",
+      "finite difference epsilon을 지나치게 작게 설정"
+    ],
+    "interview": "함수의 입력·출력 차원을 먼저 쓰고 미분의 shape를 맞추겠습니다. reverse mode는 출력이 스칼라인 신경망 손실에 효율적입니다.",
+    "code": "eps = 1e-5\ng_num = (f(x + eps*v)-f(x-eps*v))/(2*eps)\ng_exact = grad_f(x) @ v",
+    "prerequisites": [
+      "linear-algebra"
+    ],
+    "related": [
+      "backprop",
+      "optimization"
+    ],
+    "followUps": [
+      "Hessian이 PSD이면 항상 전역 최소인가요?",
+      "JVP와 VJP의 차이를 설명하세요."
+    ],
+    "sources": [
+      {
+        "title": "Deep Learning · Goodfellow, Bengio & Courville",
+        "url": "https://www.deeplearningbook.org/"
+      }
+    ],
+    "visual": null
+  },
+  {
+    "id": "optimization",
+    "title": "최적화와 학습률",
+    "category": "math",
+    "subtopics": [
+      "Convexity",
+      "Gradient descent",
+      "SGD",
+      "Momentum",
+      "Adam",
+      "Learning rates",
+      "Lagrange multipliers",
+      "Constrained optimization",
+      "Gradient clipping"
+    ],
+    "summary": "최적화의 수렴 조건, 확률적 gradient, 제약 조건을 설명하고 실제 학습 불안정과 연결합니다.",
+    "intuition": "gradient descent는 현재 위치의 내리막을 따릅니다. momentum은 방향을 누적하고 Adam은 좌표별 gradient 규모에 따라 업데이트 크기를 바꿉니다.",
+    "math": "θₜ₊₁=θₜ−ηgₜ; mₜ=β₁mₜ₋₁+(1−β₁)gₜ; vₜ=β₂vₜ₋₁+(1−β₂)gₜ²; L(x,λ)=f(x)+λg(x).",
+    "derivation": "1. 미분 가능한 f에서 gradient g=∇f(x)는 단위 거리당 가장 빠른 증가 방향입니다. 유클리드 norm 제약 아래 가장 빠른 감소 방향은 −g입니다.\n2. 국소 선형 근사 f(x+δ)≈f(x)+gᵀδ에 이동을 제한하는 quadratic penalty ‖δ‖²/(2η)를 더해 최소화하면 δ=−ηg를 얻습니다.\n3. ∇f가 L-Lipschitz인 L-smooth 함수라면 f(x+δ)≤f(x)+gᵀδ+(L/2)‖δ‖²라는 상한이 있습니다. convexity와 smoothness는 다른 가정입니다.\n4. δ=−ηg를 대입하면 f(x−ηg)≤f(x)−η(1−Lη/2)‖g‖²입니다. 0<η<2/L이고 g≠0이면 full gradient step은 감소를 보장합니다.\n5. quadratic f(x)=½xᵀHx에서 H가 대칭 PSD이면 eigen-direction i의 계수는 (1−ηλᵢ)배가 됩니다. 양의 고유값 방향 수렴에는 |1−ηλᵢ|<1이 필요합니다.\n6. SGD는 unbiased minibatch gradient를 사용하지만 step별 loss 감소는 보장하지 않습니다. 배치 크기·학습률·분산과 장기 수렴 조건을 함께 고려해야 합니다.\n7. momentum은 gradient의 시간적 정보를 유지하고 Adam은 1·2차 이동 평균을 사용합니다. Adam의 좌표별 scaling은 곡률의 정확한 역행렬을 계산하는 것과 다릅니다.\n8. 제약 g(x)=0이 있으면 Lagrangian f(x)+λg(x)를 도입합니다. ∇f+λ∇g=0과 제약식을 함께 풀며 부등식 제약에서는 KKT 조건을 추가로 확인합니다.",
+    "application": "gradient 폭발, warmup, 학습률 감소, weight decay, mixed precision의 overflow를 진단합니다. clipping은 큰 gradient를 제한하지만 원인을 해결하지는 않습니다.",
+    "mistakes": [
+      "Adam이 항상 SGD보다 일반화가 좋다고 단정",
+      "weight decay와 모든 optimizer의 L2가 같다고 생각",
+      "clip 전에 AMP unscale을 생략"
+    ],
+    "interview": "학습률과 gradient norm을 함께 확인하고 작은 배치 과적합부터 검사하겠습니다. 제약 최적화에서는 목적함수와 feasible set을 먼저 정의합니다.",
+    "code": "g_norm = np.linalg.norm(g)\ng = g * min(1., max_norm/(g_norm+1e-12))\ntheta -= learning_rate*g",
+    "prerequisites": [
+      "calculus"
+    ],
+    "related": [
+      "training",
+      "ml-code-optimizers"
+    ],
+    "followUps": [
+      "Adam bias correction이 필요한 이유는?",
+      "강한 convexity는 어떤 수렴 이점을 주나요?"
+    ],
+    "sources": [
+      {
+        "title": "Deep Learning · Goodfellow, Bengio & Courville",
+        "url": "https://www.deeplearningbook.org/"
+      }
+    ],
+    "visual": "gradient",
+    "workedExample": "f(w)=½(w−3)²이면 gradient는 w−3이고 L=1입니다. w₀=0, η=.5일 때 w₁=1.5, w₂=2.25, w₃=2.625입니다. 손실은 4.5 → 1.125 → .28125 → .0703125로 줄어듭니다. 오차는 매번 (1−η)=.5배입니다. η=2이면 w는 0과 6 사이를 진동하며 손실 4.5가 줄지 않습니다. η=2.2이면 오차 배율 −1.2의 절댓값이 1보다 커 발산합니다.",
+    "independentPrompts": [
+      "f(w)=2w²의 gradient, smoothness 상수 L과 안정적인 constant learning rate 범위를 구하세요.",
+      "같은 quadratic에서 η가 너무 작을 때와 너무 클 때의 loss 곡선을 예측하세요.",
+      "SGD에서 한 step 뒤 loss가 증가했다고 구현 버그로 단정할 수 없는 이유를 설명하세요."
+    ],
+    "debugging": {
+      "prompt": "AMP 훈련에서 scaled loss.backward() 직후 clip_grad_norm_을 호출하고 그 뒤 scaler.step()을 합니다. gradient가 지나치게 작아집니다.",
+      "answer": "clipping threshold를 실제 gradient가 아니라 loss scale이 곱해진 gradient에 적용했습니다. scaler.unscale_(optimizer)로 먼저 실제 scale로 복원한 뒤 clipping하고 scaler.step(), scaler.update()를 호출합니다. 수정 후 unscaled gradient norm과 실제 update norm을 기록해 clipping 비율을 비교합니다."
+    }
+  },
+  {
+    "id": "information",
+    "title": "엔트로피, KL과 상호정보량",
+    "category": "math",
+    "subtopics": [
+      "Entropy",
+      "Cross entropy",
+      "KL divergence",
+      "Mutual information"
+    ],
+    "summary": "불확실성과 분포 간 불일치를 구분하고 분류 손실·압축·표현 학습에 연결합니다.",
+    "intuition": "엔트로피는 분포 자체의 불확실성이고 cross entropy는 실제 분포 p를 다른 분포 q의 코드로 설명할 때의 비용입니다. KL은 그 추가 비용입니다.",
+    "math": "H(p)=−Σp log p; H(p,q)=−Σp log q; KL(p‖q)=Σp log(p/q); I(X;Y)=KL(p(x,y)‖p(x)p(y)).",
+    "derivation": "1. 이산분포 p에서 엔트로피 H(p)=−Σp_i log p_i를 정의합니다. 로그 밑이 e이면 nat, 2이면 bit 단위이며 0·log0은 극한값 0으로 둡니다.\n2. p에서 나온 관측을 q로 설명하는 평균 negative log probability는 H(p,q)=−Σp_i log q_i입니다. p_i>0인데 q_i=0이면 값은 무한대입니다.\n3. −Σp_i log q_i에 Σp_i log p_i를 더하고 빼면 H(p,q)=H(p)+Σp_i log(p_i/q_i)를 얻습니다.\n4. 두 번째 항이 KL(p‖q)입니다. p가 고정된 지도학습에서 cross entropy 최소화는 KL(p‖q) 최소화와 동치입니다. 학습 가능한 p까지 함께 바뀌면 H(p)는 상수가 아닙니다.\n5. q가 p의 support를 포함할 때 Jensen 부등식을 −log에 적용하면 KL(p‖q)≥0입니다. 이산분포에서 p=q이면 0이며 비대칭이라 일반적인 거리가 아닙니다.\n6. 공동분포와 주변분포의 곱 사이 KL을 I(X;Y)=KL(p(x,y)‖p(x)p(y))로 정의하면 독립성에서 벗어난 정도를 측정합니다.\n7. 로그 비율을 전개하면 I(X;Y)=H(X)−H(X|Y)입니다. Y를 관측해 X의 불확실성이 얼마나 줄어드는지 해석합니다.\n8. 연속변수의 differential entropy는 음수일 수 있고 좌표변환에 따라 달라집니다. 이산 엔트로피의 성질을 조건 없이 그대로 옮기면 안 됩니다.",
+    "application": "분류, distillation, variational inference, contrastive learning에 쓰입니다. KL의 방향은 어떤 종류의 분포 불일치를 더 강하게 벌하는지 바꿉니다.",
+    "mistakes": [
+      "KL을 대칭 거리라고 부름",
+      "연속 엔트로피도 항상 양수라고 가정",
+      "q=0이고 p>0인 지점 무시"
+    ],
+    "interview": "KL은 참분포에서 평균 낸 로그 확률 비율입니다. 비음수이지만 대칭성과 삼각부등식이 없어 metric은 아닙니다.",
+    "code": "mask = p > 0\nkl = np.sum(p[mask] * (np.log(p[mask])-np.log(q[mask])))",
+    "prerequisites": [
+      "probability",
+      "expectation"
+    ],
+    "related": [
+      "ml-code-softmax",
+      "preference"
+    ],
+    "followUps": [
+      "KL이 0인 조건은 무엇인가요?",
+      "mutual information이 0이면 어떤 의미인가요?"
+    ],
+    "sources": [
+      {
+        "title": "Deep Learning · Goodfellow, Bengio & Courville",
+        "url": "https://www.deeplearningbook.org/"
+      }
+    ],
+    "visual": null,
+    "workedExample": "p=(.5,.5), q=(.9,.1), 자연로그를 씁니다. H(p)=−log .5≈.693147 nat입니다. H(p,q)=−.5(log .9+log .1)≈1.203973입니다. 차이는 KL(p‖q)=.510826입니다. 반대 방향은 KL(q‖p)=.9 log1.8+.1 log.2≈.368064로 다릅니다. 즉 같은 두 분포도 어느 분포로 평균을 내는지에 따라 비용이 달라집니다.",
+    "independentPrompts": [
+      "cross entropy=entropy+KL 식을 노트 없이 전개하세요.",
+      "p=(1,0), q=(.25,.75)일 때 H(p), H(p,q), KL(p‖q)를 구하세요.",
+      "X와 Y가 독립이면 mutual information이 0인 것을 정의로 보이고, 그 역의 조건을 설명하세요."
+    ],
+    "debugging": {
+      "prompt": "KL 코드가 p*np.log(p/q)를 바로 계산하니 p=[0,1], q=[.5,.5]에서 NaN이 나옵니다. 모든 확률에 epsilon을 더해도 되나요?",
+      "answer": "0·log0 항은 0으로 처리해야 합니다. p>0인 항만 계산하되 p>0이고 q=0인 항은 진짜 무한대입니다. epsilon smoothing은 분포와 평가값을 바꾸므로 수치 오류 수정과 모델링 선택을 구분해야 합니다. 해당 입력의 올바른 값은 log2입니다."
+    }
+  },
+  {
+    "id": "ml-foundations",
+    "title": "일반화와 정규화",
+    "category": "ml",
+    "subtopics": [
+      "ML fundamentals",
+      "Bias vs variance",
+      "Overfitting / underfitting",
+      "Regularization",
+      "L1 / L2",
+      "Train / validation / test",
+      "Cross validation",
+      "Data leakage",
+      "Feature selection"
+    ],
+    "summary": "훈련 손실을 낮추는 것과 새로운 데이터에서 성능을 내는 것을 구분합니다. 데이터 분할은 추정하려는 배포 상황을 반영해야 합니다.",
+    "intuition": "과소적합은 패턴을 충분히 표현하지 못하고, 과적합은 표본의 우연까지 학습합니다. 정규화는 가능한 해에 대한 선호로 분산을 제어합니다.",
+    "math": "E[(y−f̂(x))²]=Bias²+Variance+σ²; J=mean(loss)+λ‖w‖₂² 또는 λ‖w‖₁.",
+    "derivation": "제곱 오차에서 예측에 평균 예측을 더하고 빼면 cross term이 사라져 bias²·variance·irreducible noise로 분해됩니다. 이 분해는 일반적인 모든 손실에 동일하게 적용되지 않습니다.",
+    "application": "시간 기반 분할, 그룹별 분할, nested cross validation, 학습 fold 안에서만 특징 선택·정규화를 수행하는 pipeline을 설계합니다.",
+    "mistakes": [
+      "전체 데이터로 scaler를 fit한 뒤 split",
+      "테스트 점수로 반복 튜닝",
+      "L1이 상관 특징을 항상 안정적으로 선택한다고 생각"
+    ],
+    "interview": "먼저 배포 시 미래에 관측할 정보를 기준으로 분할합니다. train-validation gap과 학습 곡선으로 bias와 variance를 진단하고 규제·데이터·용량을 조정합니다.",
+    "code": "from sklearn.pipeline import make_pipeline\nfrom sklearn.preprocessing import StandardScaler\nfrom sklearn.linear_model import LogisticRegression\nmodel = make_pipeline(StandardScaler(), LogisticRegression(C=1.0))\nmodel.fit(X_train, y_train)",
+    "prerequisites": [
+      "statistics"
+    ],
+    "related": [
+      "evaluation",
+      "regression"
+    ],
+    "followUps": [
+      "데이터를 더 모으면 underfitting도 해결되나요?",
+      "정규화 강도는 어느 데이터로 선택하나요?"
+    ],
+    "sources": [
+      {
+        "title": "Stanford CS229 · Course materials",
+        "url": "https://cs229.stanford.edu/"
+      }
+    ],
+    "visual": "bias"
+  },
+  {
+    "id": "regression",
+    "title": "선형 회귀와 Gaussian likelihood",
+    "category": "ml",
+    "subtopics": [
+      "Linear regression",
+      "MSE",
+      "Gaussian likelihood",
+      "Ridge regression"
+    ],
+    "summary": "MSE, MLE, 정규방정식과 수치 안정성을 하나의 흐름으로 설명합니다.",
+    "intuition": "회귀는 타깃 벡터를 특징 열공간 위로 투영합니다. 잔차는 모델이 표현할 수 없는 방향입니다.",
+    "math": "J(w)=‖Xw−y‖²/(2n); ∇J=Xᵀ(Xw−y)/n; XᵀXw=Xᵀy.",
+    "derivation": "1. X∈R^(n×d), y∈R^n, w∈R^d로 shape를 정합니다. 절편이 필요하면 X에 상수 1 열을 추가합니다.\n2. yᵢ=xᵢᵀw+εᵢ, εᵢ가 독립 N(0,σ²)라는 등분산 Gaussian 잡음 가정을 둡니다. 조건부 평균을 선형으로 모델링하는 가정도 포함됩니다.\n3. likelihood는 ∏ᵢ(2πσ²)^(-1/2) exp[−(yᵢ−xᵢᵀw)²/(2σ²)]입니다. log를 취하면 곱이 합이 되어 수치 계산도 쉬워집니다.\n4. w에 무관한 항을 버리면 negative log likelihood 최소화는 ‖Xw−y‖² 최소화와 같습니다. 편의를 위해 J=‖Xw−y‖²/(2n)을 사용합니다.\n5. r=Xw−y라 두면 dJ=rᵀX dw/n입니다. dJ=(∇J)ᵀdw와 비교해 ∇J=Xᵀ(Xw−y)/n을 얻습니다.\n6. gradient를 0으로 두면 XᵀXw=Xᵀy입니다. X가 full column rank이면 유일한 해가 존재하며, rank deficient이면 서로 다른 w가 같은 fitted values를 만들 수 있습니다.\n7. 수치 구현은 inverse(XᵀX)@Xᵀy 대신 QR/SVD 기반 least-squares solver를 사용합니다. XᵀX는 2-norm condition number를 대략 제곱하여 오차를 증폭합니다.\n8. Hessian은 XᵀX/n으로 PSD이므로 목적함수는 convex입니다. 최적 잔차는 X의 모든 열과 직교합니다: Xᵀr=0. 이는 유도와 구현의 독립적인 검산입니다.",
+    "application": "회귀 baseline, 선형 probe, loss 가정 검증에 사용합니다. heavy-tailed outlier에는 robust loss를 고려합니다.",
+    "mistakes": [
+      "역행렬을 직접 계산",
+      "절편을 넣지 않고 결과 해석",
+      "MSE의 Gaussian 해석에서 등분산 가정 누락"
+    ],
+    "interview": "고정 등분산 Gaussian 잡음 아래 MSE 최소화는 MLE와 같습니다. 구현은 inverse보다 least-squares solver를 사용하고 rank deficiency를 확인합니다.",
+    "code": "X_aug = np.column_stack([np.ones(len(X)), X])\nw, *_ = np.linalg.lstsq(X_aug, y, rcond=None)",
+    "prerequisites": [
+      "linear-algebra",
+      "distributions",
+      "calculus"
+    ],
+    "related": [
+      "ml-code-linear"
+    ],
+    "followUps": [
+      "특징 수가 표본 수보다 많으면 해가 유일한가요?",
+      "ridge가 condition number를 어떻게 바꾸나요?"
+    ],
+    "sources": [
+      {
+        "title": "Stanford CS229 · Course materials",
+        "url": "https://cs229.stanford.edu/"
+      }
+    ],
+    "visual": null,
+    "workedExample": "절편 없이 x=[1,2], y=[2,3]인 1차원 회귀를 봅니다. XᵀX=1²+2²=5, Xᵀy=1·2+2·3=8이므로 w*=8/5=1.6입니다. 예측은 [1.6,3.2], 잔차 Xw−y=[−.4,.2]입니다. Xᵀr=−.4+2·.2=0으로 최적 조건을 만족합니다. MSE=(.16+.04)/2=.1이고, J=MSE/2=.05입니다. w=0에서 gradient=Xᵀ(−y)/2=−4이므로 learning rate .1인 첫 업데이트는 w=.4입니다.",
+    "independentPrompts": [
+      "Gaussian likelihood에서 w와 무관한 항을 버려 MSE를 유도하세요.",
+      "x=[1,2,3], y=[2,4,6]에서 절편 없는 least-squares 계수와 최적 잔차를 구하세요.",
+      "같은 열을 두 번 넣으면 계수는 유일한가요? 예측값의 유일성과 구분해 설명하세요."
+    ],
+    "debugging": {
+      "prompt": "pred.shape=(64,), y.shape=(64,1)인 코드에서 ((pred-y)**2).mean()을 계산합니다. loss는 감소하지만 정답 계수를 회복하지 못합니다.",
+      "answer": "NumPy broadcasting이 residual을 (64,64)로 만들어 모든 예측과 모든 라벨 쌍을 비교합니다. y=y.reshape(-1) 등으로 둘 다 (64,)로 통일하고 shape assertion을 추가합니다. gradient 계산도 같은 residual을 사용해야 하며 synthetic noiseless data에서 알려진 계수 회복을 확인합니다."
+    }
+  },
+  {
+    "id": "classification",
+    "title": "로지스틱 회귀, SVM과 KNN",
+    "category": "ml",
+    "subtopics": [
+      "Logistic regression",
+      "SVM",
+      "KNN",
+      "Decision boundaries"
+    ],
+    "summary": "확률 모델, margin 기반 모델, 비모수 이웃 모델의 목적과 비용을 비교합니다.",
+    "intuition": "로지스틱 회귀는 선형 score를 확률로 바꿉니다. SVM은 margin을 키우고, KNN은 가까운 관측의 라벨을 빌립니다.",
+    "math": "p=σ(wᵀx); BCE=−y log p−(1−y)log(1−p); hinge=max(0,1−y f(x)).",
+    "derivation": "sigmoid 미분 p(1−p)를 BCE 미분과 곱하면 logit gradient는 p−y가 됩니다. 선형 score에 chain rule을 적용하면 x(p−y)입니다.",
+    "application": "확률 예측이 필요하면 calibration을 확인합니다. KNN은 거리 척도·표준화·추론 비용에 민감하고 SVM은 kernel과 margin의 해석이 중요합니다.",
+    "mistakes": [
+      "SVM score를 보정 없는 확률로 해석",
+      "KNN에서 스케일을 무시",
+      "불균형 데이터의 accuracy만 최적화"
+    ],
+    "interview": "라벨 손실과 배포 요구를 먼저 정합니다. 로지스틱은 log loss, SVM은 margin, KNN은 국소 유사도라는 서로 다른 inductive bias가 있습니다.",
+    "code": "z = X @ w\nloss = np.mean(np.logaddexp(0, z)-y*z)\np = np.exp(-np.logaddexp(0, -z))\ng = X.T @ (p-y)/len(y)",
+    "prerequisites": [
+      "regression",
+      "information"
+    ],
+    "related": [
+      "evaluation",
+      "ml-code-linear"
+    ],
+    "followUps": [
+      "완전 선형 분리에서 logistic MLE는 어떻게 되나요?",
+      "고차원에서 KNN이 어려운 이유는?"
+    ],
+    "sources": [
+      {
+        "title": "Stanford CS229 · Course materials",
+        "url": "https://cs229.stanford.edu/"
+      }
+    ],
+    "visual": null
+  },
+  {
+    "id": "trees",
+    "title": "결정트리와 앙상블",
+    "category": "ml",
+    "subtopics": [
+      "Decision trees",
+      "Random forests",
+      "Boosting"
+    ],
+    "summary": "분할 기반 비선형 모델에서 bagging과 boosting의 차이를 학습합니다.",
+    "intuition": "트리는 질문을 차례로 하며 공간을 나눕니다. forest는 서로 다른 트리를 평균하고 boosting은 현재 모델이 놓친 방향을 순차적으로 보정합니다.",
+    "math": "Gini=1−Σ_k p_k²; F_m(x)=F_{m−1}(x)+ηh_m(x).",
+    "derivation": "제곱 오차의 negative gradient는 y−F(x)입니다. gradient boosting은 이 pseudo-residual을 예측하는 약한 학습기를 더하는 함수 공간의 경사 하강으로 볼 수 있습니다.",
+    "application": "표형 데이터 baseline, 비선형 상호작용, feature importance 분석에 쓰입니다. permutation importance는 상관 특징의 영향에 주의해야 합니다.",
+    "mistakes": [
+      "bagging과 boosting을 같은 방식이라 설명",
+      "impurity importance를 인과 효과로 해석",
+      "깊은 트리를 규제 없이 사용"
+    ],
+    "interview": "forest는 bootstrap과 특징 무작위화로 상관을 낮춰 분산을 줄입니다. boosting은 작은 보정 모델을 누적하며 학습률과 깊이로 용량을 조절합니다.",
+    "code": "from sklearn.ensemble import HistGradientBoostingClassifier\nmodel = HistGradientBoostingClassifier(max_iter=100, learning_rate=.1)\nmodel.fit(X_train, y_train)",
+    "prerequisites": [
+      "ml-foundations"
+    ],
+    "related": [
+      "classification",
+      "evaluation"
+    ],
+    "followUps": [
+      "트리 모델에 특징 scaling이 보통 덜 중요한 이유는?",
+      "상관된 트리의 평균은 왜 덜 효과적인가요?"
+    ],
+    "sources": [
+      {
+        "title": "Stanford CS229 · Course materials",
+        "url": "https://cs229.stanford.edu/"
+      }
+    ],
+    "visual": null
+  },
+  {
+    "id": "clustering",
+    "title": "클러스터링과 표현 학습",
+    "category": "ml",
+    "subtopics": [
+      "K-means",
+      "Clustering",
+      "PCA",
+      "Representation learning"
+    ],
+    "summary": "라벨 없이 찾는 구조와 그 구조를 평가하는 기준을 구분합니다. 거리와 표현 선택이 곧 가정입니다.",
+    "intuition": "K-means는 점을 가까운 중심에 묶고 각 중심을 평균으로 옮깁니다. 구형·유사 크기 군집에 적합하며 의미적 군집을 보장하지 않습니다.",
+    "math": "J=Σ_i‖xᵢ−μ_{cᵢ}‖²; μ_k=mean({xᵢ:cᵢ=k}).",
+    "derivation": "할당을 고정하면 각 중심의 목적함수는 convex quadratic입니다. gradient를 0으로 두면 평균입니다. 중심을 고정하면 가장 가까운 중심 선택이 목적함수를 최소화합니다.",
+    "application": "임베딩 탐색, 코드북, 데이터 요약, downstream linear probe로 표현 품질 평가에 사용합니다.",
+    "mistakes": [
+      "군집 수를 무조건 elbow 하나로 결정",
+      "cluster index를 클래스 의미로 간주",
+      "서로 다른 scale의 특징을 그대로 거리 계산"
+    ],
+    "interview": "K-means는 각 단계에서 목적함수를 감소시키지만 전역 최적해는 보장하지 않습니다. 여러 초기화와 빈 군집 처리, 외부 과제 평가를 확인합니다.",
+    "code": "d2 = ((X[:, None, :] - centers[None, :, :])**2).sum(-1)\nlabels = d2.argmin(axis=1)",
+    "prerequisites": [
+      "spectral",
+      "ml-foundations"
+    ],
+    "related": [
+      "ml-code-clustering"
+    ],
+    "followUps": [
+      "K-means와 Gaussian mixture의 차이는?",
+      "PCA 후 군집화가 도움이 되는 조건은?"
+    ],
+    "sources": [
+      {
+        "title": "Stanford CS229 · Course materials",
+        "url": "https://cs229.stanford.edu/"
+      }
+    ],
+    "visual": null
+  },
+  {
+    "id": "evaluation",
+    "title": "평가, 불균형과 calibration",
+    "category": "ml",
+    "subtopics": [
+      "Class imbalance",
+      "Calibration",
+      "Precision",
+      "Recall",
+      "F1",
+      "ROC curves",
+      "PR curves",
+      "Evaluation methodology"
+    ],
+    "summary": "배포 의사결정에 맞는 지표를 선택하고 threshold, calibration, ranking을 분리합니다.",
+    "intuition": "precision은 경보 중 진짜 비율, recall은 실제 양성 중 잡은 비율입니다. 좋은 순위 모델도 확률값이 잘 보정되었다는 보장은 없습니다.",
+    "math": "Precision=TP/(TP+FP); Recall=TP/(TP+FN); F1=2PR/(P+R); Brier=mean((p−y)²).",
+    "derivation": "분류 threshold를 바꾸면 같은 score에 대해 confusion matrix가 달라집니다. ROC는 FPR·TPR, PR은 precision·recall을 그리며 precision은 prevalence에 직접 의존합니다.",
+    "application": "희귀 양성 탐지에서 PR 곡선과 비용 기반 threshold를 확인합니다. calibration은 validation set에서 학습하고 test에서 최종 평가합니다.",
+    "mistakes": [
+      "클래스 비율이 다른 PR-AUC를 무조건 직접 비교",
+      "test set에서 threshold 결정",
+      "ECE 하나로 보정 품질을 단정"
+    ],
+    "interview": "지표를 오류 비용과 연결하겠습니다. ranking 성능, 확률 calibration, 최종 threshold의 운영 성능을 별도로 측정해야 합니다.",
+    "code": "pred = p >= threshold\ntp = ((pred == 1) & (y == 1)).sum()\nfp = ((pred == 1) & (y == 0)).sum()\nprecision = tp / max(tp+fp, 1)",
+    "prerequisites": [
+      "probability",
+      "ml-foundations"
+    ],
+    "related": [
+      "experiments",
+      "llm-evaluation"
+    ],
+    "followUps": [
+      "양성 비율이 1%에서 10%로 변하면 precision은?",
+      "완벽히 calibrated지만 쓸모없는 모델이 가능한가요?"
+    ],
+    "sources": [
+      {
+        "title": "Stanford CS229 · Course materials",
+        "url": "https://cs229.stanford.edu/"
+      }
+    ],
+    "visual": null
+  },
+  {
+    "id": "neural-networks",
+    "title": "신경망, 활성화와 초기화",
+    "category": "dl",
+    "subtopics": [
+      "Neural networks",
+      "Activation functions",
+      "Initialization",
+      "Residual connections",
+      "FFN"
+    ],
+    "summary": "선형변환과 비선형변환의 합성으로 표현력을 만들고, 신호가 깊이에 따라 유지되는 조건을 봅니다.",
+    "intuition": "비선형성이 없는 여러 선형층은 하나의 선형층입니다. residual 경로는 이전 표현과 gradient가 우회할 수 있는 경로를 제공합니다.",
+    "math": "h=φ(Wx+b); residual: y=x+F(x); Var(Wᵢⱼ)≈2/fan_in (ReLU의 He 초기화).",
+    "derivation": "독립·영평균 가정에서 preactivation 분산은 fan_in·Var(W)·Var(x)입니다. ReLU가 대칭 입력의 제곱 기댓값을 약 절반 남기는 효과를 보정해 2/fan_in을 사용합니다.",
+    "application": "깊은 MLP와 Transformer FFN의 폭·활성화 선택, 초기 activation/gradient 분포 검사에 사용합니다.",
+    "mistakes": [
+      "모든 weight를 같은 값으로 초기화",
+      "비선형성 없는 깊이가 표현력을 늘린다고 주장",
+      "residual이 학습 문제를 모두 해결한다고 가정"
+    ],
+    "interview": "층별 activation과 gradient 통계를 확인하고 초기화가 분산을 유지하는지 점검합니다. residual은 identity 경로를 제공해 깊은 최적화를 돕습니다.",
+    "code": "import torch\nimport torch.nn as nn\nnet = nn.Sequential(nn.Linear(32,64), nn.ReLU(), nn.Linear(64,10))\nnn.init.kaiming_normal_(net[0].weight, nonlinearity=\"relu\")",
+    "prerequisites": [
+      "linear-algebra",
+      "calculus"
+    ],
+    "related": [
+      "backprop",
+      "training"
+    ],
+    "followUps": [
+      "ReLU의 dead neuron은 왜 생기나요?",
+      "residual block의 Jacobian은 어떤 형태인가요?"
+    ],
+    "sources": [
+      {
+        "title": "Deep Learning · Goodfellow, Bengio & Courville",
+        "url": "https://www.deeplearningbook.org/"
+      }
+    ],
+    "visual": "network"
+  },
+  {
+    "id": "backprop",
+    "title": "역전파와 gradient 검증",
+    "category": "dl",
+    "subtopics": [
+      "Backpropagation",
+      "Computational graphs",
+      "Vanishing gradients",
+      "Exploding gradients"
+    ],
+    "summary": "계산 그래프에서 국소 미분을 재사용해 손실의 모든 매개변수 gradient를 구합니다.",
+    "intuition": "forward는 값을, backward는 최종 손실에 대한 민감도를 전달합니다. 한 변수가 여러 경로로 쓰이면 각 경로의 gradient를 더해야 합니다.",
+    "math": "z=Wx+b; dW=δxᵀ; db=δ; dx=Wᵀδ; δ=∂L/∂z.",
+    "derivation": "1. forward 계산을 작은 연산들의 방향성 비순환 그래프로 표현합니다. 각 노드의 값과 backward에 필요한 중간값을 저장합니다.\n2. 최종 스칼라 loss의 자기 자신에 대한 미분을 1로 설정합니다. reverse topological order로 각 노드의 adjoint ∂L/∂node를 전달합니다.\n3. 합성 z=f(u), L=g(z)에 대해 ∂L/∂u=J_f(u)ᵀ∂L/∂z입니다. Jacobian 전체를 만들지 않고 vector-Jacobian product로 계산할 수 있습니다.\n4. z=Wx+b에서 dz=dW x+W dx+db입니다. dL=δᵀdz에 대입해 dW=δxᵀ, dx=Wᵀδ, db=δ를 얻습니다.\n5. 한 노드가 여러 downstream 경로로 사용되면 chain rule의 합을 적용합니다. gradient는 덮어쓰지 않고 각 경로의 기여를 누적합니다.\n6. batch 입력을 행으로 쌓아 Z=XW+b라 정의한 convention에서는 dW=XᵀdZ, dX=dZ Wᵀ, db=sum_batch(dZ)입니다. weight 배치 convention을 바꾸면 transpose도 바뀝니다.\n7. ReLU의 gradient는 양수에서 1, 음수에서 0이며 0은 미분 불가능합니다. 구현은 통상 0에서 0을 선택하지만 finite difference 검사는 이런 경계점을 피해야 합니다.\n8. gradient를 작은 double-precision 입력에서 중앙 차분 [f(x+εe_i)−f(x−εe_i)]/(2ε)와 비교합니다. 절대·상대 오차를 함께 보고 ε가 너무 크거나 작을 때의 truncation·roundoff trade-off를 고려합니다.",
+    "application": "custom autograd, gradient accumulation, detach 버그, tensor in-place 수정 문제를 추적합니다.",
+    "mistakes": [
+      "공유 매개변수 gradient를 덮어씀",
+      "gradient zeroing 생략",
+      "detach로 끊긴 그래프를 optimizer 문제로 오해"
+    ],
+    "interview": "역전파는 chain rule의 동적 계획법입니다. 스칼라 손실에서 reverse-mode로 중간 결과를 재사용하고 경로별 기여를 합합니다.",
+    "code": "x = torch.randn(3, dtype=torch.double, requires_grad=True)\nassert torch.autograd.gradcheck(lambda z: (z*z).sum(), (x,))",
+    "prerequisites": [
+      "calculus",
+      "neural-networks"
+    ],
+    "related": [
+      "ml-code-network",
+      "training"
+    ],
+    "followUps": [
+      "forward mode는 언제 더 유리한가요?",
+      "기울기가 None인 경우와 0인 경우는 어떻게 다른가요?"
+    ],
+    "sources": [
+      {
+        "title": "Deep Learning · Goodfellow, Bengio & Courville",
+        "url": "https://www.deeplearningbook.org/"
+      }
+    ],
+    "visual": "backprop",
+    "workedExample": "스칼라 모델 z=wx+b, h=ReLU(z), L=½(h−y)²를 봅니다. x=2, w=3, b=−1, y=4이면 z=5, h=5, L=.5입니다. backward는 dL/dh=h−y=1, dh/dz=1, dL/dz=1입니다. 따라서 dL/dw=x·1=2, dL/db=1, dL/dx=w·1=3입니다. η=.1로 w,b만 갱신하면 w=2.8, b=−1.1, 새 예측은 4.5이며 손실은 .125로 감소합니다. x는 여기서는 입력이므로 gradient를 계산해도 업데이트하지 않습니다.",
+    "independentPrompts": [
+      "위 예제에서 y=6으로 바꾸고 각 gradient 부호와 첫 업데이트를 구하세요.",
+      "u=x*x+x일 때 x=3에서 du/dx를 그래프의 두 경로로 나누어 계산하세요.",
+      "detach 후 gradient=None인 경우와 ReLU 때문에 gradient=0인 경우를 어떻게 구분하나요?"
+    ],
+    "debugging": {
+      "prompt": "공유 weight w를 두 번 쓰는 L=(wx₁+wx₂)² 구현에서 backward가 마지막 branch의 gradient만 저장합니다. 어느 테스트가 이 오류를 잡나요?",
+      "answer": "공유 노드의 gradient를 assignment 대신 +=로 누적해야 합니다. x₁=x₂=1,w=1이면 L=4이고 정답 dL/dw=8입니다. 각 branch 기여는 4이므로 덮어쓰면 4가 나옵니다. 이 toy case와 중앙 차분을 함께 검사하면 경로 누적 버그를 분리할 수 있습니다."
+    }
+  },
+  {
+    "id": "training",
+    "title": "정규화와 학습 동역학",
+    "category": "dl",
+    "subtopics": [
+      "Normalization",
+      "LayerNorm",
+      "BatchNorm",
+      "Dropout",
+      "Training dynamics"
+    ],
+    "summary": "학습·평가 모드의 차이와 정규화 축을 이해하고 loss curve를 원인별로 진단합니다.",
+    "intuition": "BatchNorm은 batch 통계, LayerNorm은 개별 예제의 feature 통계를 사용합니다. dropout은 학습 중 일부 신호를 제거해 공동 적응을 완화합니다.",
+    "math": "x̂=(x−μ)/√(σ²+ε); y=γx̂+β; inverted dropout: y=x·m/(1−p), m~Bernoulli(1−p).",
+    "derivation": "E[m/(1−p)]=1이므로 inverted dropout은 학습 중 출력의 기댓값을 유지합니다. LayerNorm의 평균·분산은 지정된 마지막 feature 축에서 계산하고 batch 축을 섞지 않습니다.",
+    "application": "작은 batch에서 BatchNorm 불안정, train/eval 누락, 데이터 분포 이동, validation loss 상승을 진단합니다.",
+    "mistakes": [
+      "평가 중 dropout 활성화",
+      "LayerNorm에서 batch 축까지 평균",
+      "dropout이 항상 calibration을 개선한다고 단정"
+    ],
+    "interview": "정규화가 어느 축을 쓰는지 tensor shape로 설명하겠습니다. 평가 전 eval 모드와 no_grad를 모두 확인하며 서로 다른 역할임을 구분합니다.",
+    "code": "layer = nn.LayerNorm(128)\ndrop = nn.Dropout(.1)\nmodel.eval()\nwith torch.no_grad():\n    predictions = model(inputs)",
+    "prerequisites": [
+      "neural-networks",
+      "optimization"
+    ],
+    "related": [
+      "ml-code-network",
+      "ml-code-training"
+    ],
+    "followUps": [
+      "BatchNorm running statistics는 언제 사용하나요?",
+      "LayerNorm과 RMSNorm의 차이는?"
+    ],
+    "sources": [
+      {
+        "title": "Deep Learning · Goodfellow, Bengio & Courville",
+        "url": "https://www.deeplearningbook.org/"
+      }
+    ],
+    "visual": null
+  },
+  {
+    "id": "cnn-rnn",
+    "title": "CNN과 RNN의 구조적 가정",
+    "category": "dl",
+    "subtopics": [
+      "CNNs",
+      "RNNs",
+      "Convolution",
+      "Receptive field",
+      "Sequence modeling"
+    ],
+    "summary": "공간적 지역성과 시간적 상태를 모델 구조로 표현하는 방법을 비교합니다.",
+    "intuition": "CNN은 같은 필터를 여러 위치에 공유해 지역 패턴을 찾습니다. RNN은 이전 상태를 압축해 다음 시점에 전달하며 긴 의존성에서 정보 보존이 어렵습니다.",
+    "math": "h_t=φ(W_h h_{t−1}+W_x x_t+b); conv output=floor((n+2p−d(k−1)−1)/s+1).",
+    "derivation": "RNN에서 ∂h_T/∂h_t는 시간별 Jacobian 곱이므로 긴 구간에서 gradient 소실·폭발이 생깁니다. LSTM의 additive state 경로는 이 문제를 완화합니다.",
+    "application": "영상의 receptive field 설계, 음성·시계열 causal 모델, streaming 상태 관리에 사용합니다.",
+    "mistakes": [
+      "convolution을 완전한 이동 불변이라고 설명",
+      "padding이 경계 효과를 없앤다고 가정",
+      "양방향 RNN을 온라인 미래 예측에 그대로 사용"
+    ],
+    "interview": "CNN의 weight sharing은 파라미터 수를 줄이고 translation equivariance를 유도합니다. RNN은 순서에 자연스럽지만 시간 축 병렬화가 제한됩니다.",
+    "code": "conv = nn.Conv2d(3, 32, kernel_size=3, stride=1, padding=1)\nrnn = nn.GRU(input_size=64, hidden_size=128, batch_first=True)",
+    "prerequisites": [
+      "neural-networks",
+      "backprop"
+    ],
+    "related": [
+      "vision",
+      "nlp-speech"
+    ],
+    "followUps": [
+      "dilation은 receptive field를 어떻게 바꾸나요?",
+      "truncated BPTT의 trade-off는?"
+    ],
+    "sources": [
+      {
+        "title": "Deep Learning · Goodfellow, Bengio & Courville",
+        "url": "https://www.deeplearningbook.org/"
+      }
+    ],
+    "visual": null
+  },
+  {
+    "id": "attention",
+    "title": "Q/K/V와 self-attention",
+    "category": "dl",
+    "subtopics": [
+      "Self-attention",
+      "Q/K/V",
+      "Scaled dot-product attention",
+      "Multi-head attention",
+      "Causal masking"
+    ],
+    "summary": "입력마다 동적으로 정보 혼합 가중치를 만드는 attention을 shape와 복잡도로 설명합니다.",
+    "intuition": "query는 찾는 정보, key는 검색에 쓰이는 특징, value는 실제 전달할 내용입니다. 점수를 softmax로 정규화해 value의 가중합을 계산합니다.",
+    "math": "Q=XW_Q, K=XW_K, V=XW_V; A=softmax(QKᵀ/√d_k+M); O=AV.",
+    "derivation": "1. X∈R^(T×d_model)에서 Q=XW_Q, K=XW_K, V=XW_V를 만듭니다. Q,K의 마지막 차원 d_k는 같아야 하고 V의 차원 d_v는 다를 수 있습니다.\n2. query i와 key j의 적합도 s_ij=q_iᵀk_j를 계산합니다. score 행렬의 shape는 [query length,key length]입니다.\n3. 각 q와 k 성분이 독립·영평균·단위 분산이라는 근사에서 Var(Σ_l q_l k_l)=d_k입니다. 따라서 score를 √d_k로 나누면 분산 규모가 1이 됩니다. 실제 학습된 특징이 정확히 이 가정을 만족한다는 주장은 아닙니다.\n4. 허용하지 않는 key 위치에는 −∞ mask를 더합니다. causal self-attention에서는 j>i를 가려 미래 정보를 차단합니다.\n5. 각 query 행에서 softmax를 key 축에 적용합니다: a_ij=exp(s_ij)/Σ_j′exp(s_ij′). 안정성을 위해 행별 최대 score를 빼도 결과는 같습니다.\n6. o_i=Σ_j a_ij v_j로 value를 혼합합니다. 유한한 score와 하나 이상의 유효 key가 있으면 가중치의 합은 1이며 출력은 value들의 convex combination입니다.\n7. 여러 head는 별도 projection에서 이 연산을 반복하고 concat 후 W_O를 적용합니다. 전체 block 출력은 output projection 때문에 원래 value들의 단순 convex combination일 필요가 없습니다.\n8. dense self-attention의 score 저장은 O(T²), 주요 matmul은 O(T²d)입니다. 메모리 효율적 kernel은 score 전체 저장을 피할 수 있지만 일반적인 dense attention의 연산량 차수까지 자동으로 선형으로 바꾸지는 않습니다.",
+    "application": "시퀀스 상호작용, encoder-decoder cross attention, multimodal 정보 통합에 쓰입니다. head마다 다른 projection으로 다른 관계를 학습할 수 있습니다.",
+    "mistakes": [
+      "√시퀀스 길이로 나눔",
+      "softmax 축을 query 축으로 설정",
+      "masked score를 0으로 두어 확률이 남음"
+    ],
+    "interview": "attention은 content-dependent weighted averaging입니다. QKᵀ는 [query length, key length], softmax는 key 축이며 결과는 value 차원을 가집니다.",
+    "code": "scores = q @ k.transpose(-2,-1) / q.size(-1)**.5\nscores = scores.masked_fill(~allowed_mask, float(\"-inf\"))\nout = scores.softmax(dim=-1) @ v",
+    "prerequisites": [
+      "linear-algebra",
+      "information"
+    ],
+    "related": [
+      "transformers",
+      "ml-code-attention"
+    ],
+    "followUps": [
+      "모든 key가 마스킹된 행은 어떻게 처리하나요?",
+      "attention weight가 설명 가능성의 충분한 증거인가요?"
+    ],
+    "sources": [
+      {
+        "title": "Attention Is All You Need",
+        "url": "https://arxiv.org/abs/1706.03762"
+      }
+    ],
+    "visual": "attention",
+    "workedExample": "d_k=1인 query q=[1], keys k₁=[0], k₂=[log3], values v₁=[2], v₂=[10]을 봅니다. score는 [0,log3]이고 softmax는 [1/(1+3),3/(1+3)]=[.25,.75]입니다. 출력은 .25·2+.75·10=8입니다. 두 번째 key를 causal mask로 가리면 score=[0,−∞], 가중치=[1,0], 출력=2가 됩니다. mask 위치에 0을 넣으면 [0,0]의 softmax=[.5,.5]가 되어 출력=6으로 미래 정보가 누출됩니다.",
+    "independentPrompts": [
+      "Q=[B,H,Tq,d], K=[B,H,Tk,d], V=[B,H,Tk,dv]일 때 각 중간 tensor shape를 쓰세요.",
+      "위 수치 예제에서 value만 [4,8]로 바꾸면 가중치와 출력이 각각 어떻게 바뀌나요?",
+      "all-masked query 행에서 softmax가 정의되지 않는 이유와 시스템의 처리 정책을 설명하세요."
+    ],
+    "debugging": {
+      "prompt": "causal attention 코드가 scores.masked_fill(mask, 0)를 사용합니다. 미래 token을 바꾸자 과거 위치의 출력도 변합니다.",
+      "answer": "0은 금지 확률이 아닙니다. 허용하지 않는 위치를 −∞로 두어 softmax 후 확률이 0이 되게 해야 합니다. mask의 True가 허용인지 금지인지 API convention도 확인합니다. eval 모드에서 미래 token만 바꾼 두 입력의 과거 출력이 동일한지 검사하고, padding으로 모두 가려지는 행은 별도 처리합니다."
+    }
+  },
+  {
+    "id": "transformers",
+    "title": "Transformer 블록과 KV cache",
+    "category": "dl",
+    "subtopics": [
+      "Transformers",
+      "Positional encoding",
+      "LayerNorm",
+      "FFN",
+      "KV cache",
+      "Autoregressive decoding",
+      "Long context"
+    ],
+    "summary": "attention, 위치 정보, token-wise FFN, residual을 조합하고 학습과 추론 비용을 구분합니다.",
+    "intuition": "attention만으로는 순서가 자동으로 주어지지 않으므로 위치 정보를 넣습니다. autoregressive 추론에서 이전 token의 K/V는 다시 계산할 필요가 없습니다.",
+    "math": "pre-LN: h=x+Attn(LN(x)); y=h+FFN(LN(h)); KV bytes≈2·L·B·T·H_kv·d_head·bytes_per_element.",
+    "derivation": "1. decoder-only causal 모델의 각 층은 이전 위치만 참조합니다. 위치 정보를 포함한 token representation에서 Q,K,V를 계산하고 attention·residual·FFN을 적용합니다.\n2. 전체 prefix 길이 T를 처리하는 prefill에서는 각 token의 K,V를 계산합니다. 같은 prefix를 유지하는 autoregressive decode에서 과거 token의 K,V는 바뀌지 않아 재사용할 수 있습니다.\n3. 새 token 하나의 Q,K,V만 계산한 뒤 K,V를 cache에 append하고 새 query를 cache 전체와 비교합니다. cache가 있어도 과거 key를 읽고 점수를 계산하는 비용은 context 길이에 비례합니다.\n4. layer 수 L, batch B, cache token 수 T, KV head 수 H_kv, head dimension d_h이면 K 또는 V 원소 수는 L·B·T·H_kv·d_h입니다.\n5. K와 V 두 종류를 합쳐 bytes=2·L·B·T·H_kv·d_h·element_bytes입니다. query head 수가 아니라 KV head 수를 사용합니다. GQA/MQA에서는 두 수가 다릅니다.\n6. context를 두 배 늘리면 같은 batch에서 cache는 두 배입니다. dense full prefill의 attention score 연산은 길이의 제곱에 비례해 약 네 배이며 모든 층의 FFN 비용까지 네 배가 되는 것은 아닙니다.\n7. positional encoding의 위치 index와 causal mask의 prefix offset을 cache 길이와 맞춰야 합니다. 특히 decode query 길이 1을 full causal mask의 첫 행처럼 처리하면 과거 key를 잘못 가립니다.\n8. full forward의 마지막 위치 logit과 token-by-token cached forward logit을 eval 모드에서 비교합니다. 부동소수점 kernel 차이를 허용하는 tolerance를 사용하고 padding·서로 다른 길이의 batch도 검증합니다.",
+    "application": "긴 문맥의 memory estimation, MHA/MQA/GQA 비교, prefill/decode 병목 분석에 사용합니다.",
+    "mistakes": [
+      "KV cache가 모든 추론 비용을 상수로 만든다고 주장",
+      "KV head 수와 query head 수를 혼동",
+      "긴 context 성능을 단순 최대 길이로만 평가"
+    ],
+    "interview": "prefill은 prompt 전체를 처리하고 decode는 token별 반복입니다. KV cache는 계산 재사용을 위해 메모리를 더 쓰며 context와 batch에 선형 증가합니다.",
+    "code": "kv_bytes = 2 * layers * batch * context * kv_heads * head_dim * element_bytes",
+    "prerequisites": [
+      "attention",
+      "training"
+    ],
+    "related": [
+      "serving",
+      "ml-code-attention"
+    ],
+    "followUps": [
+      "GQA가 cache 크기에 주는 효과는?",
+      "RoPE 위치를 cache 업데이트에서 잘못 쓰면 어떤 문제가 생기나요?"
+    ],
+    "sources": [
+      {
+        "title": "Attention Is All You Need",
+        "url": "https://arxiv.org/abs/1706.03762"
+      },
+      {
+        "title": "FlashAttention",
+        "url": "https://arxiv.org/abs/2205.14135"
+      }
+    ],
+    "visual": null,
+    "workedExample": "L=32, B=1, T=4096, H_kv=8, d_h=128, FP16의 2 bytes를 가정합니다. KV cache=2·32·1·4096·8·128·2=536,870,912 bytes=512 MiB입니다. context 8192에서는 1 GiB, batch 4와 context 4096에서는 2 GiB입니다. 같은 query head 수 32인 모델이라도 KV head가 8이면 cache에는 8을 씁니다. H_kv=32인 MHA라면 첫 설정에서 2 GiB입니다. 이 계산에는 weight·activation·allocator와 page fragmentation은 포함하지 않았습니다.",
+    "independentPrompts": [
+      "KV cache 공식을 메모리 구성요소별로 설명하고 단위를 확인하세요.",
+      "L=16,B=2,T=2048,H_kv=4,d_h=64,2 bytes일 때 cache MiB를 계산하세요.",
+      "cache를 사용해도 decode latency가 긴 context에서 늘어나는 이유를 memory traffic 관점에서 설명하세요."
+    ],
+    "debugging": {
+      "prompt": "cached decoding은 첫 token에서 full forward와 일치하지만 두 번째부터 크게 달라집니다. 새 token의 position_id가 매번 0입니다.",
+      "answer": "새 token의 위치를 과거 cache 길이에 맞춰 증가시켜야 합니다. RoPE 또는 절대 위치 임베딩이 잘못 적용되면 Q/K 관계가 달라집니다. cache append 축, mask offset, batch별 padding position도 함께 확인하고 길이 1→2→3에서 처음 불일치하는 위치를 찾아 비교합니다."
+    }
+  },
+  {
+    "id": "tokenization",
+    "title": "토큰화와 데이터 표현",
+    "category": "llm",
+    "subtopics": [
+      "Tokenization",
+      "BPE",
+      "Subword tokenization",
+      "Vocabulary"
+    ],
+    "summary": "문자열과 모델 입력 사이의 가역성, 토큰 예산, 언어별 효율을 살펴봅니다.",
+    "intuition": "토큰화는 자주 등장하는 조각에 짧은 표현을 배정합니다. 같은 문장 길이도 언어·표기·공백에 따라 토큰 수가 달라집니다.",
+    "math": "P(text)=∏_t P(token_t|token_<t); embedding parameters=|V|·d.",
+    "derivation": "BPE는 초기 symbol sequence에서 빈번한 인접 쌍을 반복 병합해 vocabulary를 확장합니다. vocabulary가 커지면 sequence는 짧아질 수 있지만 embedding과 output projection 비용이 커집니다.",
+    "application": "학습·평가 tokenizer 일치, truncation, special token 관리, multilingual 비용 분석에 사용합니다.",
+    "mistakes": [
+      "문자 수와 토큰 수를 동일시",
+      "tokenizer 변경 후 embedding 호환을 가정",
+      "padding token을 loss에 포함"
+    ],
+    "interview": "토큰화는 모델의 관측 단위와 계산 예산을 바꿉니다. 같은 모델 비교에서는 데이터 정규화, special token, 토큰 단위 지표의 비교 가능성을 확인합니다.",
+    "code": "encoded = tokenizer(texts, padding=True, truncation=True, return_tensors=\"pt\")\nlabels = encoded[\"input_ids\"].clone()\nlabels[encoded[\"attention_mask\"] == 0] = -100",
+    "prerequisites": [
+      "probability"
+    ],
+    "related": [
+      "llm-training",
+      "decoding"
+    ],
+    "followUps": [
+      "vocabulary 크기를 늘리면 언제 비용이 감소하나요?",
+      "byte 단위 tokenizer의 장단점은?"
+    ],
+    "sources": [
+      {
+        "title": "Attention Is All You Need",
+        "url": "https://arxiv.org/abs/1706.03762"
+      }
+    ],
+    "visual": null
+  },
+  {
+    "id": "llm-training",
+    "title": "사전학습, SFT와 scaling laws",
+    "category": "llm",
+    "subtopics": [
+      "Pretraining",
+      "SFT",
+      "Scaling laws",
+      "Data mixtures",
+      "Compute optimal training"
+    ],
+    "summary": "next-token 학습과 지시 튜닝의 목적·데이터 차이를 이해하고 모델·데이터·compute의 교환관계를 설명합니다.",
+    "intuition": "사전학습은 넓은 분포를 모델링하고 SFT는 원하는 입력·출력 형태와 행동을 학습합니다. 큰 모델만 늘리는 것이 고정 예산에서 항상 최선은 아닙니다.",
+    "math": "L_NLL=−Σ_t m_t log pθ(x_t|x_<t)/Σ_t m_t; dense training FLOPs≈6ND (거친 추정).",
+    "derivation": "teacher forcing에서는 정답 이전 token을 조건으로 모든 위치의 loss를 병렬 계산합니다. instruction SFT에서 assistant 응답만 학습하려면 loss mask m_t를 적용합니다.",
+    "application": "중복 제거, 오염 방지, packing 경계 처리, 데이터 혼합 ablation, validation loss와 downstream 평가의 관계를 검토합니다.",
+    "mistakes": [
+      "SFT가 새로운 사실의 신뢰성을 보장한다고 주장",
+      "padding과 사용자 prompt에 무심코 loss 적용",
+      "scaling law를 모든 영역의 보장으로 사용"
+    ],
+    "interview": "데이터 품질·규모·모델 크기를 compute 제약 아래 함께 결정합니다. scaling law는 특정 실험 구간의 경험적 관계이며 외삽에는 검증이 필요합니다.",
+    "code": "logits = model(input_ids).logits[:, :-1]\ntargets = labels[:, 1:]\nloss = torch.nn.functional.cross_entropy(logits.reshape(-1, logits.size(-1)), targets.reshape(-1), ignore_index=-100)",
+    "prerequisites": [
+      "transformers",
+      "tokenization"
+    ],
+    "related": [
+      "preference",
+      "distributed"
+    ],
+    "followUps": [
+      "훈련 token 수와 unique data 양은 어떻게 다른가요?",
+      "SFT 중 catastrophic forgetting을 어떻게 측정하나요?"
+    ],
+    "sources": [
+      {
+        "title": "Training Compute-Optimal Large Language Models",
+        "url": "https://arxiv.org/abs/2203.15556"
+      },
+      {
+        "title": "Training language models to follow instructions with human feedback",
+        "url": "https://arxiv.org/abs/2203.02155"
+      }
+    ],
+    "visual": null
+  },
+  {
+    "id": "preference",
+    "title": "RLHF, reward model과 DPO",
+    "category": "llm",
+    "subtopics": [
+      "RLHF",
+      "DPO",
+      "Reward models",
+      "Preference optimization",
+      "Alignment"
+    ],
+    "summary": "선호 데이터에서 행동을 학습하는 목적함수와 편향·보상 해킹을 이해합니다.",
+    "intuition": "reward model은 응답의 선호 순위를 예측합니다. RLHF는 그 점수를 높이되 기준 정책에서 지나치게 멀어지지 않게 하고, DPO는 선호 쌍으로 정책을 직접 학습합니다.",
+    "math": "L_DPO=−log σ(β[(log πθ(yw|x)−log πref(yw|x))−(log πθ(yl|x)−log πref(yl|x))]).",
+    "derivation": "1. prompt x마다 고정된 reward r(x,y)와 reference policy π_ref(y|x)를 생각합니다. 목적은 E_{π}[r]−β KL(π‖π_ref), β>0입니다.\n2. 각 prompt의 policy 확률 합이 1이라는 제약에 Lagrange multiplier를 붙여 π(y)에 대해 미분합니다. π_ref가 0인 응답에는 이 형태로 양의 최적 확률을 부여할 수 없어 support 가정이 필요합니다.\n3. 정지 조건을 풀면 π*(y|x)=π_ref(y|x)exp(r(x,y)/β)/Z(x)입니다. 따라서 r(x,y)=β log[π*(y|x)/π_ref(y|x)]+β log Z(x)로 재표현됩니다.\n4. Bradley–Terry 모델은 winner y_w가 loser y_l보다 선호될 확률을 σ(r_w−r_l)로 가정합니다. 선호가 단일 scalar reward로 표현 가능하다는 모델링 가정입니다.\n5. 두 reward 차이를 취하면 prompt별 partition term βlogZ(x)가 상쇄됩니다. 차이는 β[(logπ*_w−logπ_ref,w)−(logπ*_l−logπ_ref,l)]입니다.\n6. π*를 학습 정책 πθ로 대체하고 관측 선호 쌍의 negative log likelihood를 최소화하면 DPO loss −logσ(βΔ)을 얻습니다.\n7. 응답 sequence의 log probability는 응답 token log probability의 합입니다. prompt와 padding을 loss에 섞지 않고 winner·loser가 같은 prompt에 대응하는지 확인합니다.\n8. 이 유도는 온라인 탐색을 없애는 마법이 아닙니다. 데이터 coverage, label noise, 길이 편향, reference와 데이터 분포 차이를 검증하고 held-out 선호 및 인간 평가로 결과를 확인합니다.",
+    "application": "선호 annotation 일치도, 길이 편향, reward overoptimization, held-out 인간 평가와 분포 이동을 점검합니다.",
+    "mistakes": [
+      "DPO에는 선호 가정이나 reference가 필요 없다고 주장",
+      "reward 점수 상승을 실제 품질 상승으로 단정",
+      "winner와 loser token 길이 차이를 무시"
+    ],
+    "interview": "RLHF는 reward를 경유한 정책 최적화, DPO는 선호 쌍의 상대 log-probability를 직접 조정합니다. 둘 다 데이터와 평가자의 편향을 상속할 수 있습니다.",
+    "code": "adv = (logp_win-logpref_win) - (logp_lose-logpref_lose)\nloss = -torch.nn.functional.logsigmoid(beta*adv).mean()",
+    "prerequisites": [
+      "information",
+      "llm-training"
+    ],
+    "related": [
+      "llm-evaluation",
+      "safety-rl"
+    ],
+    "followUps": [
+      "β를 바꾸면 reference 제약과 gradient에 어떤 효과가 있나요?",
+      "선호가 순환적이면 Bradley–Terry 가정은 어떻게 되나요?"
+    ],
+    "sources": [
+      {
+        "title": "Direct Preference Optimization",
+        "url": "https://arxiv.org/abs/2305.18290"
+      },
+      {
+        "title": "Training language models to follow instructions with human feedback",
+        "url": "https://arxiv.org/abs/2203.02155"
+      }
+    ],
+    "visual": null,
+    "workedExample": "한 선호 쌍에서 policy logp(w)=−2, logp(l)=−3, reference logp(w)=−2.5, logp(l)=−2.5라고 합시다. winner 상대 log-ratio=.5, loser 상대 log-ratio=−.5이므로 Δ=1입니다. β=.1이면 선호 확률 σ(.1)≈.524979, loss=−logσ(.1)≈.644397입니다. policy와 reference가 완전히 같으면 Δ=0, 확률 .5, loss=log2≈.693147입니다. 이 pair에서 βΔ가 커지면 loss는 줄지만 실제 응답 품질 상승은 별도로 검증해야 합니다.",
+    "independentPrompts": [
+      "reward에서 policy log-ratio로 바꿀 때 partition function이 쌍별 loss에서 사라지는 이유를 말하세요.",
+      "위 예제에서 winner와 loser를 뒤집으면 선호 확률과 loss는 어떻게 변하나요?",
+      "reference가 잘못된 prompt의 응답 점수를 계산했다면 어떤 진단과 테스트로 찾을까요?"
+    ],
+    "debugging": {
+      "prompt": "DPO 학습에서 loss는 잘 줄지만 긴 응답이 일관되게 불리합니다. 구현이 policy에서는 token log-prob 평균, reference에서는 합을 사용합니다.",
+      "answer": "두 log-ratio의 단위가 달라져 길이에 따라 목적함수가 왜곡됩니다. 표준 sequence-level DPO는 응답 token log-prob 합을 양쪽에 일관되게 사용합니다. prompt/padding mask도 동일하게 적용합니다. 길이 정규화 변형을 의도했다면 양쪽 정의와 목적함수 변경을 명시하고 길이별 성능을 따로 평가해야 합니다."
+    }
+  },
+  {
+    "id": "decoding",
+    "title": "생성, temperature와 beam search",
+    "category": "llm",
+    "subtopics": [
+      "Sampling",
+      "Temperature",
+      "Top-k",
+      "Top-p",
+      "Beam search",
+      "Autoregressive decoding"
+    ],
+    "summary": "모델 분포와 실제 생성 정책의 차이를 이해하고 다양성·일관성·계산량을 조절합니다.",
+    "intuition": "temperature는 logit 차이를 확대하거나 축소합니다. top-k는 개수, top-p는 누적 확률로 후보를 자릅니다. beam search는 여러 부분 시퀀스를 유지합니다.",
+    "math": "p_i(T)=exp(z_i/T)/Σ_j exp(z_j/T); log P(y)=Σ_t log p(y_t|y_<t).",
+    "derivation": "logit을 양수 T로 나누면 순위는 유지되지만 분포의 날카로움은 바뀝니다. beam score는 곱의 underflow를 피하려고 log 확률을 더하고 길이 편향을 별도로 고려합니다.",
+    "application": "창작·코드·요약별 decoding 정책, 재현 가능한 seeded sampling, 종료 token과 최대 길이 처리에 연결됩니다.",
+    "mistakes": [
+      "T=0을 그대로 나눗셈 구현",
+      "top-p에서 threshold를 넘기는 첫 token까지 제거",
+      "beam이 인간 품질을 보장한다고 생각"
+    ],
+    "interview": "greedy는 각 단계 최빈값이지 전역 최빈 시퀀스 보장이 아닙니다. 확률 최적화와 사람의 품질 선호도 동일하지 않아 과제별 평가가 필요합니다.",
+    "code": "if temperature <= 0:\n    token = logits.argmax(-1)\nelse:\n    token = torch.multinomial((logits/temperature).softmax(-1), 1)",
+    "prerequisites": [
+      "information",
+      "transformers"
+    ],
+    "related": [
+      "ml-code-decoding"
+    ],
+    "followUps": [
+      "top-k와 top-p를 함께 적용하면 순서가 중요한가요?",
+      "beam search의 길이 편향은 왜 발생하나요?"
+    ],
+    "sources": [
+      {
+        "title": "Attention Is All You Need",
+        "url": "https://arxiv.org/abs/1706.03762"
+      }
+    ],
+    "visual": null
+  },
+  {
+    "id": "rag-agents",
+    "title": "RAG, 에이전트와 도구 사용",
+    "category": "llm",
+    "subtopics": [
+      "RAG",
+      "Agents",
+      "Tool use",
+      "Retrieval",
+      "Planning"
+    ],
+    "summary": "외부 지식을 가져오는 과정과 실제 행동을 수행하는 과정을 분리해 설계·평가합니다.",
+    "intuition": "RAG는 관련 자료를 검색해 생성 조건에 넣습니다. 에이전트는 관측, 계획, 도구 실행을 반복합니다. 검색 실패와 생성 실패를 따로 측정해야 개선 방향이 보입니다.",
+    "math": "RAG error decomposition: retrieval miss → context misuse → unsupported generation; recall@k=관련 항목 중 top-k 검색 비율.",
+    "derivation": "정답 근거가 검색되지 않은 경우와 검색됐지만 답변이 틀린 경우를 나눠 oracle-context 평가를 수행합니다. 생성기의 상한과 검색기의 병목을 분리할 수 있습니다.",
+    "application": "chunking, hybrid retrieval, reranking, citation grounding, 도구 schema 검증, timeout·retry·권한·비용 budget을 설계합니다.",
+    "mistakes": [
+      "검색 문서를 신뢰할 수 있는 명령으로 취급",
+      "전체 RAG 점수 하나만 보고 개선",
+      "무제한 agent loop와 중복 side effect 허용"
+    ],
+    "interview": "검색 recall과 grounded answer 품질을 별도로 평가하고, 도구 실행은 명시적인 schema와 권한 경계로 제한합니다. 중단 조건과 관측 가능성도 제품 설계의 일부입니다.",
+    "code": "docs = retriever.search(query, k=20)\ncontext = reranker.rank(query, docs)[:5]\nanswer = generator.generate(query=query, context=context)\n# 실제 도구 실행 전 schema·권한·중복 실행 여부 검증",
+    "prerequisites": [
+      "transformers",
+      "evaluation"
+    ],
+    "related": [
+      "llm-evaluation",
+      "serving"
+    ],
+    "followUps": [
+      "검색 recall은 높은데 답변 정확도가 낮으면 무엇을 검사하나요?",
+      "agent의 성공률과 비용을 함께 어떻게 평가하나요?"
+    ],
+    "sources": [
+      {
+        "title": "Retrieval-Augmented Generation",
+        "url": "https://arxiv.org/abs/2005.11401"
+      }
+    ],
+    "visual": null
+  },
+  {
+    "id": "adaptation",
+    "title": "LoRA, 양자화와 모델 경량화",
+    "category": "llm",
+    "subtopics": [
+      "LoRA",
+      "Quantization",
+      "Parameter-efficient fine-tuning",
+      "Inference optimization"
+    ],
+    "summary": "학습 가능한 파라미터 수, 저장 메모리, 계산 속도가 서로 다른 지표임을 이해합니다.",
+    "intuition": "LoRA는 큰 weight 변화량을 작은 두 행렬의 곱으로 제한합니다. 양자화는 숫자 표현 비트 수를 줄이지만 scale·outlier·kernel 지원에 따라 정확도와 속도가 달라집니다.",
+    "math": "W′=W+(α/r)BA; LoRA trainable params=r(d_in+d_out); x≈s(q−z).",
+    "derivation": "d_out×d_in 행렬의 변화량을 rank-r 곱 B[d_out,r]A[r,d_in]로 표현하면 원래 곱 파라미터 수 대신 두 차원의 합에 비례합니다. 학습 상태는 줄지만 base weight 보관은 여전히 필요합니다.",
+    "application": "제한된 GPU에서 fine-tuning, 여러 task adapter 제공, weight-only 또는 activation quantization의 품질 평가에 사용합니다.",
+    "mistakes": [
+      "4-bit weight면 모든 메모리가 정확히 4분의 1이라고 주장",
+      "LoRA 파라미터 감소를 같은 비율의 추론 속도 향상으로 간주",
+      "양자화 calibration 데이터를 test에서 가져옴"
+    ],
+    "interview": "LoRA는 업데이트 구조를 제한하고 양자화는 표현 정밀도를 줄입니다. 실제 이득은 optimizer state, activation, KV cache와 kernel을 포함해 측정해야 합니다.",
+    "code": "base = x @ W.T\nupdate = (x @ A.T) @ B.T\nout = base + (alpha/r)*update",
+    "prerequisites": [
+      "spectral",
+      "llm-training"
+    ],
+    "related": [
+      "gpu",
+      "serving"
+    ],
+    "followUps": [
+      "LoRA를 base weight에 merge하면 어떤 trade-off가 있나요?",
+      "outlier channel이 quantization에 어려운 이유는?"
+    ],
+    "sources": [
+      {
+        "title": "LoRA: Low-Rank Adaptation of Large Language Models",
+        "url": "https://arxiv.org/abs/2106.09685"
+      }
+    ],
+    "visual": null
+  },
+  {
+    "id": "llm-evaluation",
+    "title": "LLM 평가, 환각과 안전성",
+    "category": "llm",
+    "subtopics": [
+      "Evaluation",
+      "Hallucination",
+      "Alignment",
+      "Safety",
+      "LLM-as-judge",
+      "Benchmark contamination"
+    ],
+    "summary": "모델 품질을 하나의 순위로 축약하지 않고 정확성·근거성·안전성·비용을 분리합니다.",
+    "intuition": "그럴듯한 문장은 사실 보장이 아닙니다. judge 모델도 순서, 길이, 자기 선호 편향이 있어 사람의 판단과 교차 검증해야 합니다.",
+    "math": "win rate=(wins+0.5·ties)/comparisons; evaluate by task × subgroup × risk × distribution shift.",
+    "derivation": "같은 prompt에서 두 시스템 출력을 쌍으로 비교하고 순서를 무작위화합니다. prompt 단위 bootstrap으로 불확실성을 추정하며 여러 답변을 독립 표본으로 과대 계산하지 않습니다.",
+    "application": "held-out 과제, contamination 검사, adversarial 세트, 근거 citation 확인, abstention·calibration, 회귀 테스트를 조합합니다.",
+    "mistakes": [
+      "benchmark 점수를 일반 지능의 완전한 척도로 해석",
+      "judge 한 번의 판정을 정답으로 고정",
+      "안전 거절률과 유용성을 분리하지 않음"
+    ],
+    "interview": "과제별 성공 기준을 먼저 고정하고 데이터 오염과 judge 편향을 점검합니다. 환각은 사실 검증과 근거 사용 평가를 통해 구체적인 오류 유형으로 분해합니다.",
+    "code": "paired = np.asarray(wins, dtype=float)  # win=1, tie=.5, loss=0\nwin_rate = paired.mean()\n# prompt 단위로 resample하여 CI 계산",
+    "prerequisites": [
+      "evaluation",
+      "experiments"
+    ],
+    "related": [
+      "research-evaluation",
+      "safety-rl"
+    ],
+    "followUps": [
+      "벤치마크 포화 후에는 무엇을 측정해야 하나요?",
+      "거절을 늘려 환각을 줄인 모델을 공정하게 비교하려면?"
+    ],
+    "sources": [
+      {
+        "title": "NeurIPS Paper Checklist",
+        "url": "https://neurips.cc/public/guides/PaperChecklist"
+      },
+      {
+        "title": "Training language models to follow instructions with human feedback",
+        "url": "https://arxiv.org/abs/2203.02155"
+      }
+    ],
+    "visual": null
+  },
+  {
+    "id": "arrays",
+    "title": "배열, 문자열과 해시 자료구조",
+    "category": "dsa",
+    "subtopics": [
+      "Arrays / Strings",
+      "Hash Maps",
+      "Stacks / Queues",
+      "Linked Lists"
+    ],
+    "summary": "문제의 불변식과 접근 패턴에 맞춰 자료구조를 선택합니다. 구현 전 시간·공간 복잡도를 명시합니다.",
+    "intuition": "배열은 위치 접근이 빠르고, 해시는 키 조회가 평균적으로 빠릅니다. stack은 최근 작업, queue는 먼저 온 작업을 추적하며 linked list는 노드 연결을 변경합니다.",
+    "math": "Array indexing O(1); hash lookup expected O(1), worst O(n); two-pointer scan O(n); stack push/pop amortized O(1).",
+    "derivation": "슬라이딩 윈도우에서 왼쪽·오른쪽 포인터가 각각 최대 n번 이동하면 중첩 반복문이어도 전체 O(n)입니다. 각 원소가 들어오고 나가는 횟수로 복잡도를 증명합니다.",
+    "application": "중복 제거, token 빈도, streaming window, 괄호 검증, LRU 설계의 기반입니다.",
+    "mistakes": [
+      "해시 최악 복잡도를 항상 O(1)로 설명",
+      "문자열 반복 결합의 복사 비용 누락",
+      "linked list 삭제 시 이전 연결을 잃음"
+    ],
+    "interview": "저장할 상태와 루프 불변식을 먼저 정하겠습니다. 빈 입력, 중복 값, Unicode, off-by-one을 별도로 확인합니다.",
+    "code": "def two_sum(nums, target):\n    seen = {}\n    for i, x in enumerate(nums):\n        if target-x in seen: return [seen[target-x], i]\n        seen[x] = i\n    return None",
+    "prerequisites": [],
+    "related": [
+      "algorithms",
+      "trees-graphs"
+    ],
+    "followUps": [
+      "해시맵 없이 정렬된 배열이면 어떻게 푸나요?",
+      "LRU cache에 linked list와 map을 함께 쓰는 이유는?"
+    ],
+    "sources": [
+      {
+        "title": "MIT 6.006 · Introduction to Algorithms",
+        "url": "https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-fall-2011/"
+      }
+    ],
+    "visual": null
+  },
+  {
+    "id": "trees-graphs",
+    "title": "트리, 그래프와 BFS/DFS",
+    "category": "dsa",
+    "subtopics": [
+      "Trees",
+      "Graphs",
+      "BFS / DFS",
+      "Recursion",
+      "Cycle detection",
+      "Topological sorting"
+    ],
+    "summary": "노드와 간선으로 의존성을 표현하고 탐색·경로·순환 문제를 구분합니다.",
+    "intuition": "BFS는 가까운 층부터, DFS는 한 경로를 깊게 탐색합니다. 방향 그래프의 방문 완료와 현재 탐색 중 상태는 순환 검출에서 다른 의미입니다.",
+    "math": "Adjacency-list traversal: O(V+E) time, O(V) auxiliary space; BFS shortest path assumes equal edge weights.",
+    "derivation": "BFS는 거리 d의 모든 노드를 d+1보다 먼저 queue에서 꺼냅니다. 그러므로 최초 방문 시 기록한 거리가 비가중 그래프의 최단거리입니다.",
+    "application": "계산 그래프 의존성, DAG 실행 순서, 추천 그래프, 데이터 lineage, 연결 요소 탐색에 사용합니다.",
+    "mistakes": [
+      "방문 표시를 dequeue 때 해서 중복 삽입",
+      "가중 그래프에 BFS를 최단 경로로 사용",
+      "깊은 recursion의 stack limit 무시"
+    ],
+    "interview": "간선 방향과 가중치, 그래프 연결 여부를 먼저 확인합니다. BFS는 queue, DFS는 stack 또는 recursion을 쓰며 각 노드의 방문 상태를 명확히 관리합니다.",
+    "code": "from collections import deque\ndef bfs(graph, start):\n    dist = {start: 0}; q = deque([start])\n    while q:\n        u = q.popleft()\n        for v in graph[u]:\n            if v not in dist:\n                dist[v] = dist[u]+1; q.append(v)\n    return dist",
+    "prerequisites": [
+      "arrays"
+    ],
+    "related": [
+      "algorithms",
+      "backprop"
+    ],
+    "followUps": [
+      "DAG에서 최장 경로를 어떻게 구하나요?",
+      "방향 그래프 DFS에서 gray와 black 상태를 왜 구분하나요?"
+    ],
+    "sources": [
+      {
+        "title": "MIT 6.006 · Introduction to Algorithms",
+        "url": "https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-fall-2011/"
+      }
+    ],
+    "visual": null
+  },
+  {
+    "id": "algorithms",
+    "title": "힙, 이진 탐색과 동적 계획법",
+    "category": "dsa",
+    "subtopics": [
+      "Heap / Top-K",
+      "Binary Search",
+      "Sorting",
+      "Dynamic Programming",
+      "Complexity Analysis"
+    ],
+    "summary": "문제 구조에 따라 정렬, 단조성, 부분문제 재사용을 선택합니다.",
+    "intuition": "heap은 전체 정렬 없이 극값을 유지합니다. binary search는 답의 범위를 반씩 줄이고 DP는 겹치는 부분문제의 답을 저장합니다.",
+    "math": "Top-k heap: O(n log k); binary search: O(log n); DP cost=상태 수 × 상태별 전이 비용.",
+    "derivation": "이진 탐색은 해가 [lo,hi)에 존재한다는 불변식을 유지합니다. DP는 상태 정의, 전이, 기저 조건, 계산 순서를 정해야 하며 메모리 압축은 의존성이 허용할 때만 가능합니다.",
+    "application": "대규모 score의 top-k, threshold 찾기, sequence alignment, beam 후보 관리에 사용합니다.",
+    "mistakes": [
+      "이진 탐색 종료 조건과 구간 정의 불일치",
+      "DP 상태에 필요한 정보를 누락",
+      "재귀 호출 수만 보고 memoization 효과 무시"
+    ],
+    "interview": "정답을 직접 찾기 어려우면 단조적인 가능 여부 함수가 있는지 보겠습니다. DP는 상태가 미래 결정에 필요한 정보를 모두 담는지 검증합니다.",
+    "code": "import heapq\ntop = heapq.nlargest(k, values)\ndef lower_bound(a, x):\n    lo, hi = 0, len(a)\n    while lo < hi:\n        mid = (lo+hi)//2\n        if a[mid] < x: lo = mid+1\n        else: hi = mid\n    return lo",
+    "prerequisites": [
+      "arrays"
+    ],
+    "related": [
+      "ml-code-decoding"
+    ],
+    "followUps": [
+      "top-k에 정렬과 heap 중 언제 무엇을 선택하나요?",
+      "0/1 knapsack의 1D DP를 역순으로 갱신하는 이유는?"
+    ],
+    "sources": [
+      {
+        "title": "MIT 6.006 · Introduction to Algorithms",
+        "url": "https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-fall-2011/"
+      }
+    ],
+    "visual": null
+  },
+  {
+    "id": "ml-code-linear",
+    "title": "직접 구현: 선형·로지스틱 회귀",
+    "category": "mlcoding",
+    "subtopics": [
+      "Linear Regression from scratch",
+      "Logistic Regression",
+      "Gradient checking"
+    ],
+    "summary": "입력 shape, 안정적인 loss, 벡터화 gradient, 수렴 검증을 한 구현에 묶습니다.",
+    "intuition": "공식을 코드로 옮길 때 가장 흔한 오류는 축, batch 평균, label shape입니다. 작은 데이터의 알려진 해와 수치 gradient로 검증합니다.",
+    "math": "MSE gradient=Xᵀ(Xw−y)/n; logistic gradient=Xᵀ(σ(Xw)−y)/n.",
+    "derivation": "각 샘플 gradient xᵢ(errorᵢ)를 합하면 Xᵀerror입니다. loss를 평균으로 정의하면 gradient도 n으로 나누어야 합니다.",
+    "application": "from-scratch coding 인터뷰에서 학습 루프보다 먼저 gradient를 유도하고, regularization 및 bias 처리 방식을 선언합니다.",
+    "mistakes": [
+      "y가 [n,1]인데 prediction이 [n]이라 [n,n]으로 broadcast",
+      "loss는 평균인데 gradient는 합",
+      "큰 음수 sigmoid에서 overflow"
+    ],
+    "interview": "모든 배열 shape를 적고 안정적인 logaddexp로 loss를 계산하겠습니다. 유한차분 검증 후 synthetic data의 known coefficient를 회복하는지 확인합니다.",
+    "code": "def logistic_step(X, y, w, lr):\n    z = X @ w\n    p = np.exp(-np.logaddexp(0., -z))\n    loss = np.mean(np.logaddexp(0., z)-y*z)\n    grad = X.T @ (p-y) / len(y)\n    return w-lr*grad, loss",
+    "prerequisites": [
+      "regression",
+      "classification"
+    ],
+    "related": [
+      "ml-code-optimizers"
+    ],
+    "followUps": [
+      "bias만 규제하지 않으려면 어떻게 구현하나요?",
+      "gradient check에 relative error를 쓰는 이유는?"
+    ],
+    "sources": [
+      {
+        "title": "Stanford CS229 · Course materials",
+        "url": "https://cs229.stanford.edu/"
+      }
+    ],
+    "visual": null
+  },
+  {
+    "id": "ml-code-clustering",
+    "title": "직접 구현: K-means와 PCA",
+    "category": "mlcoding",
+    "subtopics": [
+      "K-Means implementation",
+      "PCA implementation",
+      "Vectorization",
+      "Empty clusters"
+    ],
+    "summary": "거리 계산을 벡터화하고 중심화·초기화·빈 군집 같은 경계 조건을 처리합니다.",
+    "intuition": "PCA는 연속적인 선형 부분공간, K-means는 이산적인 대표 중심을 찾습니다. 둘 다 재구성 오차 관점에서 설명할 수 있지만 제약이 다릅니다.",
+    "math": "D²_ij=‖xᵢ‖²+‖μⱼ‖²−2xᵢᵀμⱼ; Z=(X−mean_train)V_k.",
+    "derivation": "제곱 거리를 전개하면 [n,k,d] broadcast tensor 없이 행렬곱과 두 norm 벡터로 계산할 수 있습니다. PCA 변환에서는 test 데이터도 train 평균을 빼야 누출과 좌표 불일치를 피합니다.",
+    "application": "큰 데이터에서 메모리를 절약하고, clustering loss 감소와 PCA 재구성 오차를 확인합니다.",
+    "mistakes": [
+      "빈 cluster 평균이 NaN이 되는 문제 누락",
+      "PCA transform 때 test 평균을 사용",
+      "반올림 오차로 생긴 음의 제곱거리를 그대로 사용"
+    ],
+    "interview": "K-means는 seed와 종료 조건, 빈 cluster 재초기화를 명시합니다. PCA는 centered SVD를 사용하며 성분 부호 반전은 동일한 해임을 알고 검증합니다.",
+    "code": "d2 = (X*X).sum(1)[:,None] + (C*C).sum(1)[None,:] - 2*X@C.T\nd2 = np.maximum(d2, 0)\nlabels = d2.argmin(1)\nfor j in range(len(C)):\n    rows = X[labels == j]\n    C[j] = rows.mean(0) if len(rows) else X[d2.min(1).argmax()]",
+    "prerequisites": [
+      "spectral",
+      "clustering"
+    ],
+    "related": [
+      "ml-code-linear"
+    ],
+    "followUps": [
+      "O(nkd) 거리 tensor를 만들지 않는 이유는?",
+      "PCA whitening이 작은 eigenvalue를 증폭하면 어떻게 되나요?"
+    ],
+    "sources": [
+      {
+        "title": "Stanford CS229 · Course materials",
+        "url": "https://cs229.stanford.edu/"
+      }
+    ],
+    "visual": null
+  },
+  {
+    "id": "ml-code-softmax",
+    "title": "직접 구현: 안정적인 softmax와 CE",
+    "category": "mlcoding",
+    "subtopics": [
+      "Softmax",
+      "Cross Entropy",
+      "Numerical Stability",
+      "Softmax gradient"
+    ],
+    "summary": "설명 → gradient 유도 → 구현 → overflow 디버깅의 전체 사이클을 연습합니다.",
+    "intuition": "logit의 절대 기준은 의미가 없고 차이가 중요합니다. 최대값을 빼면 가장 큰 지수항이 1이 되어 overflow를 막습니다.",
+    "math": "p_i=e^{z_i−m}/Σ_j e^{z_j−m}; L=logsumexp(z)−z_y; ∂L/∂z_i=p_i−1[i=y].",
+    "derivation": "1. z∈R^K의 softmax를 p_i=exp(z_i)/Σ_jexp(z_j)로 정의합니다. 직접 exp를 계산하면 큰 양수 logit에서 overflow할 수 있습니다.\n2. 임의 상수 c에 대해 분자·분모를 exp(c)로 나누면 softmax(z)=softmax(z−c)입니다. c=max(z)를 선택하면 모든 shifted logit이 0 이하라 exp가 1을 넘지 않습니다.\n3. logsumexp(z)=m+logΣ_jexp(z_j−m)이며 m=max(z)입니다. log-softmax는 z_i−logsumexp(z)로 구합니다. 확률로 내린 뒤 다시 log를 취하지 않아 작은 확률의 underflow를 피합니다.\n4. 정답 index y의 cross entropy는 L=−log p_y=logsumexp(z)−z_y입니다. one-hot label을 명시적으로 만들 필요가 없습니다.\n5. logsumexp 미분은 exp(z_i)/Σ_jexp(z_j)=p_i입니다. 따라서 ∂L/∂z_i=p_i−1[i=y]입니다.\n6. 같은 결과를 softmax Jacobian ∂p_i/∂z_j=p_i(δ_ij−p_j)와 −log p_y의 chain rule로도 유도할 수 있지만 구현에서 K×K Jacobian을 만들 필요는 없습니다.\n7. batch loss를 평균내면 각 row gradient도 batch size로 나눕니다. label smoothing이나 sample weight를 쓰면 target 및 정규화 기준이 그에 맞게 바뀝니다.\n8. gradient 각 행의 합이 0인지 확인합니다. 모든 logit에 같은 상수를 더해도 loss가 변하지 않으므로 상수 방향의 directional derivative는 0이어야 합니다.",
+    "application": "분류 loss, attention 확률, preference loss에서 안정성을 확보합니다. 확률을 계산한 뒤 log를 취하기보다 log-softmax를 직접 계산합니다.",
+    "mistakes": [
+      "global max를 빼고 axis를 잘못 선택",
+      "확률에 log를 취해 underflow",
+      "batch 평균에 따른 gradient scaling 누락"
+    ],
+    "interview": "최대 logit을 빼도 분포는 불변입니다. CE는 log-sum-exp minus target logit으로 계산하고 gradient는 p−y로 단순화됩니다.",
+    "code": "def softmax_ce(z, y):\n    s = z-z.max(axis=-1, keepdims=True)\n    logp = s-np.log(np.exp(s).sum(axis=-1, keepdims=True))\n    loss = -logp[np.arange(len(y)), y].mean()\n    grad = np.exp(logp)\n    grad[np.arange(len(y)), y] -= 1\n    return loss, grad/len(y)",
+    "prerequisites": [
+      "information",
+      "calculus"
+    ],
+    "related": [
+      "attention",
+      "classification"
+    ],
+    "followUps": [
+      "모든 logit에 같은 상수를 더했을 때 gradient 합은 왜 0인가요?",
+      "무한대 logit과 모두 마스킹된 행은 어떻게 처리하나요?"
+    ],
+    "sources": [
+      {
+        "title": "Deep Learning · Goodfellow, Bengio & Courville",
+        "url": "https://www.deeplearningbook.org/"
+      }
+    ],
+    "visual": null,
+    "workedExample": "z=[1000,1001,1002], 정답 y=2입니다. max를 빼면 s=[−2,−1,0], exp(s)≈[.135335,.367879,1], 합=1.503214입니다. p≈[.090031,.244728,.665241], loss=−log .665241≈.407606입니다. gradient는 [.090031,.244728,−.334759]이고 합은 0입니다. z=[0,1,2]에서도 정확히 같은 분포·loss·gradient를 얻습니다. 직접 exp(1002)를 계산하면 일반적인 부동소수점에서 overflow하므로 안정화가 필요합니다.",
+    "independentPrompts": [
+      "softmax의 상수 이동 불변성을 분자·분모에 같은 인자를 곱해 증명하세요.",
+      "z=[0,0], y=1의 확률, loss와 gradient를 구하세요. batch가 같은 두 행이면 평균 loss gradient는 어떻게 달라지나요?",
+      "logits=[1000,−1000], 정답=1에서 softmax 후 log와 직접 log-softmax의 수치 차이를 설명하세요."
+    ],
+    "debugging": {
+      "prompt": "안정화 코드가 z-z.max()를 사용합니다. 한 batch의 logit 규모가 매우 다르면 일부 row가 모두 exp underflow되어 NaN이 됩니다.",
+      "answer": "global max를 빼도 실수 수학의 비율은 같지만 다른 row가 지나치게 큰 음수로 이동해 전체 underflow할 수 있습니다. 각 row의 max를 axis=-1, keepdims=True로 빼고 normalization도 같은 class 축에 적용합니다. [[1000,1001],[-1000,-999]]에서 두 row가 동일한 확률을 반환하는지 검사합니다."
+    }
+  },
+  {
+    "id": "ml-code-optimizers",
+    "title": "직접 구현: SGD, Momentum, Adam",
+    "category": "mlcoding",
+    "subtopics": [
+      "SGD",
+      "Momentum",
+      "Adam",
+      "Optimizer state",
+      "Bias correction"
+    ],
+    "summary": "업데이트 수식뿐 아니라 state의 수명, step 인덱스와 weight decay를 구현합니다.",
+    "intuition": "SGD는 현재 gradient, momentum은 누적 방향, Adam은 1·2차 이동 평균으로 업데이트를 만듭니다. optimizer state는 매 iteration 초기화하면 안 됩니다.",
+    "math": "m̂_t=m_t/(1−β₁^t); v̂_t=v_t/(1−β₂^t); θ←θ−ηm̂_t/(√v̂_t+ε).",
+    "derivation": "m_0=0이고 일정 평균 gradient μ이면 E[m_t]=(1−β₁^t)μ입니다. 따라서 1−β₁^t로 나눠 초기 0 편향을 보정합니다.",
+    "application": "optimizer checkpoint 재개, learning-rate schedule, AdamW의 decoupled decay, mixed precision master weight에 연결됩니다.",
+    "mistakes": [
+      "t를 0에서 시작해 0으로 나눔",
+      "매 step m과 v를 초기화",
+      "epsilon 위치를 수식과 다르게 놓음"
+    ],
+    "interview": "각 parameter에 m·v state를 유지하고 step을 증가시킨 뒤 bias correction을 적용하겠습니다. reference optimizer와 작은 deterministic 예제로 비교합니다.",
+    "code": "t += 1\nm = beta1*m + (1-beta1)*g\nv = beta2*v + (1-beta2)*g*g\nmhat = m/(1-beta1**t)\nvhat = v/(1-beta2**t)\nw -= lr*mhat/(np.sqrt(vhat)+eps)",
+    "prerequisites": [
+      "optimization"
+    ],
+    "related": [
+      "ml-code-training",
+      "gpu"
+    ],
+    "followUps": [
+      "Adam state는 parameter 하나당 얼마나 필요한가요?",
+      "gradient가 계속 0인 좌표에서도 momentum 업데이트가 있나요?"
+    ],
+    "sources": [
+      {
+        "title": "Deep Learning · Goodfellow, Bengio & Courville",
+        "url": "https://www.deeplearningbook.org/"
+      }
+    ],
+    "visual": null
+  },
+  {
+    "id": "ml-code-network",
+    "title": "직접 구현: MLP와 정규화",
+    "category": "mlcoding",
+    "subtopics": [
+      "MLP",
+      "Backpropagation implementation",
+      "LayerNorm",
+      "BatchNorm",
+      "Dropout"
+    ],
+    "summary": "작은 MLP의 수동 backward와 정규화·dropout의 학습/평가 차이를 구현합니다.",
+    "intuition": "forward 중 저장한 activation과 mask는 backward에 필요합니다. LayerNorm은 마지막 feature 차원을 정규화하고 gamma·beta로 표현 유연성을 복원합니다.",
+    "math": "LayerNorm: μ=mean_last(x), v=mean_last((x−μ)²), y=(x−μ)/√(v+ε)·γ+β.",
+    "derivation": "2층 MLP에서 dW₂=hᵀdlogits, dh=dlogits W₂ᵀ, dz₁=dh·1[z₁>0], dW₁=Xᵀdz₁입니다. batch 방향 합은 bias gradient가 됩니다.",
+    "application": "수동 backward와 autograd 비교, batch size 1, 상수 입력, train/eval parity 테스트에 사용합니다.",
+    "mistakes": [
+      "LayerNorm variance를 ddof=1로 계산",
+      "dropout backward에서 다른 mask 생성",
+      "bias gradient에 batch 축 합산 누락"
+    ],
+    "interview": "정규화 축을 명시하고 epsilon을 sqrt 안에 넣겠습니다. dropout은 forward mask를 저장해 backward에도 동일하게 쓰며 eval에서는 identity입니다.",
+    "code": "def layer_norm(x, gamma, beta, eps=1e-5):\n    mu = x.mean(axis=-1, keepdims=True)\n    var = ((x-mu)**2).mean(axis=-1, keepdims=True)\n    return (x-mu)/np.sqrt(var+eps)*gamma+beta",
+    "prerequisites": [
+      "backprop",
+      "training"
+    ],
+    "related": [
+      "ml-code-softmax"
+    ],
+    "followUps": [
+      "상수 입력에서 epsilon이 없다면 어떤 일이 생기나요?",
+      "BatchNorm train/eval 출력을 같게 만드는 조건은?"
+    ],
+    "sources": [
+      {
+        "title": "Deep Learning · Goodfellow, Bengio & Courville",
+        "url": "https://www.deeplearningbook.org/"
+      }
+    ],
+    "visual": null
+  },
+  {
+    "id": "ml-code-attention",
+    "title": "직접 구현: multi-head attention",
+    "category": "mlcoding",
+    "subtopics": [
+      "Scaled Dot-Product Attention",
+      "Multi-Head Attention",
+      "Causal mask",
+      "Tensor shapes",
+      "KV cache"
+    ],
+    "summary": "head 분할·복원과 mask broadcasting을 명시적으로 구현하고 미래 정보 누출을 테스트합니다.",
+    "intuition": "head 축은 여러 attention을 병렬 계산하기 위한 축입니다. transpose 이후 원소 순서를 올바르게 복원하지 않으면 shape가 맞아도 의미가 틀릴 수 있습니다.",
+    "math": "Input [B,T,D] → Q/K/V [B,H,T,D/H] → scores [B,H,T,T] → output [B,T,D].",
+    "derivation": "D=H·d로 나누고 token과 head 축을 transpose합니다. 각 head 결과를 다시 token별로 모아 concat한 뒤 output projection을 적용합니다.",
+    "application": "causal language model, cross attention, padding mask, cache decode와 full forward의 동치 확인에 사용합니다.",
+    "mistakes": [
+      "head_dim으로 나누지 않고 D로 scaling",
+      "causal mask 방향을 반대로 사용",
+      "transpose 후 contiguous 없이 view"
+    ],
+    "interview": "shape를 단계마다 쓰고 마지막 token을 바꿔도 이전 위치 출력이 변하지 않는지 검사하겠습니다. cached decode와 전체 causal forward도 tolerance 안에서 비교합니다.",
+    "code": "B,T,D = x.shape\nq,k,v = [p(x).reshape(B,T,H,D//H).transpose(1,2) for p in (Wq,Wk,Wv)]\nmask = torch.ones(T,T, device=x.device, dtype=torch.bool).tril()\nscores = (q@k.transpose(-2,-1))/(D//H)**.5\nout = scores.masked_fill(~mask, float(\"-inf\")).softmax(-1)@v\nout = Wo(out.transpose(1,2).contiguous().reshape(B,T,D))",
+    "prerequisites": [
+      "attention",
+      "transformers"
+    ],
+    "related": [
+      "ml-code-softmax",
+      "serving"
+    ],
+    "followUps": [
+      "cross attention의 query 길이와 key 길이가 다르면 shape는?",
+      "padding query 행의 NaN을 어떻게 방지하나요?"
+    ],
+    "sources": [
+      {
+        "title": "Attention Is All You Need",
+        "url": "https://arxiv.org/abs/1706.03762"
+      }
+    ],
+    "visual": null
+  },
+  {
+    "id": "ml-code-decoding",
+    "title": "직접 구현: top-k, top-p와 beam",
+    "category": "mlcoding",
+    "subtopics": [
+      "Top-k Sampling",
+      "Top-p Sampling",
+      "Beam Search",
+      "Sampling correctness"
+    ],
+    "summary": "후보 선택·재정규화·확률 샘플링과 beam 상태 관리를 정확히 구현합니다.",
+    "intuition": "nucleus sampling은 누적 확률이 p 이상이 되는 최소 prefix를 유지합니다. 경계를 넘기는 첫 token도 남겨야 총 확률 질량이 조건을 만족합니다.",
+    "math": "S=minimal sorted prefix with Σ_{i∈S}p_i≥p; sample from p_i/Σ_{j∈S}p_j.",
+    "derivation": "누적 확률을 계산한 뒤 제거 mask를 한 칸 오른쪽으로 이동하면 경계를 넘기는 첫 항목을 보존합니다. 첫 항목은 항상 남겨 빈 후보 집합을 방지합니다.",
+    "application": "batched generation, EOS 종료, beam별 cache 재정렬, deterministic test를 구현합니다.",
+    "mistakes": [
+      "확률 대신 logit의 누적합 사용",
+      "정렬한 index를 원 vocabulary index로 복원하지 않음",
+      "완료된 beam에 계속 token 추가"
+    ],
+    "interview": "먼저 정렬된 확률에서 후보를 정하고 원래 index로 복원합니다. p=1, k=1, 동점, batch size 1과 EOS를 경계 사례로 검사합니다.",
+    "code": "sorted_logits, idx = torch.sort(logits, descending=True, dim=-1)\ncdf = sorted_logits.softmax(-1).cumsum(-1)\nremove = cdf > p\nremove[...,1:] = remove[...,:-1].clone()\nremove[...,0] = False\nprobs = sorted_logits.masked_fill(remove, float(\"-inf\")).softmax(-1)\npos = torch.multinomial(probs, 1)\ntoken = idx.gather(-1, pos)",
+    "prerequisites": [
+      "decoding",
+      "algorithms"
+    ],
+    "related": [
+      "ml-code-softmax"
+    ],
+    "followUps": [
+      "beam cache는 beam 선택 뒤 어떻게 재배치하나요?",
+      "p=0에 대한 API 정책은 어떻게 정하나요?"
+    ],
+    "sources": [
+      {
+        "title": "Deep Learning · Goodfellow, Bengio & Courville",
+        "url": "https://www.deeplearningbook.org/"
+      }
+    ],
+    "visual": null
+  },
+  {
+    "id": "ml-code-training",
+    "title": "훈련 루프, 누적과 디버깅",
+    "category": "mlcoding",
+    "subtopics": [
+      "Training Loop",
+      "Gradient Accumulation",
+      "Numerical Stability",
+      "ML Debugging",
+      "Mixed precision"
+    ],
+    "summary": "훈련 상태·gradient scale·데이터 흐름을 함께 관리하는 재현 가능한 루프를 구성합니다.",
+    "intuition": "gradient accumulation은 여러 microbatch의 gradient를 모아 한 번 업데이트합니다. 동일 크기의 microbatch라면 loss를 누적 횟수로 나누지만 크기가 다르면 sample/token 가중치가 필요합니다.",
+    "math": "g_large=Σ_j (n_j/N)g_j; effective batch=microbatch × accumulation × data-parallel workers.",
+    "derivation": "평균 loss의 gradient는 전체 sample gradient 합을 N으로 나눈 값입니다. microbatch 평균들을 똑같이 더하면 마지막 작은 batch에 과도한 가중치를 줄 수 있습니다.",
+    "application": "한 batch 과적합, label shuffle, NaN 최초 발생 위치, 데이터 누출, optimizer state 재개, train/eval 차이를 순서대로 진단합니다.",
+    "mistakes": [
+      "accumulation 중 매번 zero_grad",
+      "optimizer step 없이 scheduler만 진행",
+      "작은 마지막 microbatch를 동일 가중치로 취급"
+    ],
+    "interview": "먼저 작은 batch를 과적합하고 loss와 gradient norm을 추적합니다. 누적 gradient는 실제 sample 수 기준으로 정규화하며 checkpoint에 optimizer·scheduler·RNG 상태도 저장합니다.",
+    "code": "optimizer.zero_grad(set_to_none=True)\nN = sum(len(y) for x,y in microbatches)\nfor x,y in microbatches:\n    loss = criterion(model(x), y)  # mean reduction\n    (loss * len(y)/N).backward()\ntorch.nn.utils.clip_grad_norm_(model.parameters(), 1.)\noptimizer.step()",
+    "prerequisites": [
+      "backprop",
+      "ml-code-optimizers"
+    ],
+    "related": [
+      "distributed",
+      "training"
+    ],
+    "followUps": [
+      "BatchNorm이 있으면 accumulation과 큰 batch가 같은가요?",
+      "AMP에서 gradient clipping 전 무엇을 해야 하나요?"
+    ],
+    "sources": [
+      {
+        "title": "Deep Learning · Goodfellow, Bengio & Courville",
+        "url": "https://www.deeplearningbook.org/"
+      }
+    ],
+    "visual": null
+  },
+  {
+    "id": "gpu",
+    "title": "GPU, FLOPs와 메모리 추정",
+    "category": "systems",
+    "subtopics": [
+      "GPU fundamentals",
+      "GPU memory",
+      "FLOPs",
+      "Mixed precision",
+      "Memory estimation",
+      "Profiling",
+      "Training bottlenecks"
+    ],
+    "summary": "메모리를 weight·gradient·optimizer state·activation·임시 buffer로 분해합니다.",
+    "intuition": "GPU는 많은 연산을 병렬 처리하지만 데이터 이동이 느리면 계산기가 기다립니다. 연산량이 적은 decode는 대역폭에, 큰 matrix multiply는 compute에 제한될 수 있습니다.",
+    "math": "Linear GEMM FLOPs≈2mkn; training memory≈weights+gradients+optimizer+activations+workspace; dense model training compute≈6ND.",
+    "derivation": "1. 추정 전에 parameter 수 P, weight·gradient dtype, optimizer, activation shape, batch·sequence length와 장치 수를 명시합니다. GB(10⁹)와 GiB(2³⁰)를 혼용하지 않습니다.\n2. FP32 weight는 4P bytes, FP32 gradient는 4P bytes입니다. Adam의 1차·2차 상태가 각각 FP32이면 8P bytes를 추가합니다.\n3. 따라서 순수 FP32 Adam의 기본 parameter 관련 state는 16P bytes입니다. 이는 activation, 임시 buffer, allocator 여유 공간을 포함하지 않은 하한 성격의 계산입니다.\n4. mixed precision 구현에 따라 low-precision weight, FP32 master weight, gradient dtype이 달라집니다. 예를 들어 FP16 weight 2P+FP16 gradient 2P+FP32 master 4P+Adam state 8P도 16P이며 무조건 절반이 되지 않습니다.\n5. activation 저장량은 각 층의 backward 필요 tensor에 달려 batch·sequence·hidden size·attention 방식에 영향을 받습니다. checkpointing은 중간값을 재계산해 메모리를 줄이고 연산을 늘립니다.\n6. m×k와 k×n 행렬곱은 곱셈과 덧셈을 각각 1 FLOP로 셀 때 대략 2mkn FLOPs입니다. 이 convention을 명시해야 다른 보고치와 비교할 수 있습니다.\n7. dense Transformer 훈련의 6ND 추정은 parameter 관련 forward/backward의 거친 근사입니다. 긴 context attention, embedding, optimizer, 통신 비용과 실제 kernel 효율을 별도로 고려합니다.\n8. 실제 시간은 FLOPs뿐 아니라 메모리 대역폭, 통신, kernel launch와 동기화에 의해 제한됩니다. profiler에서 compute utilization, memory traffic, idle gap을 측정해 추정의 병목을 검증합니다.",
+    "application": "GPU 용량 계획, OOM 원인 분류, roofline 분석, mixed precision overflow, profiler 기반 최적화에 사용합니다.",
+    "mistakes": [
+      "파라미터 bytes만으로 훈련 메모리 계산",
+      "FLOPs가 곧 실제 latency라고 가정",
+      "reserved memory를 전부 live tensor로 해석"
+    ],
+    "interview": "먼저 dtype과 optimizer 가정을 명시하고 정적 state와 activation을 분리하겠습니다. 이론 FLOPs 후 profiler로 bandwidth·kernel launch·compute 병목을 확인합니다.",
+    "code": "P = 1_000_000_000\nfp32_adam_state_gb = (4+4+8)*P/1e9\n# activation, temporary buffers, allocator overhead는 별도 추정",
+    "prerequisites": [
+      "linear-algebra",
+      "ml-code-training"
+    ],
+    "related": [
+      "distributed",
+      "serving"
+    ],
+    "followUps": [
+      "activation checkpointing의 시간·메모리 trade-off는?",
+      "BF16과 FP16의 dynamic range 차이는?"
+    ],
+    "sources": [
+      {
+        "title": "Training Compute-Optimal Large Language Models",
+        "url": "https://arxiv.org/abs/2203.15556"
+      },
+      {
+        "title": "FlashAttention",
+        "url": "https://arxiv.org/abs/2205.14135"
+      }
+    ],
+    "visual": null,
+    "workedExample": "P=1,000,000,000인 모델을 순수 FP32 Adam으로 학습한다고 합시다. weight 4 GB, gradient 4 GB, 두 moment state 8 GB로 기본 합은 16 GB≈14.90 GiB입니다. activation 6 GiB, workspace·allocator 예산 2 GiB를 추가하면 약 22.90 GiB가 필요합니다. 이는 24 GiB 장치에서 매우 여유가 적은 추정이며 실제 peak 측정이 필요합니다. 별도로 [32,1024]×[1024,4096] GEMM은 2·32·1024·4096=268,435,456 FLOPs≈0.268 GFLOPs입니다.",
+    "independentPrompts": [
+      "7B parameter의 FP16 weight만 저장할 때 GB와 GiB를 계산하세요. optimizer와 KV가 포함되지 않았음을 명시하세요.",
+      "Adam moment를 FP32 두 개 유지할 때 parameter당 추가 bytes는 얼마인가요?",
+      "batch size를 두 배 늘렸는데 peak memory가 정확히 두 배가 아닌 이유를 정적 state와 activation으로 설명하세요."
+    ],
+    "debugging": {
+      "prompt": "1B 모델 FP16 weight가 2 GB라서 8 GB GPU면 학습이 충분하다고 판단했지만 첫 optimizer.step에서 OOM이 납니다.",
+      "answer": "weight만 계산했고 gradient·master weight·Adam state·activation을 누락했습니다. 일부 optimizer는 첫 step에서 state를 지연 생성하므로 바로 그때 메모리가 급증합니다. step 전후 allocated/peak memory를 측정하고 실제 dtype별 state를 합산합니다. 필요에 따라 batch 감소, checkpointing, state sharding 또는 다른 optimizer를 검토하되 각각의 효과를 분리해 추정합니다."
+    }
+  },
+  {
+    "id": "distributed",
+    "title": "분산 훈련과 병렬화",
+    "category": "systems",
+    "subtopics": [
+      "Distributed training",
+      "Data parallelism",
+      "Tensor parallelism",
+      "Pipeline parallelism",
+      "Gradient accumulation",
+      "Scaling"
+    ],
+    "summary": "모델과 데이터를 나누는 방식, 통신 비용과 동기화 지점을 비교합니다.",
+    "intuition": "data parallel은 모델을 복제하고 gradient를 합칩니다. tensor parallel은 한 연산을 여러 장치에 나누고 pipeline은 층별로 배치 조각을 흘립니다.",
+    "math": "Global batch=B_local·workers·accumulation; ideal speedup=N; efficiency=measured speedup/N.",
+    "derivation": "data parallel에서 각 worker의 동일 크기 batch 평균 gradient를 다시 평균하면 global batch gradient입니다. worker별 유효 token 수가 다르면 단순 worker 평균이 원래 loss와 달라질 수 있습니다.",
+    "application": "all-reduce overlap, 통신 topology, pipeline bubble, optimizer state sharding, straggler, checkpoint 저장에 연결됩니다.",
+    "mistakes": [
+      "worker 수 증가와 동일 학습률이 항상 안정적이라 가정",
+      "분산 sampler의 epoch seed를 갱신하지 않음",
+      "communication을 FLOPs 추정에 포함하지 않음"
+    ],
+    "interview": "모델이 한 장치에 들어가는지와 병목이 메모리인지 compute인지부터 판단합니다. 병렬 방식마다 통신 패턴과 memory savings가 다르므로 topology에 맞춰 조합합니다.",
+    "code": "global_batch = local_batch * world_size * accumulation_steps\n# DDP accumulation에서는 마지막 microbatch 외 no_sync()로 통신 지연 가능\n# 유효 token 수와 gradient 평균 기준을 반드시 일치시킬 것",
+    "prerequisites": [
+      "gpu",
+      "ml-code-training"
+    ],
+    "related": [
+      "serving"
+    ],
+    "followUps": [
+      "tensor parallel이 느린 interconnect에서 불리한 이유는?",
+      "pipeline microbatch 수와 bubble의 관계는?"
+    ],
+    "sources": [
+      {
+        "title": "Training Compute-Optimal Large Language Models",
+        "url": "https://arxiv.org/abs/2203.15556"
+      }
+    ],
+    "visual": null
+  },
+  {
+    "id": "serving",
+    "title": "추론 latency, batching과 서빙",
+    "category": "systems",
+    "subtopics": [
+      "Batching",
+      "Inference latency",
+      "Throughput",
+      "KV cache",
+      "Model serving",
+      "Inference optimization",
+      "Long context memory",
+      "Profiling"
+    ],
+    "summary": "요청 한 건의 지연과 시스템 전체 처리량을 구분하고 prefill·decode 자원을 관리합니다.",
+    "intuition": "batching은 weight와 kernel 비용을 여러 요청에 나누지만 queue 대기로 latency가 늘 수 있습니다. 긴 요청은 cache를 오래 점유하고 다른 요청의 수용량을 줄입니다.",
+    "math": "TTFT=queue+prefill+first decode; output throughput=tokens/time; Little’s law: L=λW (안정적 시스템).",
+    "derivation": "KV cache는 token마다 K,V를 저장하므로 context에 선형 증가합니다. batch를 늘리면 weight 읽기 비용을 더 많은 token에 분산하지만 총 cache와 대기열 압력이 증가합니다.",
+    "application": "continuous batching, prefix caching, admission control, p50/p95/p99, quantization, speculative decoding 평가를 설계합니다.",
+    "mistakes": [
+      "평균 latency만 보고 tail을 무시",
+      "prefill throughput과 decode throughput 혼합",
+      "warm cache benchmark만으로 실제 부하를 대표"
+    ],
+    "interview": "SLO와 요청 길이 분포를 먼저 정의하고 TTFT와 token 간 지연을 분리합니다. throughput 개선이 queueing과 tail latency에 미치는 영향도 함께 측정합니다.",
+    "code": "kv = 2*layers*batch*context*kv_heads*head_dim*bytes_per_elem\nremaining = gpu_bytes - weight_bytes - kv - workspace_bytes\nassert remaining >= 0, \"설정이 추정 메모리 예산을 초과합니다\"",
+    "prerequisites": [
+      "transformers",
+      "gpu"
+    ],
+    "related": [
+      "distributed",
+      "adaptation"
+    ],
+    "followUps": [
+      "context가 두 배일 때 KV와 prefill 연산은 각각 어떻게 변하나요?",
+      "prefix cache hit가 높은 benchmark의 함정은?"
+    ],
+    "sources": [
+      {
+        "title": "FlashAttention",
+        "url": "https://arxiv.org/abs/2205.14135"
+      }
+    ],
+    "visual": null
+  },
+  {
+    "id": "research-design",
+    "title": "가설, 실험 설계와 우선순위",
+    "category": "research",
+    "subtopics": [
+      "Hypothesis formation",
+      "Experiment design",
+      "Baseline selection",
+      "Ablations",
+      "Confounders",
+      "Research prioritization"
+    ],
+    "summary": "관찰을 검증 가능한 가설로 바꾸고 가장 적은 실험으로 경쟁 설명을 구분합니다.",
+    "intuition": "좋은 실험은 점수를 올리는 것만 아니라 왜 달라졌는지 구분합니다. 알고리즘·compute·데이터가 함께 바뀌면 원인을 특정할 수 없습니다.",
+    "math": "Effect(method|budget)=metric(new,budget)−metric(baseline,budget); factorial design evaluates main effects and interactions.",
+    "derivation": "방법 A와 B를 비교할 때 compute가 다르면 방법 효과와 자원 효과가 confounded됩니다. 같은 compute 비교와 같은 품질에 필요한 compute 비교를 모두 제공하고 budget sweep으로 Pareto 곡선을 만듭니다.",
+    "application": "새 architecture ablation, 최소 실험 예산, negative control, matched baseline, 실행 우선순위와 stop criterion을 설계합니다.",
+    "mistakes": [
+      "약한 baseline만 비교",
+      "한 요소씩 제거하면 모든 상호작용을 알 수 있다고 주장",
+      "좋은 결과를 본 뒤 가설을 사전 가설처럼 작성"
+    ],
+    "interview": "가설과 이를 반증할 결과를 먼저 쓰겠습니다. strongest fair baseline과 통제 변수를 정하고 경쟁 가설을 가장 잘 구분하는 작은 실험부터 실행합니다.",
+    "code": "conditions = [(method, budget, seed)\n              for method in [\"baseline\", \"new\"]\n              for budget in [1, 2, 4]\n              for seed in [0, 1, 2]]",
+    "prerequisites": [
+      "experiments",
+      "evaluation"
+    ],
+    "related": [
+      "research-evaluation",
+      "paper-critique"
+    ],
+    "followUps": [
+      "새 방법이 3배 compute를 쓰면 어떤 비교가 필요한가요?",
+      "A와 B 가설을 구분할 최소 실험을 설계하세요."
+    ],
+    "sources": [
+      {
+        "title": "NeurIPS Paper Checklist",
+        "url": "https://neurips.cc/public/guides/PaperChecklist"
+      }
+    ],
+    "visual": null
+  },
+  {
+    "id": "research-evaluation",
+    "title": "재현성, 데이터와 결과 해석",
+    "category": "research",
+    "subtopics": [
+      "Statistical significance",
+      "Reproducibility",
+      "Dataset design",
+      "Evaluation design",
+      "Negative results",
+      "Research debugging"
+    ],
+    "summary": "2% 개선의 의미를 seed·sample·분포 이동·실용 비용에 걸쳐 평가합니다.",
+    "intuition": "한 번의 좋은 run은 방법의 기대 성능이 아닙니다. seed 변동과 test sample 변동은 서로 다른 불확실성이며 둘을 구분해야 합니다.",
+    "math": "Δ_seed = score_new(seed)−score_base(seed); report mean, interval, run count, compute, and selection protocol.",
+    "derivation": "1. 주장할 estimand를 먼저 정합니다. 고정된 학습 run 두 개의 test 성능 차이인지, 학습 randomness까지 평균낸 방법 간 차이인지 구분합니다.\n2. 비교 지표와 독립 표집 단위를 정합니다. 같은 사용자·환자·문서에서 나온 여러 기록은 독립 example으로 취급하면 불확실성을 과소평가할 수 있습니다.\n3. 같은 test sample에서 두 모델을 평가했다면 d_i=metric_new,i−metric_base,i의 paired 차이를 만듭니다. 공유된 sample 난이도를 제거할 수 있습니다.\n4. 독립·동일분포 차이라는 가정과 유한 분산 아래 Δ=mean(d), SE=sd(d)/√n입니다. 작은 n의 평균 차이에 정규 오차 가정이 타당하면 t 구간을 사용하고, 비선형 지표라면 적절한 단위의 paired bootstrap을 고려합니다.\n5. test-example bootstrap은 고정된 학습 모델의 test sampling uncertainty를 추정합니다. seed에 따른 학습 변동을 포함하려면 실제 반복 학습이 필요합니다.\n6. 동일한 run protocol과 compute budget으로 여러 seed를 수행하고 seed별 결과·실패 run·selection rule을 기록합니다. 가장 좋은 seed만 비교하면 선택 편향이 생깁니다.\n7. 신뢰구간과 효과 크기를 해석하되 실용적 최소 효과, latency·compute 비용, 하위집단 성능을 함께 판단합니다. 통계적 유의성은 크거나 중요한 효과를 뜻하지 않습니다.\n8. 여러 방법·지표를 탐색했다면 다중 비교와 validation 재사용을 보고합니다. 마지막에 독립된 holdout 또는 사전 계획된 후속 실험으로 주요 주장을 확인합니다.",
+    "application": "data/version manifest, code commit, seed, 환경, 모델 선택 규칙, 실패 run과 전체 run 분포를 남깁니다. reproducibility 실패는 데이터·코드·환경·랜덤성 순으로 좁힙니다.",
+    "mistakes": [
+      "best seed만 보고",
+      "validation을 반복 사용한 선택 편향 누락",
+      "비유의 결과를 효과 부재 증거로 단정"
+    ],
+    "interview": "효과 크기와 불확실성을 보고하고 seed와 데이터 표본 변동을 구분하겠습니다. 개선이 비용·견고성·하위집단 성능과 함께 유지되는지 확인합니다.",
+    "code": "record = {\"seed\": 42, \"git_commit\": commit, \"dataset_version\": version,\n          \"metric\": score, \"compute_hours\": gpu_hours, \"selection_rule\": \"best validation\"}",
+    "prerequisites": [
+      "experiments",
+      "statistics"
+    ],
+    "related": [
+      "research-design",
+      "llm-evaluation"
+    ],
+    "followUps": [
+      "seed 3개로 충분한가요? 무엇을 기준으로 판단하나요?",
+      "negative result가 정보 가치가 있으려면 무엇을 보고해야 하나요?"
+    ],
+    "sources": [
+      {
+        "title": "NeurIPS Paper Checklist",
+        "url": "https://neurips.cc/public/guides/PaperChecklist"
+      }
+    ],
+    "visual": null,
+    "workedExample": "동일한 protocol로 5개 seed를 paired 비교해 accuracy 개선이 [1,2,3,2,2] percentage points였다고 합시다. 평균 개선은 2 pp, sample variance는 [(−1)²+0²+1²+0²+0²]/4=.5, 표준편차≈.7071 pp, SE=.7071/√5≈.3162 pp입니다. seed 차이가 독립이며 근사 정규라고 가정하면 df=4의 t 임계값 2.776으로 95% CI는 2±.878, 즉 [1.122,2.878] pp입니다. 표본 5개라 분포 가정에 민감하며 이 구간은 고정 test set에서 seed 변동을 나타냅니다. test sampling uncertainty나 여러 지표 선택 편향까지 자동으로 포함하지 않습니다.",
+    "independentPrompts": [
+      "2% 개선이 relative percent인지 percentage points인지 구별하는 예를 드세요.",
+      "모든 seed 차이가 양수지만 test set이 오염되었다면 어떤 결론이 무효가 되나요?",
+      "새 방법의 seed 분산이 baseline보다 크다면 평균 외에 무엇을 보고하고 어떻게 추가 실험을 설계하나요?"
+    ],
+    "debugging": {
+      "prompt": "accuracy 2 pp 개선의 CI를 매우 좁게 보고했습니다. 조사해 보니 같은 test set에서 뽑은 bootstrap 1,000개를 독립 훈련 run 1,000개로 간주해 다시 SE를 계산했습니다.",
+      "answer": "bootstrap 반복은 새로운 독립 정보가 아니라 원자료의 sampling distribution을 근사하는 계산입니다. bootstrap 횟수의 √1000으로 다시 나누면 불확실성을 부당하게 줄입니다. bootstrap estimate의 분포에서 직접 percentile 또는 적절한 bootstrap CI를 만들고, seed uncertainty는 별도 반복 학습으로 평가합니다. report에서 sample·cluster·seed 중 어떤 단위가 재표집됐는지 명시합니다."
+    }
+  },
+  {
+    "id": "paper-critique",
+    "title": "논문 비판과 연구 설명",
+    "category": "research",
+    "subtopics": [
+      "Paper criticism",
+      "Paper critique",
+      "Research communication",
+      "Research debugging",
+      "Trade-offs"
+    ],
+    "summary": "주장·증거·가정·범위를 분리하고 비판을 검증 가능한 후속 실험으로 바꿉니다.",
+    "intuition": "논문 읽기의 목표는 요약 암기가 아니라 무엇이 입증되었고 무엇이 아직 설명되지 않는지 파악하는 것입니다.",
+    "math": "Claim → operational definition → evidence → alternative explanation → discriminating experiment.",
+    "derivation": "주장이 일반적인데 실험이 한 데이터셋·한 모델 크기에만 있으면 외적 타당성의 간극이 있습니다. baseline tuning budget, compute, 데이터 오염을 점검하고 핵심 대안 설명을 하나씩 반증합니다.",
+    "application": "연구 발표, paper discussion, 실패 프로젝트 회고, 협업 의사결정에서 30초 요약과 깊은 기술 설명을 함께 준비합니다.",
+    "mistakes": [
+      "성능이 높다는 이유로 메커니즘 설명까지 입증됐다고 간주",
+      "모든 한계를 동등한 중요도로 나열",
+      "비판만 하고 실행 가능한 실험을 제시하지 않음"
+    ],
+    "interview": "핵심 기여를 한 문장으로 말하고 가장 강한 증거와 가장 큰 불확실성을 구분하겠습니다. 그 불확실성을 줄일 저비용 실험을 제안합니다.",
+    "code": "critique = {\"claim\": \"\", \"strongest_evidence\": \"\", \"assumptions\": [],\n            \"alternative_explanation\": \"\", \"next_experiment\": \"\", \"decision_if_negative\": \"\"}",
+    "prerequisites": [
+      "research-design"
+    ],
+    "related": [
+      "research-evaluation"
+    ],
+    "followUps": [
+      "결과는 좋지만 설명이 틀렸을 가능성을 어떻게 검사하나요?",
+      "연구를 중단하거나 우선순위를 바꾼 경험을 어떻게 설명하나요?"
+    ],
+    "sources": [
+      {
+        "title": "NeurIPS Paper Checklist",
+        "url": "https://neurips.cc/public/guides/PaperChecklist"
+      }
+    ],
+    "visual": null
+  },
+  {
+    "id": "vision",
+    "title": "도메인 확장: Computer Vision",
+    "category": "domain",
+    "subtopics": [
+      "Computer Vision",
+      "Image classification",
+      "Detection",
+      "Segmentation",
+      "Vision Transformers",
+      "Augmentation"
+    ],
+    "summary": "공통 ML 기반 위에 이미지의 공간 구조, label granularity, 데이터 변환을 추가합니다.",
+    "intuition": "분류는 이미지 전체, detection은 위치와 종류, segmentation은 픽셀별 의미를 예측합니다. augmentation은 학습하고 싶은 불변성을 선언합니다.",
+    "math": "IoU=|A∩B|/|A∪B|; patch count=(H/P)(W/P); ViT attention scores scale quadratically in patch count.",
+    "derivation": "patch 크기를 절반으로 줄이면 2D 이미지의 token 수가 네 배가 됩니다. dense attention score 계산은 대략 16배로 증가하므로 해상도 향상에는 큰 비용이 있습니다.",
+    "application": "label-preserving augmentation, 사전학습 representation, class별 mAP, domain shift, spurious background를 평가합니다.",
+    "mistakes": [
+      "augmentation이 항상 라벨을 보존한다고 가정",
+      "동일 객체의 인접 frame을 train/test에 분리",
+      "IoU threshold가 다른 detection 점수를 직접 비교"
+    ],
+    "interview": "과제의 출력 구조와 평가 지표를 먼저 맞추겠습니다. 이미지 변환의 불변성이 타깃과 일치하는지, 데이터 분할에 중복·연속 frame 누출이 없는지 확인합니다.",
+    "code": "iou = intersection_area / max(union_area, 1e-12)\npatch_count = (height//patch_size)*(width//patch_size)",
+    "prerequisites": [
+      "cnn-rnn",
+      "attention",
+      "evaluation"
+    ],
+    "related": [
+      "multimodal"
+    ],
+    "followUps": [
+      "의료 영상에서 좌우 반전이 위험한 경우는?",
+      "해상도 상승과 patch 크기 감소의 비용은?"
+    ],
+    "sources": [
+      {
+        "title": "Deep Learning · Goodfellow, Bengio & Courville",
+        "url": "https://www.deeplearningbook.org/"
+      },
+      {
+        "title": "Learning Transferable Visual Models From Natural Language Supervision",
+        "url": "https://arxiv.org/abs/2103.00020"
+      }
+    ],
+    "visual": null
+  },
+  {
+    "id": "nlp-speech",
+    "title": "도메인 확장: NLP와 음성",
+    "category": "domain",
+    "subtopics": [
+      "NLP",
+      "Audio / Speech",
+      "ASR",
+      "CTC",
+      "Language modeling",
+      "Word error rate"
+    ],
+    "summary": "텍스트와 음성의 순차 구조, 가변 길이, 정렬 불확실성을 공통 기반 위에 학습합니다.",
+    "intuition": "음성 frame은 문자·단어와 일대일로 대응하지 않습니다. CTC는 가능한 정렬 경로를 합산하고, autoregressive 모델은 이전 출력에 조건화합니다.",
+    "math": "WER=(substitutions+deletions+insertions)/reference words; CTC P(y|x)=Σ_{π:B(π)=y}P(π|x).",
+    "derivation": "CTC의 blank와 반복 collapse 규칙이 여러 frame 경로를 같은 출력으로 매핑합니다. 동적 계획법으로 지수적으로 많은 경로 확률을 효율적으로 합산합니다.",
+    "application": "streaming ASR, speaker split, 잡음·억양별 성능, latency와 품질 trade-off, text normalization 정책을 설계합니다.",
+    "mistakes": [
+      "WER가 항상 0~1 범위라고 가정",
+      "동일 화자의 녹음을 무작위 split해 일반화를 과대평가",
+      "온라인 음성 모델에 미래 frame 정보를 사용"
+    ],
+    "interview": "정렬 방식과 streaming 제약을 먼저 설명하겠습니다. WER는 normalization과 언어에 민감하므로 측정 정책, 화자 분할과 하위집단 결과를 함께 보고합니다.",
+    "code": "wer = (substitutions + deletions + insertions) / max(reference_words, 1)\n# reference가 빈 경우는 별도의 평가 정책으로 처리",
+    "prerequisites": [
+      "cnn-rnn",
+      "transformers",
+      "algorithms"
+    ],
+    "related": [
+      "tokenization",
+      "multimodal"
+    ],
+    "followUps": [
+      "CTC와 encoder-decoder의 조건부 독립 가정은 어떻게 다른가요?",
+      "streaming latency를 어떻게 정의하나요?"
+    ],
+    "sources": [
+      {
+        "title": "Deep Learning · Goodfellow, Bengio & Courville",
+        "url": "https://www.deeplearningbook.org/"
+      }
+    ],
+    "visual": null
+  },
+  {
+    "id": "multimodal",
+    "title": "도메인 확장: Multimodal AI",
+    "category": "domain",
+    "subtopics": [
+      "Multimodal AI",
+      "Contrastive learning",
+      "Cross-modal alignment",
+      "Vision-language models"
+    ],
+    "summary": "서로 다른 modality의 표현을 연결하고 한 modality에 대한 의존과 shortcut을 평가합니다.",
+    "intuition": "대조 학습은 맞는 이미지·문장 쌍을 가깝게, 다른 쌍을 멀게 만듭니다. 하지만 batch 안의 다른 설명이 의미상 틀린 negative라는 보장은 없습니다.",
+    "math": "L_i=−log exp(sim(v_i,t_i)/τ)/Σ_j exp(sim(v_i,t_j)/τ).",
+    "derivation": "정답 pair index를 분류하는 cross entropy로 contrastive loss를 볼 수 있습니다. 양방향 image-to-text·text-to-image loss를 평균하면 두 검색 방향을 함께 학습합니다.",
+    "application": "이미지 검색, visual question answering, audio-text 정렬, grounding, modality dropout과 ablation 평가에 사용합니다.",
+    "mistakes": [
+      "높은 retrieval 점수를 정밀한 공간 grounding 능력으로 해석",
+      "false negatives 무시",
+      "텍스트만으로 풀리는 benchmark를 multimodal 추론 증거로 사용"
+    ],
+    "interview": "각 modality 단독 baseline과 결합 모델을 비교해 실제 통합 이득을 확인하겠습니다. 쌍 데이터 품질과 negative 구성, 세부 grounding 평가가 중요합니다.",
+    "code": "v = torch.nn.functional.normalize(image_features, dim=-1)\nt = torch.nn.functional.normalize(text_features, dim=-1)\nlogits = v @ t.T / temperature\ntarget = torch.arange(len(v), device=v.device)\nloss = (torch.nn.functional.cross_entropy(logits,target) + torch.nn.functional.cross_entropy(logits.T,target))/2",
+    "prerequisites": [
+      "information",
+      "attention",
+      "vision"
+    ],
+    "related": [
+      "llm-evaluation"
+    ],
+    "followUps": [
+      "batch가 커지면 contrastive learning에 어떤 영향이 있나요?",
+      "modality shortcut을 검출할 ablation은?"
+    ],
+    "sources": [
+      {
+        "title": "Learning Transferable Visual Models From Natural Language Supervision",
+        "url": "https://arxiv.org/abs/2103.00020"
+      }
+    ],
+    "visual": null
+  },
+  {
+    "id": "safety-rl",
+    "title": "도메인 확장: 강화학습과 AI Safety",
+    "category": "domain",
+    "subtopics": [
+      "Reinforcement Learning",
+      "AI Safety / Alignment",
+      "MDP",
+      "Policy gradients",
+      "Reward hacking",
+      "Distribution shift"
+    ],
+    "summary": "행동이 미래 관측을 바꾸는 문제와 목표·보상·안전 제약의 불일치를 분석합니다.",
+    "intuition": "강화학습은 즉시 정답보다 장기 보상을 학습합니다. 지정한 reward가 진짜 목표를 완전히 나타내지 못하면 잘 최적화할수록 원치 않는 행동이 생길 수 있습니다.",
+    "math": "G_t=Σ_k γ^k r_{t+k}; Vπ(s)=Eπ[G_t|s_t=s]; ∇J=E[∇log π(a|s)·Aπ(s,a)].",
+    "derivation": "trajectory 확률의 log derivative를 이용하면 미분 불가능한 환경을 직접 미분하지 않고 policy gradient를 구합니다. action에 무관한 baseline을 빼면 기대 gradient는 유지하면서 분산을 줄일 수 있습니다.",
+    "application": "offline RL의 distribution shift, reward model exploit, 안전 제약, red-team 평가, 인간 피드백과 장기 agent 행동을 검토합니다.",
+    "mistakes": [
+      "reward 증가를 인간 목표 달성과 동일시",
+      "offline 데이터 밖 행동의 value를 과신",
+      "baseline이 action에 의존해도 무편향이라고 가정"
+    ],
+    "interview": "상태·행동·전이·보상을 정의하고 학습과 배포의 분포 차이를 확인하겠습니다. 안전성은 평균 reward 하나가 아니라 실패 유형, 제약 위반, adversarial 조건으로 평가해야 합니다.",
+    "code": "advantage = returns - values.detach()\npolicy_loss = -(log_probs * advantage).mean()\nvalue_loss = (values - returns).square().mean()",
+    "prerequisites": [
+      "expectation",
+      "optimization",
+      "preference"
+    ],
+    "related": [
+      "llm-evaluation",
+      "research-design"
+    ],
+    "followUps": [
+      "on-policy와 off-policy의 차이는?",
+      "reward hacking과 specification gaming을 줄일 평가를 설계하세요."
+    ],
+    "sources": [
+      {
+        "title": "Sutton & Barto · Reinforcement Learning",
+        "url": "http://incompleteideas.net/book/the-book-2nd.html"
+      },
+      {
+        "title": "Training language models to follow instructions with human feedback",
+        "url": "https://arxiv.org/abs/2203.02155"
+      }
+    ],
+    "visual": null
+  }
+]

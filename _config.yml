@@ -11,3 +11,4 @@ exclude:
   - terminal-source
   - jobs-source
   - README.md
+  - interview-prep-source

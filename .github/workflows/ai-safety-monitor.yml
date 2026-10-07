@@ -53,6 +53,12 @@ jobs:
         run: |
           mkdir -p ai-safety-monitor
           cp -R terminal-source/dist/. ai-safety-monitor/
+      - name: Build and validate interview preparation platform
+        working-directory: interview-prep-source
+        run: |
+          npm ci
+          npm test
+          npm run build
       - name: Prepare Pages
         uses: actions/configure-pages@v5
       - name: Build existing personal website
